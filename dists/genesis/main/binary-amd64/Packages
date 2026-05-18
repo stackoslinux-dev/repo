@@ -37,6 +37,18 @@ SHA256: 82602fff816a1beefb1e81b06fe7800e4bbe64c5e540b61c41c7f43647e9c3a9
 Description: Configuracao do fastfetch para StackOS Genesis
  Logo e configuracao personalizada do fastfetch com identidade StackOS.
 
+Package: stackos-firefox
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-firefox_1.0_all.deb
+Size: 1002
+MD5sum: f9f36258842347dffc3b31c910937cba
+SHA1: 879d5a12a2e9bc9a782729a0cfe7f9f3decf50ed
+SHA256: 0b0a3c8912843881bda3ee9efcfb6fc363e1813bc06a0bf4ff4d7a8988d641a0
+Description: Configuracoes Firefox para StackOS Genesis
+ Pagina inicial, nova aba e bookmarks oficiais do StackOS Genesis.
+
 Package: stackos-installer
 Version: 1.0
 Architecture: amd64
