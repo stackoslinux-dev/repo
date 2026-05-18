@@ -53,3 +53,15 @@ Description: Loja de aplicativos oficial do StackOS
  Instala e remove aplicativos com backup automatico do sistema.
  Mantem os 3 backups mais recentes.
 
+Package: stackos-wallpapers
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-wallpapers_1.0_all.deb
+Size: 2732608
+MD5sum: 613078c8a78286d6c0b229e45090947d
+SHA1: f74dc5c9f518d2bf5ff815c384591dceba2dbc64
+SHA256: 405ab5cb672fab7598467a61d0d750016ad37d16614f01f19fa420bc09fec41d
+Description: Wallpapers oficiais do StackOS Genesis
+ Colecao de wallpapers oficiais da distribuicao StackOS Genesis.
+
