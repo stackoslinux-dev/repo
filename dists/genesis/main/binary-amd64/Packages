@@ -63,6 +63,18 @@ Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
 
+Package: stackos-repo
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-repo_1.0_all.deb
+Size: 702
+MD5sum: 0eac67a65d17923b76d01713056848ad
+SHA1: 68ee1508ff1fd97e3042a78fbaf37e6a9cbe81e8
+SHA256: 052b50238d80da410bfa29e43870df6d9f2c23bb7ca442816bbe2a8ca45c4e3e
+Description: Repositorio oficial StackOS Genesis
+ Configura o repositorio APT online do StackOS Genesis.
+
 Package: stackos-settings
 Version: 1.1
 Architecture: all
