@@ -1,0 +1,24 @@
+Origin: StackOS
+Label: StackOS Genesis
+Suite: genesis
+Codename: genesis
+Architectures: amd64 all
+Components: main
+Description: Repositorio oficial StackOS Genesis
+Date: Mon, 18 May 2026 14:29:27 +0000
+MD5Sum:
+ 8b3f3aa04af0f03718ae295ed798df07              201 Release
+ 28dd775a0f18070295b26c42d8a7852f             2181 main/binary-amd64/Packages
+ 291b40259d6e82119e6aa71a738be21b             1012 main/binary-amd64/Packages.gz
+SHA1:
+ a60e3213a9aa8d93c73f104040e1be8150931fdb              201 Release
+ 37d391b167cf312edba1101855f8b27d3b86ac34             2181 main/binary-amd64/Packages
+ ceba770c6a14220df2c314f6aeb0c96329029d97             1012 main/binary-amd64/Packages.gz
+SHA256:
+ 2eeda851071c738190f18999d7c32740ffdf9f11fd822bd8f851c7b885889afc              201 Release
+ 05a1e734c21fbbeb3cb7be318bf73217a85beccb008be6aa6678e5463b6b2a36             2181 main/binary-amd64/Packages
+ bb3d5e01a8799ebc3d22c475cc5071d83e763f2e0d4d4392c593012cbc07c6cc             1012 main/binary-amd64/Packages.gz
+SHA512:
+ 150508f4da391bb773507897349b1f5aa8629826eef1d79f6bba6d7e12b486beef2801fd8c86ed0235ca802a5bcf84fab2c6de2d19dbbd529179ebe321ba2331              201 Release
+ 13a0c7f2b3e678df997e78cfeefb4dd1ece30483e122e9c4b9c43f7c042aadd556332e1aea03621ee76ac24590ce8964de62998e31720f26a2aaabcd7152c839             2181 main/binary-amd64/Packages
+ de0288f2805763a8727e746590f1b8d81a73a1b3769cf20d75863a2dcd1d0ea8d17b1abfeb97fbaab0a85eb5f31b3ea5a7ba20a5435a85470218c5909b58529a             1012 main/binary-amd64/Packages.gz

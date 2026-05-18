@@ -1,0 +1,55 @@
+Package: stackos-drivers
+Version: 1.0
+Architecture: amd64
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
+Filename: pool/main/stackos-drivers_1.0_amd64.deb
+Size: 5068
+MD5sum: 4083da4e3d230d307c8b0793f6d1f989
+SHA1: d377546b78987102789664c67462da0031d5ed6c
+SHA256: 340470b7f49da11813b2394ff7e6822482fbff1212176e8356c00f184d7eace1
+Description: Gerenciador de drivers oficial do StackOS
+ Detecta hardware e instala drivers recomendados automaticamente.
+ Suporte a NVIDIA, AMD, Intel e WiFi.
+
+Package: stackos-fastfetch
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: fastfetch
+Filename: pool/main/stackos-fastfetch_1.0_all.deb
+Size: 1396
+MD5sum: 07d5d0ac9cae71cb048c6f20ca479f6e
+SHA1: d9fc669b24395ce62570a9eb34bd589070a8e95e
+SHA256: 82602fff816a1beefb1e81b06fe7800e4bbe64c5e540b61c41c7f43647e9c3a9
+Description: Configuracao do fastfetch para StackOS Genesis
+ Logo e configuracao personalizada do fastfetch com identidade StackOS.
+
+Package: stackos-installer
+Version: 1.0
+Architecture: amd64
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
+Filename: pool/main/stackos-installer_1.0_amd64.deb
+Size: 7040
+MD5sum: 6feced3da4e0ba90382c8db191e5e6d6
+SHA1: f3d023224deaf48cc4d6346a9481bff84f83e393
+SHA256: 3c020a0fc1c031befaec8395d9d74fcd7e00bea04f3abd3ec2ebb95195cd1bb3
+Description: Instalador oficial do StackOS Genesis
+ Instala o StackOS Genesis no computador com suporte a
+ instalacao limpa, dual boot e particionamento manual.
+
+Package: stackos-store
+Version: 1.0
+Architecture: amd64
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, rsync
+Filename: pool/main/stackos-store_1.0_amd64.deb
+Size: 529466
+MD5sum: 1c35c01079d69caf57217c0afd1a06f6
+SHA1: cb4d7ad107149a7911a66455795186ac4f6367c8
+SHA256: 56540cba36cb62577823c41e012cbbd1242abab3fe8670fd5a068653387bac49
+Description: Loja de aplicativos oficial do StackOS
+ Instala e remove aplicativos com backup automatico do sistema.
+ Mantem os 3 backups mais recentes.
+
