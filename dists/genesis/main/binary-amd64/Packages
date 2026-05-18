@@ -1,3 +1,15 @@
+Package: stackos-branding
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-branding_1.0_all.deb
+Size: 846908
+MD5sum: b3817c3903fb0f31c2eeb2f2ac045603
+SHA1: ed34d002e8a7da04f3e14cb5a3e3f9ad098a14ca
+SHA256: 034288ff0b88bc4f86fb3202a4a2841e1053ab385269b29db6bdea89cfee64a9
+Description: Identidade visual do StackOS Genesis
+ Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
+
 Package: stackos-drivers
 Version: 1.0
 Architecture: amd64
@@ -39,6 +51,18 @@ Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
 
+Package: stackos-settings
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-settings_1.0_all.deb
+Size: 1236
+MD5sum: 2fe242d0e98bbf4b820cdf645c80f98d
+SHA1: cc016bfcde8809333eb3bc87f267ddcc659bece9
+SHA256: 5a09f03094bd15fc81be1dcb4221a2b66b12cd1f6952cd56d71128a09716ec54
+Description: Configuracoes padrao do StackOS Genesis
+ Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
+
 Package: stackos-store
 Version: 1.0
 Architecture: amd64
@@ -52,6 +76,19 @@ SHA256: 56540cba36cb62577823c41e012cbbd1242abab3fe8670fd5a068653387bac49
 Description: Loja de aplicativos oficial do StackOS
  Instala e remove aplicativos com backup automatico do sistema.
  Mantem os 3 backups mais recentes.
+
+Package: stackos-themes
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: papirus-icon-theme
+Filename: pool/main/stackos-themes_1.0_all.deb
+Size: 218230
+MD5sum: 3619c39ca95a678f9443d97a9e792be1
+SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
+SHA256: 23da7d393bd54511632794b25a3eacd89539264da5a0a73f048df316054a7be8
+Description: Tema oficial do StackOS Genesis
+ Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
 
 Package: stackos-wallpapers
 Version: 1.0
