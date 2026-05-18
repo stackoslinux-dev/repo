@@ -2,7 +2,7 @@ Package: stackos-branding
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-branding_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-branding_1.0_all.deb
 Size: 846908
 MD5sum: b3817c3903fb0f31c2eeb2f2ac045603
 SHA1: ed34d002e8a7da04f3e14cb5a3e3f9ad098a14ca
@@ -15,7 +15,7 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
-Filename: pool/main/stackos-drivers_1.0_amd64.deb
+Filename: https://archive.org/download/stackos-repo/stackos-drivers_1.0_amd64.deb
 Size: 5068
 MD5sum: 4083da4e3d230d307c8b0793f6d1f989
 SHA1: d377546b78987102789664c67462da0031d5ed6c
@@ -29,7 +29,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: fastfetch
-Filename: pool/main/stackos-fastfetch_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-fastfetch_1.0_all.deb
 Size: 1396
 MD5sum: 07d5d0ac9cae71cb048c6f20ca479f6e
 SHA1: d9fc669b24395ce62570a9eb34bd589070a8e95e
@@ -41,7 +41,7 @@ Package: stackos-firefox
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-firefox_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-firefox_1.0_all.deb
 Size: 1002
 MD5sum: f9f36258842347dffc3b31c910937cba
 SHA1: 879d5a12a2e9bc9a782729a0cfe7f9f3decf50ed
@@ -54,7 +54,7 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
-Filename: pool/main/stackos-installer_1.0_amd64.deb
+Filename: https://archive.org/download/stackos-repo/stackos-installer_1.0_amd64.deb
 Size: 7040
 MD5sum: 6feced3da4e0ba90382c8db191e5e6d6
 SHA1: f3d023224deaf48cc4d6346a9481bff84f83e393
@@ -67,7 +67,7 @@ Package: stackos-repo
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-repo_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-repo_1.0_all.deb
 Size: 702
 MD5sum: 0eac67a65d17923b76d01713056848ad
 SHA1: 68ee1508ff1fd97e3042a78fbaf37e6a9cbe81e8
@@ -80,7 +80,7 @@ Version: 1.1
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-firefox
-Filename: pool/main/stackos-settings_1.1_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-settings_1.1_all.deb
 Size: 1270
 MD5sum: c60bbdf446b917e61271405e1c59eefa
 SHA1: 6dd4fe5128f061deff4afe3bb112c591e154b160
@@ -93,7 +93,7 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, rsync
-Filename: pool/main/stackos-store_1.0_amd64.deb
+Filename: https://archive.org/download/stackos-repo/stackos-store_1.0_amd64.deb
 Size: 529466
 MD5sum: 1c35c01079d69caf57217c0afd1a06f6
 SHA1: cb4d7ad107149a7911a66455795186ac4f6367c8
@@ -107,7 +107,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: papirus-icon-theme
-Filename: pool/main/stackos-themes_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-themes_1.0_all.deb
 Size: 218230
 MD5sum: 3619c39ca95a678f9443d97a9e792be1
 SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
@@ -119,7 +119,7 @@ Package: stackos-wallpapers
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-wallpapers_1.0_all.deb
+Filename: https://archive.org/download/stackos-repo/stackos-wallpapers_1.0_all.deb
 Size: 2732608
 MD5sum: 613078c8a78286d6c0b229e45090947d
 SHA1: f74dc5c9f518d2bf5ff815c384591dceba2dbc64
