@@ -89,15 +89,15 @@ Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
 Package: stackos-store
-Version: 1.1
+Version: 1.2
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, rsync
-Filename: pool/main/stackos-store_1.1_amd64.deb
+Filename: pool/main/stackos-store_1.2_amd64.deb
 Size: 531068
-MD5sum: 7e310d86a4fb7e277c59be6d8a1a78fe
-SHA1: d9b0ec9507c7f70a727fc12bc690d04a798f17be
-SHA256: 58abee6dbcbb1e173c024df36ed44af522dbb8775809c4ebc9d2658f3824b1de
+MD5sum: 8dedfd72494e807961482d8792ef459a
+SHA1: 33e38c64bd1c7b6d337d26f81b2f164bee902137
+SHA256: 1e1a50c2f9420ecfb0f4f3d9b4eb6fa932a69fce975fa282dd7c9f4c751ebe45
 Description: Loja de aplicativos oficial do StackOS
  Instala e remove aplicativos com backup automatico do sistema.
  Mantem os 3 backups mais recentes.
