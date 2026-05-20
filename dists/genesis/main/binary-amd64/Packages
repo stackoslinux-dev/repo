@@ -2,7 +2,7 @@ Package: stackos-branding
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-branding_1.0_all.deb
+Filename: main/stackos-branding_1.0_all.deb
 Size: 846908
 MD5sum: b3817c3903fb0f31c2eeb2f2ac045603
 SHA1: ed34d002e8a7da04f3e14cb5a3e3f9ad098a14ca
@@ -15,7 +15,7 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
-Filename: pool/main/stackos-drivers_1.0_amd64.deb
+Filename: main/stackos-drivers_1.0_amd64.deb
 Size: 5068
 MD5sum: 4083da4e3d230d307c8b0793f6d1f989
 SHA1: d377546b78987102789664c67462da0031d5ed6c
@@ -29,7 +29,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: fastfetch
-Filename: pool/main/stackos-fastfetch_1.0_all.deb
+Filename: main/stackos-fastfetch_1.0_all.deb
 Size: 1396
 MD5sum: 07d5d0ac9cae71cb048c6f20ca479f6e
 SHA1: d9fc669b24395ce62570a9eb34bd589070a8e95e
@@ -42,7 +42,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Replaces: firefox
-Filename: pool/main/stackos-firefox_1.0_all.deb
+Filename: main/stackos-firefox_1.0_all.deb
 Size: 1018
 MD5sum: e08094f7739ba868485038589bcfce8d
 SHA1: e6affc3cc29ac2322e9632af371a08e58adc4206
@@ -55,11 +55,11 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
-Filename: pool/main/stackos-installer_1.0_amd64.deb
-Size: 7040
-MD5sum: 6feced3da4e0ba90382c8db191e5e6d6
-SHA1: f3d023224deaf48cc4d6346a9481bff84f83e393
-SHA256: 3c020a0fc1c031befaec8395d9d74fcd7e00bea04f3abd3ec2ebb95195cd1bb3
+Filename: main/stackos-installer_1.0_amd64.deb
+Size: 7496
+MD5sum: 8e8118ebc4e3b346225afb6b4e0f97f6
+SHA1: e9b6c5c20bbf3cd0b5306bb126859b45d4040960
+SHA256: 82a99f84730aaf2fc790a683c4a1dfbba1634d88d5e68b601ead3e91a4d97cf1
 Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
@@ -68,7 +68,7 @@ Package: stackos-repo
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-repo_1.0_all.deb
+Filename: main/stackos-repo_1.0_all.deb
 Size: 702
 MD5sum: 0eac67a65d17923b76d01713056848ad
 SHA1: 68ee1508ff1fd97e3042a78fbaf37e6a9cbe81e8
@@ -81,7 +81,7 @@ Version: 1.1
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-firefox
-Filename: pool/main/stackos-settings_1.1_all.deb
+Filename: main/stackos-settings_1.1_all.deb
 Size: 1270
 MD5sum: c60bbdf446b917e61271405e1c59eefa
 SHA1: 6dd4fe5128f061deff4afe3bb112c591e154b160
@@ -94,7 +94,7 @@ Version: 1.2
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, rsync
-Filename: pool/main/stackos-store_1.2_amd64.deb
+Filename: main/stackos-store_1.2_amd64.deb
 Size: 531068
 MD5sum: 8dedfd72494e807961482d8792ef459a
 SHA1: 33e38c64bd1c7b6d337d26f81b2f164bee902137
@@ -108,7 +108,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: papirus-icon-theme
-Filename: pool/main/stackos-themes_1.0_all.deb
+Filename: main/stackos-themes_1.0_all.deb
 Size: 218230
 MD5sum: 3619c39ca95a678f9443d97a9e792be1
 SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
@@ -120,7 +120,7 @@ Package: stackos-wallpapers
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-wallpapers_1.0_all.deb
+Filename: main/stackos-wallpapers_1.0_all.deb
 Size: 2732608
 MD5sum: 613078c8a78286d6c0b229e45090947d
 SHA1: f74dc5c9f518d2bf5ff815c384591dceba2dbc64
@@ -133,7 +133,7 @@ Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0
-Filename: pool/main/stackos-welcome_1.0_all.deb
+Filename: main/stackos-welcome_1.0_all.deb
 Size: 2304
 MD5sum: a6ee3b623092462d7c6a7da9a5f5f3e4
 SHA1: a5fe79031a73a4b8b0ae91ff530d476f83eed055
