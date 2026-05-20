@@ -10,6 +10,19 @@ SHA256: 034288ff0b88bc4f86fb3202a4a2841e1053ab385269b29db6bdea89cfee64a9
 Description: Identidade visual do StackOS Genesis
  Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
 
+Package: stackos-bugreport
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0
+Filename: pool/main/stackos-bugreport_1.0_all.deb
+Size: 3128
+MD5sum: 57730802524ddf0430952f56c8d5c7ed
+SHA1: 113a237639a2676dddcfa091acc6ba1aec938f3e
+SHA256: 103c79d6413b851d59452c57ec365b3e355f4b6309785bf2ea0de3f5660dba53
+Description: Relator de bugs do StackOS Genesis
+ Envia relatórios de bugs automaticamente para análise.
+
 Package: stackos-drivers
 Version: 1.0
 Architecture: amd64
