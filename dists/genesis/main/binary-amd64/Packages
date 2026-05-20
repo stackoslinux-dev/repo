@@ -41,11 +41,12 @@ Package: stackos-firefox
 Version: 1.0
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Replaces: firefox
 Filename: pool/main/stackos-firefox_1.0_all.deb
-Size: 1002
-MD5sum: f9f36258842347dffc3b31c910937cba
-SHA1: 879d5a12a2e9bc9a782729a0cfe7f9f3decf50ed
-SHA256: 0b0a3c8912843881bda3ee9efcfb6fc363e1813bc06a0bf4ff4d7a8988d641a0
+Size: 1018
+MD5sum: e08094f7739ba868485038589bcfce8d
+SHA1: e6affc3cc29ac2322e9632af371a08e58adc4206
+SHA256: 774086a81d1dcb20b7ea78c67711f18c4d55213dbebfd32dba2810eb05b8f7e2
 Description: Configuracoes Firefox para StackOS Genesis
  Pagina inicial, nova aba e bookmarks oficiais do StackOS Genesis.
 
