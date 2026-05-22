@@ -82,11 +82,11 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
-Filename: pool/main/stackos-installer_1.0_amd64.deb
-Size: 7040
-MD5sum: 6feced3da4e0ba90382c8db191e5e6d6
-SHA1: f3d023224deaf48cc4d6346a9481bff84f83e393
-SHA256: 3c020a0fc1c031befaec8395d9d74fcd7e00bea04f3abd3ec2ebb95195cd1bb3
+Filename: pool/main/stackos-installer_1.1_amd64.deb
+Size: 7586
+MD5sum: 60d0989197e42190c23fbca48b3d8727
+SHA1: 08d4ecc080c7149e166fff2cd5e9e888ab1e85a2
+SHA256: 464d3abd25bd8c892e6587914569a161abb8dd01343431fdcd1d697b723a4c05
 Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
