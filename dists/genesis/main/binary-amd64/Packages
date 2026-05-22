@@ -28,11 +28,11 @@ Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
-Filename: pool/main/stackos-drivers_1.0_amd64.deb
-Size: 5068
-MD5sum: 4083da4e3d230d307c8b0793f6d1f989
-SHA1: d377546b78987102789664c67462da0031d5ed6c
-SHA256: 340470b7f49da11813b2394ff7e6822482fbff1212176e8356c00f184d7eace1
+Filename: pool/main/stackos-drivers_1.1_amd64.deb
+Size: 5076
+MD5sum: 4b08860a9e5a808d7b27c9291d47e604
+SHA1: d4019c29499e065656a8fea382a17f58319df3bc
+SHA256: 1dd4fc64f4e683908a982a0a6ad73d8e0f29f77d9af19c73e2572dfd3bf7e7f0
 Description: Gerenciador de drivers oficial do StackOS
  Detecta hardware e instala drivers recomendados automaticamente.
  Suporte a NVIDIA, AMD, Intel e WiFi.
