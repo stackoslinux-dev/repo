@@ -27,12 +27,12 @@ Package: stackos-drivers
 Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
-Filename: pool/main/stackos-drivers_1.1_amd64.deb
-Size: 5076
-MD5sum: 4b08860a9e5a808d7b27c9291d47e604
-SHA1: d4019c29499e065656a8fea382a17f58319df3bc
-SHA256: 1dd4fc64f4e683908a982a0a6ad73d8e0f29f77d9af19c73e2572dfd3bf7e7f0
+Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
+Filename: pool/main/stackos-drivers_1.2_amd64.deb
+Size: 5094
+MD5sum: 762677f93aed691725071119103defa8
+SHA1: 97a7087b2a9e1ffcf9c90baef98814c9fc91cff1
+SHA256: 73dd1b9e7a0aec87fd4b183e4b5afdb2275cb3f31f36848532b5a1a6d5c6b2dc
 Description: Gerenciador de drivers oficial do StackOS
  Detecta hardware e instala drivers recomendados automaticamente.
  Suporte a NVIDIA, AMD, Intel e WiFi.
@@ -81,12 +81,12 @@ Package: stackos-installer
 Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
-Filename: pool/main/stackos-installer_1.1_amd64.deb
-Size: 7586
-MD5sum: 60d0989197e42190c23fbca48b3d8727
-SHA1: 08d4ecc080c7149e166fff2cd5e9e888ab1e85a2
-SHA256: 464d3abd25bd8c892e6587914569a161abb8dd01343431fdcd1d697b723a4c05
+Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
+Filename: pool/main/stackos-installer_1.2_amd64.deb
+Size: 7606
+MD5sum: 6996bb951b4982a363ecbb2fe629dbe3
+SHA1: 08e2b02e4efb58a86d16c0ea5e513389d2a7b75c
+SHA256: e59a83a143c254e7f4bc78b1d554b0b0be85f8fbc8ea72c49dcd802fd2dcfb72
 Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
@@ -120,12 +120,12 @@ Package: stackos-store
 Version: 1.3
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: python3, python3-gi, gir1.2-gtk-4.0, rsync
-Filename: pool/main/stackos-store_1.3_amd64.deb
-Size: 531328
-MD5sum: 4b2417daa81bef5d2008e289d19f91f6
-SHA1: 0950b5299d81fa9d9a7b19628b44013e0360d781
-SHA256: 87f492e6793b90281ce538ad98bb66a7476c19fe2a77882fe02548c0bf9d0e15
+Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, rsync
+Filename: pool/main/stackos-store_1.4_amd64.deb
+Size: 531342
+MD5sum: 4961279638be6491e5c8229ea17d7d95
+SHA1: db8f93e17721205e1b227cbe4b92d10dc2b54b4c
+SHA256: 5b155dfd8130be19655e54bd033a15bb20716fd46f35d79199ca5859e9266b6f
 Description: Loja de aplicativos oficial do StackOS
  Instala e remove aplicativos com backup automatico do sistema.
  Mantem os 3 backups mais recentes.
