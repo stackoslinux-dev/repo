@@ -91,6 +91,19 @@ Description: Instalador oficial do StackOS Genesis
  Instala o StackOS Genesis no computador com suporte a
  instalacao limpa, dual boot e particionamento manual.
 
+Package: stackos-plymouth
+Version: 1.0
+Architecture: all
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: plymouth, plymouth-themes
+Filename: pool/main/stackos-plymouth_1.0_all.deb
+Size: 1178174
+MD5sum: b1ca722937d3027e7a7f7abae66e04de
+SHA1: e181b51a2451dbf8c8f5e64bf1cde0ef802b442e
+SHA256: 5ae926aa5b86287b09e1587c7a8ef566fdf28eed04976992823e4cb11b1ad0e1
+Description: Tema de boot Plymouth do StackOS Genesis
+ Exibe a splash screen do StackOS durante o boot.
+
 Package: stackos-repo
 Version: 1.1
 Architecture: all
