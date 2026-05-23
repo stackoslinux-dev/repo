@@ -92,6 +92,18 @@ Description: Ícones oficiais do StackOS Genesis
  Ícones para stackos-installer, stackos-store, stackos-drivers,
  stackos-welcome e stackos-bugreport.
 
+Package: stackos-icons
+Version: 1.1
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-icons_1.1_all.deb
+Size: 5049426
+MD5sum: 86bd8e0ed5daa74b8b011e5b4b99cc69
+SHA1: 8e4d157055ed1b2bc4478abdcde84614c0c4158f
+SHA256: b92c034b58d2e54afe3dd13a93339f329e8d0a51c12ac139ff1576c6d409b769
+Description: Icones oficiais do StackOS Genesis
+ Icones oficiais de todos os aplicativos do StackOS Genesis.
+
 Package: stackos-installer
 Version: 1.0
 Architecture: amd64
