@@ -27,12 +27,12 @@ Package: stackos-drivers
 Version: 1.0
 Architecture: amd64
 Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
-Filename: pool/main/stackos-drivers_1.2_amd64.deb
-Size: 5094
-MD5sum: 762677f93aed691725071119103defa8
-SHA1: 97a7087b2a9e1ffcf9c90baef98814c9fc91cff1
-SHA256: 73dd1b9e7a0aec87fd4b183e4b5afdb2275cb3f31f36848532b5a1a6d5c6b2dc
+Depends: python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
+Filename: pool/main/stackos-drivers_1.0_amd64.deb
+Size: 5068
+MD5sum: 4083da4e3d230d307c8b0793f6d1f989
+SHA1: d377546b78987102789664c67462da0031d5ed6c
+SHA256: 340470b7f49da11813b2394ff7e6822482fbff1212176e8356c00f184d7eace1
 Description: Gerenciador de drivers oficial do StackOS
  Detecta hardware e instala drivers recomendados automaticamente.
  Suporte a NVIDIA, AMD, Intel e WiFi.
