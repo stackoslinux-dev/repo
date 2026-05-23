@@ -129,18 +129,30 @@ Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
 Package: stackos-store
-Version: 1.3
+Version: 1.5
 Architecture: amd64
-Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, rsync
-Filename: pool/main/stackos-store_1.4_amd64.deb
-Size: 531342
-MD5sum: 4961279638be6491e5c8229ea17d7d95
-SHA1: db8f93e17721205e1b227cbe4b92d10dc2b54b4c
-SHA256: 5b155dfd8130be19655e54bd033a15bb20716fd46f35d79199ca5859e9266b6f
-Description: Loja de aplicativos oficial do StackOS
- Instala e remove aplicativos com backup automatico do sistema.
- Mantem os 3 backups mais recentes.
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec
+Filename: pool/main/stackos-store_1.5_amd64.deb
+Size: 11086
+MD5sum: 2ab074af1d4ee5e8b9b2cbd46ac6428d
+SHA1: 78dad8f1d3137f39b993a10241c1938ae45edb96
+SHA256: c925fb8ef82bf8878761047e2205f9d7ffc1dffaab144517f12f18939fa0229a
+Section: utils
+Priority: optional
+Description: StackOS Store - Loja de aplicativos do StackOS
+ Loja grafica de aplicativos baseada em GTK4 para sistemas
+ baseados em Debian/Ubuntu. Permite instalar, remover e
+ avaliar aplicativos, alem de verificar e aplicar atualizacoes
+ do sistema automaticamente.
+ .
+ Recursos:
+  - Catalogo com 70+ aplicativos organizados por categoria
+  - Tela de detalhe com versao instalada e site oficial
+  - Sistema de avaliacao (votos) por app
+  - Verificacao automatica de atualizacoes (apt update)
+  - Aplicacao de atualizacoes com um clique (apt upgrade)
+  - Gerenciamento de backups do sistema
 
 Package: stackos-themes
 Version: 1.0
