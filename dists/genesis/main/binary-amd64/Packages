@@ -78,18 +78,18 @@ Description: Ícones oficiais do StackOS Genesis
  stackos-welcome e stackos-bugreport.
 
 Package: stackos-installer
-Version: 1.0
+Version: 2.0
 Architecture: amd64
-Maintainer: StackOS Team <stackoslinux@gmail.com>
-Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
-Filename: pool/main/stackos-installer_1.2_amd64.deb
-Size: 7606
-MD5sum: 6996bb951b4982a363ecbb2fe629dbe3
-SHA1: 08e2b02e4efb58a86d16c0ea5e513389d2a7b75c
-SHA256: e59a83a143c254e7f4bc78b1d554b0b0be85f8fbc8ea72c49dcd802fd2dcfb72
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, dosfstools, e2fsprogs, grub-efi-amd64 | grub-pc, os-prober
+Filename: pool/main/stackos-installer_2.0_amd64.deb
+Size: 10798
+MD5sum: c01911d4b50576f95a9b0c72eff6a728
+SHA1: 9c8ba896892bf9fa9e39033f9e746b517507203a
+SHA256: 0888c0aa37f79fcaa62139b8782fea633bd8d30664e106b4fe2b320d699df495
 Description: Instalador oficial do StackOS Genesis
- Instala o StackOS Genesis no computador com suporte a
- instalacao limpa, dual boot e particionamento manual.
+ Instalador grafico modular com suporte a UEFI/BIOS,
+ dual boot seguro, rollback automatico e log completo.
 
 Package: stackos-plymouth
 Version: 1.0
