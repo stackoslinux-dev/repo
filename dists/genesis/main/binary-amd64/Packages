@@ -1,13 +1,13 @@
 Package: stackos-branding
-Version: 1.1
+Version: 1.2
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Conflicts: gnome-initial-setup
-Filename: pool/main/stackos-branding_1.1_all.deb
-Size: 846904
-MD5sum: e063de4258bb7f9323fdff6a779d4a0d
-SHA1: 0c1e03aa2dc8a5fed143ec7b793e947b8ab29b3f
-SHA256: dbafdfd000d6187b9faf6988b1eb08e615bcb18ac7210cbe0c163353e93d2724
+Filename: pool/main/stackos-branding_1.2_all.deb
+Size: 780
+MD5sum: ffd535298318c794cc524b087bff84d3
+SHA1: 9b33a54cb03e0d3fecc43f2a5ec9474a7748feda
+SHA256: a014f0a8f7d3ff3cf036799a676cae26774818779f2b5b3baa67c51b4127d12a
 Description: Identidade visual do StackOS Genesis
  Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
 
