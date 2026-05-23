@@ -37,6 +37,20 @@ Description: Gerenciador de drivers oficial do StackOS
  Detecta hardware e instala drivers recomendados automaticamente.
  Suporte a NVIDIA, AMD, Intel e WiFi.
 
+Package: stackos-drivers
+Version: 1.0
+Architecture: amd64
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: stackos-icons, python3, python3-gi, gir1.2-gtk-4.0, ubuntu-drivers-common, pciutils, usbutils
+Filename: pool/main/stackos-drivers_1.2_amd64.deb
+Size: 5094
+MD5sum: 762677f93aed691725071119103defa8
+SHA1: 97a7087b2a9e1ffcf9c90baef98814c9fc91cff1
+SHA256: 73dd1b9e7a0aec87fd4b183e4b5afdb2275cb3f31f36848532b5a1a6d5c6b2dc
+Description: Gerenciador de drivers oficial do StackOS
+ Detecta hardware e instala drivers recomendados automaticamente.
+ Suporte a NVIDIA, AMD, Intel e WiFi.
+
 Package: stackos-fastfetch
 Version: 1.0
 Architecture: all
@@ -76,6 +90,20 @@ SHA256: 7d191a56cd436fbe993b358c4803968af96ee2ef3d0308f02942a54dce3b46c2
 Description: Ícones oficiais do StackOS Genesis
  Ícones para stackos-installer, stackos-store, stackos-drivers,
  stackos-welcome e stackos-bugreport.
+
+Package: stackos-installer
+Version: 1.0
+Architecture: amd64
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, parted, grub-efi-amd64, squashfs-tools
+Filename: pool/main/stackos-installer_1.0_amd64.deb
+Size: 7574
+MD5sum: 2a67485fa8a759e646fb104845479314
+SHA1: b17b1444ba8f0528028fdec799f2c6da73cf0d29
+SHA256: 840c8e0149abb63de4293a9f73b235e052f8d6ab76a53ff2dc0300a4c326f0b7
+Description: Instalador oficial do StackOS Genesis
+ Instala o StackOS Genesis no computador com suporte a
+ instalacao limpa, dual boot e particionamento manual.
 
 Package: stackos-installer
 Version: 2.0
