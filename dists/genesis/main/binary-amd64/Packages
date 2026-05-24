@@ -70,10 +70,10 @@ Architecture: all
 Maintainer: StackOS Team <stackoslinux@gmail.com>
 Depends: fastfetch
 Filename: pool/main/stackos-fastfetch_1.0_all.deb
-Size: 1396
-MD5sum: 07d5d0ac9cae71cb048c6f20ca479f6e
-SHA1: d9fc669b24395ce62570a9eb34bd589070a8e95e
-SHA256: 82602fff816a1beefb1e81b06fe7800e4bbe64c5e540b61c41c7f43647e9c3a9
+Size: 1406
+MD5sum: c758caf5c66948e6b0418be66168cb38
+SHA1: 61793f5b3f4905e70be22377c9a9ec73ecc1120c
+SHA256: a13058b08e636d0dfceaa3f259021b59233de2e33bd82e3c5a686fc80c87417c
 Description: Configuracao do fastfetch para StackOS Genesis
  Logo e configuracao personalizada do fastfetch com identidade StackOS.
 
