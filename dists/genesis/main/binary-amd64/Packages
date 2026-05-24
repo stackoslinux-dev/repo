@@ -6,10 +6,10 @@ Depends: gnome-control-center-data, libgmobile0
 Replaces: gnome-control-center, gnome-control-center-data, gnome-control-center-faces
 Provides: gnome-control-center
 Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
-Size: 9502144
-MD5sum: 29fbc6ec296d1c6fad52133ed60dcc44
-SHA1: b76a61f83849b7760d75364b31657b4fbeb9a1ca
-SHA256: 21c54dfe33857a6e88874d59e46449b66ae1a960df08e13a41829c915fbaab0f
+Size: 9502234
+MD5sum: f69d9ad3387aaae0180f25be021ddcb6
+SHA1: c847520527e970b88778fbf8fd63bfbe23665e0f
+SHA256: d8b81d9039ea9807971953e080a5b75734e1aafc3f38a6b3f029cd1e3c4e3a47
 Description: StackOS Control Center
  Painel de definicoes do StackOS Genesis com branding proprio.
 
