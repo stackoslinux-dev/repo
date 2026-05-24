@@ -84,14 +84,14 @@ Description: Configuracoes Firefox para StackOS Genesis
  Pagina inicial, nova aba e bookmarks oficiais do StackOS Genesis.
 
 Package: stackos-icons
-Version: 1.2
+Version: 1.3
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-icons_1.2_all.deb
-Size: 5049522
-MD5sum: bc86ec45627a90ba658666ede63a9110
-SHA1: 40ad8aca78b794b15e3ba89ad6bc683a668f81a7
-SHA256: 6660e79367b0764a6991c4a3c97f45c75a19a5f2bb88fadf94b899b0985ed822
+Filename: pool/main/stackos-icons_1.3_all.deb
+Size: 5086562
+MD5sum: cf92f6242cbb526a9b6ef16f98ed43a0
+SHA1: 025410e0ef61f0337974b81c027da19828efae22
+SHA256: 626aa27e128f87937ea181978d90d572f88d5ba71712a71e5fd1a1a148aa4755
 Description: Icones oficiais do StackOS Genesis
  Icones oficiais de todos os aplicativos do StackOS Genesis.
 
