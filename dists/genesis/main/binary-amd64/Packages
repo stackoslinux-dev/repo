@@ -1,3 +1,17 @@
+Package: gnome-control-center
+Version: 1:50.0-0stackos1
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: gnome-control-center-data
+Replaces: gnome-control-center
+Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
+Size: 568
+MD5sum: 0052b4386c8657b5967804abcb922eaa
+SHA1: 92035195de5f669f600c15357dde9ed204209fc9
+SHA256: de79e95ffa5125b0d936e835160b30c6f87d40ecca0771aef126318067a3339e
+Description: StackOS Control Center
+ Painel de definicoes do StackOS Genesis com branding proprio.
+
 Package: stackos-branding
 Version: 1.3
 Architecture: all

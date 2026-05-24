@@ -5,20 +5,20 @@ Codename: genesis
 Architectures: amd64
 Components: main
 Description: StackOS Genesis Repository
-Date: Sun, 24 May 2026 04:13:32 +0000
+Date: Sun, 24 May 2026 05:08:59 +0000
 MD5Sum:
- c87a81067dfa80a1f4e91e44d91cea12              188 Release
- ccc1116db55dd4a1f588885a79977607             7813 main/binary-amd64/Packages
- 7de99eef736b057fb85d44c54d8d386d             3014 main/binary-amd64/Packages.gz
+ d06a011d26bece88aa7d9a913ed0d941              188 Release
+ a6bacab82e6426318ff332430dab27ef             8341 main/binary-amd64/Packages
+ 547ed97d135187e9009109fd62750e2b             3198 main/binary-amd64/Packages.gz
 SHA1:
- aa7059858d300ca2c1d3a1b7308a87a4866e4d42              188 Release
- 13f27861b256f036f141771c716a1fabfb672a6e             7813 main/binary-amd64/Packages
- 27c2d61be879f57ce89621cac10e137803c7701a             3014 main/binary-amd64/Packages.gz
+ 36c5bb44be5c3c3cdbb58af053ec688c0841039a              188 Release
+ 3b0341b785ef698177c67059472d51a38d74cfab             8341 main/binary-amd64/Packages
+ 9edd59962438aa6a044f431df2bf801682d5c654             3198 main/binary-amd64/Packages.gz
 SHA256:
- 217f732b60f28a95969157a34452ed6ca024323d961bd2a19e2aec456c4f6209              188 Release
- 2ed5b01e65af9b48b56322de25501bdb2d81ee76ca1b2733a7c44d314cf7333a             7813 main/binary-amd64/Packages
- 6605ea64c4a6c484db5b3a8d6e0894f485ad8d5a7521348e80e503a77b453616             3014 main/binary-amd64/Packages.gz
+ d642f9ea810be91c97e4608174ee5e9e30748b88c329516117696b8e8c3a8c5d              188 Release
+ bdcbfe6c45b681aa9ae2ff969b9abfdd5981da0f578e29a354b2171bd769c1f5             8341 main/binary-amd64/Packages
+ 41d841242ed612d6b7d0833739c75df44b72ab23e708322132e859b998aae4ff             3198 main/binary-amd64/Packages.gz
 SHA512:
- a6b9711d5956f9caac401617ed1d71faaa02e622234131bce69e716638eaab923c1d0d396763727d6841b0231921da2f5a99cb77d08b5f61efa417a6c3fdaa88              188 Release
- b8c032ae33cdabdabb92ae57156b909c6dc4a929b7c4e09d6019be07bdd8a392278a9e90a58956b6d152d066be07022bc454aabfd9b93552c44b718278f20f3b             7813 main/binary-amd64/Packages
- 77621de32404bbd8f50ed29f02c571d45b63ce1e860a24b862904f4c1ef1a73b66af5a6280c387f2da35cde081aab7c32c5b581b67bed0891833f11e417771ea             3014 main/binary-amd64/Packages.gz
+ 8e95fab4a389342212695551920cd2753464b105616d1f42ef412346ee8bac12fc4b70c624031f6c3b72b79fc0393a519217a98db3558ab74ec8b26c23091293              188 Release
+ c9a12f52411cd51978541d0a4bcffdee2167d0f3b8dbb3186f5e2091a9ac4446e7138a6ff76fa8b64ee34af7756086329575fb4789163e7ebe3aede01adef4c1             8341 main/binary-amd64/Packages
+ f4fdaa7f3ac1b1bf19a3b13e0928b4b8737e310be9a1c3b21a4de7471271ab09abfcb2398ee5f6595d74bc62f1dd097b568d296be41a30559b0261f81a17876a             3198 main/binary-amd64/Packages.gz
