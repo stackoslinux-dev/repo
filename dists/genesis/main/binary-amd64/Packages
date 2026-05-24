@@ -15,15 +15,16 @@ Description: StackOS Control Center
  Painel de definicoes do StackOS Genesis com branding proprio.
 
 Package: stackos-branding
-Version: 1.3
+Version: 1.4
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-settings
 Conflicts: gnome-initial-setup, update-notifier, update-manager
-Filename: pool/main/stackos-branding_1.3_all.deb
-Size: 800
-MD5sum: 02dcf270c08346761c079552d242d3e3
-SHA1: 76f8e4a66a9324e0963c8627cfd45bd0c0c20505
-SHA256: 3058b28b554fc34ce703bf824e426255055618f7369d3cb9eaa0abb3c24cd35a
+Filename: pool/main/stackos-branding_1.4_all.deb
+Size: 806
+MD5sum: 1e7bea5dcba0871f348fbe039e1bbdb2
+SHA1: 5b43669d93bd13ae08f489fa6f96beb66a479463
+SHA256: d1e3137005ada796af20920ddd6e65be2100cd22ae254bfe5cbd52ee9ddbb16c
 Description: Identidade visual do StackOS Genesis
  Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
 
