@@ -25,16 +25,16 @@ Description: utilities to configure the GNOME desktop
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 
 Package: stackos-branding
-Version: 1.4
+Version: 1.5
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-settings
 Conflicts: gnome-initial-setup, update-notifier, update-manager
-Filename: pool/main/stackos-branding_1.4_all.deb
-Size: 806
-MD5sum: 1e7bea5dcba0871f348fbe039e1bbdb2
-SHA1: 5b43669d93bd13ae08f489fa6f96beb66a479463
-SHA256: d1e3137005ada796af20920ddd6e65be2100cd22ae254bfe5cbd52ee9ddbb16c
+Filename: pool/main/stackos-branding_1.5_all.deb
+Size: 924
+MD5sum: 6d795ab2f144bfe3f98cca3e3c0ee9ee
+SHA1: eb663c99c8f27737daef4929816aa4388094c5e2
+SHA256: 01b5a3ccf4b900f9c71def81ca63af6ce7c0a1d943466661d58fc7e2f73002c3
 Description: Identidade visual do StackOS Genesis
  Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
 
