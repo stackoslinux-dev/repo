@@ -126,11 +126,12 @@ Package: stackos-repo
 Version: 1.2
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-settings
 Filename: pool/main/stackos-repo_1.2_all.deb
-Size: 940
-MD5sum: ac918b91fb307ee9f6c41b44dbddd5c2
-SHA1: e6e87073e25e9df4b6e9f10b99b851bd604659e1
-SHA256: c8be92128b676f751d79527c9114cce71d7637ac6bb0c8b48f4d9bdafb510a36
+Size: 952
+MD5sum: 485b4eaac7a6d6a0af3eae9fadfd7d8c
+SHA1: dea5e473b74cda7a0491f32074f849b7534a8d6f
+SHA256: caa8e10217f0137eac947121533d8822e7bdcdae9207bf6eabd6cbbad26c46d8
 Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 
