@@ -191,15 +191,15 @@ Description: Wallpapers oficiais do StackOS Genesis
  Colecao de wallpapers oficiais da distribuicao StackOS Genesis.
 
 Package: stackos-welcome
-Version: 1.1
+Version: 1.2
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: python3, python3-gi, gir1.2-gtk-4.0
-Filename: pool/main/stackos-welcome_1.1_all.deb
-Size: 4288
-MD5sum: c8baf5da544de61e10feea83f742276d
-SHA1: f6129c72f08c34c08eb1f42a47826452b4ac3f6f
-SHA256: 2665c9438cdd0b71b32673810c44cd2a89c73780072bd0f316349e87f3a95a50
+Depends: python3, python3-gi, gir1.2-gtk-4.0, stackos-branding
+Filename: pool/main/stackos-welcome_1.2_all.deb
+Size: 2324
+MD5sum: ad9b1878880e61c9ad93a8baec6723c5
+SHA1: 87e4d1d65873796e0586c06f291ea01ead872b87
+SHA256: 4323be056899e04019658dfa2b9bca5ca9abc02eaa7a183e13f6b832c404aba5
 Description: Tela de boas-vindas do StackOS Genesis
  Exibe informacoes do sistema e links uteis ao primeiro boot.
 
