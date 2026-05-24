@@ -147,10 +147,10 @@ Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-firefox
 Filename: pool/main/stackos-settings_1.1_all.deb
-Size: 1270
-MD5sum: c60bbdf446b917e61271405e1c59eefa
-SHA1: 6dd4fe5128f061deff4afe3bb112c591e154b160
-SHA256: a13cc826947ac870db48b53ebb2eb6c4584eb99e626a6597375a200067100e70
+Size: 1292
+MD5sum: 0fb4060950c6a7a3f65cae2bcfc26f55
+SHA1: a36e3ea6ce111bf2b45ad1fb0a9d3c0e3c2b7348
+SHA256: dbbf76d2222c0271261c87b70c8a9c7fcb561690f9e7e25f6dd250c8553e1f3a
 Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
