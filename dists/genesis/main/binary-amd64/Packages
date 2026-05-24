@@ -6,10 +6,10 @@ Depends: gnome-control-center-data
 Replaces: gnome-control-center, gnome-control-center-data
 Provides: gnome-control-center
 Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
-Size: 10600526
-MD5sum: 1bc60610698c805299b4de20290fe09d
-SHA1: 3a7cddf6c033e8c52599a4d6c06ab36f8afa3c36
-SHA256: 2eea5fd29b5096c3954d7f08b592397d6b8af7fb061759b8f5cdd34471944ea1
+Size: 9502118
+MD5sum: b9cde36fa3ec049146a36e765b7a3e40
+SHA1: 6c4019bf33bfc661f9d8b72c2922054db02e82ed
+SHA256: 43bbbc9a8d0ea58fa3cb96b69c2003f93dc26c8fa70325710a82bac17d7856b4
 Description: StackOS Control Center
  Painel de definicoes do StackOS Genesis com branding proprio.
 
