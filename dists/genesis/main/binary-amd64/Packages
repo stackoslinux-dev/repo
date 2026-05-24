@@ -2,16 +2,27 @@ Package: gnome-control-center
 Version: 1:50.0-1stackos1
 Architecture: amd64
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: gnome-control-center-data, libgmobile0
-Replaces: gnome-control-center, gnome-control-center-data, gnome-control-center-faces
-Provides: gnome-control-center
+Installed-Size: 4575
+Depends: accountsservice (>= 23.11.69), colord, desktop-file-utils, gnome-control-center-data (<< 1:51~), gnome-control-center-data (>= 1:50.0-0ubuntu6.1), gnome-desktop3-data, gnome-online-accounts (>= 3.51.0), gnome-settings-daemon (>= 48~rc), gsettings-desktop-schemas (>= 50~alpha), heif-gdk-pixbuf, heif-thumbnailer, language-selector-gnome (>= 0.179~), libjxl-gdk-pixbuf, mutter-common (>= 47), tecla (>= 47), upower, webp-pixbuf-loader, whoopsie-preferences, libaccountsservice0 (>= 23.13.9), libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcolord-gtk4-1t64 (>= 0.1.24), libcolord2 (>= 1.4.3), libcups2t64 (>= 1.7.0), libdrm2 (>= 2.4.3), libepoxy0 (>= 1.0), libfontconfig1 (>= 2.12.6), libgcr-4-4 (>= 3.8.0), libgdk-pixbuf-2.0-0 (>= 2.30.1), libglib2.0-0t64 (>= 2.83.0), libgnome-bg-4-2t64 (>= 3.27.90), libgnome-bluetooth-ui-3.0-13 (>= 42~beta), libgnome-desktop-4-2t64 (>= 3.33.4), libgnutls30t64 (>= 3.7.0), libgoa-1.0-0b (>= 3.51.0), libgoa-backend-1.0-2 (>= 3.51.0), libgraphene-1.0-0 (>= 1.5.4), libgsound0t64 (>= 1.0.1), libgtk-4-1 (>= 4.21), libgtop-2.0-11 (>= 2.22.3), libgudev-1.0-0 (>= 146), libibus-1.0-5 (>= 1.5.2), libinsights0 (>= 0.8.1), libjson-glib-1.0-0 (>= 1.5.2), libkrb5-3 (>= 1.8+dfsg), libmalcontent-0-0 (>= 0.14~alpha), libmm-glib0 (>= 1.16.6), libnm0 (>= 1.52.0), libnma-gtk4-0 (>= 1.10.2), libpango-1.0-0 (>= 1.37.2), libpolkit-gobject-1-0 (>= 0.99), libpulse-mainloop-glib0 (>= 0.99.1), libpulse0 (>= 0.99.1), libpwquality1 (>= 1.1.0), libsecret-1-0 (>= 0.7), libsmbclient0 (>= 2:4.0.3+dfsg1), libsoup-3.0-0 (>= 3.0.3), libudisks2-0 (>= 2.0.0), libupower-glib3 (>= 1.90.6), libwacom9 (>= 2.0.0), libwayland-client0 (>= 1.20.0), libwhoopsie-preferences0 (>= 0.9), libx11-6, libxml2-16 (>= 2.14.1)
+Recommends: cracklib-runtime, cups-pk-helper, fwupd, gnome-bluetooth-sendto, gnome-control-center-faces, gnome-remote-desktop (>= 47), gnome-user-docs, ibus, iso-codes, libcanberra-pulse, libspa-0.2-bluetooth | pulseaudio-module-bluetooth, mobile-broadband-provider-info, nm-connection-editor | network-manager-gnome (<< 1.36.0-3~), polkitd, power-profiles-daemon, rygel | rygel-tracker, system-config-printer-common
+Suggests: gnome-software | gnome-packagekit, gnome-user-share, gstreamer1.0-plugins-good (>= 1.18.0), malcontent-gui, realmd
+Breaks: gnome-remote-desktop (<< 42), gnome-shell (<< 49)
 Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
-Size: 9502234
-MD5sum: f69d9ad3387aaae0180f25be021ddcb6
-SHA1: c847520527e970b88778fbf8fd63bfbe23665e0f
-SHA256: d8b81d9039ea9807971953e080a5b75734e1aafc3f38a6b3f029cd1e3c4e3a47
-Description: StackOS Control Center
- Painel de definicoes do StackOS Genesis com branding proprio.
+Size: 1868142
+MD5sum: 6ef87cb9d736d45ab3b6798d2350590c
+SHA1: c1fa89cdd03e64d4972ccc3ee5ba9a1c69a9862c
+SHA256: 1336e41271c06621876902302ab127c5a6f5feab9a32f119e3a3aa96b65e34d8
+Section: gnome
+Priority: optional
+Description: utilities to configure the GNOME desktop
+ This package contains configuration applets for the GNOME desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other GNOME parameters.
+ .
+ It also contains a front end to these applets, which can also be
+ accessed with the GNOME panel or the Nautilus file manager.
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 
 Package: stackos-branding
 Version: 1.4
