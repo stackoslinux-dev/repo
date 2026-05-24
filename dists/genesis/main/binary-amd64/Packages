@@ -134,15 +134,15 @@ Description: Tema de boot Plymouth do StackOS Genesis
  Exibe a splash screen do StackOS durante o boot.
 
 Package: stackos-repo
-Version: 1.2
+Version: 1.3
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-settings
-Filename: pool/main/stackos-repo_1.2_all.deb
-Size: 952
-MD5sum: 485b4eaac7a6d6a0af3eae9fadfd7d8c
-SHA1: dea5e473b74cda7a0491f32074f849b7534a8d6f
-SHA256: caa8e10217f0137eac947121533d8822e7bdcdae9207bf6eabd6cbbad26c46d8
+Filename: pool/main/stackos-repo_1.3_all.deb
+Size: 3868
+MD5sum: 09093ba7252595c3a13554837df2196c
+SHA1: 0904208ccf463b4b24001400e5a292e00b166ee7
+SHA256: ee9f104d55bb2671ca474cbb9f2d44b6daae39d98c72406ef846fb111121b516
 Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 
