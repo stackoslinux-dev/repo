@@ -135,15 +135,15 @@ Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 
 Package: stackos-settings
-Version: 1.1
+Version: 1.2
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-firefox
-Filename: pool/main/stackos-settings_1.1_all.deb
-Size: 1292
-MD5sum: 0fb4060950c6a7a3f65cae2bcfc26f55
-SHA1: a36e3ea6ce111bf2b45ad1fb0a9d3c0e3c2b7348
-SHA256: dbbf76d2222c0271261c87b70c8a9c7fcb561690f9e7e25f6dd250c8553e1f3a
+Filename: pool/main/stackos-settings_1.2_all.deb
+Size: 1290
+MD5sum: 8a229ca88d40fe45dd23ae5609864c77
+SHA1: 5446491614184d0102105bd89bff67faacd6e0b3
+SHA256: e7f15e7f37a5bed428e5e139bc6de702c7fb2f3975459b6d8bb0ca9611d671a7
 Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
