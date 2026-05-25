@@ -20,6 +20,9 @@ Description: utilities to configure the GNOME desktop
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
 Size: 1868142
+MD5sum: 6ef87cb9d736d45ab3b6798d2350590c
+SHA1: c1fa89cdd03e64d4972ccc3ee5ba9a1c69a9862c
+SHA256: 1336e41271c06621876902302ab127c5a6f5feab9a32f119e3a3aa96b65e34d8
 
 Package: stackos-base-files
 Version: 14stackos1
@@ -44,6 +47,9 @@ Description: Debian base system miscellaneous files
 Original-Maintainer: Santiago Vila <sanvila@debian.org>
 Filename: pool/main/stackos-base-files_14stackos1_amd64.deb
 Size: 74950
+MD5sum: 217d3fd199179d8d1362b9a218e2d8ab
+SHA1: 5cbd6ec724f6337674e9ccbf80eab112f4b8497c
+SHA256: bba61677edb28a5b36d54ce0cd9c08fc8e0baf669a14b81da40b6c0d4896df91
 
 Package: stackos-bash
 Version: 5.2stackos1
@@ -55,6 +61,9 @@ Provides: bash
 Description: StackOS bash dependency pointer
 Filename: pool/main/stackos-bash.deb
 Size: 554
+MD5sum: 21bfe2b911e46373a6e213beb928df86
+SHA1: 15c6508fc024abd358d10ec4b18712e8b57c2418
+SHA256: cbbff777d4467616a0255cce9ee9cb0ab6fca49e5759992b27ce7698091c4228
 
 Package: stackos-branding
 Version: 1.5
@@ -66,6 +75,9 @@ Description: Identidade visual do StackOS Genesis
  Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
 Filename: pool/main/stackos-branding_1.5_all.deb
 Size: 924
+MD5sum: 6d795ab2f144bfe3f98cca3e3c0ee9ee
+SHA1: eb663c99c8f27737daef4929816aa4388094c5e2
+SHA256: 01b5a3ccf4b900f9c71def81ca63af6ce7c0a1d943466661d58fc7e2f73002c3
 
 Package: stackos-bugreport
 Version: 1.0
@@ -76,6 +88,9 @@ Description: Relator de bugs do StackOS Genesis
  Envia relatórios de bugs automaticamente para análise.
 Filename: pool/main/stackos-bugreport_1.0_all.deb
 Size: 3128
+MD5sum: 57730802524ddf0430952f56c8d5c7ed
+SHA1: 113a237639a2676dddcfa091acc6ba1aec938f3e
+SHA256: 103c79d6413b851d59452c57ec365b3e355f4b6309785bf2ea0de3f5660dba53
 
 Package: stackos-control-center-data
 Source: gnome-control-center
@@ -96,6 +111,9 @@ Description: configuration applets for GNOME - data files
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Filename: pool/main/stackos-control-center-data_50.0_all.deb
 Size: 161342
+MD5sum: 678171b6e8d22fdf7dc9379f1ec4725b
+SHA1: d83abff86b875956cc520d3364d64b8378b7ff35
+SHA256: 11141ddebd7e112f58bd46fd1f31378d40c00686ae51fc78d2ab42362cf63792
 
 Package: stackos-dbus
 Version: 1.14stackos1
@@ -106,6 +124,9 @@ Provides: dbus
 Description: StackOS dbus dependency pointer
 Filename: pool/main/stackos-dbus.deb
 Size: 586
+MD5sum: 882d0c650c80753992cbd4ef3f538dbc
+SHA1: 23dc1df7bc313cd1a5e4e265ad1e341f58145fe9
+SHA256: d43683ef70aa99a4fa54ae87e5625328142de7bc21bed7fd6c4c81f6621ece59
 
 Package: stackos-desktop-minimal
 Version: 1.1stackos1
@@ -119,6 +140,9 @@ Description: StackOS Desktop Minimal
  Core desktop metapackage for StackOS Genesis.
 Filename: pool/main/stackos-desktop-minimal_1.1stackos1_all.deb
 Size: 638
+MD5sum: d6ff9aeab7990469ccb0a7b7ac673442
+SHA1: dd896a9d8ff7274b02fe53021063dfb3a977c76e
+SHA256: ee1ad60ddf0b9e5ddc09509667c5c301edc23cd7bb51d340ba908e144deb83cf
 
 Package: stackos-docs
 Version: 1.0stackos1
@@ -132,6 +156,9 @@ Description: StackOS replacement for ubuntu-docs
  Empty package that replaces Ubuntu branding package.
 Filename: pool/main/stackos-docs.deb
 Size: 554
+MD5sum: 10b5a00a9d4050df732bc1d3e9e2ffad
+SHA1: 89c4600f3574e2241920ee36e8fa5969cc9279e5
+SHA256: ad451847907d8dd0c92190f47840f19069d99b64a0d4fd2f8eb8c3085060745b
 
 Package: stackos-drivers
 Version: 1.4
@@ -148,6 +175,9 @@ Provides: ubuntu-drivers-common
 Conflicts: ubuntu-drivers-common
 Filename: pool/main/stackos-drivers_1.4_amd64.deb
 Size: 7424
+MD5sum: f5b5b324c64cd7720281ebc5e325999a
+SHA1: 106ea1806fc09a1fd94781263a30fd7d456076e0
+SHA256: 36da0fb25bafbb47a6bbc3d5fa622ee98493c1c6e52ffaffdc73de7bb2b5aee4
 
 Package: stackos-fastfetch
 Version: 1.0
@@ -158,6 +188,9 @@ Description: Configuracao do fastfetch para StackOS Genesis
  Logo e configuracao personalizada do fastfetch com identidade StackOS.
 Filename: pool/main/stackos-fastfetch_1.0_all.deb
 Size: 1406
+MD5sum: c758caf5c66948e6b0418be66168cb38
+SHA1: 61793f5b3f4905e70be22377c9a9ec73ecc1120c
+SHA256: a13058b08e636d0dfceaa3f259021b59233de2e33bd82e3c5a686fc80c87417c
 
 Package: stackos-firefox
 Version: 1.0
@@ -168,6 +201,9 @@ Description: Configuracoes Firefox para StackOS Genesis
  Pagina inicial, nova aba e bookmarks oficiais do StackOS Genesis.
 Filename: pool/main/stackos-firefox_1.0_all.deb
 Size: 1018
+MD5sum: e08094f7739ba868485038589bcfce8d
+SHA1: e6affc3cc29ac2322e9632af371a08e58adc4206
+SHA256: 774086a81d1dcb20b7ea78c67711f18c4d55213dbebfd32dba2810eb05b8f7e2
 
 Package: stackos-icons
 Version: 1.3
@@ -177,6 +213,9 @@ Description: Icones oficiais do StackOS Genesis
  Icones oficiais de todos os aplicativos do StackOS Genesis.
 Filename: pool/main/stackos-icons_1.3_all.deb
 Size: 5086562
+MD5sum: cf92f6242cbb526a9b6ef16f98ed43a0
+SHA1: 025410e0ef61f0337974b81c027da19828efae22
+SHA256: 626aa27e128f87937ea181978d90d572f88d5ba71712a71e5fd1a1a148aa4755
 
 Package: stackos-insights
 Version: 1.0stackos1
@@ -190,6 +229,9 @@ Description: StackOS replacement for ubuntu-insights
  Empty package that replaces Ubuntu branding package.
 Filename: pool/main/stackos-insights.deb
 Size: 554
+MD5sum: 6da01be1958f4637814d3eeed7da277e
+SHA1: f4b5b6be37d539bc0fcb0bb62d8ee3daf7817a67
+SHA256: 2c96d78cd2be9e27d76263d87b72e99b18bee06231f8556ebc51da7154bf46c5
 
 Package: stackos-installer
 Version: 2.0
@@ -201,6 +243,9 @@ Description: Instalador oficial do StackOS Genesis
  dual boot seguro, rollback automatico e log completo.
 Filename: pool/main/stackos-installer_2.0_amd64.deb
 Size: 10798
+MD5sum: c01911d4b50576f95a9b0c72eff6a728
+SHA1: 9c8ba896892bf9fa9e39033f9e746b517507203a
+SHA256: 0888c0aa37f79fcaa62139b8782fea633bd8d30664e106b4fe2b320d699df495
 
 Package: stackos-keyring
 Version: 2025stackos1
@@ -214,6 +259,9 @@ Description: StackOS replacement for ubuntu-keyring
  Empty package that replaces Ubuntu branding package.
 Filename: pool/main/stackos-keyring.deb
 Size: 556
+MD5sum: 0b43ab17d3ae0c6340bb8eb47136a8e1
+SHA1: eb459997186856fc9315010f096a4ebfbc844ee8
+SHA256: fa1b1608fdf136b3289e340de42696c142bc3cc7cf711b474de8f09cbab12e0f
 
 Package: stackos-nm-config
 Version: 1.0stackos1
@@ -227,6 +275,9 @@ Description: StackOS replacement for network-manager-config-connectivity-ubuntu
  Empty package that replaces Ubuntu branding package.
 Filename: pool/main/stackos-nm-config.deb
 Size: 584
+MD5sum: 7b2bef08500b2378d2bb1c2860218cc0
+SHA1: e2272661c9307b9efabfbc03bacc642ec348e487
+SHA256: 39476aaf5d77697186d238b80e16d55cc1d583b410b017ec87fd7370ee9a130a
 
 Package: stackos-plymouth
 Version: 1.0
@@ -237,6 +288,9 @@ Description: Tema de boot Plymouth do StackOS Genesis
  Exibe a splash screen do StackOS durante o boot.
 Filename: pool/main/stackos-plymouth_1.0_all.deb
 Size: 1178174
+MD5sum: b1ca722937d3027e7a7f7abae66e04de
+SHA1: e181b51a2451dbf8c8f5e64bf1cde0ef802b442e
+SHA256: 5ae926aa5b86287b09e1587c7a8ef566fdf28eed04976992823e4cb11b1ad0e1
 
 Package: stackos-pro-client
 Version: 37.2stackos1
@@ -249,6 +303,9 @@ Description: StackOS replacement for Ubuntu Pro client
  Empty package that replaces Ubuntu Pro branding packages.
 Filename: pool/main/stackos-pro-client.deb
 Size: 600
+MD5sum: a0ea4edf5825df1d69b64a6ceb40ee0d
+SHA1: dc39c4ad32868f5f7aed7abc5042774359affeeb
+SHA256: 5caadbf4e630f8c737c9718da3d65a345c2e1df1437c881f0b27aed96354d9a5
 
 Package: stackos-release-upgrader
 Version: 26.04stackos1
@@ -262,6 +319,9 @@ Description: StackOS replacement for Ubuntu release upgrader
  Empty package that replaces Ubuntu release upgrader.
 Filename: pool/main/stackos-release-upgrader.deb
 Size: 630
+MD5sum: 8f2b3e824a689917964a9899fbcf1292
+SHA1: c717f8ccf506014094c4d810218adfe9b5b87340
+SHA256: 8d1099c3290cb5002892bd83d8e6de3350a81a1720d5ffafd72bbe71b000b0dc
 
 Package: stackos-repo
 Version: 1.3
@@ -272,6 +332,9 @@ Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 Filename: pool/main/stackos-repo_1.3_all.deb
 Size: 3868
+MD5sum: 09093ba7252595c3a13554837df2196c
+SHA1: 0904208ccf463b4b24001400e5a292e00b166ee7
+SHA256: ee9f104d55bb2671ca474cbb9f2d44b6daae39d98c72406ef846fb111121b516
 
 Package: stackos-report
 Version: 1.0stackos1
@@ -285,6 +348,9 @@ Description: StackOS replacement for ubuntu-report
  Empty package that replaces Ubuntu branding package.
 Filename: pool/main/stackos-report.deb
 Size: 552
+MD5sum: a9e5adb320709f9b317f06f176c76d6b
+SHA1: 6fb6b25d81c9d228198069f1d76a37b3a0d5c92c
+SHA256: 4c5942b80b90fea763be09864ba91aa72614f6aa71606c3804cb0682fc88afbe
 
 Package: stackos-session
 Source: gnome-session
@@ -306,6 +372,9 @@ Description: Ubuntu session with GNOME Shell
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Filename: pool/main/stackos-session_50.0_all.deb
 Size: 3804
+MD5sum: e795b7d6917ca24fa48043eab9c3d732
+SHA1: fd333337700a59e45144bad2597606ca2bec4259
+SHA256: 9317ed3fa8a01dac78890e4a7dd41f6dbf5b9b149c5d405366df9f1dbd03d1df
 
 Package: stackos-settings
 Version: 1.3
@@ -319,6 +388,9 @@ Conflicts: ubuntu-settings
 Replaces: ubuntu-settings
 Filename: pool/main/stackos-settings_1.3_all.deb
 Size: 1314
+MD5sum: 7138d3bc172fe2a7d4d1154fc7a95161
+SHA1: f7af4f8a65d631476ac8ff9eb0fe9d511f483c80
+SHA256: 6262b995063ee69ac24bd5ca65e175cfcee71938b1cd317642d84d2efb3a0974
 
 Package: stackos-store
 Version: 1.5
@@ -342,6 +414,9 @@ Description: StackOS Store - Loja de aplicativos do StackOS
   - Gerenciamento de backups do sistema
 Filename: pool/main/stackos-store_1.5_amd64.deb
 Size: 11086
+MD5sum: 2ab074af1d4ee5e8b9b2cbd46ac6428d
+SHA1: 78dad8f1d3137f39b993a10241c1938ae45edb96
+SHA256: c925fb8ef82bf8878761047e2205f9d7ffc1dffaab144517f12f18939fa0229a
 
 Package: stackos-themes
 Version: 1.0
@@ -352,6 +427,9 @@ Description: Tema oficial do StackOS Genesis
  Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
 Filename: pool/main/stackos-themes_1.0_all.deb
 Size: 218230
+MD5sum: 3619c39ca95a678f9443d97a9e792be1
+SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
+SHA256: 23da7d393bd54511632794b25a3eacd89539264da5a0a73f048df316054a7be8
 
 Package: stackos-wallpapers
 Version: 1.0
@@ -361,6 +439,9 @@ Description: Wallpapers oficiais do StackOS Genesis
  Colecao de wallpapers oficiais da distribuicao StackOS Genesis.
 Filename: pool/main/stackos-wallpapers_1.0_all.deb
 Size: 2732608
+MD5sum: 613078c8a78286d6c0b229e45090947d
+SHA1: f74dc5c9f518d2bf5ff815c384591dceba2dbc64
+SHA256: 405ab5cb672fab7598467a61d0d750016ad37d16614f01f19fa420bc09fec41d
 
 Package: stackos-welcome
 Version: 1.2
@@ -371,4 +452,7 @@ Description: Tela de boas-vindas do StackOS Genesis
  Exibe informacoes do sistema e links uteis ao primeiro boot.
 Filename: pool/main/stackos-welcome_1.2_all.deb
 Size: 2324
+MD5sum: ad9b1878880e61c9ad93a8baec6723c5
+SHA1: 87e4d1d65873796e0586c06f291ea01ead872b87
+SHA256: 4323be056899e04019658dfa2b9bca5ca9abc02eaa7a183e13f6b832c404aba5
 
