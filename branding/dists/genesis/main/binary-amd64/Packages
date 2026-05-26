@@ -11,11 +11,11 @@ Recommends: cracklib-runtime, cups-pk-helper, fwupd, gnome-bluetooth-sendto, gno
 Suggests: gnome-software | gnome-packagekit, gnome-user-share, gstreamer1.0-plugins-good (>= 1.18.0), malcontent-gui, realmd
 Breaks: gnome-remote-desktop (<< 42), gnome-shell (<< 49)
 Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
-Size: 1868142
-MD5sum: 6ef87cb9d736d45ab3b6798d2350590c
-SHA1: c1fa89cdd03e64d4972ccc3ee5ba9a1c69a9862c
-SHA256: 1336e41271c06621876902302ab127c5a6f5feab9a32f119e3a3aa96b65e34d8
-SHA512: b19a46648421dd336f6b3ff7a0bc918a69894427641dae1009f83a3515fd6d93c2ec3179031b611be810b66e2cedb887662a7d9e3c966611b6adecfa7dc03287
+Size: 1870036
+MD5sum: 5daa4f734242fe27b76cbe5775637589
+SHA1: c21f1a327d62c63a22dfeb79dda43be43984b676
+SHA256: fbdff50a87aed149c88e268cec8aa9e465d77697123b769483c32d3ff60e98b1
+SHA512: 49e0b3957ca50258127f40d7b0653eb308e428fe1d241ec3f2ca3f872a5faf1214e241a08670fefe662e9966ef5f39b4380261cf27e8217a1e53688271745954
 Description: utilities to configure the GNOME desktop
  This package contains configuration applets for the GNOME desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard

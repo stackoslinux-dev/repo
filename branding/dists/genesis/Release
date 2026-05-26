@@ -2,13 +2,13 @@ Origin: StackOS
 Label: StackOS Genesis
 Suite: genesis
 Codename: genesis
-Date: Tue, 26 May 2026 13:21:34 +0000
+Date: Tue, 26 May 2026 18:26:09 +0000
 Architectures: amd64
 Components: main
 Description: StackOS Genesis - branding repository
 MD5Sum:
- 5858c5ace241e6025dd4abc2ed0a8f72 7613 main/binary-amd64/Packages
+ 59740ee28ea4a392c3004e13be2ef80c 7613 main/binary-amd64/Packages
 SHA1:
- 846bb814b73390c5f241360dd82ed85ef66a738f 7613 main/binary-amd64/Packages
+ 2868e9394d5b3793904adfd04879bd7d05fcd2d8 7613 main/binary-amd64/Packages
 SHA256:
- cb051dae47ebbdcf7f66e18b58441a477623cd799db45ce69995e7832733fbae 7613 main/binary-amd64/Packages
+ 0d6dff7615fe24ec6e5025705317b5a5ec882e3aa7cb8dfd7ed0888e78536231 7613 main/binary-amd64/Packages
