@@ -193,10 +193,10 @@ Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-settings
 Filename: pool/main/stackos-repo_1.4_all.deb
 Size: 794
-MD5sum: f01f673cdb7169bc4668b28505bcc46e
-SHA1: 9784f94c1df397fe5e867bd929246eb4ea665588
-SHA256: e8b4449c66454b9dc378200ea2ff98afc563d7a46510a47cdf8e707a3ad27a6a
-SHA512: fed3b72eab509f763cee348ff31f6e33c0524bccfd3243a3040540909e815164271de8805a384dfa731eb0c4fbc78b69503a81cc3de66f67cfcb8598ce75240a
+MD5sum: e217615c41042528bf68038a4e6ae77f
+SHA1: 627036b9276bab5fa16e0ff2599b43eeb61823f5
+SHA256: 9c5de3a3977d3a65e3812c95e4715b0c2e8222a86c8f8b207d64a8499f093284
+SHA512: 4da622e64a139fc40df59f0201a3ee417b8f57810f203bbb1d05175f8857d9a9bfc5daa492c1b55b5c2483a189124773a93ff993478e5eb37c101cf20fb76192
 Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 
