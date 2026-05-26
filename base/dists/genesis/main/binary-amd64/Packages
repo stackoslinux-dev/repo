@@ -276,3 +276,20 @@ SHA512: 0d241296cd0f7c2e5bd483a3becb5352bee04688cf2ce276ff78a6406dbb29b4c918fc65
 Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
+Package: stackos-settings
+Architecture: all
+Version: 1.6
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-settings
+Depends: stackos-firefox
+Conflicts: ubuntu-settings
+Replaces: ubuntu-settings
+Filename: pool/main/stackos-settings_1.6_all.deb
+Size: 1648
+MD5sum: 98bf33e72c30a7ba73db3b93fded6556
+SHA1: 4eb35179811facbca683a66dcd0f1706a4ce7fa5
+SHA256: 94ce950b821321bf844d2cbe201eadbcf6563deb866d283be99ce151ac667b2f
+SHA512: 3a150bcaab351de6006521a68c51032de59f2661385753f06ed85f83f70806c27e6af5ad25354e5ef4c16358714ee0ad25b3110b35ef253f9d995a895adc3cc2
+Description: Configuracoes padrao do StackOS Genesis
+ Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
+
