@@ -110,10 +110,10 @@ Description: configuration applets for GNOME - data files
  the configuration applets in the gnome-control-center package.
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Filename: pool/main/stackos-control-center-data_50.0-2_all.deb
-Size: 391594
-MD5sum: c8c7ddcdcd28ce4bad64f8a19b480a23
-SHA1: a7196247cc3599d194d7022f0a0d4b47a8a438ea
-SHA256: f1793c1be13237b2daeea74e6de1719a4e3eb6a14ecf10b49b09bed1a3f8d6bd
+Size: 391456
+MD5sum: 39b971e4232a3111821bed33af761e43
+SHA1: 53cc102b4376cb8661544229d11539a45a02b045
+SHA256: a2ae7588582e94bc49045dd98514b7c5c5b869de364ae616ec03f6dd7e07d656
 
 Package: stackos-control-center-data
 Source: gnome-control-center
