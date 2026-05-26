@@ -106,6 +106,22 @@ SHA512: c0566528b910f6b8da487a8bb9817ef94762b16e3d9af5cbebd32e04cdb764a80544d200
 Description: StackOS replacement for ubuntu-insights
  Empty package that replaces Ubuntu branding package.
 
+Package: stackos-keyring
+Architecture: all
+Version: 2025stackos2
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-keyring
+Conflicts: ubuntu-keyring
+Replaces: ubuntu-keyring
+Filename: pool/main/stackos-keyring_2025stackos2_all.deb
+Size: 1814
+MD5sum: 9a4db9d6561cbab9e77237c16ad98052
+SHA1: 0bf548c042b267ad53c8af387cd94964b1aa4eb0
+SHA256: 26a1b3ec61e32f91c6aea38fde10d5c633f39252fdbf2f4d7ed0b11426fbd000
+SHA512: 942c9bb7593ba51b1262d600b36459aa58e124fba7c591a7c3ee0124057225c771241a7b07afa83b399cfec1d6968588b264c13c6df0270f80542d5e76956b26
+Description: StackOS keyring with Ubuntu archive keys
+ Contains GPG keys for StackOS and Ubuntu archive repositories.
+
 Package: stackos-nm-config
 Architecture: all
 Version: 1.0stackos1
