@@ -1,0 +1,20 @@
+Package: stackos-drivers
+Architecture: amd64
+Version: 1.5
+Priority: optional
+Section: utils
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-drivers-common
+Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec, pciutils, kmod
+Conflicts: ubuntu-drivers-common
+Replaces: stackos-drivers (<< 1.4), ubuntu-drivers-common
+Filename: pool/main/stackos-drivers.deb
+Size: 7428
+MD5sum: 6b4b03be2c748b0b2cdeeed272c88a89
+SHA1: f434cb96272d63cf897c15fb256f1e3ade879551
+SHA256: 049291a1c4ccc76a4f8b177d428950b7358b47943409e79973fdc3354075aaed
+SHA512: dfba4792adacb4fd841d0472ebf5ce5dc04b2c34a71d6d5e62a9fd180b746550b8cf053e5a8c6d27d95d7b6bcc6d252f7a9b27b10620d153a787268206922fa2
+Description: StackOS Drivers - Gerenciador de drivers do StackOS
+ Deteccao correta de GPU Intel, NVIDIA e AMD em sistemas hibridos.
+ Mostra versao instalada, driver ativo e kernel no header.
+

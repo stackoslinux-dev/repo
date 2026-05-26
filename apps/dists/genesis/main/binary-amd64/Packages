@@ -1,0 +1,83 @@
+Package: stackos-bugreport
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0
+Filename: pool/main/stackos-bugreport_1.0_all.deb
+Size: 3128
+MD5sum: 57730802524ddf0430952f56c8d5c7ed
+SHA1: 113a237639a2676dddcfa091acc6ba1aec938f3e
+SHA256: 103c79d6413b851d59452c57ec365b3e355f4b6309785bf2ea0de3f5660dba53
+SHA512: 2ee91efe37b17e886b113329c2bb632359b8b91a88cc7b3bec17fd0f8b12c21d826d76017c2b43025729c08b60b0363268bfdbbc1239bb89ea1b2120a3936161
+Description: Relator de bugs do StackOS Genesis
+ Envia relatórios de bugs automaticamente para análise.
+
+Package: stackos-fastfetch
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: fastfetch
+Filename: pool/main/stackos-fastfetch_1.0_all.deb
+Size: 1406
+MD5sum: c758caf5c66948e6b0418be66168cb38
+SHA1: 61793f5b3f4905e70be22377c9a9ec73ecc1120c
+SHA256: a13058b08e636d0dfceaa3f259021b59233de2e33bd82e3c5a686fc80c87417c
+SHA512: d4ca01a77349bd4f3f77889052167a95334ec85ad2860f86cb4dde34b971ee54a04335707c792d4adce76b24364345b33c3ef8b9e7ff2e32bbc204705474cacc
+Description: Configuracao do fastfetch para StackOS Genesis
+ Logo e configuracao personalizada do fastfetch com identidade StackOS.
+
+Package: stackos-firefox
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Replaces: firefox
+Filename: pool/main/stackos-firefox_1.0_all.deb
+Size: 1018
+MD5sum: e08094f7739ba868485038589bcfce8d
+SHA1: e6affc3cc29ac2322e9632af371a08e58adc4206
+SHA256: 774086a81d1dcb20b7ea78c67711f18c4d55213dbebfd32dba2810eb05b8f7e2
+SHA512: 03b7ed0dd729edd7053ec0879bb447a445e64241926cfc31ec051b169d142b33f179bbcc80d9bcfb757a5036236bd095fe80596f2e4b44f66f062c59c1e470ed
+Description: Configuracoes Firefox para StackOS Genesis
+ Pagina inicial, nova aba e bookmarks oficiais do StackOS Genesis.
+
+Package: stackos-store
+Architecture: amd64
+Version: 1.5
+Priority: optional
+Section: utils
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec
+Filename: pool/main/stackos-store_1.5_amd64.deb
+Size: 11086
+MD5sum: 2ab074af1d4ee5e8b9b2cbd46ac6428d
+SHA1: 78dad8f1d3137f39b993a10241c1938ae45edb96
+SHA256: c925fb8ef82bf8878761047e2205f9d7ffc1dffaab144517f12f18939fa0229a
+SHA512: 9a78cf58db0135154a08d228d4336f0c9d343abb939659012e11b9df2168f6d296ac6f2e149aa2beeebcef9cac8b6f8d6fe77c3e448858e3d47990eb8ddc63b7
+Description: StackOS Store - Loja de aplicativos do StackOS
+ Loja grafica de aplicativos baseada em GTK4 para sistemas
+ baseados em Debian/Ubuntu. Permite instalar, remover e
+ avaliar aplicativos, alem de verificar e aplicar atualizacoes
+ do sistema automaticamente.
+ .
+ Recursos:
+  - Catalogo com 70+ aplicativos organizados por categoria
+  - Tela de detalhe com versao instalada e site oficial
+  - Sistema de avaliacao (votos) por app
+  - Verificacao automatica de atualizacoes (apt update)
+  - Aplicacao de atualizacoes com um clique (apt upgrade)
+  - Gerenciamento de backups do sistema
+
+Package: stackos-welcome
+Architecture: all
+Version: 1.2
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-4.0, stackos-branding
+Filename: pool/main/stackos-welcome_1.2_all.deb
+Size: 2324
+MD5sum: ad9b1878880e61c9ad93a8baec6723c5
+SHA1: 87e4d1d65873796e0586c06f291ea01ead872b87
+SHA256: 4323be056899e04019658dfa2b9bca5ca9abc02eaa7a183e13f6b832c404aba5
+SHA512: ed011f7cba683428f2162179967c4f2eaf502eeea22284db24b0f6eb1229fb89e40cc07000f803b2b73b0c1659104ef87707f845eebd0fe7fbf124e15b522c6c
+Description: Tela de boas-vindas do StackOS Genesis
+ Exibe informacoes do sistema e links uteis ao primeiro boot.
+

@@ -1,0 +1,248 @@
+Package: stackos-base-files
+Architecture: amd64
+Version: 14stackos1
+Multi-Arch: foreign
+Priority: required
+Essential: yes
+Section: admin
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Santiago Vila <sanvila@debian.org>
+Installed-Size: 440
+Provides: base-files (= 14stackos1), base, usr-is-merged
+Pre-Depends: awk
+Depends: libc6 (>= 2.34), libcrypt1 (>= 1:4.4.10-10ubuntu3)
+Conflicts: base-files
+Breaks: debian-security-support (<< 2019.04.25), initscripts (<< 2.88dsf-13.3), sendfile (<< 2.1b.20080616-5.2~), ubuntu-server (<< 1.453)
+Replaces: base-files, base, dpkg (<= 1.15.0), miscutils
+Filename: pool/main/stackos-base-files_14stackos1_amd64.deb
+Size: 74950
+MD5sum: 217d3fd199179d8d1362b9a218e2d8ab
+SHA1: 5cbd6ec724f6337674e9ccbf80eab112f4b8497c
+SHA256: bba61677edb28a5b36d54ce0cd9c08fc8e0baf669a14b81da40b6c0d4896df91
+SHA512: 0e97eb321cc4eec120c9c17e9333b0d46a8d72c45fe6f71b63ddfd589d534f06829f218be2f8a0a03dfb70ab5f8e080cca8cac5f06f5a6c335e8c9c387b141c2
+Description: Debian base system miscellaneous files
+ This package contains the basic filesystem hierarchy of a Debian system, and
+ several important miscellaneous files, such as /etc/debian_version,
+ /etc/host.conf, /etc/issue, /etc/motd, /etc/profile, and others,
+ and the text of several common licenses in use on Debian systems.
+
+Package: stackos-bash
+Architecture: all
+Version: 5.2stackos1
+Maintainer: StackOS Team
+Provides: bash
+Pre-Depends: libc6 (>= 2.38), libtinfo6 (>= 6)
+Depends: stackos-base-files (>= 2.1.12), debianutils (>= 5.6-0.1)
+Filename: pool/main/stackos-bash.deb
+Size: 554
+MD5sum: 21bfe2b911e46373a6e213beb928df86
+SHA1: 15c6508fc024abd358d10ec4b18712e8b57c2418
+SHA256: cbbff777d4467616a0255cce9ee9cb0ab6fca49e5759992b27ce7698091c4228
+SHA512: 25c1724129b722fe3c81e245f033f490dc0fb1d3a17638553136b6392f229b65e730e78044fe8d9295fde067f0933d7e6abfca2eaa2c57773c1c7a54c007360f
+Description: StackOS bash dependency pointer
+
+Package: stackos-dbus
+Architecture: all
+Version: 1.14stackos1
+Maintainer: StackOS Team
+Provides: dbus
+Depends: dbus-bin (= 1.16.2-2ubuntu4), dbus-daemon (= 1.16.2-2ubuntu4), dbus-system-bus-common (>= 1.16.2-2ubuntu4), stackos-base-files (>= 13.4~), libc6 (>= 2.34), libdbus-1-3 (= 1.16.2-2ubuntu4), libexpat1 (>= 2.1~beta3)
+Filename: pool/main/stackos-dbus.deb
+Size: 586
+MD5sum: 882d0c650c80753992cbd4ef3f538dbc
+SHA1: 23dc1df7bc313cd1a5e4e265ad1e341f58145fe9
+SHA256: d43683ef70aa99a4fa54ae87e5625328142de7bc21bed7fd6c4c81f6621ece59
+SHA512: 88948036c8464b496f76d56b42cff425b85e9f8d62d137852d9de36056f4fb958d0bc09b2dc3458486876a8d4699a3b107b90c4aebae8b7bf5621751948d77ae
+Description: StackOS dbus dependency pointer
+
+Package: stackos-desktop-minimal
+Architecture: all
+Version: 1.1stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-desktop-minimal, packagekit-installer
+Depends: gdm3, gnome-shell, gnome-control-center, nautilus, stackos-session, stackos-settings, stackos-branding, stackos-icons, stackos-themes, stackos-wallpapers
+Conflicts: ubuntu-desktop-minimal
+Replaces: ubuntu-desktop-minimal
+Filename: pool/main/stackos-desktop-minimal_1.1stackos1_all.deb
+Size: 638
+MD5sum: d6ff9aeab7990469ccb0a7b7ac673442
+SHA1: dd896a9d8ff7274b02fe53021063dfb3a977c76e
+SHA256: ee1ad60ddf0b9e5ddc09509667c5c301edc23cd7bb51d340ba908e144deb83cf
+SHA512: 9195d94f2a2332b347fe47824a39260dc16d425be4866b8137a9229659552108999a0b330a1465b77343da06880ded5a72d36590720cf22f7374e46a8c652582
+Description: StackOS Desktop Minimal
+ Core desktop metapackage for StackOS Genesis.
+
+Package: stackos-docs
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-docs
+Depends: yelp
+Conflicts: ubuntu-docs
+Replaces: ubuntu-docs
+Filename: pool/main/stackos-docs.deb
+Size: 554
+MD5sum: 10b5a00a9d4050df732bc1d3e9e2ffad
+SHA1: 89c4600f3574e2241920ee36e8fa5969cc9279e5
+SHA256: ad451847907d8dd0c92190f47840f19069d99b64a0d4fd2f8eb8c3085060745b
+SHA512: afc23f311ce1ed05a6953b5b7978f930d6123999fb914a06f3bfb904d0f53f04bf566e98e9cd124b5dd17f34fb71c425b321417303e383d98f3958eea3eb8862
+Description: StackOS replacement for ubuntu-docs
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-insights
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-insights
+Depends:
+Conflicts: ubuntu-insights
+Replaces: ubuntu-insights
+Filename: pool/main/stackos-insights.deb
+Size: 554
+MD5sum: 6da01be1958f4637814d3eeed7da277e
+SHA1: f4b5b6be37d539bc0fcb0bb62d8ee3daf7817a67
+SHA256: 2c96d78cd2be9e27d76263d87b72e99b18bee06231f8556ebc51da7154bf46c5
+SHA512: c0566528b910f6b8da487a8bb9817ef94762b16e3d9af5cbebd32e04cdb764a80544d200fcf0564d9f14b48fd8b75db16e11de5c77163a7d8fba4f6511e358b1
+Description: StackOS replacement for ubuntu-insights
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-keyring
+Architecture: all
+Version: 2025stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-keyring
+Depends:
+Conflicts: ubuntu-keyring
+Replaces: ubuntu-keyring
+Filename: pool/main/stackos-keyring.deb
+Size: 556
+MD5sum: 0b43ab17d3ae0c6340bb8eb47136a8e1
+SHA1: eb459997186856fc9315010f096a4ebfbc844ee8
+SHA256: fa1b1608fdf136b3289e340de42696c142bc3cc7cf711b474de8f09cbab12e0f
+SHA512: a328edd49f2e70bb28e474e1ccd98c46d9e3ad6cfc2aa1ba53a17e99df426d02dbdf87f1b50256342052ad623c5257c21565f5f92d782b772571167415fb0e49
+Description: StackOS replacement for ubuntu-keyring
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-nm-config
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: network-manager-config-connectivity-ubuntu
+Depends: network-manager
+Conflicts: network-manager-config-connectivity-ubuntu
+Replaces: network-manager-config-connectivity-ubuntu
+Filename: pool/main/stackos-nm-config.deb
+Size: 584
+MD5sum: 7b2bef08500b2378d2bb1c2860218cc0
+SHA1: e2272661c9307b9efabfbc03bacc642ec348e487
+SHA256: 39476aaf5d77697186d238b80e16d55cc1d583b410b017ec87fd7370ee9a130a
+SHA512: 74ee74937006652d45753b4afbcfca1055725d7778df65b34ad908e9486dff408fdded93ac2dc59a25219be3001c021c6998427e8c3d0a68d544457dc3cbcacb
+Description: StackOS replacement for network-manager-config-connectivity-ubuntu
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-pro-client
+Architecture: all
+Version: 37.2stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-daemon, ubuntu-advantage-desktop-daemon
+Conflicts: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-desktop-daemon
+Replaces: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-desktop-daemon
+Filename: pool/main/stackos-pro-client.deb
+Size: 600
+MD5sum: a0ea4edf5825df1d69b64a6ceb40ee0d
+SHA1: dc39c4ad32868f5f7aed7abc5042774359affeeb
+SHA256: 5caadbf4e630f8c737c9718da3d65a345c2e1df1437c881f0b27aed96354d9a5
+SHA512: b5fb6ab8106431bb1eab766aa81f41458313910f7dedac0de2b84e969b66217971e90b686839c12520ff9212a25767a702eaf9c43d0bfe20055c47ced0f25624
+Description: StackOS replacement for Ubuntu Pro client
+ Empty package that replaces Ubuntu Pro branding packages.
+
+Package: stackos-release-upgrader
+Architecture: all
+Version: 26.04stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-release-upgrader-core (= 1:26.04.18), ubuntu-release-upgrader-gtk, update-manager-core
+Depends: ca-certificates, python3, screen
+Conflicts: ubuntu-release-upgrader-core, ubuntu-release-upgrader-gtk
+Replaces: ubuntu-release-upgrader-core, ubuntu-release-upgrader-gtk
+Filename: pool/main/stackos-release-upgrader.deb
+Size: 630
+MD5sum: 8f2b3e824a689917964a9899fbcf1292
+SHA1: c717f8ccf506014094c4d810218adfe9b5b87340
+SHA256: 8d1099c3290cb5002892bd83d8e6de3350a81a1720d5ffafd72bbe71b000b0dc
+SHA512: 5eca7c7d97f7aa38c3724acfd5044f13a40d862feecc5488127d740f2d880622eb1f5cfd402d62c3f5adb7a743b5e60210f55fd0a9c726d752bf4a1db946fa43
+Description: StackOS replacement for Ubuntu release upgrader
+ Empty package that replaces Ubuntu release upgrader.
+
+Package: stackos-repo
+Architecture: all
+Version: 1.3
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-settings
+Filename: pool/main/stackos-repo_1.3_all.deb
+Size: 3868
+MD5sum: 09093ba7252595c3a13554837df2196c
+SHA1: 0904208ccf463b4b24001400e5a292e00b166ee7
+SHA256: ee9f104d55bb2671ca474cbb9f2d44b6daae39d98c72406ef846fb111121b516
+SHA512: 9095dc7b41cee211ffe0853833a68433b3a0b6ada03fa845a5cb1b2a8b854ba18f87c40d595f0bb4658eac183c81c802b64f530d9d543e9f8c92faf5c839c59a
+Description: Repositorio oficial StackOS Genesis
+ Configura o repositorio APT online do StackOS Genesis.
+
+Package: stackos-report
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-report
+Depends:
+Conflicts: ubuntu-report
+Replaces: ubuntu-report
+Filename: pool/main/stackos-report.deb
+Size: 552
+MD5sum: a9e5adb320709f9b317f06f176c76d6b
+SHA1: 6fb6b25d81c9d228198069f1d76a37b3a0d5c92c
+SHA256: 4c5942b80b90fea763be09864ba91aa72614f6aa71606c3804cb0682fc88afbe
+SHA512: d41081a9ae1b5286f7adcd3af5a652cb9d91002db4f4834b9bdd3825ea9fc9e84f2d317366c67eb8e0638061d4463b1dc2f65b798484d08e32a2bbd0235a5731
+Description: StackOS replacement for ubuntu-report
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-session
+Architecture: all
+Version: 50.0-0ubuntu3.1
+Priority: optional
+Section: gnome
+Source: gnome-session
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 34
+Provides: ubuntu-session
+Depends: gnome-session-bin (<< 51~), gnome-session-bin (>= 50.0-0ubuntu3), gnome-session-common (>= 50.0-0ubuntu3), gnome-settings-daemon (>= 3.37.0), gnome-shell (>= 50~), xdg-desktop-portal-gnome, xwayland, yaru-theme-gnome-shell (>= 20.04.3~), user-session-migration
+Recommends: python3
+Conflicts: ubuntu-session
+Replaces: ubuntu-session
+Filename: pool/main/stackos-session_50.0_all.deb
+Size: 3804
+MD5sum: e795b7d6917ca24fa48043eab9c3d732
+SHA1: fd333337700a59e45144bad2597606ca2bec4259
+SHA256: 9317ed3fa8a01dac78890e4a7dd41f6dbf5b9b149c5d405366df9f1dbd03d1df
+SHA512: f7232cb36ec94de2c22ef8a9456f5f73f4578cd2318d632643b7ad2a64d3bf1369c46b584936fcb38c3b6653d26ec4aab6d8f0275595ae229f34f1b583a70566
+Homepage: https://gitlab.gnome.org/GNOME/gnome-session
+Description: Ubuntu session with GNOME Shell
+ This package contains the required components for a GNOME session
+ with default Ubuntu configuration, based on the GNOME Shell.
+
+Package: stackos-settings
+Architecture: all
+Version: 1.4
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-settings
+Depends: stackos-firefox
+Conflicts: ubuntu-settings
+Replaces: ubuntu-settings
+Filename: pool/main/stackos-settings.deb
+Size: 1312
+MD5sum: 94a6365f24ce65d90a1ffc073cc4aee3
+SHA1: 7b413e23fc85698f546d344e27dd9cc052de7352
+SHA256: a81f620ac84f5317ecf851619bc9ad71258887f0448d115150a0ea330271c139
+SHA512: bc364e31f6c24bbd18d735af31d8f5831852542f68edbd2aad9bedd2ef77e1daa7cf0a155b8058487980a66d463cf0420f2c1acb05c60631292f07238884c2da
+Description: Configuracoes padrao do StackOS Genesis
+ Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
+

@@ -203,7 +203,7 @@ Provides: ubuntu-drivers-common
 Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec, pciutils, kmod
 Conflicts: ubuntu-drivers-common
 Replaces: stackos-drivers (<< 1.4), ubuntu-drivers-common
-Filename: pool/main/stackos-drivers_1.5_amd64.deb
+Filename: pool/main/stackos-drivers.deb
 Size: 7428
 MD5sum: 6b4b03be2c748b0b2cdeeed272c88a89
 SHA1: f434cb96272d63cf897c15fb256f1e3ade879551
@@ -431,7 +431,7 @@ Provides: ubuntu-settings
 Depends: stackos-firefox
 Conflicts: ubuntu-settings
 Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings_1.4_all.deb
+Filename: pool/main/stackos-settings.deb
 Size: 1312
 MD5sum: 94a6365f24ce65d90a1ffc073cc4aee3
 SHA1: 7b413e23fc85698f546d344e27dd9cc052de7352

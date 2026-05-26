@@ -1,0 +1,120 @@
+Package: gnome-control-center
+Architecture: amd64
+Version: 1:50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 4575
+Depends: accountsservice (>= 23.11.69), colord, desktop-file-utils, gnome-control-center-data (<< 1:51~), gnome-control-center-data (>= 1:50.0-0ubuntu6.1), gnome-desktop3-data, gnome-online-accounts (>= 3.51.0), gnome-settings-daemon (>= 48~rc), gsettings-desktop-schemas (>= 50~alpha), heif-gdk-pixbuf, heif-thumbnailer, language-selector-gnome (>= 0.179~), libjxl-gdk-pixbuf, mutter-common (>= 47), tecla (>= 47), upower, webp-pixbuf-loader, whoopsie-preferences, libaccountsservice0 (>= 23.13.9), libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcolord-gtk4-1t64 (>= 0.1.24), libcolord2 (>= 1.4.3), libcups2t64 (>= 1.7.0), libdrm2 (>= 2.4.3), libepoxy0 (>= 1.0), libfontconfig1 (>= 2.12.6), libgcr-4-4 (>= 3.8.0), libgdk-pixbuf-2.0-0 (>= 2.30.1), libglib2.0-0t64 (>= 2.83.0), libgnome-bg-4-2t64 (>= 3.27.90), libgnome-bluetooth-ui-3.0-13 (>= 42~beta), libgnome-desktop-4-2t64 (>= 3.33.4), libgnutls30t64 (>= 3.7.0), libgoa-1.0-0b (>= 3.51.0), libgoa-backend-1.0-2 (>= 3.51.0), libgraphene-1.0-0 (>= 1.5.4), libgsound0t64 (>= 1.0.1), libgtk-4-1 (>= 4.21), libgtop-2.0-11 (>= 2.22.3), libgudev-1.0-0 (>= 146), libibus-1.0-5 (>= 1.5.2), libinsights0 (>= 0.8.1), libjson-glib-1.0-0 (>= 1.5.2), libkrb5-3 (>= 1.8+dfsg), libmalcontent-0-0 (>= 0.14~alpha), libmm-glib0 (>= 1.16.6), libnm0 (>= 1.52.0), libnma-gtk4-0 (>= 1.10.2), libpango-1.0-0 (>= 1.37.2), libpolkit-gobject-1-0 (>= 0.99), libpulse-mainloop-glib0 (>= 0.99.1), libpulse0 (>= 0.99.1), libpwquality1 (>= 1.1.0), libsecret-1-0 (>= 0.7), libsmbclient0 (>= 2:4.0.3+dfsg1), libsoup-3.0-0 (>= 3.0.3), libudisks2-0 (>= 2.0.0), libupower-glib3 (>= 1.90.6), libwacom9 (>= 2.0.0), libwayland-client0 (>= 1.20.0), libwhoopsie-preferences0 (>= 0.9), libx11-6, libxml2-16 (>= 2.14.1)
+Recommends: cracklib-runtime, cups-pk-helper, fwupd, gnome-bluetooth-sendto, gnome-control-center-faces, gnome-remote-desktop (>= 47), gnome-user-docs, ibus, iso-codes, libcanberra-pulse, libspa-0.2-bluetooth | pulseaudio-module-bluetooth, mobile-broadband-provider-info, nm-connection-editor | network-manager-gnome (<< 1.36.0-3~), polkitd, power-profiles-daemon, rygel | rygel-tracker, system-config-printer-common
+Suggests: gnome-software | gnome-packagekit, gnome-user-share, gstreamer1.0-plugins-good (>= 1.18.0), malcontent-gui, realmd
+Breaks: gnome-remote-desktop (<< 42), gnome-shell (<< 49)
+Filename: pool/main/gnome-control-center-stackos_50.0_amd64.deb
+Size: 1868142
+MD5sum: 6ef87cb9d736d45ab3b6798d2350590c
+SHA1: c1fa89cdd03e64d4972ccc3ee5ba9a1c69a9862c
+SHA256: 1336e41271c06621876902302ab127c5a6f5feab9a32f119e3a3aa96b65e34d8
+SHA512: b19a46648421dd336f6b3ff7a0bc918a69894427641dae1009f83a3515fd6d93c2ec3179031b611be810b66e2cedb887662a7d9e3c966611b6adecfa7dc03287
+Description: utilities to configure the GNOME desktop
+ This package contains configuration applets for the GNOME desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other GNOME parameters.
+ .
+ It also contains a front end to these applets, which can also be
+ accessed with the GNOME panel or the Nautilus file manager.
+
+Package: stackos-branding
+Architecture: all
+Version: 1.5
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-settings
+Conflicts: gnome-initial-setup, update-notifier, update-manager
+Filename: pool/main/stackos-branding_1.5_all.deb
+Size: 924
+MD5sum: 6d795ab2f144bfe3f98cca3e3c0ee9ee
+SHA1: eb663c99c8f27737daef4929816aa4388094c5e2
+SHA256: 01b5a3ccf4b900f9c71def81ca63af6ce7c0a1d943466661d58fc7e2f73002c3
+SHA512: dc0076f7278daf3c635a301a57a234e7b754ad53c9d6246547f106338c56aa0c73d3b5d1291e60a198694b81ae095baaa49c2b251ef82d8256567c63c74763a2
+Description: Identidade visual do StackOS Genesis
+ Logos, icones e identidade visual oficial da distribuicao StackOS Genesis.
+
+Package: stackos-control-center-data
+Architecture: all
+Version: 1:50.0-2stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Source: gnome-control-center
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 580
+Provides: gnome-control-center-data (= 1:50.0-1stackos1)
+Depends: dconf-gsettings-backend | gsettings-backend
+Conflicts: gnome-control-center-data
+Replaces: gnome-control-center-data
+Filename: pool/main/stackos-control-center-data_50.0-2_all.deb
+Size: 391456
+MD5sum: 39b971e4232a3111821bed33af761e43
+SHA1: 53cc102b4376cb8661544229d11539a45a02b045
+SHA256: a2ae7588582e94bc49045dd98514b7c5c5b869de364ae616ec03f6dd7e07d656
+SHA512: a666397bfc33b225868a43cf8aa4e769d0d9ca7306a2928b36ade921f081c662ca2f2f7e8c8552246b5a2a78db85e985e638f9ce6bff5dc4ed19984b3edf8aee
+Description: configuration applets for GNOME - data files
+ This package contains data files (icons, pixmaps, locales files) needed by
+ the configuration applets in the gnome-control-center package.
+
+Package: stackos-icons
+Architecture: all
+Version: 1.3
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-icons_1.3_all.deb
+Size: 5086562
+MD5sum: cf92f6242cbb526a9b6ef16f98ed43a0
+SHA1: 025410e0ef61f0337974b81c027da19828efae22
+SHA256: 626aa27e128f87937ea181978d90d572f88d5ba71712a71e5fd1a1a148aa4755
+SHA512: 9b2fc87301da8b5954e3771e8bfe7761e73a55bdcc07ba728b6dfc28ab8da0cbbf07254cdced550a03670c8519a273c04c5abd8a7110c03ee7eefe3c11e74837
+Description: Icones oficiais do StackOS Genesis
+ Icones oficiais de todos os aplicativos do StackOS Genesis.
+
+Package: stackos-plymouth
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Team <stackoslinux@gmail.com>
+Depends: plymouth, plymouth-themes
+Filename: pool/main/stackos-plymouth_1.0_all.deb
+Size: 1178174
+MD5sum: b1ca722937d3027e7a7f7abae66e04de
+SHA1: e181b51a2451dbf8c8f5e64bf1cde0ef802b442e
+SHA256: 5ae926aa5b86287b09e1587c7a8ef566fdf28eed04976992823e4cb11b1ad0e1
+SHA512: 16b10f4488a415acf18396e748a243d94108c5d4494d36f6f1e9923e156ef308fb607eca45b9733113040f5131ee5c7563066f5e259a709bb61afaad5dfef462
+Description: Tema de boot Plymouth do StackOS Genesis
+ Exibe a splash screen do StackOS durante o boot.
+
+Package: stackos-themes
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: papirus-icon-theme
+Filename: pool/main/stackos-themes_1.0_all.deb
+Size: 218230
+MD5sum: 3619c39ca95a678f9443d97a9e792be1
+SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
+SHA256: 23da7d393bd54511632794b25a3eacd89539264da5a0a73f048df316054a7be8
+SHA512: 42cc47e79b48b393219debace453df2cf9104a139cd5173ff848984625975d5d73b73cdfc1737bfb7479c6d2e8059d7c401791173dec60dd78c90f05e2a0913b
+Description: Tema oficial do StackOS Genesis
+ Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
+
+Package: stackos-wallpapers
+Architecture: all
+Version: 1.0
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: pool/main/stackos-wallpapers_1.0_all.deb
+Size: 2732608
+MD5sum: 613078c8a78286d6c0b229e45090947d
+SHA1: f74dc5c9f518d2bf5ff815c384591dceba2dbc64
+SHA256: 405ab5cb672fab7598467a61d0d750016ad37d16614f01f19fa420bc09fec41d
+SHA512: 3a9026f199702866a95f3f2b49704f21d640a7f16eac0bd4ed0134fb6b157374d0a9b696c7ad16fea441d0f651e536da9ef7c020a42dc17baffee2450bb88a44
+Description: Wallpapers oficiais do StackOS Genesis
+ Colecao de wallpapers oficiais da distribuicao StackOS Genesis.
+
