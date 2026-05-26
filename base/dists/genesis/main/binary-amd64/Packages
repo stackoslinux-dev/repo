@@ -174,20 +174,6 @@ Description: StackOS replacement for Ubuntu release upgrader
 
 Package: stackos-repo
 Architecture: all
-Version: 1.3
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: stackos-settings
-Filename: pool/main/stackos-repo_1.3_all.deb
-Size: 3868
-MD5sum: 09093ba7252595c3a13554837df2196c
-SHA1: 0904208ccf463b4b24001400e5a292e00b166ee7
-SHA256: ee9f104d55bb2671ca474cbb9f2d44b6daae39d98c72406ef846fb111121b516
-SHA512: 9095dc7b41cee211ffe0853833a68433b3a0b6ada03fa845a5cb1b2a8b854ba18f87c40d595f0bb4658eac183c81c802b64f530d9d543e9f8c92faf5c839c59a
-Description: Repositorio oficial StackOS Genesis
- Configura o repositorio APT online do StackOS Genesis.
-
-Package: stackos-repo
-Architecture: all
 Version: 1.4
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-settings
@@ -241,40 +227,6 @@ Homepage: https://gitlab.gnome.org/GNOME/gnome-session
 Description: Ubuntu session with GNOME Shell
  This package contains the required components for a GNOME session
  with default Ubuntu configuration, based on the GNOME Shell.
-
-Package: stackos-settings
-Architecture: all
-Version: 1.4
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Provides: ubuntu-settings
-Depends: stackos-firefox
-Conflicts: ubuntu-settings
-Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings.deb
-Size: 1312
-MD5sum: 94a6365f24ce65d90a1ffc073cc4aee3
-SHA1: 7b413e23fc85698f546d344e27dd9cc052de7352
-SHA256: a81f620ac84f5317ecf851619bc9ad71258887f0448d115150a0ea330271c139
-SHA512: bc364e31f6c24bbd18d735af31d8f5831852542f68edbd2aad9bedd2ef77e1daa7cf0a155b8058487980a66d463cf0420f2c1acb05c60631292f07238884c2da
-Description: Configuracoes padrao do StackOS Genesis
- Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
-
-Package: stackos-settings
-Architecture: all
-Version: 1.5
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Provides: ubuntu-settings
-Depends: stackos-firefox
-Conflicts: ubuntu-settings
-Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings_1.5_all.deb
-Size: 1460
-MD5sum: eb9397723c6d4f215ef4972090d65b54
-SHA1: d1250c875ceedbb8f7208767e39ec851a631add0
-SHA256: 1ade32242080790b44c8afae66e2121b76c9b3baff617b1ed538cfb2811cffdf
-SHA512: 0d241296cd0f7c2e5bd483a3becb5352bee04688cf2ce276ff78a6406dbb29b4c918fc658f87d39d207c03c6a01d6c12dfd9ba2d87c415a31877c18e0c92fde0
-Description: Configuracoes padrao do StackOS Genesis
- Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
 Package: stackos-settings
 Architecture: all
