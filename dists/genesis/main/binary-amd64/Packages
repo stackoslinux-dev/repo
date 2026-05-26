@@ -94,6 +94,29 @@ SHA256: 103c79d6413b851d59452c57ec365b3e355f4b6309785bf2ea0de3f5660dba53
 
 Package: stackos-control-center-data
 Source: gnome-control-center
+Version: 1:50.0-2stackos1
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: gnome-control-center-data (= 1:50.0-1stackos1)
+Replaces: gnome-control-center-data
+Conflicts: gnome-control-center-data
+Installed-Size: 580
+Depends: dconf-gsettings-backend | gsettings-backend
+Section: gnome
+Priority: optional
+Multi-Arch: foreign
+Description: configuration applets for GNOME - data files
+ This package contains data files (icons, pixmaps, locales files) needed by
+ the configuration applets in the gnome-control-center package.
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Filename: pool/main/stackos-control-center-data_50.0-2_all.deb
+Size: 391594
+MD5sum: c8c7ddcdcd28ce4bad64f8a19b480a23
+SHA1: a7196247cc3599d194d7022f0a0d4b47a8a438ea
+SHA256: f1793c1be13237b2daeea74e6de1719a4e3eb6a14ecf10b49b09bed1a3f8d6bd
+
+Package: stackos-control-center-data
+Source: gnome-control-center
 Version: 1:50.0-1stackos1
 Architecture: all
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
