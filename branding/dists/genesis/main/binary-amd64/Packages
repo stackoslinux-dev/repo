@@ -42,7 +42,7 @@ Description: Identidade visual do StackOS Genesis
 
 Package: stackos-control-center-data
 Architecture: all
-Version: 1:50.0-2stackos1
+Version: 1:50.0-4stackos1
 Multi-Arch: foreign
 Priority: optional
 Section: gnome
@@ -54,12 +54,12 @@ Provides: gnome-control-center-data (= 1:50.0-1stackos1)
 Depends: dconf-gsettings-backend | gsettings-backend
 Conflicts: gnome-control-center-data
 Replaces: gnome-control-center-data
-Filename: pool/main/stackos-control-center-data_50.0-2_all.deb
-Size: 391456
-MD5sum: 39b971e4232a3111821bed33af761e43
-SHA1: 53cc102b4376cb8661544229d11539a45a02b045
-SHA256: a2ae7588582e94bc49045dd98514b7c5c5b869de364ae616ec03f6dd7e07d656
-SHA512: a666397bfc33b225868a43cf8aa4e769d0d9ca7306a2928b36ade921f081c662ca2f2f7e8c8552246b5a2a78db85e985e638f9ce6bff5dc4ed19984b3edf8aee
+Filename: pool/main/stackos-control-center-data_50.0-4_all.deb
+Size: 392396
+MD5sum: e1c1c5be20ffd5e451d9a460dc6ce672
+SHA1: b11872dbec230cdee3a26e39e272a25f0f2b7dc5
+SHA256: d640fb2991b1a59762922cabd98eeac7f302ce07e02bf4acceaeabfaa2d9e9b7
+SHA512: e2592d8910e496dc352ce055d82aeca384b9e5dbb3a09e87632440f9258befe76302d59c4cf990708e32a1093e5b4da1835584322e8040049ebe81226f01ff9c
 Description: configuration applets for GNOME - data files
  This package contains data files (icons, pixmaps, locales files) needed by
  the configuration applets in the gnome-control-center package.
