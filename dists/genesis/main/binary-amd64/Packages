@@ -173,25 +173,6 @@ Description: StackOS Drivers - Gerenciador de drivers do StackOS
  Mostra versao instalada, driver ativo e kernel no header.
 Provides: ubuntu-drivers-common
 Conflicts: ubuntu-drivers-common
-Filename: pool/main/stackos-drivers_1.4.1_amd64.deb
-Size: 7424
-MD5sum: f5b5b324c64cd7720281ebc5e325999a
-SHA1: 106ea1806fc09a1fd94781263a30fd7d456076e0
-SHA256: 36da0fb25bafbb47a6bbc3d5fa622ee98493c1c6e52ffaffdc73de7bb2b5aee4
-
-Package: stackos-drivers
-Version: 1.4
-Section: utils
-Priority: optional
-Architecture: amd64
-Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec, pciutils, kmod
-Replaces: stackos-drivers (<< 1.4), ubuntu-drivers-common
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Description: StackOS Drivers - Gerenciador de drivers do StackOS
- Deteccao correta de GPU Intel, NVIDIA e AMD em sistemas hibridos.
- Mostra versao instalada, driver ativo e kernel no header.
-Provides: ubuntu-drivers-common
-Conflicts: ubuntu-drivers-common
 Filename: pool/main/stackos-drivers_1.4_amd64.deb
 Size: 7424
 MD5sum: f5b5b324c64cd7720281ebc5e325999a
@@ -394,22 +375,6 @@ Size: 3804
 MD5sum: e795b7d6917ca24fa48043eab9c3d732
 SHA1: fd333337700a59e45144bad2597606ca2bec4259
 SHA256: 9317ed3fa8a01dac78890e4a7dd41f6dbf5b9b149c5d405366df9f1dbd03d1df
-
-Package: stackos-settings
-Version: 1.3
-Architecture: all
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: stackos-firefox
-Description: Configuracoes padrao do StackOS Genesis
- Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
-Provides: ubuntu-settings
-Conflicts: ubuntu-settings
-Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings_1.3.1_all.deb
-Size: 1314
-MD5sum: 7138d3bc172fe2a7d4d1154fc7a95161
-SHA1: f7af4f8a65d631476ac8ff9eb0fe9d511f483c80
-SHA256: 6262b995063ee69ac24bd5ca65e175cfcee71938b1cd317642d84d2efb3a0974
 
 Package: stackos-settings
 Version: 1.3
