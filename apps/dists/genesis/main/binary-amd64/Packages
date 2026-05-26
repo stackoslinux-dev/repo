@@ -42,17 +42,17 @@ Description: Configuracoes Firefox para StackOS Genesis
 
 Package: stackos-store
 Architecture: amd64
-Version: 1.5
+Version: 1.6
 Priority: optional
 Section: utils
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, pkexec
-Filename: pool/main/stackos-store_1.5_amd64.deb
-Size: 11086
-MD5sum: 2ab074af1d4ee5e8b9b2cbd46ac6428d
-SHA1: 78dad8f1d3137f39b993a10241c1938ae45edb96
-SHA256: c925fb8ef82bf8878761047e2205f9d7ffc1dffaab144517f12f18939fa0229a
-SHA512: 9a78cf58db0135154a08d228d4336f0c9d343abb939659012e11b9df2168f6d296ac6f2e149aa2beeebcef9cac8b6f8d6fe77c3e448858e3d47990eb8ddc63b7
+Filename: pool/main/stackos-store_1.6_amd64.deb
+Size: 11248
+MD5sum: d7eeb0f0dadf4cbd250a8c4456bdf779
+SHA1: 215c1420b881525facbb0b184e8ca125f07f080b
+SHA256: 23b533766464cafca78a2ba7571709b480e7837733ef939d727b626d46610381
+SHA512: 340e28f74512e362468954d58f5b2c288b5ff1847293bcf674f4f6699576b66da044c288bcfdc2c6b255ba08d5ae7c5d98cd45eec4514aa989388970c3ca8042
 Description: StackOS Store - Loja de aplicativos do StackOS
  Loja grafica de aplicativos baseada em GTK4 para sistemas
  baseados em Debian/Ubuntu. Permite instalar, remover e
