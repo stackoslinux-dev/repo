@@ -174,15 +174,15 @@ Description: StackOS replacement for Ubuntu release upgrader
 
 Package: stackos-repo
 Architecture: all
-Version: 1.4
+Version: 1.5
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: stackos-settings
-Filename: pool/main/stackos-repo_1.4_all.deb
-Size: 794
-MD5sum: e217615c41042528bf68038a4e6ae77f
-SHA1: 627036b9276bab5fa16e0ff2599b43eeb61823f5
-SHA256: 9c5de3a3977d3a65e3812c95e4715b0c2e8222a86c8f8b207d64a8499f093284
-SHA512: 4da622e64a139fc40df59f0201a3ee417b8f57810f203bbb1d05175f8857d9a9bfc5daa492c1b55b5c2483a189124773a93ff993478e5eb37c101cf20fb76192
+Filename: pool/main/stackos-repo_1.5_all.deb
+Size: 804
+MD5sum: 7823bff1cd1b78f3a75a8c138bfa2d70
+SHA1: 96c9966f91f787b780e70b5c5453a6a61ec2a173
+SHA256: a60bf3b5abb8252e9357c46df2824d954bdf309643b99238cf1c7f01d69e4ffb
+SHA512: 0a5941f9acc80763b6ef9f1218a21f4942ce7d6dbf51d44c3ac4986e1e9660a76c95fd3f8f264d40dae232e1c7663fef60fd7de41a426bb061dd0b8bf6d4e178
 Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 
