@@ -96,12 +96,12 @@ Architecture: all
 Version: 1.1
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: papirus-icon-theme
-Filename: pool/main/stackos-themes_1.1_all.deb
+Filename: pool/main/stackos-themes_1.0_all.deb
 Size: 391180
-MD5sum: 3ecf90e97e2beb80b19f8613b55843bd
-SHA1: 3b89467b4909ddd70f2d8d4548b2fc2145d8d8a6
-SHA256: 3a8e4a1aabba8461d01e72d20309577eb1d772e7317e40695acf983d4bf5a772
-SHA512: 981b908d76ab325256a626ca22dd4b04621b34d27e8b4045595ec1ae57b4ce5f01b171f76ed5e37108c0fff05c5f40a5a056d876c4b4dee2db04d62986334263
+MD5sum: f9e31be8a81abb71e535202b0fb64654
+SHA1: d4e1897916d6354099062d2a4a27ffa8a99b2bf5
+SHA256: 0b79a75cab5a8b472c3ef7ab11d869df8624bad681ad27e8440a8560ccd43be9
+SHA512: f307f7c9566076fa6c0eaa1095bc917a3c9fe307347cf22111661b90a1036d28e81e35da5ee2e7766b3e2114e27d4eab7892f19c77a66335762cd3fdb780536d
 Description: Tema oficial do StackOS Genesis
  Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
 

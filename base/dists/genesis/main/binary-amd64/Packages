@@ -230,18 +230,18 @@ Description: Ubuntu session with GNOME Shell
 
 Package: stackos-settings
 Architecture: all
-Version: 1.7
+Version: 1.6
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Provides: ubuntu-settings
 Depends: stackos-firefox
 Conflicts: ubuntu-settings
 Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings_1.7_all.deb
+Filename: pool/main/stackos-settings_1.6_all.deb
 Size: 1838
-MD5sum: f483c9983af50e4fa7dcd5067023ddf1
-SHA1: a8ec9f25895fe72416b047561147a85d555270f9
-SHA256: 7e84e837a9b3411596ecef085f661d2e942f9872e9d05a97c8850a98fbf3c81d
-SHA512: 66a49ea743e68ee70d881e5e8a5ed0705d2a60844e4071d3048d0d59b93f65cb36293ab2e98225a379e407fa08fe25bc162189392ba092e4894a90f3a0ab3f11
+MD5sum: 6135b4f708d0cf2e367c10eeba64d05e
+SHA1: a0a9f7c90ede457b2ae44422e4adb806d275dc4b
+SHA256: 390006ceede0d6058cbf5ee9dd9c6e6cb69f8dabbb016c98507d23496ed10d4f
+SHA512: f989920224bb8bb6b0a138d7132e246b8b9ae6f484264c645c9efc8182346c7826d7bbb6f2a92da10ba0f92b7faa0f0421584d2a60a9873625ab68becf1c855b
 Description: Configuracoes padrao do StackOS Genesis
  Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
 
