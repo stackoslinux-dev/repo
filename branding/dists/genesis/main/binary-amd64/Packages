@@ -93,15 +93,15 @@ Description: Tema de boot Plymouth do StackOS Genesis
 
 Package: stackos-themes
 Architecture: all
-Version: 1.0
+Version: 1.1
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: papirus-icon-theme
-Filename: pool/main/stackos-themes_1.0_all.deb
-Size: 218230
-MD5sum: 3619c39ca95a678f9443d97a9e792be1
-SHA1: 21b8bfa15db5adc06915bab295d1ec6ab8b64323
-SHA256: 23da7d393bd54511632794b25a3eacd89539264da5a0a73f048df316054a7be8
-SHA512: 42cc47e79b48b393219debace453df2cf9104a139cd5173ff848984625975d5d73b73cdfc1737bfb7479c6d2e8059d7c401791173dec60dd78c90f05e2a0913b
+Filename: pool/main/stackos-themes_1.1_all.deb
+Size: 391180
+MD5sum: 3ecf90e97e2beb80b19f8613b55843bd
+SHA1: 3b89467b4909ddd70f2d8d4548b2fc2145d8d8a6
+SHA256: 3a8e4a1aabba8461d01e72d20309577eb1d772e7317e40695acf983d4bf5a772
+SHA512: 981b908d76ab325256a626ca22dd4b04621b34d27e8b4045595ec1ae57b4ce5f01b171f76ed5e37108c0fff05c5f40a5a056d876c4b4dee2db04d62986334263
 Description: Tema oficial do StackOS Genesis
  Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
 
