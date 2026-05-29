@@ -1,14 +1,24 @@
-Origin: StackOS
-Label: StackOS Genesis
-Suite: genesis
-Codename: genesis
-Date: Tue, 26 May 2026 13:21:35 +0000
 Architectures: amd64
+Codename: genesis
 Components: main
+Date: Fri, 29 May 2026 16:26:19 +0000
 Description: StackOS Genesis - installer repository
+Label: StackOS Genesis
+Origin: StackOS
+Suite: genesis
 MD5Sum:
- ee152e7983ecc713c26eba5f761340f2 745 main/binary-amd64/Packages
+ cf332e1d797cf12b29e558685a8df7dd              200 Release
+ fc2cf9ad45526b3240ce06fada17bf68              745 main/binary-amd64/Packages
+ 1215d8439991ee6d15aab549e1648281              534 main/binary-amd64/Packages.gz
 SHA1:
- 5131934a78d6e3e661d7daabb3a8ae27b454a33b 745 main/binary-amd64/Packages
+ a8f8e9f9d31667715c73160d5d388286d4228667              200 Release
+ 88c0d5b25424d88712e4b070353f5f70e33874f1              745 main/binary-amd64/Packages
+ d9dafd549a3a18c796a77f0d93513a19f9a65391              534 main/binary-amd64/Packages.gz
 SHA256:
- bb5e9de147faa91f3f885155cc13ba24c2c81681175f4dc202c675c83a821c02 745 main/binary-amd64/Packages
+ ac2e54f3fce171da1184d50fe0e8e0265bd01e6b088dc1ae889aef718e6d196f              200 Release
+ e6b386b2895480f7a4136299becec8aa236c08601202f902107d1eef175445b4              745 main/binary-amd64/Packages
+ ea88f39ac4fcbe6d6046018df8260b5346860ac2e8bc115da05886b49517685f              534 main/binary-amd64/Packages.gz
+SHA512:
+ 9e4453d04e40c3efb2fc3dd50e8a265888c1a2100793b2654a255c69e84f7514dceed493cbc3d8c7682be2311387e3a1cb02c69199653187606a4794d3b8156d              200 Release
+ 3632f80971fe44b83f50ac72f9f8f32b691602d37698e7eb0372675fc8c0593f72a69636a89db2f7883c2d6f5c2b1983fda63b944580a48f726cb41069e0806e              745 main/binary-amd64/Packages
+ dff91bde470b454ca4704a04779fb760bfc096228e30b519c6746f12d0fd448390d7cdb652e60b2322a12bc1b8e791bd47e4a10d9c4208093f1d636fb99284ff              534 main/binary-amd64/Packages.gz

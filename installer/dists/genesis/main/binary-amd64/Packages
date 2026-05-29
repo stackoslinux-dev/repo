@@ -1,14 +1,14 @@
 Package: stackos-installer
 Architecture: amd64
-Version: 2.0
+Version: 2.1
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Depends: python3, python3-gi, gir1.2-gtk-4.0, gdisk, dosfstools, e2fsprogs, grub-efi-amd64 | grub-pc, os-prober
-Filename: pool/main/stackos-installer_2.0_amd64.deb
-Size: 10798
-MD5sum: c01911d4b50576f95a9b0c72eff6a728
-SHA1: 9c8ba896892bf9fa9e39033f9e746b517507203a
-SHA256: 0888c0aa37f79fcaa62139b8782fea633bd8d30664e106b4fe2b320d699df495
-SHA512: dc37b96bdd9c21dab4fa0cfdceb46e7c59c24748b6d5cb1c3720192e974a0a5d3b39aed4f88000016ed2ac007d5260f82523bf696c547e79f0a3f9b3a1bf327f
+Filename: pool/main/stackos-installer_2.1_amd64.deb
+Size: 10854
+MD5sum: 1f4a666b977d91898689a141173f1a08
+SHA1: b9ddf60d18d5379247910c8b659233ccfa2b9ef0
+SHA256: 278f3a9d6b219cacaa50a50054bc85ba34a34becb5b77f86b092ad2d833e01b3
+SHA512: 4b5c856ae37f8abf10f7e26c67889c2e5e78fa6004ec5fd8f566eb972767f3f367840ebc85c92e7676de8bc1f37a2e3cce6991f28b4ea2471b8d23ae959f3397
 Description: Instalador oficial do StackOS Genesis
  Instalador grafico modular com suporte a UEFI/BIOS,
  dual boot seguro, rollback automatico e log completo.
