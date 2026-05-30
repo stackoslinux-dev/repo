@@ -89,6 +89,23 @@ SHA512: afc23f311ce1ed05a6953b5b7978f930d6123999fb914a06f3bfb904d0f53f04bf566e98
 Description: StackOS replacement for ubuntu-docs
  Empty package that replaces Ubuntu branding package.
 
+Package: stackos-icons
+Architecture: all
+Version: 1.4
+Priority: optional
+Section: x11
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: yaru-theme-icon, hicolor-icon-theme
+Filename: pool/main/stackos-icons_1.4_all.deb
+Size: 5049124
+MD5sum: 67ac5a1319535ad39ff962b4d998925b
+SHA1: 8a40aa5b05b39163cd65c9bdc6996bce6d413f4f
+SHA256: 79538ddfa42b9339143ffabc401f64020ed5acf945e65d3c6b51571ad70fcc21
+SHA512: 761567e28efe8feb6339485b623b8d2141f14c7c69083e00176fcce88dde28e6afd6b6e2e59c819c1a4a404fd359a7b1e1fefb5647e2d2556260bebb073dc783
+Description: Tema de icones do StackOS Genesis
+ Tema StackOS-blue que herda do Yaru-blue, com identidade propria e a
+ robustez do conjunto Yaru. Inclui os icones dos aplicativos StackOS.
+
 Package: stackos-insights
 Architecture: all
 Version: 1.0stackos1
