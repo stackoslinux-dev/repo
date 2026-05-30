@@ -67,6 +67,26 @@ Description: StackOS Store - Loja de aplicativos do StackOS
   - Aplicacao de atualizacoes com um clique (apt upgrade)
   - Gerenciamento de backups do sistema
 
+Package: stackos-updater
+Architecture: all
+Version: 1.1
+Priority: optional
+Section: admin
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: python3, python3-gi, gir1.2-gtk-3.0, gir1.2-ayatanaappindicator3-0.1, gir1.2-notify-0.7, packagekit, gir1.2-packagekitglib-1.0, pkexec
+Filename: pool/main/stackos-updater_1.1_all.deb
+Size: 5646
+MD5sum: 48ca80b3abf3274d7ee1703ea4b470c1
+SHA1: 44167cd43c5b29aab2f887efdbe3273a8ebb1c66
+SHA256: 74e86db8046f58e47dfd5ce153af262f26b27ab58481a6d2a149e47b12e1dfdc
+SHA512: a349175bb0f603664f3dfebd514e2926a2a58fd7d119737fd2ef59689dfc932a1f486433ec908a59ece7b2448d8bf59ec07c71f3723b05d4ad372be4aabb771e
+Description: Atualizador grafico do StackOS Genesis
+ Applet de bandeja com semaforo de atualizacoes (verde/amarelo/vermelho).
+ Verifica atualizacoes ao iniciar a sessao e periodicamente. Abre uma janela
+ propria do StackOS com a lista de pacotes, botao de atualizar e barra de
+ progresso. A instalacao usa PackageKit, que solicita a senha de
+ administrador de forma segura (o applet nao tem privilegio root).
+
 Package: stackos-welcome
 Architecture: all
 Version: 1.2
