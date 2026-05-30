@@ -230,18 +230,21 @@ Description: Ubuntu session with GNOME Shell
 
 Package: stackos-settings
 Architecture: all
-Version: 1.7
+Version: 1.8.2
+Priority: optional
+Section: x11
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Provides: ubuntu-settings
-Depends: stackos-firefox
-Conflicts: ubuntu-settings
-Replaces: ubuntu-settings
-Filename: pool/main/stackos-settings_1.7_all.deb
-Size: 1830
-MD5sum: 5c234c2bd7986c9dcf62a309f8f46253
-SHA1: 3742e8bb209e61fffdfe7f9ddadf06d57d787540
-SHA256: 50314d3f96b7ba0c7afe9770e348383b3ac45b15a04e8e1513713ca39926488f
-SHA512: 1d7437de48c71e10c17644ccf7f18e136dd7de38089965ff23a17299b333eb86ecd059b0448ccf4bfd14c885db50381a8eda2507167b5a4f408f0d11787e0d7d
+Depends: dconf-cli, stackos-themes, stackos-icons (>= 1.4), stackos-wallpapers, fonts-inter, fonts-jetbrains-mono
+Recommends: gnome-shell-extension-user-theme | gnome-shell-extensions
+Filename: pool/main/stackos-settings_1.8.2_all.deb
+Size: 2130
+MD5sum: 0c6ab6f3a023e510981926dab83b65f3
+SHA1: 5876d7d4f1522cd2607f940a06b98925caf08056
+SHA256: c47f000e98a68b0b2d0f5b50a5ffae44e1a323cd84f9e0c7af70f35b8e2c68c9
+SHA512: fc4e36d076aa9f9fcc7393bcef05f651d99db68b109e3f0f84e6de6d59cfca8181ec2869ef6f4f202c2c8ebe3539efa01b04a849c79913bc55cc5b1be388cf67
 Description: Configuracoes padrao do StackOS Genesis
- Configuracoes GNOME e dconf padrao da distribuicao StackOS Genesis.
+ Define a identidade visual PADRAO do sistema via dconf: tema Orchis-Purple-Dark,
+ icones StackOS-blue, fontes Inter e JetBrains Mono, papel de parede e dock.
+ O usuario tem liberdade total para personalizar; estes sao apenas os padroes.
+ Por residirem no dconf de sistema, resistem a atualizacoes do Ubuntu.
 
