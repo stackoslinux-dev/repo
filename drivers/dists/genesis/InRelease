@@ -1,33 +1,43 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-Origin: StackOS
-Label: StackOS Genesis
-Suite: genesis
-Codename: genesis
-Date: Tue, 26 May 2026 13:21:35 +0000
 Architectures: amd64
+Codename: genesis
 Components: main
+Date: Sat, 30 May 2026 16:55:51 +0000
 Description: StackOS Genesis - drivers repository
+Label: StackOS Genesis
+Origin: StackOS
+Suite: genesis
 MD5Sum:
- 37e0e5ba9b2192919758ea9e5eb268e0 876 main/binary-amd64/Packages
+ 81a544334b1886399346eba885f22b29              455 Release
+ 37e0e5ba9b2192919758ea9e5eb268e0              876 main/binary-amd64/Packages
+ 40a00e78483d11cc83ae97b220a49669              586 main/binary-amd64/Packages.gz
 SHA1:
- 431e8bd33cc5e0e6b5cc0a8bb396893d369aa571 876 main/binary-amd64/Packages
+ c1d8f9bc3a0ded98d4cc2c0319a5e1881ec53af5              455 Release
+ 431e8bd33cc5e0e6b5cc0a8bb396893d369aa571              876 main/binary-amd64/Packages
+ b22e39c5ed92d793aa4b3f6e7349a6dc3171a8ec              586 main/binary-amd64/Packages.gz
 SHA256:
- 7c82a0f32de417b85090bc3bb12af3b1514d56d9f1ff51d371c775e86e1b74bd 876 main/binary-amd64/Packages
+ a86cd697dd51198302c399c06bb9c71eb317487ac1176ee0003cbed67bcfc66b              455 Release
+ 7c82a0f32de417b85090bc3bb12af3b1514d56d9f1ff51d371c775e86e1b74bd              876 main/binary-amd64/Packages
+ ff91205834c0e91ffb260dbd8b525f96598c0ffbe56c697e3a6d2f8649ba8d3e              586 main/binary-amd64/Packages.gz
+SHA512:
+ 6ee3ebfd60a9ee1378d4d60b62d5ab63e0f8d760d95289ad2e9a7b8815c3e59b1accabd9097d8da6aea0b29492dfb47d9289fef1e512118dd626cb94fbe88849              455 Release
+ f9439370b6f6927884759e6671d38ae4c2e612794a72255dbe2234dbf6582323b51aa0a5d5c134eba35fcf78a21fb6d5f3376919f919778f2fd00b820ba1c312              876 main/binary-amd64/Packages
+ 01bed5a44002975ff5247d7677df6ff2116a286579a5aa908fd67e3766f24f3dd02be28971562c1c649864eb75d201afae02220266bab7ba48028a3e776d0864              586 main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE6EleV0SGPUbHDCJqJG5CcAfAI14FAmobEjUACgkQJG5CcAfA
-I15oQxAAuP10+5zFJdvYo2ugY9ItphkIY9Mmw/Q6hbQUR8WNArn9YXFv2WSn8+nr
-s9qsyZSk1z0apKpi01IM3SXV4HBZSGRglTu6wYsh6fV1zbSG0EV2uBKFauODPaEG
-3TKGQ1bev9fdUtNEVPFN+vTsDv5uL1pjUTuDUqcUG63d/GsCGXUApTjGRZ7ctBRv
-Dx7Hu2pyev/58rbhhXnEr7EiF0hkN3qWPef4IbTPhulJ6T8lQ6KoRbDMwrBdUnkR
-dpc6y/0dqmAFqpum+WEYygVLnvU5Giue2YqxzTNOdDcyz2sM2URuPEeSG9LenD09
-rPn7WgPEze3NwdfdFwwwy9sWVXV1smpS+LmCvX4Xilrjd+u0M8pUCkot41qHtttz
-rhYlbDivRlrmZhlKAqozoOjsUCk4fBYc+OJSI1C2qwOYgbdvwjd16ZvKkgayG/PB
-Br7HEA0ijJEGhE2lrmzPz1zqBg0mVrT0VTj6ipI9pl5TIfkVPx+c9D0Fe4DmwauG
-S+NLznn6WEfz1r4NkVQk9MSVT9KLnZdAbYvzi45osmj7ccgDIGL4Hk5tKtSLpZn/
-vjyYHZ9+V0kXbC8MOm6lRorxYDZ+BkBctk5NwGCHXn7Q3VeyhUk7zW+ZB5rb8ZUg
-e7f5DFxWm44CAukFgKb+gdphM6MMlSe/Z7dg82nP0V55oNdwXkw=
-=+Lb5
+iQIzBAEBCgAdFiEE6EleV0SGPUbHDCJqJG5CcAfAI14FAmobFpcACgkQJG5CcAfA
+I157Hg/+OqUuSqXKAwl8uKapFLfUPZwrxOWSLKl+Vaz/XAiKnWFg6xAIye5ASryY
+cjCmX7mt4eLl3SMLWeJDgpuf7v3RijNl5rgH1j6+twGmcADnGEgtYZSDp+XBkuHf
+GFWcfl/vhFuUXC8ZUMXTUSYtwrZwopjpIgveqgZZle/cZFwueMZilVOP4mk1+tjY
+OofCOl3840ncV6SqEwR06eTCRWyT3068tS/Z7PR+JzXjwdWRiyeR+gHl9KS5RRpd
+sYW1G0A5CMwhRDPafskqLNiqFYtof0gGuORzh93j+w6kdrs6lbVdEL42TJAqriad
+V8OuakaHwmSv3xztnNcXNPHFnAYzw28h2mOgWLGkqZhdrz2HkelFPPvYJUOXUxOz
+2pD6OH/Ab2W0H4tshifFobQVhmPJMu7NlPzaUgN09P538/FaBQADuytZAGsd707Y
+lBmZD9WxqUaXa/grwBl6ffoagwEnlMHlNixw4wQtN2kChG+6jYRyIRAgUmPRLvPw
+yt5Hx8n3TASQRx5UroT5c3qrc2q2yqIfh/Ia6+gUcLQSYKR1/hWO8FwW28MumVeM
+dBF/G2/YgzAb58+mDU5N0Ro+ymJYsSew/N4/yZPH9UXxxKDz4ImpAELcdmKwyXuA
+UL+iIRz/i0hP6uLtaQEOGQuMtQLVeuq4MKZtdWTIigX5FTIoYNo=
+=L2LE
 -----END PGP SIGNATURE-----
