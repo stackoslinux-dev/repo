@@ -108,17 +108,17 @@ Description: StackOS replacement for ubuntu-insights
 
 Package: stackos-keyring
 Architecture: all
-Version: 2025stackos2
+Version: 2025stackos3
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
 Provides: ubuntu-keyring
 Conflicts: ubuntu-keyring
 Replaces: ubuntu-keyring
-Filename: pool/main/stackos-keyring_2025stackos2_all.deb
-Size: 1814
-MD5sum: 9a4db9d6561cbab9e77237c16ad98052
-SHA1: 0bf548c042b267ad53c8af387cd94964b1aa4eb0
-SHA256: 26a1b3ec61e32f91c6aea38fde10d5c633f39252fdbf2f4d7ed0b11426fbd000
-SHA512: 942c9bb7593ba51b1262d600b36459aa58e124fba7c591a7c3ee0124057225c771241a7b07afa83b399cfec1d6968588b264c13c6df0270f80542d5e76956b26
+Filename: pool/main/stackos-keyring_2025stackos3_all.deb
+Size: 4648
+MD5sum: ddef8b47c176eef655fed19cfcd250f5
+SHA1: 36c457fca5556ab817358555771b21241730ff87
+SHA256: 1494d75ce7eb68260e5bcbff89714fc3ed92d5a266e82b40b26b167974e868ef
+SHA512: 8936d8293bee2ec1a56be5e4c09a01c7d3d7a00c8d7675f5860f6f9a3b8b099d62f4da057b740a0101059ddba3db42ddc3b65feeacf53ed6e282fd7d03372116
 Description: StackOS keyring with Ubuntu archive keys
  Contains GPG keys for StackOS and Ubuntu archive repositories.
 
@@ -174,15 +174,15 @@ Description: StackOS replacement for Ubuntu release upgrader
 
 Package: stackos-repo
 Architecture: all
-Version: 1.5
+Version: 1.6
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: stackos-settings
-Filename: pool/main/stackos-repo_1.5_all.deb
-Size: 920
-MD5sum: 0995770d1067da1c494ed0375d701bf3
-SHA1: 8900b77dfe94060b12383b50380c271a150716ba
-SHA256: 41f065dbd75bf7b6910439347a94d19ad62981dfe49de6e8b7b7fefb475606e1
-SHA512: 1985ca4e78a84d0310af240aac9cb01dcf1d5de1560382322e7003c69f2b7eb864861becdf843cacf2c34716a744170cd4d70d46d027da5e5b380b2f2d19ee60
+Depends: stackos-settings, stackos-keyring (>= 2025stackos3)
+Filename: pool/main/stackos-repo_1.6_all.deb
+Size: 992
+MD5sum: f5d794e4008ff0024589f497d9377eb2
+SHA1: 08090e9def1eab974a6d9cc7c37ccd9b515774f8
+SHA256: aeb845702445e73cfb407db16577f65642153f89bec8ae9d0d32136ff4692afa
+SHA512: 9c72e16404a581929892a70b7e10683fa36a2347fd9c4785fcade6517592d9e6e0b8c96274cbe517ae1d3480168bf8b7f15b27dbb421a4033877cf3ae5ccc1e3
 Description: Repositorio oficial StackOS Genesis
  Configura o repositorio APT online do StackOS Genesis.
 

@@ -1,0 +1,5 @@
+dists.bak-*/
+**/dists.bak-*/
+*.asc
+*.rev
+GPG-KEYS/

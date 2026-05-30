@@ -1,0 +1,33 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: StackOS
+Label: StackOS Genesis
+Suite: genesis
+Codename: genesis
+Date: Tue, 26 May 2026 13:21:35 +0000
+Architectures: amd64
+Components: main
+Description: StackOS Genesis - drivers repository
+MD5Sum:
+ 37e0e5ba9b2192919758ea9e5eb268e0 876 main/binary-amd64/Packages
+SHA1:
+ 431e8bd33cc5e0e6b5cc0a8bb396893d369aa571 876 main/binary-amd64/Packages
+SHA256:
+ 7c82a0f32de417b85090bc3bb12af3b1514d56d9f1ff51d371c775e86e1b74bd 876 main/binary-amd64/Packages
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE6EleV0SGPUbHDCJqJG5CcAfAI14FAmobEjUACgkQJG5CcAfA
+I15oQxAAuP10+5zFJdvYo2ugY9ItphkIY9Mmw/Q6hbQUR8WNArn9YXFv2WSn8+nr
+s9qsyZSk1z0apKpi01IM3SXV4HBZSGRglTu6wYsh6fV1zbSG0EV2uBKFauODPaEG
+3TKGQ1bev9fdUtNEVPFN+vTsDv5uL1pjUTuDUqcUG63d/GsCGXUApTjGRZ7ctBRv
+Dx7Hu2pyev/58rbhhXnEr7EiF0hkN3qWPef4IbTPhulJ6T8lQ6KoRbDMwrBdUnkR
+dpc6y/0dqmAFqpum+WEYygVLnvU5Giue2YqxzTNOdDcyz2sM2URuPEeSG9LenD09
+rPn7WgPEze3NwdfdFwwwy9sWVXV1smpS+LmCvX4Xilrjd+u0M8pUCkot41qHtttz
+rhYlbDivRlrmZhlKAqozoOjsUCk4fBYc+OJSI1C2qwOYgbdvwjd16ZvKkgayG/PB
+Br7HEA0ijJEGhE2lrmzPz1zqBg0mVrT0VTj6ipI9pl5TIfkVPx+c9D0Fe4DmwauG
+S+NLznn6WEfz1r4NkVQk9MSVT9KLnZdAbYvzi45osmj7ccgDIGL4Hk5tKtSLpZn/
+vjyYHZ9+V0kXbC8MOm6lRorxYDZ+BkBctk5NwGCHXn7Q3VeyhUk7zW+ZB5rb8ZUg
+e7f5DFxWm44CAukFgKb+gdphM6MMlSe/Z7dg82nP0V55oNdwXkw=
+=+Lb5
+-----END PGP SIGNATURE-----
