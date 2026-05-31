@@ -93,17 +93,20 @@ Description: Tema de boot Plymouth do StackOS Genesis
 
 Package: stackos-themes
 Architecture: all
-Version: 1.1
+Version: 1.2
+Priority: optional
+Section: x11
 Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Depends: papirus-icon-theme
-Filename: pool/main/stackos-themes_1.0_all.deb
-Size: 391180
-MD5sum: f9e31be8a81abb71e535202b0fb64654
-SHA1: d4e1897916d6354099062d2a4a27ffa8a99b2bf5
-SHA256: 0b79a75cab5a8b472c3ef7ab11d869df8624bad681ad27e8440a8560ccd43be9
-SHA512: f307f7c9566076fa6c0eaa1095bc917a3c9fe307347cf22111661b90a1036d28e81e35da5ee2e7766b3e2114e27d4eab7892f19c77a66335762cd3fdb780536d
-Description: Tema oficial do StackOS Genesis
- Tema GTK StackOS-Dark oficial da distribuicao StackOS Genesis.
+Filename: pool/main/stackos-themes_1.2_all.deb
+Size: 372992
+MD5sum: c38b3d4151e0ea47f797e35047bba259
+SHA1: 9eea7bd69501d69f6bc3dc1bd8e3dda3673a889e
+SHA256: 796a315f4aaacc7792dc26d91116bd4126bc4b728e021cf3e054a44ab0325127
+SHA512: cdf8739c1fe79024864217333953f849567fe7a8a0c8c15348df53b07b439fef7bdfe99f94c9b6e5d6ef4d96dc30a24e257d54f7efbf89f0f076317c880c270b
+Description: Temas GTK do StackOS Genesis
+ Temas Orchis-Purple-Dark e StackOS-Dark do StackOS Genesis.
+ Versao 1.2: pacote limpo (sem arquivos estranhos), sem dependencias
+ externas que puxem pacotes adicionais do Ubuntu.
 
 Package: stackos-wallpapers
 Architecture: all
