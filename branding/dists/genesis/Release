@@ -1,17 +1,23 @@
-Date: Sun, 31 May 2026 15:46:29 +0000
+Architectures: amd64
+Codename: genesis
+Components: main
+Date: Sun, 31 May 2026 17:31:01 +0000
+Label: StackOS Genesis
+Origin: StackOS
+Suite: genesis
 MD5Sum:
- 216d2f309d836157a87ab0832a023111               38 Release
+ de8c8f28793cd1d1bec27fe01b4f4c63              148 Release
  0db787a0cad3cc7cb10e0c41300b746b             7157 main/binary-amd64/Packages
  92861a03e55fdb57bbea5cffe76d1ffc             3193 main/binary-amd64/Packages.gz
 SHA1:
- ccd23476bcf6b2585201a320ffa9849ee699f147               38 Release
+ 717ef162eddbee37fc63e865088eefbf47397ffc              148 Release
  59f7580b6e0dce3ecb9f15b50215cbe3cb904f0c             7157 main/binary-amd64/Packages
  380e82e06cedd996d89f5696ad6962000fdd05d4             3193 main/binary-amd64/Packages.gz
 SHA256:
- 11b891079fd163813bec33d2534f2a016ffc89d842d768c59908c6cc5a203723               38 Release
+ e04c0915ffb3a19022e6eb1e22a4285099746779a325bce0fafd6f22a50c1306              148 Release
  8e717d8f64f2c63fc2451e23d8f935e6350dbbeafb6ac643124c6cc45579e99e             7157 main/binary-amd64/Packages
  4e0e17fae96f6d9f40ad275ce6e072171ec814b5c73ae564044f70489702d2a1             3193 main/binary-amd64/Packages.gz
 SHA512:
- b2accf9635b3d5606b53a2a38bc108be2ef8fccffdcf9a7bf63200d8668fc3ed51e6bbf589978600658f85adc460d0c32a8ac8e378998caf85a977d69df3fd8b               38 Release
+ 081e7bf1d735991131f9a7d9177cae9d4f3c0e1cc47eef0a93efea91079322a66ef5e1510829dd7f08c7d0ae16c26fdff75e824dfb840bfb8b55415842a2a2e3              148 Release
  310689fd8eb615048528d7a0a89693c0fe2258e4866adcde43b73829941a38639531c46de190db7f6febff827c43833034657667bba1c811a81d47b33f00c5c5             7157 main/binary-amd64/Packages
  deb8a53c68c0164fa993b4705549f7543a342ec853b3cebd9eb55f506ab8277789efac54a3a48ddad780ffa02eb66d82fabeb4a854cab841fd5411833adf030b             3193 main/binary-amd64/Packages.gz
