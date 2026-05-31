@@ -64,19 +64,6 @@ Description: configuration applets for GNOME - data files
  This package contains data files (icons, pixmaps, locales files) needed by
  the configuration applets in the gnome-control-center package.
 
-Package: stackos-icons
-Architecture: all
-Version: 1.3
-Maintainer: StackOS Linux <stackoslinux@gmail.com>
-Filename: pool/main/stackos-icons_1.3_all.deb
-Size: 5086562
-MD5sum: cf92f6242cbb526a9b6ef16f98ed43a0
-SHA1: 025410e0ef61f0337974b81c027da19828efae22
-SHA256: 626aa27e128f87937ea181978d90d572f88d5ba71712a71e5fd1a1a148aa4755
-SHA512: 9b2fc87301da8b5954e3771e8bfe7761e73a55bdcc07ba728b6dfc28ab8da0cbbf07254cdced550a03670c8519a273c04c5abd8a7110c03ee7eefe3c11e74837
-Description: Icones oficiais do StackOS Genesis
- Icones oficiais de todos os aplicativos do StackOS Genesis.
-
 Package: stackos-plymouth
 Architecture: all
 Version: 1.0
