@@ -1,3 +1,309 @@
+Package: adwaita-icon-theme
+Architecture: all
+Version: 50.0-1stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 13488
+Provides: adwaita-icon-theme-full (= 50.0-1), gnome-icon-theme-symbolic
+Depends: gtk-update-icon-cache, hicolor-icon-theme
+Recommends: librsvg2-common
+Suggests: adwaita-icon-theme-legacy
+Breaks: adwaita-icon-theme-full (<< 45.1), gnome-themes-standard-data (<< 3.18.0-2~), libmutter-12-0 (<< 44.8-3~), libmutter-13-0 (<< 45.3-3~)
+Replaces: adwaita-icon-theme-full (<< 45.1), gnome-themes-standard-data (<< 3.18.0-2~)
+Filename: pool/main/adwaita-icon-theme_50.0-1stackos1_all.deb
+Size: 562088
+MD5sum: 3ff209c1700daa53357d056236b5df97
+SHA1: df6ae25c4846661d4bc1244c764aa727b6037931
+SHA256: e0a56844f0b32e320b2cb75b85e7dc64f9e2a5db145aa43b7c4e6af209bf55a2
+SHA512: fb9bcc8cb5d1474ee13e2b4234be95691e7da85329cf013db6992df5a8fb40b3b3a1e69aeb946aace337ae29025f57a406fc6de9618c1d3255d9313397440a3a
+Homepage: https://gitlab.gnome.org/GNOME/adwaita-icon-theme
+Description: default icon theme of GNOME
+ This package contains the default icon theme used by the GNOME desktop.
+ The icons are used in core apps like Settings, Files, and GNOME Shell.
+ .
+ Other apps are recommended to include their own icons using the GNOME
+ Design Team's Icon Development Kit.
+
+Package: apport
+Architecture: all
+Version: 2.34.0-0ubuntu2.stackos1
+Priority: optional
+Section: utils
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Conffiles:
+ /etc/apport/crashdb.conf 8954f232e0c7b0ca506017156c7460f8
+ /etc/apport/report-ignore/README.denylist 51fb10c178a7b87ae0b75df3078901cd
+ /etc/apport/report-ignore/ignore-teamviewer 68835d404be0275444a2150d469b943f
+ /etc/cron.daily/apport df5d3bc9ab3a67b58156376318077304
+ /etc/default/apport 3446c6cac185f44237f59786e006ebe4
+ /etc/logrotate.d/apport fa54dab59ef899b48d5455c976008df4
+Installed-Size: 640
+Depends: apport-core-dump-handler | python3-systemd, apport-core-dump-handler | python3-zstandard, apport-core-dump-handler | systemd-coredump, gir1.2-glib-2.0 (>= 1.29.17), python3, python3-apport (>= 2.34.0-0ubuntu2), python3-gi, sensible-utils
+Recommends: apport-symptoms, python3-systemd
+Suggests: apport-gtk | apport-kde, pkexec, polkitd
+Breaks: python-apport (<< 2.2-0ubuntu1)
+Replaces: python-apport (<< 2.2-0ubuntu1)
+Filename: pool/main/apport_2.34.0-0ubuntu2.stackos1_all.deb
+Size: 81818
+MD5sum: c3168383f6904a31312acf4a4a0704fe
+SHA1: 659a511a197b91a9679bc77ff5d0558635fd6f07
+SHA256: 6480f334acedfc7f3e8fdbca8e56849f84a2917ac4c5d42c7e9a12c51930521e
+SHA512: 15c830ece75b1af48b08944ef90b00229a7687380fe0c441a1557e0129c1373c822c0924870dbbbebc6dca7d3d4cf3ff102e8407075ba5ce1bf1b763e376aef1
+Homepage: https://wiki.ubuntu.com/Apport
+Description: automatically generate crash reports for debugging
+ apport automatically collects data from crashed processes and
+ compiles a problem report in /var/crash/. This utilizes the crashdump
+ helper hook provided by the Ubuntu kernel.
+ .
+ This package also provides a command line frontend for browsing and
+ handling the crash reports. For desktops, you should consider
+ installing the GTK+ or Qt user interface (apport-gtk or apport-kde).
+
+Package: fonts-ubuntu
+Architecture: all
+Version: 0.869+git20240321-0ubuntu2.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: fonts
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 4308
+Filename: pool/main/fonts-ubuntu_0.869+git20240321-0ubuntu2.stackos1_all.deb
+Size: 1076050
+MD5sum: a30dc49ce0dd838b7a588bdad067e121
+SHA1: 840d2f3e1bffc28c2002c5a04d4e4a6d2dda7f55
+SHA256: d463d8152664bf4a5b2f19c0c21d0b9e24a06d7a35c0f4bac17097a8018105fd
+SHA512: 008e7a36e9b95818bd7ac2107454d77ee9745890ade0e31c86672792601e48ef57bfa5844390269cd8a277db426f528ab56084fd3447c48401ab646a886662c3
+Homepage: https://design.ubuntu.com/font/
+Description: sans-serif font set from Ubuntu
+ The Ubuntu Font Family is a set of contemporary sans-serif fonts developed
+ between 2010-2011. Dalton Maag performed the font design work and
+ implementation with funding from Canonical. The fonts have been the default
+ fonts for Ubuntu since 2010.
+
+Package: fwupd
+Architecture: amd64
+Version: 2.1.1-1ubuntu3.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: admin
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian EFI <debian-efi@lists.debian.org>
+Conffiles:
+ /etc/fwupd/bios-settings.d/README.md 82e286d5f3e6b3b18d815b37286616ed
+ /etc/fwupd/fwupd.conf 37a4f57716b9e3ebd0716a53306665b7
+ /etc/fwupd/remotes.d/lvfs-testing.conf 6d33e0857abba299a0f0690c267da5e2
+ /etc/fwupd/remotes.d/lvfs.conf f1b3a324c0bb276de104d1bc060141fa
+ /etc/fwupd/remotes.d/vendor-directory.conf 444a68b9510616e1fe30c6c7435f9cd9
+ /etc/grub.d/35_fwupd c52d675459974c91d3719668d7a202f1
+ /etc/pki/fwupd-metadata/LVFS-CA-2025PQ.pem 3c8b831950b2907b7c1e7bcfbc9f2a69
+ /etc/pki/fwupd-metadata/LVFS-CA.pem d9dff488bd9051268984da014f0be43d
+ /etc/pki/fwupd/LVFS-CA-2025PQ.pem 3c8b831950b2907b7c1e7bcfbc9f2a69
+ /etc/pki/fwupd/LVFS-CA.pem d9dff488bd9051268984da014f0be43d
+ /etc/update-motd.d/85-fwupd a9eac89e1e010a95b29ab075855bd636
+Installed-Size: 18520
+Provides: fwupdate
+Depends: systemd-sysusers, libblkid1 (>= 2.17.2), libc6 (>= 2.38), libcbor0.10 (>= 0.10.2), libcurl3t64-gnutls (>= 7.63.0), libdrm-amdgpu1 (>= 2.4.73), libdrm2 (>= 2.4.3), libflashrom1 (>= 1.6.0), libfwupd3 (= 2.1.1-1ubuntu3.stackos1), libglib2.0-0t64 (>= 2.83.0), libgnutls30t64 (>= 3.7.3), libjcat1 (>= 0.2.0), liblzma5 (>= 5.1.1alpha+20120614), libmbim-glib4 (>= 1.28.0), libmbim-proxy, libmm-glib0 (>= 1.22.0), libmnl0 (>= 1.0.3-4~), libpolkit-gobject-1-0 (>= 0.99), libqmi-glib5 (>= 1.32.0), libqmi-proxy, libreadline8t64 (>= 6.0), libsqlite3-0 (>= 3.20.0), libsystemd0, libtss2-esys-3.0.2-0t64 (>= 2.3.1), libusb-1.0-0 (>= 2:1.0.27~rc1), libxmlb2 (>= 0.3.22), zlib1g (>= 1:1.2.11), shared-mime-info
+Recommends: python3, bolt, default-dbus-system-bus | dbus-system-bus, secureboot-db, udisks2, fwupd-signed, jq
+Suggests: gir1.2-fwupd-2.0
+Conflicts: fwupdate-amd64-signed, fwupdate-arm64-signed, fwupdate-armhf-signed, fwupdate-i386-signed
+Breaks: fwupdate (<< 12-7), libdfu-dev (<< 0.9.7-1), libdfu1 (<< 0.9.7-1)
+Replaces: fwupdate (<< 12-7), gir1.2-dfu-1.0 (<< 0.9.7-1), libdfu-dev (<< 0.9.7-1), libdfu1 (<< 0.9.7-1)
+Filename: pool/main/fwupd_2.1.1-1ubuntu3.stackos1_amd64.deb
+Size: 12700790
+MD5sum: 20128cadb534969cb6c6282a080a6294
+SHA1: 78c9f029bd9d0fc7028f7876c7055186001abbea
+SHA256: 230451e8c64c8884fb73a8f598eff31fe0dee0c619afb2ce8a6bf4ab04b14a8f
+SHA512: 27774a075e667e34935e45c3739dc7524e6ea1893a2e0128285597137205837ae4bd92c239bd4cda78b2464bf53d2a33a96813a6bf551690f7747f7b5c965568
+Homepage: https://github.com/fwupd/fwupd
+Description: Firmware update daemon
+ fwupd is a daemon to allow session software to update device firmware.
+ You can either use a GUI software manager like GNOME Software to view and
+ apply updates, the command-line tool or the system D-Bus interface directly.
+ Firmware updates are supported for a variety of technologies.
+ See <https://github.com/fwupd/fwupd> for details
+
+Package: gdm3
+Architecture: amd64
+Version: 50.0-0ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/gdm3/Xsession 12bf3b0ecfa6cb85976453cded88a385
+ /etc/gdm3/config-error-dialog.sh 674d1cb31784baeae751c943c6a7898a
+ /etc/gdm3/custom.conf fca2d9e8a8358de5ba342a3a6e72a81e
+ /etc/init.d/gdm3 e81ec39ff5c22e69749306e27f5ebb90
+ /etc/insserv.conf.d/gdm3 61c8ab53b1be0158ef1ac24492e4543a
+ /etc/pam.d/gdm-autologin 984f197ed79c28ba0131a51b7291aa42
+ /etc/pam.d/gdm-fingerprint 961bb460f45aac79d5c3f84505936382
+ /etc/pam.d/gdm-launch-environment 0803541abf05a0295ac5cf789f912155
+ /etc/pam.d/gdm-password 1af84655e3a912c2b7b3502188036f36
+ /etc/pam.d/gdm-smartcard-pkcs11-exclusive 58755193fb76730bb92517402420b4a1
+ /etc/pam.d/gdm-smartcard-sssd-exclusive ba4ec46a3b52cbee7628498b635ca8e4
+ /etc/pam.d/gdm-smartcard-sssd-or-password 68298fc024f6f30876b2ced5164e3f9c
+Installed-Size: 1520
+Provides: x-display-manager
+Depends: accountsservice (>= 0.6.35), bash (>= 4.3), dconf-cli (>= 0.20), dconf-gsettings-backend (>= 0.20), dbus-bin | systemd-sysv, default-dbus-system-bus | dbus-system-bus, default-logind | logind, gir1.2-gdm-1.0 (= 50.0-0ubuntu1.stackos1), ubuntu-session | gnome-session | x-session-manager | x-window-manager | x-terminal-emulator, gnome-session-bin (>= 50~alpha), gnome-session-common (>= 50~alpha), gnome-settings-daemon (>= 3.37.0), gnome-shell (>= 50~alpha), gsettings-desktop-schemas, libgdm1 (= 50.0-0ubuntu1.stackos1), libglib2.0-bin (>= 2.35.0), libnss-systemd, libpam-modules (>= 0.72-1), libpam-runtime (>= 0.76-13.1), librsvg2-common, polkitd, procps, ucf, x11-common (>= 1:7.6+11), x11-xserver-utils, debconf (>= 0.5) | debconf-2.0, systemd | systemd-standalone-sysusers | systemd-sysusers, libaccountsservice0 (>= 0.6.55), libaudit1 (>= 1:2.2.1), libc6 (>= 2.38), libglib2.0-0t64 (>= 2.83.0), libgudev-1.0-0 (>= 232), libjson-glib-1.0-0 (>= 1.5.2), libkeyutils1 (>= 1.5.9), libpam0g (>= 0.99.7.1), libpolkit-gobject-1-0 (>= 0.99), libselinux1 (>= 3.1~), libsystemd0 (>= 259), libxau6 (>= 1:1.0.11)
+Recommends: at-spi2-core, ubuntu-session | gnome-session | x-session-manager, x11-xkb-utils, zenity
+Suggests: orca, libpam-fprintd (>= 0.8.0-2), libpam-sss (>= 2.3.0-1), libpam-pkcs11, libpam-gnome-keyring
+Breaks: gnome-remote-desktop (<< 50~rc)
+Filename: pool/main/gdm3_50.0-0ubuntu1.stackos1_amd64.deb
+Size: 235868
+MD5sum: 70493ba67234d335c049a80043e08f71
+SHA1: 744fa4021a846906e27ecd16de45e401740c77e2
+SHA256: d665650cd437203fa62175ea8576ae22545767800122941c402e182d6a424148
+SHA512: ffa44f74d30ce6961284f7f8a77a2a75fdffa507f7064e11a2aa175bedff96a5fc23d832fa946ce8d3fc88c1ab543aac839a139d509ce16322cddf7c9e4e41c1
+Homepage: https://wiki.gnome.org/Projects/GDM/
+Description: GNOME Display Manager
+ GDM provides the equivalent of a "login:" prompt for X displays: it
+ asks for a login and starts graphical sessions.
+ .
+ It supports multiple seats and switching between multiple users.
+ .
+ The greeter is based on the GNOME libraries and applications, and its
+ look and design are the same as those of a GNOME session.
+
+Package: gir1.2-gdm-1.0
+Architecture: amd64
+Version: 50.0-0ubuntu1.stackos1
+Priority: optional
+Section: introspection
+Source: gdm3
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 65
+Depends: gir1.2-gio-2.0, gir1.2-glib-2.0, gir1.2-gobject-2.0, libgdm1 (>= 50~beta)
+Filename: pool/main/gir1.2-gdm-1.0_50.0-0ubuntu1.stackos1_amd64.deb
+Size: 9880
+MD5sum: d12d75874050c54a0f9765a7faedbe85
+SHA1: b5123e777a6555dc830c938b89c6ea66ae70324c
+SHA256: b47516838ea960e398591498f687f15ec126e9a1e4c49f9c5e50236c95fd3236
+SHA512: 762c55423abba6ca70a0686b52a9d74019afa2b9c93e8115a65b16461a39c4ff7f3a7a3794c2c5a363f254a67c392976df293c6de69ad544aea4571c7f19f339
+Homepage: https://wiki.gnome.org/Projects/GDM/
+Description: GObject introspection data for the GNOME Display Manager
+ GDM provides the equivalent of a "login:" prompt for X displays: it
+ asks for a login and starts graphical sessions.
+ .
+ It supports multiple seats and switching between multiple users.
+ .
+ The greeter is based on the GNOME libraries and applications, and its
+ look and design are the same as those of a GNOME session.
+ .
+ This package contains introspection data for the GNOME Display Manager.
+
+Package: gnome-calculator
+Architecture: amd64
+Version: 1:50.0-1ubuntu1.stackos1
+Priority: optional
+Section: math
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 3464
+Depends: dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libglib2.0-0t64 (>= 2.76.0), libgtk-4-1 (>= 4.17.0), libgtksourceview-5-0 (>= 5.2.0), libmpc3 (>= 1.1.0), libmpfr6 (>= 3.1.3), libsoup-3.0-0 (>= 3.4.0), libxml2-16 (>= 2.14.1)
+Recommends: gvfs, yelp
+Filename: pool/main/gnome-calculator_1:50.0-1ubuntu1.stackos1_amd64.deb
+Size: 453376
+MD5sum: de0d40a7f998bad07649cc58ceeefa58
+SHA1: 2cec2f9ad88d117735d996ac6f0c456fb210f6a0
+SHA256: e438b0c2ffb9591536551e6bb02549b034ba7bb427571b89354de00f140a584f
+SHA512: 3524409f70715b2f7f64f597df12459c7dd6827c25c88f9e1ed853028e5ed33653209f8fba4d0268f95e3203bb48a2b102ce9eee3273949b8943c381c611b4ed
+Homepage: https://apps.gnome.org/Calculator/
+Description: GNOME desktop calculator
+ The GNOME calculator is a powerful graphical calculator with financial,
+ logical and scientific modes. It uses a multiple precision package to do its
+ arithmetic to give a high degree of accuracy.
+
+Package: gnome-calendar
+Architecture: amd64
+Version: 50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 1156
+Depends: dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libecal-2.0-3 (>= 3.45.1), libedataserver-1.2-27t64 (>= 3.45.2), libedataserverui4-1.0-0t64 (>= 3.45.1), libfribidi0 (>= 0.19.2), libgeoclue-2-0 (>= 2.4.0), libglib2.0-0t64 (>= 2.83.0), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.21.2), libgweather-4-0t64 (>= 4.1), libical3t64 (>= 3.0.0), libsoup-3.0-0 (>= 3.0.3), gsettings-desktop-schemas (>= 3.21.2)
+Recommends: evolution-data-server
+Filename: pool/main/gnome-calendar_50.0-1stackos1_amd64.deb
+Size: 328662
+MD5sum: 63b288dc2abfa298adf5dc4480fc046a
+SHA1: ef0b0e393e6dcd7919d43dd06e705dc661bc83fb
+SHA256: 5e859d492eef22d253a41ecc7cc49158dd542ae27074956ce95cf87cbf0a3612
+SHA512: 46ca9ae68c1fa50ee94ad2cd260c6fb70f9e39dc46926c8942aa97b3552e992506c69419e654ca209575b0708418544a2c658bc4499bbcf497addc155e698305
+Homepage: https://apps.gnome.org/Calendar/
+Description: Calendar application for GNOME
+ GNOME Calendar is a simple and beautiful calendar application designed
+ to perfectly fit the GNOME desktop. By reusing the components which the
+ GNOME desktop is build on, Calendar nicely integrates with the GNOME
+ ecosystem.
+
+Package: gnome-characters
+Architecture: amd64
+Version: 50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 3716
+Depends: gir1.2-adw-1 (>= 1.6), gir1.2-gdkpixbuf-2.0, gir1.2-glib-2.0, gir1.2-gnomedesktop-4.0, gir1.2-gtk-4.0, gjs, libglib2.0-bin, dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.14), libglib2.0-0t64 (>= 2.87)
+Recommends: fonts-noto-color-emoji
+Filename: pool/main/gnome-characters_50.0-1stackos1_amd64.deb
+Size: 484390
+MD5sum: c88b50d0bbf415e3d15acebb97f37d00
+SHA1: e4f3dfbdbec69d5d8e2990e0cdd10b07a5afa893
+SHA256: 876c461a6e0e503b5463f030d8e0fa9497dbc3e711255e76a19c60bcbcdea426
+SHA512: 79dea12b1256b8093d6051dc930fe9a37305f17c08b938dbe85f4338dfea726728ff36e1693f636316e0120e839922b6fce310ce8e2142e58e033d0b8da9cfd6
+Homepage: https://apps.gnome.org/Characters/
+Description: character map application
+ Characters is a simple utility application to find and
+ insert unusual characters.
+
+Package: gnome-clocks
+Architecture: amd64
+Version: 50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 2864
+Depends: geoclue-2.0, dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.8), libc6 (>= 2.38), libgeoclue-2-0 (>= 2.4.0), libgeocode-glib-2-0 (>= 0.99.1), libglib2.0-0t64 (>= 2.76.0), libgnome-desktop-4-2t64 (>= 44~beta), libgtk-4-1 (>= 4.15.3), libgweather-4-0t64 (>= 3.91.0), libicu78 (>= 78.1-1~)
+Filename: pool/main/gnome-clocks_50.0-1stackos1_amd64.deb
+Size: 1771948
+MD5sum: 10a1c7f9fdeaf681d6fb6aa8bb013a6a
+SHA1: c654caa6d93b9ff6802f54b6ec69f5e9fdaafc03
+SHA256: 93a661819394c865e5100d0b6b349cbd23f81424ada2d2300584835a75da7c8b
+SHA512: 224624cf14df9ca4a0288db3f082741b5552831371b719048ec7e0c01224e7caef37f1cad2826fb47902451a05b0d12519d51d2e23d507b2b6826ef4f9876256
+Homepage: https://apps.gnome.org/Clocks/
+Description: Simple GNOME app with stopwatch, timer, and world clock support
+ GNOME Clocks is a simple application to show the time and date in multiple
+ locations and set alarms or timers. A stopwatch is also included.
+
+Package: gnome-control-center-faces
+Architecture: all
+Version: 1:50.0-0ubuntu6.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Source: gnome-control-center
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 1128
+Provides: unity-control-center-faces
+Conflicts: unity-control-center-faces
+Replaces: unity-control-center-faces
+Filename: pool/main/gnome-control-center-faces_1:50.0-0ubuntu6.stackos1_all.deb
+Size: 1114192
+MD5sum: f5b6ac34116cc3e9d3f776e8fecd556c
+SHA1: 76e8171fff0d58f8e3c359e9e85ef27ab48f86b3
+SHA256: 07f288583ab70f847f2104b97b0e3e390e7874a2920c6d72bfae4c275a2ca42e
+SHA512: b91bbb6688e6ff2097312099557e4325ac671893944d819ceffa2500d86f0cc7319a7b49814aa3b3ebcedfec44bd690da1d291f3eb5a8b88ff98bd3d33b52979
+Description: utilities to configure the GNOME desktop - faces images
+ This package contains images that can be used for user profile's icon
+
 Package: gnome-control-center
 Architecture: amd64
 Version: 1:50.0-1stackos1
@@ -24,6 +330,1192 @@ Description: utilities to configure the GNOME desktop
  .
  It also contains a front end to these applets, which can also be
  accessed with the GNOME panel or the Nautilus file manager.
+
+Package: gnome-control-center
+Architecture: amd64
+Version: 1:50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 4575
+Depends: accountsservice (>= 23.11.69), colord, desktop-file-utils, gnome-control-center-data (<< 1:51~), gnome-control-center-data (>= 1:50.0-0ubuntu6.1), gnome-desktop3-data, gnome-online-accounts (>= 3.51.0), gnome-settings-daemon (>= 48~rc), gsettings-desktop-schemas (>= 50~alpha), heif-gdk-pixbuf, heif-thumbnailer, language-selector-gnome (>= 0.179~), libjxl-gdk-pixbuf, mutter-common (>= 47), tecla (>= 47), upower, webp-pixbuf-loader, whoopsie-preferences, libaccountsservice0 (>= 23.13.9), libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcolord-gtk4-1t64 (>= 0.1.24), libcolord2 (>= 1.4.3), libcups2t64 (>= 1.7.0), libdrm2 (>= 2.4.3), libepoxy0 (>= 1.0), libfontconfig1 (>= 2.12.6), libgcr-4-4 (>= 3.8.0), libgdk-pixbuf-2.0-0 (>= 2.30.1), libglib2.0-0t64 (>= 2.83.0), libgnome-bg-4-2t64 (>= 3.27.90), libgnome-bluetooth-ui-3.0-13 (>= 42~beta), libgnome-desktop-4-2t64 (>= 3.33.4), libgnutls30t64 (>= 3.7.0), libgoa-1.0-0b (>= 3.51.0), libgoa-backend-1.0-2 (>= 3.51.0), libgraphene-1.0-0 (>= 1.5.4), libgsound0t64 (>= 1.0.1), libgtk-4-1 (>= 4.21), libgtop-2.0-11 (>= 2.22.3), libgudev-1.0-0 (>= 146), libibus-1.0-5 (>= 1.5.2), libinsights0 (>= 0.8.1), libjson-glib-1.0-0 (>= 1.5.2), libkrb5-3 (>= 1.8+dfsg), libmalcontent-0-0 (>= 0.14~alpha), libmm-glib0 (>= 1.16.6), libnm0 (>= 1.52.0), libnma-gtk4-0 (>= 1.10.2), libpango-1.0-0 (>= 1.37.2), libpolkit-gobject-1-0 (>= 0.99), libpulse-mainloop-glib0 (>= 0.99.1), libpulse0 (>= 0.99.1), libpwquality1 (>= 1.1.0), libsecret-1-0 (>= 0.7), libsmbclient0 (>= 2:4.0.3+dfsg1), libsoup-3.0-0 (>= 3.0.3), libudisks2-0 (>= 2.0.0), libupower-glib3 (>= 1.90.6), libwacom9 (>= 2.0.0), libwayland-client0 (>= 1.20.0), libwhoopsie-preferences0 (>= 0.9), libx11-6, libxml2-16 (>= 2.14.1)
+Recommends: cracklib-runtime, cups-pk-helper, fwupd, gnome-bluetooth-sendto, gnome-control-center-faces, gnome-remote-desktop (>= 47), gnome-user-docs, ibus, iso-codes, libcanberra-pulse, libspa-0.2-bluetooth | pulseaudio-module-bluetooth, mobile-broadband-provider-info, nm-connection-editor | network-manager-gnome (<< 1.36.0-3~), polkitd, power-profiles-daemon, rygel | rygel-tracker, system-config-printer-common
+Suggests: gnome-software | gnome-packagekit, gnome-user-share, gstreamer1.0-plugins-good (>= 1.18.0), malcontent-gui, realmd
+Breaks: gnome-remote-desktop (<< 42), gnome-shell (<< 49)
+Filename: pool/main/gnome-control-center_1:50.0-1stackos1_amd64.deb
+Size: 1866454
+MD5sum: c7518f9d998b37a98fc25d8fc60f8af6
+SHA1: 65a16c457a3e9e0bd366b09cd7309d90768fa973
+SHA256: a70daa63f40892e9a0589a4e26694f8fff0d197ad5f124279f7dacabe081870f
+SHA512: 5fd9615b6ac1b52a109f9915518f9a184f6d2415f4fc5e0ac5bc56db375b910bfd1244369993996e06e93211821b30877abf646bb4fddbc9bf5d2f0a7139881f
+Description: utilities to configure the GNOME desktop
+ This package contains configuration applets for the GNOME desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other GNOME parameters.
+ .
+ It also contains a front end to these applets, which can also be
+ accessed with the GNOME panel or the Nautilus file manager.
+
+Package: gnome-disk-utility
+Architecture: amd64
+Version: 46.1-2ubuntu2.stackos1
+Priority: optional
+Section: admin
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/xdg/autostart/org.gnome.SettingsDaemon.DiskUtilityNotify.desktop c21e23ebcd144a1bf83f768a70d94844
+Installed-Size: 1012
+Depends: udisks2 (>= 2.7.6), dconf-gsettings-backend | gsettings-backend, libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcanberra-gtk3-0 (>= 0.25), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.80.0), libgtk-3-0t64 (>= 3.21.5), libhandy-1-0 (>= 1.5.0), liblzma5 (>= 5.1.1alpha+20120614), libnotify4 (>= 0.7.0), libpango-1.0-0 (>= 1.18.0), libpangocairo-1.0-0 (>= 1.14.0), libpwquality1 (>= 1.1.0), libsecret-1-0 (>= 0.7), libsystemd0 (>= 209), libudisks2-0 (>= 2.7.6)
+Breaks: gnome-settings-daemon (<< 3.24)
+Filename: pool/main/gnome-disk-utility_46.1-2ubuntu2.stackos1_amd64.deb
+Size: 198180
+MD5sum: dcd6cf283adf8adcfa725d876bb0949e
+SHA1: 3777e38c722614ef02bf636428759acbadd3c140
+SHA256: 41c9550080ec3fe7820b7264ce045be08c072a3fc76d65350c42f49b9c1d36f3
+SHA512: 55e97c167766b0bfbcd1916fbb2f672eb91821c072d8f58e676924635840d55daa04a589782f8ecdd60805b57af6b1a8e8eb66bac9ebb95d8c4c3927b3115725
+Homepage: https://apps.gnome.org/DiskUtility/
+Description: manage and configure disk drives and media
+ GNOME Disks is a tool to manage disk drives and media:
+ .
+  * Format and partition drives.
+  * Mount and unmount partitions.
+  * Query S.M.A.R.T. attributes.
+ .
+ It utilizes udisks.
+
+Package: gnome-keyring-pkcs11
+Architecture: amd64
+Version: 50.0-1stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: gnome-keyring
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 100
+Depends: libc6 (>= 2.28), libglib2.0-0t64 (>= 2.80)
+Filename: pool/main/gnome-keyring-pkcs11_50.0-1stackos1_amd64.deb
+Size: 25950
+MD5sum: 2838cdbb2994e57b1d6a95b8019f3f0e
+SHA1: 1a3aa238330f27e1757e7d6148d33e9798ea35ed
+SHA256: 6599473f89dba42ca155a718b82dc8c2c373384eff3fce17ba155f1c50a52705
+SHA512: 3f797331b7f7c4bda2632f7069052268befd76e026c7273b259c86a0dedd9e37078e0e1dcf1aa24f83de3bead1a2dfa4beb60f192e38040611d926d7562906d2
+Homepage: https://wiki.gnome.org/GnomeKeyring
+Description: GNOME keyring module for the PKCS#11 module loading library
+ gnome-keyring is a daemon in the session, similar to ssh-agent,
+ and other applications can use it to store passwords and other
+ sensitive information.
+ .
+ This package contains a PKCS#11 module that will allow using the GNOME
+ keyring as a certificate database.
+
+Package: gnome-keyring
+Architecture: amd64
+Version: 50.0-1stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/xdg/autostart/gnome-keyring-pkcs11.desktop a661ced07c218dc5b11838964e756f18
+ /etc/xdg/autostart/gnome-keyring-secrets.desktop b8c018805731a896697f1e6e1a1cf88f
+Installed-Size: 2804
+Depends: default-dbus-session-bus | dbus-session-bus, gcr (>= 3.4), p11-kit (>= 0.16), pinentry-gnome3, dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.38), libgck-1-0 (>= 3.3.90), libgcr-base-3-1 (>= 3.27.90), libgcrypt20 (>= 1.12.0), libglib2.0-0t64 (>= 2.80.0), libsystemd0
+Recommends: gnome-keyring-pkcs11, libpam-gnome-keyring
+Filename: pool/main/gnome-keyring_50.0-1stackos1_amd64.deb
+Size: 606570
+MD5sum: c13723093c9a9a17e14724def9d8a504
+SHA1: 0ca3e03261ecdafe0af274bac1341b7ca15575cf
+SHA256: c9c28358406620667a66efe3413e6b94e578e54affcade69b809f6e5501d306d
+SHA512: e81867caf66dfabdc3439497f69d06c9209f0d3caabcfa168b51c40c8836310526239f9d3b3ec94bb6d8c9957d00c1574955adff1545e89b40392372c2fb73e2
+Homepage: https://wiki.gnome.org/GnomeKeyring
+Description: GNOME keyring services (daemon and tools)
+ gnome-keyring is a daemon in the session, similar to ssh-agent,
+ and other applications can use it to store passwords and other
+ sensitive information.
+ .
+ The program can manage several keyrings, each with its own master
+ password, and there is also a session keyring which is never stored to
+ disk, but forgotten when the session ends.
+
+Package: gnome-shell-common
+Architecture: all
+Version: 50.1-0ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Source: gnome-shell
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 3128
+Depends: dconf-gsettings-backend | gsettings-backend
+Recommends: yaru-theme-gnome-shell (>= 25.10)
+Breaks: gnome-session-common (<< 50~alpha)
+Filename: pool/main/gnome-shell-common_50.1-0ubuntu1.stackos1_all.deb
+Size: 186004
+MD5sum: 421a4a8aa7663179ace929698a683449
+SHA1: c23a459b7b0ca46d02a491ba6fa9ed16481058e1
+SHA256: 274a165ae07bde0c0e08dde7774099aa78bbe81e039d322e45699a4f5933ffac
+SHA512: a59ac2944341d584dacbf1a971cbd0ad78b50acfe8c117db3b20c32497fc1e60a13387d5b8f1f879e8d9f6179b24691a609bc1a6fb9c0ebc5b62beeab85337b3
+Homepage: https://gitlab.gnome.org/GNOME/gnome-shell
+Description: common files for the GNOME graphical shell
+ This package contains translations and data files for the GNOME shell.
+
+Package: gnome-shell-extension-prefs
+Architecture: amd64
+Version: 50.1-0ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Source: gnome-shell
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 67
+Provides: gnome-extensions-app
+Depends: gir1.2-adw-1, gir1.2-gtk-4.0, gjs (>= 1.87.1), gnome-shell (= 50.1-0ubuntu1.stackos1)
+Recommends: gnome-browser-connector
+Filename: pool/main/gnome-shell-extension-prefs_50.1-0ubuntu1.stackos1_amd64.deb
+Size: 12508
+MD5sum: 2e50b1a17d7b19941c8813e8ce24a095
+SHA1: 241b60334b7b7cca836e0db5751588a127cde10c
+SHA256: 1c51d97a8ccd3d60cc7470f33f5666ec03455607949e6a1e4c63decb723fcdf6
+SHA512: 4272d386775d53a31b8ae77e8154b7985b9158b2c323543bf1511161fbed9243c0ca954cea136c280c45d61382cd84263049b7c7cc9c2f54e03262f301a82fad
+Homepage: https://gitlab.gnome.org/GNOME/gnome-shell
+Description: tool to enable / disable GNOME Shell extensions
+ This package contains a tool which users who use Shell extensions can use to
+ toggle them on and off, and access their preferences.
+
+Package: gnome-shell-extension-user-theme
+Architecture: all
+Version: 50.0-1stackos1
+Priority: optional
+Section: gnome
+Source: gnome-shell-extensions
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 29
+Depends: gnome-shell (<< 51~), gnome-shell (>= 50~), gnome-shell-extensions-common (= 50.0-1stackos1), dconf-gsettings-backend | gsettings-backend
+Recommends: gnome-shell-extension-prefs | gnome-shell-extension-manager
+Breaks: gnome-shell-extensions (<< 47)
+Replaces: gnome-shell-extensions (<< 47)
+Filename: pool/main/gnome-shell-extension-user-theme_50.0-1stackos1_all.deb
+Size: 5646
+MD5sum: 10cb8c6295449e28f690ffab7392b6e9
+SHA1: e864aab6b24debd30df2f31198cee0ca4bb7beef
+SHA256: 4a86d1d2c59086be405fef0e658710892995e95b0788d50ce3d762ca6f1d06e0
+SHA512: e60635b31d722585fb61c8022093efabe6bca610e0f9651067980e79ec95310281c92a25adc343c204b30b20742ce66bc5ba1071eae0a4a41cff639f38f16f62
+Homepage: https://wiki.gnome.org/Projects/GnomeShell/Extensions
+Description: GNOME Shell extension to load alternative GNOME Shell themes
+ GNOME Shell is extensible using extensions. This package contains an
+ official GNOME Shell extension to allow switching to alternative
+ GNOME Shell themes.
+
+Package: gnome-shell-extensions-common
+Architecture: all
+Version: 50.0-1stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Source: gnome-shell-extensions
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 762
+Breaks: gnome-shell-extensions (<< 47)
+Replaces: gnome-shell-extensions (<< 47)
+Filename: pool/main/gnome-shell-extensions-common_50.0-1stackos1_all.deb
+Size: 119064
+MD5sum: ed3be64cb714b6f2ee80841f08392583
+SHA1: a7cf97eb74249f6416bbfb0d28443185f0fb1480
+SHA256: ed2172fce7570a5180221acfe09eda9f808cd49ccff7edfbf9cb665c84611b4d
+SHA512: 77857ee8ebd4972c2496593a13cc636209c6dbe6a0c75a8b6f0810baa6fff13d7a11a77672cbfe671fe47cf477303d801e82c6ff5cd0272fda7c557434d7dbc8
+Homepage: https://wiki.gnome.org/Projects/GnomeShell/Extensions
+Description: common files for official GNOME Shell extensions
+ GNOME Shell is extensible using extensions. This package contains
+ common data files such as translations for the official GNOME Shell
+ extensions.
+
+Package: gnome-shell-ubuntu-extensions
+Architecture: all
+Version: 50.26.04.7ubuntu.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Conffiles:
+ /etc/apparmor.d/desktop-icons-ng e4a7d38181cd08d1d428cdcb940a6638
+Installed-Size: 2532
+Provides: gnome-shell-extension-appindicator, gnome-shell-extension-desktop-icons-ng, gnome-shell-extension-ubuntu-dock, gnome-shell-extension-ubuntu-tiling-assistant
+Depends: gnome-shell (>= 49~), gnome-shell (<< 51~), gir1.2-atk-1.0, gir1.2-freedesktop, gir1.2-gdkpixbuf-2.0, gir1.2-adw-1, gir1.2-glib-2.0, gir1.2-gnomeautoar-0.1, gir1.2-gnomedesktop-3.0, gir1.2-gtk-3.0, gir1.2-gtk-4.0, gir1.2-pango-1.0, gir1.2-snapd-2, gjs, dconf-gsettings-backend | gsettings-backend
+Recommends: gir1.2-dbusmenu-glib-0.4
+Suggests: gnome-shell-extension-prefs, libappindicator3-1, libayatana-appindicator3-1
+Conflicts: gnome-shell-extension-appindicator, gnome-shell-extension-desktop-icons-ng, gnome-shell-extension-ubuntu-dock, gnome-shell-extension-ubuntu-tiling-assistant
+Breaks: gnome-shell-common (<< 50~beta-0ubuntu1~)
+Replaces: gnome-shell-common (<< 50~beta-0ubuntu1~), gnome-shell-extension-appindicator, gnome-shell-extension-desktop-icons-ng, gnome-shell-extension-ubuntu-dock, gnome-shell-extension-ubuntu-tiling-assistant
+Filename: pool/main/gnome-shell-ubuntu-extensions_50.26.04.7ubuntu.stackos1_all.deb
+Size: 288902
+MD5sum: bb2fb6dcc6546fefaa975d337cf97169
+SHA1: 150cbede84c23720c3a1b5800ea7d7a9dbe80b6c
+SHA256: 7759e4d9421a4a2dbd8ceb56a378edb9e23f0fc17c0ea39945d1685a133e23d9
+SHA512: 18db565e043a6c3066af047786c5785190a1887c3b352d530806eeaaa79ac69bafccc1352ba9582a84bfb730dcf2e6deb95db84bd3aaa3e64b41ca2e0628821f
+Homepage: https://github.com/ubuntu/gnome-shell-ubuntu-extensions
+Description: Ubuntu official Extensions to extend functionality of GNOME Shell
+ GNOME Shell is extensible using extensions. This package contains
+ all the official Ubuntu GNOME Shell extensions.
+ .
+ All the ubuntu extensions that are officially supported are included in this
+ package, and in particular:
+  - AppIndicators
+  - Desktop Icons NG
+  - Dash to Dock
+  - Tiling Assistant
+
+Package: gnome-shell
+Architecture: amd64
+Version: 50.1-0ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 7058
+Provides: notification-daemon, polkit-1-auth-agent
+Depends: gir1.2-accountsservice-1.0, gir1.2-adw-1, gir1.2-atk-1.0, gir1.2-atspi-2.0, gir1.2-gcr-4 (>= 3.90.0), gir1.2-gdesktopenums-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-gdm-1.0 (>= 47.0-4~), gir1.2-geoclue-2.0, gir1.2-glib-2.0 (>= 2.86.0), gir1.2-gnomebg-4.0, gir1.2-gnomeqr-4.0, gir1.2-gnomebluetooth-3.0 (>= 42.3), gir1.2-gnomedesktop-4.0 (>= 40), gir1.2-graphene-1.0, gir1.2-gstreamer-1.0, gir1.2-gtk-4.0, gir1.2-gweather-4.0 (>= 4.1), gir1.2-freedesktop, gir1.2-ibus-1.0, gir1.2-mutter-18 (>= 50.0), gir1.2-nm-1.0, gir1.2-nma4-1.0 (>= 1.10.4), gir1.2-pango-1.0, gir1.2-polkit-1.0, gir1.2-rsvg-2.0, gir1.2-soup-3.0, gir1.2-upowerglib-1.0, gjs (>= 1.87.1), gnome-control-center (>= 1:46), gnome-settings-daemon (>= 49), gnome-shell-common (= 50.1-0ubuntu1.stackos1), gsettings-desktop-schemas (>= 50~alpha), gstreamer1.0-pipewire (>= 0.3.49), libglib2.0-bin (>= 2.86.0), python3, tecla, ubuntu-wallpapers, dconf-gsettings-backend | gsettings-backend, libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.38), libcairo2 (>= 1.14.0), libecal-2.0-3 (>= 3.45), libedataserver-1.2-27t64 (>= 3.45), libgcr-4-4 (>= 3.90.0), libgdk-pixbuf-2.0-0 (>= 2.25.2), libgirepository-2.0-0 (>= 2.86.0), libgjs0 (>= 1.87.1), libgles2, libglib2.0-0t64 (>= 2.86.0), libgnome-autoar-0-0 (>= 0.1.1), libgnome-desktop-4-2t64 (>= 40), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.12.0), libical3t64 (>= 3.0.0), libjson-glib-1.0-0 (>= 1.5.2), libmutter-18-0 (>= 50.0), libnm0 (>= 1.4.0), libpango-1.0-0 (>= 1.37.5), libpipewire-0.3-0t64 (>= 0.3.49), libpolkit-agent-1-0 (>= 0.99), libpolkit-gobject-1-0 (>= 0.94), libpulse-mainloop-glib0 (>= 0.99.1), libpulse0 (>= 0.99.1), libsecret-1-0 (>= 0.7), libsoup-3.0-0 (>= 3.0.3), libsystemd0, libx11-6, libxext6, libxfixes3
+Recommends: bolt, evolution-data-server (>= 3.45), gdm3, gnome-remote-desktop, gnome-menus, gnome-user-docs, ibus, iio-sensor-proxy, power-profiles-daemon, switcheroo-control, ubuntu-session | gnome-session, unzip
+Suggests: gir1.2-malcontent-0, gir1.2-telepathyglib-0.12, gir1.2-telepathylogger-0.2, gnome-browser-connector, gnome-shell-extension-prefs
+Breaks: authd (<< 0.4.2~), gnome-session (<< 49~beta~), gnome-shell-extension-appindicator (<< 50), gnome-shell-extension-dash-to-panel (<< 55), gnome-shell-extension-dashtodock (<< 79), gnome-shell-extension-desktop-icons (<< 21.04), gnome-shell-extension-desktop-icons-ng (<< 46+really47.0.2-2), gnome-shell-extension-taskbar (<< 57.0-2.1~), gnome-shell-extension-top-icons-plus (<< 27-3~), gnome-shell-extension-workspaces-to-dock (<< 54~), gnome-shell-extensions (<< 40.0~), ubuntu-session (<< 49~beta~)
+Filename: pool/main/gnome-shell_50.1-0ubuntu1.stackos1_amd64.deb
+Size: 976442
+MD5sum: 922630a18a1154b6a8b322aa3dce31b7
+SHA1: 009f1de332f6c473357c07e63a40d0bbf6d7c366
+SHA256: 750e9ad45815d5b332fc39df6afcc09b39c16da97b7643417f9a69aec5955387
+SHA512: bce46ed11d1608f28c508a6413949d854ce00154f5e66d66e4299dac90c383bf00a18cc775fcff982fc7a679c2e4005da046c5f3192581cd896d68567f095c35
+Homepage: https://gitlab.gnome.org/GNOME/gnome-shell
+Description: graphical shell for the GNOME desktop
+ The GNOME Shell provides core interface functions like switching
+ windows, launching applications or see your notifications. It takes
+ advantage of the capabilities of modern graphics hardware and
+ introduces innovative user interface concepts to provide a
+ delightful and easy to use experience. GNOME Shell is the defining
+ technology of the GNOME 3 user experience.
+
+Package: gnome-terminal
+Architecture: amd64
+Version: 3.58.0-1ubuntu1.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 789
+Provides: x-terminal-emulator
+Depends: default-dbus-session-bus | dbus-session-bus, fonts-dejavu-mono, gnome-terminal-data (<< 3.60), gnome-terminal-data (>= 3.58), gsettings-desktop-schemas (>= 0.1.0), dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.34), libcairo2 (>= 1.2.4), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.83.0), libgtk-3-0t64 (>= 3.23.0), libhandy-1-0 (>= 1.5.0), libpango-1.0-0 (>= 1.14.0), libstdc++6 (>= 4.1.1), libuuid1 (>= 2.16), libvte-2.91-0 (>= 0.80.0), libx11-6
+Recommends: gvfs, xdg-terminal-exec, yelp
+Filename: pool/main/gnome-terminal_3.58.0-1ubuntu1.stackos1_amd64.deb
+Size: 223476
+MD5sum: ea463a9b047299550590a80b873a5269
+SHA1: dfd652290820e2bd96c19727b27148aa811eba28
+SHA256: c3e63bb599663c526eebd71038132c8cb96e215b5e184e91f4e10671f4f50da7
+SHA512: bfdc4b3fbe30e1a6fd3255f4d382809d63d4b54318a02c738de84d1219677cd4af289e67c5e19410c67add46b492180619a4e986c0a2576f3c2206d708265da5
+Homepage: https://wiki.gnome.org/Apps/Terminal
+Description: GNOME terminal emulator application
+ GNOME Terminal is a terminal emulation application that you can use to
+ perform the following actions:
+  - Access a UNIX shell in the GNOME environment.
+  - Run any application that is designed to run on VT102, VT220, and xterm
+ terminals.
+ .
+ GNOME Terminal features the ability to use multiple terminals in a single
+ window (tabs) and profiles support.
+
+Package: gnome-text-editor
+Architecture: amd64
+Version: 50.0-1stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 1664
+Depends: dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.34), libeditorconfig0 (>= 0.11.0), libglib2.0-0t64 (>= 2.80.0), libgtk-4-1 (>= 4.19.4), libgtksourceview-5-0 (>= 5.15.0), libpango-1.0-0 (>= 1.14.0), libspelling-1-2 (>= 0.3.0)
+Filename: pool/main/gnome-text-editor_50.0-1stackos1_amd64.deb
+Size: 198572
+MD5sum: e8979403f50dd8eac5447d639d8c56c2
+SHA1: c7ef75ae618d9388d5fe9f09cc286ee294f7c305
+SHA256: c12755ff6c01f49d2b9df5bb2974371638c66c25c691fdcec389d5f37e155c7d
+SHA512: 1c3f0b1eee2abc1314527f6db0d6af018fdb9e0dbe6f2819ea82b10db8b1de6f199a574d66e2b3f8590751a02960c1ba94137fbca0d45f95db438b3f7afe2b0f
+Homepage: https://apps.gnome.org/TextEditor/
+Description: simple text editor for GNOME
+ GNOME Text Editor is a simple editor for GNOME focused on being a good
+ general purpose default editor.
+ .
+ It works hard to keep track of changes and state even if you quit the
+ application. You can come back to your work even if you've never saved
+ it to a file.
+ .
+ It is simpler than gedit.
+
+Package: libfwupd3
+Architecture: amd64
+Version: 2.1.1-1ubuntu3.stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: fwupd
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian EFI <debian-efi@lists.debian.org>
+Installed-Size: 524
+Depends: libc6 (>= 2.32), libcurl3t64-gnutls (>= 7.63.0), libglib2.0-0t64 (>= 2.80.0), libjcat1 (>= 0.1.0)
+Filename: pool/main/libfwupd3_2.1.1-1ubuntu3.stackos1_amd64.deb
+Size: 140226
+MD5sum: a7d6a110334193c210dff1a7fd914235
+SHA1: 313e5643ec47b42972cb83f616f688004ff9890a
+SHA256: 0b5a3fe2fd7af3a2f418781db03264d7f96de0739a60b8aef8e3445c5a015511
+SHA512: 74c03fe1063d7e4d8587eacc224f4f61253b19dd3e83e98f59c72f52eb9e746ac8d2b140cdbf7f9ccea9ac5333fa13fc4cb76ff8db5337a9e6717320b7b96f7d
+Homepage: https://github.com/fwupd/fwupd
+Description: Firmware update daemon library
+ fwupd is a daemon to allow session software to update device firmware.
+ You can either use a GUI software manager like GNOME Software to view and
+ apply updates, the command-line tool or the system D-Bus interface directly.
+ Firmware updates are supported for a variety of technologies.
+ See <https://github.com/fwupd/fwupd> for details
+ .
+ This package provides the library used by the daemon.
+
+Package: libgdm1
+Architecture: amd64
+Version: 50.0-0ubuntu1.stackos1
+Priority: optional
+Section: libs
+Source: gdm3
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 223
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.33), libglib2.0-0t64 (>= 2.83.0), libsystemd0 (>= 259)
+Filename: pool/main/libgdm1_50.0-0ubuntu1.stackos1_amd64.deb
+Size: 58664
+MD5sum: 461e31b41c7d70d3a0311f295e179d49
+SHA1: b10f91c4c8f6aefe47000284fe831dc4914eae32
+SHA256: 0c7e871b73d6670ecc702b45872f1a2bf7712d122a3949e6f2a41af9e3252fd2
+SHA512: 90122a41cb772d6fb67a2b909511440642f97653fe1e5fd209c8ca197e5e75e359996dae566e1b9573141031f6a8f4a73504eae2f0c47bedd8cbe1fbae085cde
+Homepage: https://wiki.gnome.org/Projects/GDM/
+Description: GNOME Display Manager (shared library)
+ GDM provides the equivalent of a "login:" prompt for X displays: it
+ asks for a login and starts graphical sessions.
+ .
+ It supports multiple seats and switching between multiple users.
+ .
+ The greeter is based on the GNOME libraries and applications, and its
+ look and design are the same as those of a GNOME session.
+ .
+ This package contains the shared library required by gnome-shell.
+
+Package: libgtk-3-common
+Architecture: all
+Version: 3.24.52-0ubuntu1.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: misc
+Source: gtk+3.0
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/gtk-3.0/im-multipress.conf c358838e1789c1d4e6da7f525fc922cf
+Installed-Size: 4348
+Depends: dconf-gsettings-backend | gsettings-backend
+Recommends: libgtk-3-0t64
+Filename: pool/main/libgtk-3-common_3.24.52-0ubuntu1.stackos1_all.deb
+Size: 1422836
+MD5sum: c60171d18d81b9204ff88f4e03620724
+SHA1: 996774a4ea1c42eb34e0b72cbd26dc700e31c460
+SHA256: 1b70c63de7cab6228b879bba862841de373c2aebdaed85cfc78865e1eee874b9
+SHA512: 1a688abfe6385b3e715220f57f898cb2bdc1768dada8aa9e285adedd163486539dc8c157c90e4960601d0d913357bda930470c925627cbefd6a25c7d5dd196ad
+Homepage: https://www.gtk.org/
+Description: common files for the GTK graphical user interface library
+ GTK is a multi-platform toolkit for creating graphical user
+ interfaces. Offering a complete set of widgets, GTK is suitable
+ for projects ranging from small one-off tools to complete application
+ suites.
+ .
+ This package contains the common files which the libraries need.
+
+Package: libnautilus-extension4
+Architecture: amd64
+Version: 1:50.0-0ubuntu2.stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: nautilus
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 68
+Depends: libc6 (>= 2.4), libglib2.0-0t64 (>= 2.84.0)
+Filename: pool/main/libnautilus-extension4_1:50.0-0ubuntu2.stackos1_amd64.deb
+Size: 21652
+MD5sum: 3b0c544edb2b653e8e22f4ca9767c356
+SHA1: fb8b5af3f90b39a306afb6fe8425e900266bbf94
+SHA256: fd13f60471190e19ea787f5b8697472829e1e2e5dc276d2a378443cd804cd5c6
+SHA512: 9fd7244e5d4b0f7de76aa921f2f0156fe4896b6f004e0c4e430ddd894f0eb40de0dda89b1ca64a99118fcceaabc9b8c6c33891500399721c3ab6a01dfa8a71d8
+Homepage: https://wiki.gnome.org/action/show/Apps/Nautilus
+Description: libraries for nautilus components - runtime version
+ Nautilus is the official file manager and graphical shell for the
+ GNOME desktop.
+ .
+ This package contains a few runtime libraries needed by nautilus' extensions.
+
+Package: libpam-gnome-keyring
+Architecture: amd64
+Version: 50.0-1stackos1
+Multi-Arch: same
+Priority: optional
+Section: admin
+Source: gnome-keyring
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 54
+Depends: libpam-runtime (>= 1.0.1-6), libc6 (>= 2.33), libpam0g (>= 0.99.7.1), libselinux1 (>= 3.1~)
+Recommends: gnome-keyring
+Filename: pool/main/libpam-gnome-keyring_50.0-1stackos1_amd64.deb
+Size: 15232
+MD5sum: ff7a50da7ddc6589a540a0e8ad326fbe
+SHA1: ddfdf3de6eb9dcc21a63694c6bac316aaa5be0e5
+SHA256: 0730106a7224c53b9c0010c58fc2ca3f6aeef2baf8c09fe5fd45e3d345a8f8bd
+SHA512: 143b946c47bb3c9aecfdc6b105074cbbf2c8a4ea47b1501a3a0fa2bb11f48c519e0b6df0c2c88d1e3778b37ecca3b1305e1535902ea9389da14fcdb9aa3321a5
+Homepage: https://wiki.gnome.org/GnomeKeyring
+Description: PAM module to unlock the GNOME keyring upon login
+ gnome-keyring is a daemon in the session, similar to ssh-agent,
+ and other applications can use it to store passwords and other
+ sensitive information.
+ .
+ This package contains a PAM module that will automatically unlock the
+ keyrings using your login password, making gnome-keyring usage
+ transparent without losing its security benefits.
+ .
+ When installed, this module will automatically be used by GDM and
+ gnome-screensaver to unlock your keyrings when logging in and when
+ unlocking the screen saver.
+
+Package: libpeas-common
+Architecture: all
+Version: 1.38.1-4ubuntu1.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: libs
+Source: libpeas
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Extras Maintainers <pkg-gnome-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 104
+Filename: pool/main/libpeas-common_1.38.1-4ubuntu1.stackos1_all.deb
+Size: 10582
+MD5sum: 3919a46d2def364e0fd1d5fbd465fc9a
+SHA1: c398c93e992895bd7e129b6ae2f276468de1c9cd
+SHA256: 4186b4dbeed1586362f55d7b516c3fddcfb9c1d10a3d9d37e9a829914ebaa1b2
+SHA512: f3449a7f7c31eaca05d3dfbf2b01c5ecdee0d78a013bd67fc868816270b41efc427ec1af50e2a64269fb05385347213292dc33ff5bce2c5315a7eb798d0930ad
+Homepage: https://wiki.gnome.org/Projects/Libpeas
+Description: Application plugin library (common files)
+ libpeas is a library that allows applications to support plugins.
+ .
+ This package contains common files, such as translations and icons.
+
+Package: libppsdocument-4.0-6
+Architecture: amd64
+Version: 50.1-0ubuntu1.stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: papers
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 606
+Depends: libarchive13t64 (>= 3.6.0), libc6 (>= 2.38), libcairo2 (>= 1.14.0), libdjvulibre21 (>= 3.5.29), libexempi8 (>= 2.5.0), libgdk-pixbuf-2.0-0 (>= 2.40), libglib2.0-0t64 (>= 2.80.0), libgtk-4-1 (>= 4.17.1), libpango-1.0-0 (>= 1.50.3), libpoppler-glib8t64 (>= 26.01.0), libtiff6 (>= 4.0.3)
+Filename: pool/main/libppsdocument-4.0-6_50.1-0ubuntu1.stackos1_amd64.deb
+Size: 157836
+MD5sum: 069b44aefff47f224bc270bf9338143f
+SHA1: 959970c2565b32536c78d191b37efcf5e6fe2114
+SHA256: de5b9e5f3f587e99cc6ae3d620509b5dc271a591856f852066a1e7a7cf614b9a
+SHA512: 3f0186cfdf1d920a6f049e098644e28cbefed0d2d427665304a6c98642cfc7daea8f1ce05b1fdc33c1843edb16ffaa7ef3e8529d94a595b702912fe7fe4d65af
+Homepage: https://apps.gnome.org/Papers/
+Description: Document (Comic Books, DjVu, PDF) rendering library
+ This package contains libppsdocument, which performs the rendering of the
+ documents.
+ .
+ It ships with a pdf, tiff, djvu, and comics backend.
+
+Package: libppsview-4.0-5
+Architecture: amd64
+Version: 50.1-0ubuntu1.stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: papers
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 540
+Depends: libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libcairo2 (>= 1.14.0), libgdk-pixbuf-2.0-0 (>= 2.40), libglib2.0-0t64 (>= 2.80.0), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.17.1), libgtksourceview-5-0 (>= 2.91.4), libpango-1.0-0 (>= 1.14.0), libppsdocument-4.0-6 (>= 50~beta), libspelling-1-2 (>= 0.2.0)
+Filename: pool/main/libppsview-4.0-5_50.1-0ubuntu1.stackos1_amd64.deb
+Size: 177368
+MD5sum: eedd2d0e755ecd592aa92dd226bda8ce
+SHA1: e3dd6e638de58ed9df69f748b6c3f99c3a0bebe1
+SHA256: ba6f733c054956f915d123169d6e5fadd787cdcee0a78020a1d1d95c4dca0f42
+SHA512: e7670ae5c32e9157d1f369076f01af1931ac50d0f3535790f6daf41754a1ac813c6594fbbc474de174baec4c87d706d6d5f957735b3b94395afadb4598277ed4
+Homepage: https://apps.gnome.org/Papers/
+Description: Document (Comic Books, DjVu, PDF) rendering library - GTK widgets
+ This package contains libppsview, which provides GTK widgets for displaying
+ documents.
+
+Package: libpython3-stdlib
+Architecture: amd64
+Version: 3.14.3-0ubuntu2.stackos1
+Multi-Arch: same
+Priority: optional
+Section: python
+Source: python3-defaults
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 26
+Depends: libpython3.14-stdlib (>= 3.14.3)
+Filename: pool/main/libpython3-stdlib_3.14.3-0ubuntu2.stackos1_amd64.deb
+Size: 8338
+MD5sum: 1ae72f3b74475674d6394de5f376dc53
+SHA1: f478c68b0b508e3e0cb9c0b5e9f0c15a1e4b39c9
+SHA256: 84334d95f09d10ac1a645c4cbeac97470a6ead214c0560a01c407729c41bf85e
+SHA512: c92db959bcaa6a7b84474c27d061c7723d94930b2e537cc8dfb7f3864d84bae3563222a8bbede1ae105a23c0916baed91fe81c9c24858859bfb0d1f77ce9025e
+Homepage: https://www.python.org/
+Description: interactive high-level object-oriented language (default python3 version)
+ This package contains the majority of the standard library for the Python
+ language (default python3 version).
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version's standard library (currently v3.14).
+
+Package: libreoffice-style-yaru
+Architecture: all
+Version: 4:26.2.2.2-0ubuntu1.stackos1
+Priority: optional
+Section: editors
+Source: libreoffice
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian LibreOffice Maintainers <debian-openoffice@lists.debian.org>
+Bugs: mailto:libreoffice@lists.launchpad.net
+Installed-Size: 57737
+Provides: libreoffice-style
+Recommends: libreoffice-common
+Enhances: libreoffice-core
+Filename: pool/main/libreoffice-style-yaru_4:26.2.2.2-0ubuntu1.stackos1_all.deb
+Size: 12289698
+MD5sum: 4cec1e0b125daed552cda449b59734c6
+SHA1: 3e9923bd83f9d13129ac698ac18c2fbc23c30632
+SHA256: 6bdec27ad7119c91b48cd22bd6450469f7d71fa31207eff4aa256322f0238570
+SHA512: 418cd21d6e19e9e5588167188d61ba34a007866cda5cfa94e2a7e97b22351012889a4d9b3b04a4aca29cad2efebb8ef80988766c9734a4cf6476c1ee3b204c98
+Homepage: http://www.libreoffice.org
+Description: office productivity suite -- Yaru symbol style
+ LibreOffice is a full-featured office productivity suite that provides
+ a near drop-in replacement for Microsoft(R) Office.
+ .
+ This package contains the "yaru" symbol style.
+
+Package: libsysprof-6-6
+Architecture: amd64
+Version: 50.0-1stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: sysprof
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 566
+Depends: libsysprof-6-modules (>= 50.0-1), libc6 (>= 2.38), libdebuginfod1t64 (>= 0.180), libdex-1-1 (>= 0.9), libgcc-s1 (>= 3.4), libglib2.0-0t64 (>= 2.80.0), libjson-glib-1.0-0 (>= 1.5.2), libpolkit-gobject-1-0 (>= 0.99), libstdc++6 (>= 4.1.1), libsystemd0
+Filename: pool/main/libsysprof-6-6_50.0-1stackos1_amd64.deb
+Size: 188352
+MD5sum: c83a9e9d4ad5b547cbbdbce6b3ab5612
+SHA1: ec64c4489f998c3d97c59774463f1f47a8151122
+SHA256: ae7228dc42060501254964456ace5bbd8bcce783b33b8c55181d5356f09bcef1
+SHA512: acf47b1884c8953ba4a063872fb1558dbc69d1e5eeddcd1a4624c28191e89e7e3bfbab7cd491f9fafb2e5da40071c31400181cf4e5c0854b25f29da0eecaf4e1
+Homepage: https://apps.gnome.org/Sysprof/
+Description: library for system-wide Linux profiler
+ Sysprof is a sampling CPU profiler that uses a ptrace in Linux kernel to
+ profile the entire system, not just a single application. Sysprof handles
+ shared libraries and applications do not need to be recompiled. In fact they
+ don't even have to be restarted.
+ .
+ This package provides the shared library for console applications
+ embedding sysprof.
+
+Package: libsysprof-6-modules
+Architecture: amd64
+Version: 50.0-1stackos1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: sysprof
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 92
+Depends: libc6 (>= 2.38), libglib2.0-0t64 (>= 2.80.0), libunwind8
+Filename: pool/main/libsysprof-6-modules_50.0-1stackos1_amd64.deb
+Size: 21764
+MD5sum: bbc68932e49619dbb5a6ddca0ad6b323
+SHA1: 7a758b5aaea81733f2c763f30ebde0ed0355f63a
+SHA256: 25feba52e8ff0d55551a289d4a1a6cf6fe0d38dc341b85311aab65051633c785
+SHA512: 69c49d18aa14666bb519584c1dc4ed2d0700a4f2a382c49a3d748a1c01313b81356df293aaa3280cbb18d4f9b9f8a817b65f91bacd8524dd884d24716b2cb129
+Homepage: https://apps.gnome.org/Sysprof/
+Description: LD_PRELOAD modules for system-wide Linux profiler
+ Sysprof is a sampling CPU profiler that uses a ptrace in Linux kernel to
+ profile the entire system, not just a single application. Sysprof handles
+ shared libraries and applications do not need to be recompiled. In fact they
+ don't even have to be restarted.
+ .
+ This package provides LD_PRELOAD modules that can be injected into the
+ program being profiled.
+
+Package: loupe
+Architecture: amd64
+Version: 50.0-0ubuntu2.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 6764
+Depends: libadwaita-1-0 (>= 1.8.0), libc6 (>= 2.39), libcairo2 (>= 1.2.4), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 4.2), libglib2.0-0t64 (>= 2.74.0), libgraphene-1.0-0 (>= 1.9.4), libgtk-4-1 (>= 4.16), libgweather-4-0t64 (>= 4.0.0), liblcms2-2 (>= 2.12.0), libseccomp2 (>= 2.5.0), dconf-gsettings-backend | gsettings-backend, glycin-loaders (>= 2.0~rc+ds-~~)
+Filename: pool/main/loupe_50.0-0ubuntu2.stackos1_amd64.deb
+Size: 2096812
+MD5sum: 5d6b7dd82097ea01baf13bbd11d1362c
+SHA1: f9727f25d450388e63f0be7ec27f9543de102173
+SHA256: d9de1e2d36b3151840b97f66236ccbf4382129735b88500d7468ac5537347527
+SHA512: ef2e18d9f2b2ed9c65e85bebc6f3d983a7864498f984029319b1b78e2b921594084cfebf9536b8bde8d0e485d0ec73cbb526a931c6130022a07f6ebe274d40dc
+Homepage: https://apps.gnome.org/Loupe/
+Description: Image viewer for GNOME
+ Loupe is a simple image viewer for the GNOME desktop.
+ It uses glycin-loaders for image loading and decoding.
+ A wide range of image formats is supported.
+ Basic image editing like cropping and rotation is supported.
+ Starting with GNOME 45 this is the default image viewer.
+
+Package: modemmanager
+Architecture: amd64
+Version: 1.25.95-1ubuntu1.stackos1
+Priority: optional
+Section: net
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
+Conffiles:
+ /etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf newconffile remove-on-upgrade
+Installed-Size: 5128
+Depends: libc6 (>= 2.42), libglib2.0-0t64 (>= 2.56.0), libgudev-1.0-0 (>= 212), libmbim-glib4 (>= 1.32~), libmbim-proxy, libmm-glib0 (>= 1.25.1), libpolkit-gobject-1-0 (>= 0.99), libqmi-glib5 (>= 1.37.95), libqmi-proxy, libqrtr-glib0 (>= 1.0.0), libsystemd0 (>= 209), polkitd
+Recommends: libmbim-utils, libqmi-utils, usb-modeswitch
+Filename: pool/main/modemmanager_1.25.95-1ubuntu1.stackos1_amd64.deb
+Size: 1174328
+MD5sum: 07178fc7fbac4ab92cb5cc97c8b000cf
+SHA1: 3fa8185040bf9af23cd7225a06583874bce4ca75
+SHA256: 28030a854c6ff96b6ea6ef173dfa9cf235d3a2d00da62596f2c406ff7c3ea5f3
+SHA512: 59c2128c09475cb3130cb9dacc3a336624f58597a1928668ae192e84044266edbe62f66b8324812d8351a8a61597b3a197b6796af827915d7408f7d5fa9d09eb
+Homepage: https://www.freedesktop.org/wiki/Software/ModemManager/
+Description: D-Bus service for managing modems
+ ModemManager is a DBus-activated daemon which controls mobile broadband
+ (2G/3G/4G/5G) devices and connections. Whether built-in devices, USB dongles,
+ Bluetooth-paired telephones or professional RS232/USB devices with external
+ power supplies, ModemManager is able to prepare and configure the modems and
+ setup connections with them.
+
+Package: nautilus-data
+Architecture: all
+Version: 1:50.0-0ubuntu2.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Source: nautilus
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 132
+Depends: dconf-gsettings-backend | gsettings-backend
+Filename: pool/main/nautilus-data_1:50.0-0ubuntu2.stackos1_all.deb
+Size: 16256
+MD5sum: 098a5b0836dd787fd8b0c831ba173fc2
+SHA1: 28ade8f059a4480f7ed79cfadaf98775a83f8ac9
+SHA256: cb2b2b0e5e2594d72c2ec88192175c6bbc5d541660010709b92d89748f8e8647
+SHA512: d21b5a85f640a49ac2b008c2e08ad27c7d7d2a164cfe90f7ba810f4feb764bf612543e50288487f43c39112c1766dae6a27c26b1972b599ae85f73fc3b06907a
+Homepage: https://wiki.gnome.org/action/show/Apps/Nautilus
+Description: data files for nautilus
+ Nautilus is the official file manager and graphical shell for the
+ GNOME desktop.
+ .
+ This package contains pictures, localization files and other data
+ needed by nautilus.
+
+Package: nautilus
+Architecture: amd64
+Version: 1:50.0-0ubuntu2.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 1643
+Depends: desktop-file-utils (>= 0.7), eject, gsettings-desktop-schemas (>= 3.8.0), gvfs (>= 1.3.2), gvfs-backends, libglib2.0-data, libnautilus-extension4 (= 1:50.0-0ubuntu2.stackos1), nautilus-data (= 1:50.0-0ubuntu2.stackos1), shared-mime-info (>= 0.50), localsearch, xdg-user-dirs-gtk, libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libdbusmenu-glib4 (>= 0.4.2), libgdk-pixbuf-2.0-0 (>= 2.25.2), libgexiv2-2 (>= 0.14.2), libglib2.0-0t64 (>= 2.84.0), libglycin-2-0 (>= 2.0~beta), libglycin-gtk4-2-0 (>= 2.0~beta), libgnome-autoar-0-0 (>= 0.4.4), libgnome-desktop-4-2t64 (>= 43~), libgraphene-1.0-0 (>= 1.5.4), libgstreamer-plugins-base1.0-0 (>= 1.0.0), libgstreamer1.0-0 (>= 1.0.0), libgtk-4-1 (>= 4.20.0), libicu78 (>= 78.1-1~), libpango-1.0-0 (>= 1.42), libportal-gtk4-1 (>= 0.7), libportal1 (>= 0.7), libselinux1 (>= 3.1~), libtinysparql-3.0-0 (>= 3.8.1), libunity9 (>= 3.4.6), libwayland-client0 (>= 1.20.0), libx11-6
+Recommends: libgdk-pixbuf2.0-bin, librsvg2-common, xdg-desktop-portal-gnome
+Suggests: gnome-sushi
+Breaks: eiciel (<< 0.9.13.1-1.1~), folder-color (<< 0.0.86-0ubuntu5~), nautilus-dropbox (<< 2019.02.14-1ubuntu2~), nautilus-extension-brasero (<< 3.12.3-2), nautilus-extension-burner (<< 3.0.10-1.2), nautilus-extension-gnome-console (<< 43), nautilus-extension-gnome-terminal (<< 3.56.0-1ubuntu2), nautilus-filename-repairer (<< 0.2.0-3.1~), nautilus-font-manager (<< 0.8.8-2), nautilus-gtkhash (<< 1.4+git20220617-2.1~), nautilus-ideviceinfo (<< 0.1.0-0ubuntu15~), nautilus-image-converter (<< 0.3.1~git20110416-2.1~), nautilus-share (<< 0.7.3-2ubuntu7~), nautilus-wipe (<< 0.3.1-2.1~), seahorse-nautilus (<< 3.11.92-4.1~), unity (<< 7.5.1+21.10.20210601.1-0ubuntu1)
+Replaces: nautilus-extension-gnome-terminal (<< 3.56.0-1ubuntu2)
+Filename: pool/main/nautilus_1:50.0-0ubuntu2.stackos1_amd64.deb
+Size: 563168
+MD5sum: 45946307c50063c91ed205b540ff25c9
+SHA1: 83171c6c24ac23c2ac30ba5b3feca5b3c65c6b92
+SHA256: eafe436db9267fbcf2e2c32cc48ca98e0a9cb63cf275499166cba308f3ebff7a
+SHA512: 4cdddd3f8707257b11fa914a0ccf64b0b628bb15b817e70f63d099ad38929af6906e9fe9fbe3e0306354c923182a3d914051d7630befca862af5b3d466c7c991
+Homepage: https://wiki.gnome.org/action/show/Apps/Nautilus
+Description: file manager and graphical shell for GNOME
+ Nautilus is the official file manager for the GNOME desktop. It allows
+ one to browse directories, preview files and launch applications
+ associated with them. It is also responsible for handling the icons on
+ the GNOME desktop. It works on local and remote filesystems.
+ .
+ Several icon themes and components for viewing different kinds of files
+ are available in separate packages.
+
+Package: network-manager-applet
+Architecture: amd64
+Version: 1.36.0-4ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/xdg/autostart/nm-applet.desktop b1cc203e85d273f9adacceff4d95fd35
+Installed-Size: 284
+Depends: libatk1.0-0t64 (>= 1.12.4), libayatana-appindicator3-1 (>= 0.4.90), libc6 (>= 2.34), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.40.0), libgtk-3-0t64 (>= 3.10), libmm-glib0 (>= 0.7.991), libnm0 (>= 1.16.0), libnma0 (>= 1.8.28), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libsecret-1-0 (>= 0.18), dconf-gsettings-backend | gsettings-backend, nm-connection-editor (= 1.36.0-4ubuntu1.stackos1), network-manager, gnome-shell | policykit-1-gnome | polkit-1-auth-agent, default-dbus-session-bus | dbus-session-bus
+Recommends: gnome-shell | notification-daemon, gnome-keyring | kwalletmanager, gnome-icon-theme, mobile-broadband-provider-info, iso-codes
+Suggests: network-manager-openconnect-gnome, network-manager-openvpn-gnome, network-manager-vpnc-gnome, network-manager-pptp-gnome
+Breaks: network-manager-gnome (<< 1.36.0-3~)
+Replaces: network-manager-gnome (<< 1.36.0-3~)
+Filename: pool/main/network-manager-applet_1.36.0-4ubuntu1.stackos1_amd64.deb
+Size: 81664
+MD5sum: 6aa9d0a958e945a4c0e690130b5b6e36
+SHA1: 1163164b756effe27520f0980de518af51cebd96
+SHA256: b929bd8fd0dd3ec63c7149de4d4d7c8e7fa08d98c7b6c0f5075b35068de109dd
+SHA512: 19284488eb3c9cb53bc7c0df5d2bdd537d3300623070b48b178f2623e98b66b1d19060d14027fb055ce04b5567797428e7fc4d3075fdce08e22451ea262b72ce
+Homepage: https://networkmanager.dev
+Description: network management framework (notification area applet)
+ NetworkManager is a system network service that manages your network devices
+ and connections, attempting to keep active network connectivity when
+ available. It manages ethernet, Wi-Fi, mobile broadband (WWAN), and PPPoE
+ devices, and provides VPN integration with a variety of different VPN
+ services.
+ .
+ This package contains nm-applet which is a GTK‐based GUI applet to monitor
+ network status and devices and allows users to start and stop network
+ connections managed by NetworkManager.
+
+Package: network-manager-gnome
+Architecture: amd64
+Version: 1.36.0-4ubuntu1.stackos1
+Priority: optional
+Section: oldlibs
+Source: network-manager-applet
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Installed-Size: 20
+Depends: network-manager-applet (= 1.36.0-4ubuntu1.stackos1), nm-connection-editor (= 1.36.0-4ubuntu1.stackos1)
+Filename: pool/main/network-manager-gnome_1.36.0-4ubuntu1.stackos1_amd64.deb
+Size: 8400
+MD5sum: da81a3780c717151549d846f9b8329f9
+SHA1: 50242da534e008215b49e5c52fc6068f48873cf3
+SHA256: 77e8740dc80471a8a7a79324dadf59390e4f08ea6f95a21a6e35ff642c49f584
+SHA512: 694bf05c3a442164ba6003ada284f4b2e8efafa2c2905eac62a399fa22e7e117427b6cd7c13b2493c5be6e6a656679a17a6da0be4ddc62ce7a986541d80aa26d
+Homepage: https://networkmanager.dev
+Description: transitional package for network-manager-applet and nm-connection-editor
+ NetworkManager is a system network service that manages your network devices
+ and connections, attempting to keep active network connectivity when
+ available. It manages ethernet, Wi-Fi, mobile broadband (WWAN), and PPPoE
+ devices, and provides VPN integration with a variety of different VPN
+ services.
+ .
+ This transitional package depends on network-manager-applet (shipping
+ nm-applet which provides a notification area applet for controlling
+ NetworkManager) and nm-connection-editor (a network connection configuration
+ editor for NetworkManager).
+ .
+ It can be removed safely once no other package depends on it.
+
+Package: nm-connection-editor
+Architecture: amd64
+Version: 1.36.0-4ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Source: network-manager-applet
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Installed-Size: 1764
+Depends: libc6 (>= 2.38), libglib2.0-0t64 (>= 2.44.0), libgtk-3-0t64 (>= 3.21.6), libjansson4 (>= 2.14), libnm0 (>= 1.40.0), libnma0 (>= 1.8.36), libselinux1 (>= 3.1~), network-manager, gnome-shell | policykit-1-gnome | polkit-1-auth-agent, default-dbus-session-bus | dbus-session-bus
+Recommends: mobile-broadband-provider-info
+Breaks: network-manager-gnome (<< 1.36.0-3~)
+Replaces: network-manager-gnome (<< 1.36.0-3~)
+Filename: pool/main/nm-connection-editor_1.36.0-4ubuntu1.stackos1_amd64.deb
+Size: 221732
+MD5sum: c949146f379a98a2d7a7ac1444d01137
+SHA1: 934a290e309d0a530340dabec6975bd714fe6ac2
+SHA256: 531986ad405c9d0f52fc3ba116f99bdacfac5d8a3b5e072b4559b6a37946438c
+SHA512: 06a0b5235a32e621edca92ec8fbee77f87a868d5b773b649fb1d18e6403e93d27d549ae166c6f899a05098bf00c5139313c50ca395c883e3583e4340d90766c3
+Homepage: https://networkmanager.dev
+Description: network management framework (connection configuration editor)
+ NetworkManager is a system network service that manages your network devices
+ and connections, attempting to keep active network connectivity when
+ available. It manages ethernet, Wi-Fi, mobile broadband (WWAN), and PPPoE
+ devices, and provides VPN integration with a variety of different VPN
+ services.
+ .
+ This package contains nm-connection-editor which allows users to edit
+ NetworkManager connection settings.
+
+Package: orca
+Architecture: all
+Version: 50.1.2-1ubuntu1.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian Accessibility Team <pkg-a11y-devel@alioth-lists.debian.net>
+Conffiles:
+ /etc/xdg/autostart/orca-autostart.desktop 6cee43c5126ba15ba08b2fdc7718acf9
+Installed-Size: 6140
+Depends: dconf-gsettings-backend | gsettings-backend, python3:any, gir1.2-glib-2.0, gir1.2-gtk-3.0, gir1.2-pango-1.0, gir1.2-wnck-3.0, gir1.2-gstreamer-1.0, gstreamer1.0-plugins-good, gir1.2-atspi-2.0 (>= 2.56.0~), python3-brlapi, python3-cairo, python3-gi, python3-louis, at-spi2-core (>= 2.56.0~), python3-speechd, python3-dasbus, python3-dbus, python3-setproctitle, python3-psutil, speech-dispatcher, gsettings-desktop-schemas
+Recommends: xbrlapi
+Suggests: brltty
+Breaks: ubuntu-mate-default-settings (<< 26.04)
+Replaces: ubuntu-mate-default-settings (<< 26.04)
+Filename: pool/main/orca_50.1.2-1ubuntu1.stackos1_all.deb
+Size: 605264
+MD5sum: 97035a6186df1a66177eb45b58c23802
+SHA1: ad7cb7f8357784f5ed9802cb98d3082e7b8a1ee4
+SHA256: 96c13f4e495dc073afa7fa9c8c5d0daff072bba0221c4421134ee1c6286ca7b1
+SHA512: 2568729c8e10c818dab6fd081ba3ae98b4a4708200b6fa8031a40a46ec8fcc6544e9ad151f9eb9aa2e30faa4334f2749ac34e69441ecdf8c4aea80af257aaa83
+Homepage: https://wiki.gnome.org/Projects/Orca
+Description: Scriptable screen reader
+ A flexible, extensible, and powerful assistive technology that
+ provides end-user access to applications and toolkits that support the
+ AT-SPI (e.g., the GNOME desktop).
+ .
+ Orca defines a set of default behaviors (reactions to application events) and
+ key bindings (reaction to user key presses). These default behaviors and key
+ bindings can be overwritten on a per-application basis. Orca creates a script
+ object for each running application, which merges both the default behaviors
+ and key bindings, and the application specific ones. Orca provides the
+ infrastructure to activate and deactivate scripts, as well as a host of
+ services accessible from within the scripts.
+
+Package: papers
+Architecture: amd64
+Version: 50.1-0ubuntu1.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/apparmor.d/abstractions/papers 123611399daa9d3bb638e174e2a86409
+ /etc/apparmor.d/usr.bin.papers 1fdf810c25c8be72e384544745580be3
+Installed-Size: 7895
+Provides: djvu-viewer, pdf-viewer
+Depends: gsettings-desktop-schemas, libppsdocument-4.0-6 (= 50.1-0ubuntu1.stackos1), libppsview-4.0-5 (= 50.1-0ubuntu1.stackos1), papers-common (>= 50.1-0ubuntu1), shared-mime-info, dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.8~alpha), libc6 (>= 2.39), libgcc-s1 (>= 4.2), libgdk-pixbuf-2.0-0 (>= 2.40), libglib2.0-0t64 (>= 2.80.0), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.17.1), libnautilus-extension4 (>= 43), libpango-1.0-0 (>= 1.50.3)
+Suggests: gvfs, nautilus-sendto, poppler-data, unrar
+Enhances: nautilus
+Filename: pool/main/papers_50.1-0ubuntu1.stackos1_amd64.deb
+Size: 2053962
+MD5sum: 8a33547b695c553040712c1376c9a76c
+SHA1: 3aa4e3a69effa427da1322c0e2025ca108152ec7
+SHA256: f1039bffbe42cc16827c67fca0b984795ed00677b91eb9a8696347a1091d611d
+SHA512: 30d88f704b657f9bd9e68d53b8ff915d83dbc0e9ac4bb9014dd2f56df87d78e4c7bf14b48dce407152afabe7531b55447d2e3b8215f5926729612784a31cf9c0
+Homepage: https://apps.gnome.org/Papers/
+Description: PDF document viewer for GNOME
+ Papers is a simple multi-page document viewer. It can display and print
+ Comic Books archives (CBR, CBT, CBZ, CB7), DjVu, Portable Document
+ Format (PDF) and TIFF files. When supported by the document, it also
+ allows searching for text, copying text to the clipboard, hypertext
+ navigation, and table-of-contents bookmarks.
+
+Package: papirus-icon-theme
+Architecture: all
+Version: 20250501+git20260316-0ubuntu1.stackos1
+Priority: optional
+Section: x11
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian Desktop Theme Team <team+desktop-themes-team@tracker.debian.org>
+Installed-Size: 190430
+Provides: epapirus-icon-theme
+Depends: hicolor-icon-theme
+Recommends: librsvg2-common
+Suggests: gtk-update-icon-cache
+Breaks: epapirus-icon-theme
+Replaces: epapirus-icon-theme
+Filename: pool/main/papirus-icon-theme_20250501+git20260316-0ubuntu1.stackos1_all.deb
+Size: 22349426
+MD5sum: ae23e9bc6d52f8b708a1cf0ddefa237f
+SHA1: c583080cdd528f5cceb159624ff65dc931424922
+SHA256: 200e8af71a472465ffc85b375c1c319fe5892e9590ca5d60d29c852ce7016b73
+SHA512: ba507f4ec3becdb296b13fbacab1c148eb8f78719ef76122f3d1bcff1a31972d6da0e9d78657ce557caede70f58706aac206a58baafb29e64cdbd94231d14e70
+Homepage: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+Description: Papirus open source icon theme for Linux
+ Papirus is a SVG-based icon theme, drawing inspiration from Material Design
+ and flat design.
+ .
+ This package contains the following icon themes:
+  - Papirus
+  - Papirus-Dark
+  - Papirus-Light
+
+Package: printer-driver-foo2zjs-common
+Architecture: all
+Version: 20200505dfsg0-3ubuntu1.stackos1
+Priority: optional
+Section: text
+Source: foo2zjs
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Installed-Size: 2506
+Depends: python3:any, xz-utils
+Recommends: printer-driver-foo2zjs (>= 20200505dfsg0-3ubuntu1)
+Suggests: tix, tk
+Breaks: foo2zjs (<< 20111023dfsg0-1~)
+Replaces: foo2zjs (<< 20111023dfsg0-1~)
+Enhances: printer-driver-foo2zjs (>= 20200505dfsg0-3ubuntu1)
+Filename: pool/main/printer-driver-foo2zjs-common_20200505dfsg0-3ubuntu1.stackos1_all.deb
+Size: 593050
+MD5sum: a44f456aa2d61ed6be5e2889c2db6afc
+SHA1: 67697d4a8c6278de4b2d30220196a2ddadc8a29f
+SHA256: 9c2196ecbbf0c1902eab8cf68c34173f1db0c7e226fb77f9eb5295acfa05c0d2
+SHA512: 53a0c02a587802902076ddc7dbd8798c9484151afcef569b4a3537c8f03dcd624c70c8ef76908bde65c564c2037daef09b2a66003103ab2affa78f17cf64cba5
+Homepage: http://foo2zjs.rkkda.com/
+Description: printer driver for ZjStream-based printers - common files
+ foo2zjs is an open source printer driver for printers that use the
+ Zenographics ZjStream wire protocol for their print data, such as the
+ Minolta magicolor 2200/2300/2430 DL, Minolta Color PageWorks/Pro L and
+ HP LaserJet 1000/1005/1018/1020/1022. These printers are often
+ erroneously referred to as "winprinters" or "GDI printers".
+ .
+ This package contains the architecture-independent files for
+ printer-driver-foo2zjs.
+
+Package: python3-setuptools
+Architecture: all
+Version: 78.1.1-0.1build1.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: python
+Source: setuptools
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 3897
+Depends: python3-pkg-resources (= 78.1.1-0.1build1), python3-jaraco.text, python3-more-itertools, python3-typeguard, python3-typing-extensions, python3-zipp, python3:any
+Suggests: python-setuptools-doc
+Breaks: python3-wheel (<< 0.46.0)
+Filename: pool/main/python3-setuptools_78.1.1-0.1build1.stackos1_all.deb
+Size: 651442
+MD5sum: 96e6d32c308a690ff5f83e21eabe0d69
+SHA1: 2475b1ac3177bbf199918ef0851454d27377381c
+SHA256: a70c2372572b1a3c80e74eed8c7f7bf5330be1959d8bda0921718f290bb2da95
+SHA512: 83c36b450df9a43717515e9f772f546777f409ff74b5e6ca533755bc550929e0633073d81d421dadb4786546a6cd5acd8463f558d51b0dcbfd3da29c4078f9d6
+Homepage: https://pypi.python.org/pypi/setuptools
+Description: Python3 Distutils Enhancements
+ Extensions to the python-distutils for large or complex distributions.
+
+Package: python3
+Architecture: amd64
+Version: 3.14.3-0ubuntu2.stackos1
+Multi-Arch: allowed
+Priority: optional
+Section: python
+Source: python3-defaults
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 80
+Provides: python3-profiler, python3-supported-max (= 3.14), python3-supported-min (= 3.14)
+Pre-Depends: python3-minimal (= 3.14.3-0ubuntu2)
+Depends: python3.14 (>= 3.14.3), libpython3-stdlib (= 3.14.3-0ubuntu2.stackos1)
+Suggests: python3-doc (>= 3.14.3-0ubuntu2), python3-tk (>= 3.14.3), python3-venv (>= 3.14.3-0ubuntu2)
+Conflicts: python3-distutils
+Replaces: python3-minimal (<< 3.1.2-2)
+Filename: pool/main/python3_3.14.3-0ubuntu2.stackos1_amd64.deb
+Size: 22628
+MD5sum: 5553fb87d0b52231556c82ff7e07fa9f
+SHA1: e0542485b401f30d176554fc689cf0896b7d3550
+SHA256: 7f1c39a75e5c793b0fc131dfb36c2299e4fe6d38da77dbded891a01f7c0d9722
+SHA512: f2f63f6424acda7ebda01fab4b0532d10d714bfef9eb21b05754225f21989d64f2a7e76d34922c247bd6251ca0cafa7d0d7628d071306a2c6a00ddc819bc36a1
+Homepage: https://www.python.org/
+Description: interactive high-level object-oriented language (default python3 version)
+ Python, the high-level, interactive object oriented language,
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version (currently v3.14).
+
+Package: resources
+Architecture: amd64
+Version: 1.10.2-0ubuntu3.stackos1
+Priority: optional
+Section: gnome
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Installed-Size: 8300
+Depends: libadwaita-1-0 (>= 1.8), libc6 (>= 2.39), libcairo2 (>= 1.4.10), libgcc-s1 (>= 4.2), libglib2.0-0t64 (>= 2.66), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.12.0), libsoup-3.0-0 (>= 3.0.3), dconf-gsettings-backend | gsettings-backend
+Filename: pool/main/resources_1.10.2-0ubuntu3.stackos1_amd64.deb
+Size: 1940362
+MD5sum: bb10b3983e2ac4bfafa1f2d358472c70
+SHA1: b22ce9c4400c4720efcada4fff73c35f45905bab
+SHA256: 2bff4664ad45fe35c85f343dcb79db74fe423c7674041d7c6cf8dcb0247f8cff
+SHA512: 6718d3e7c90c2b96b8c67f8b07a121e91744257953203b1d0229bcc986e8b38c588c72df1feb8f70c70761bcc22ee625fa6bd4dbb58091d768183f4cb9c968ae
+Homepage: https://apps.gnome.org/Resources/
+Description: Keep an eye on system resources
+ Resources allows you to check the utilization of your system resources and
+ control your running processes and apps. It's designed to be user-friendly
+ and feel right at home on a modern desktop by using GNOME's libadwaita.
+ .
+ Resources supports monitoring the following components:
+  - CPU
+  - Memory
+  - GPU
+  - Network Interfaces
+  - Storage Devices
+  - Batteries
+
+Package: rhythmbox-data
+Architecture: all
+Version: 3.4.9-3ubuntu3.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: gnome
+Source: rhythmbox
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 856
+Depends: dconf-gsettings-backend | gsettings-backend
+Recommends: rhythmbox
+Filename: pool/main/rhythmbox-data_3.4.9-3ubuntu3.stackos1_all.deb
+Size: 277232
+MD5sum: 74a24ebaf646fb3ee4c5e15a4da43bf2
+SHA1: 58fcd90d3bf86e4df97e0045dfa23a6b125fdb41
+SHA256: d80d868d18f6b884a4fc6475cd2ac40a48e78c416710e2fd54fb8885dac04b74
+SHA512: 2948dda6338962610ed99c497b14ccd11190d58e46df265ab56b3301ba317e65c0a2c096094de2222c62e1b70a3e050111110d45b8a80887f56bebe12cb57cb1
+Homepage: https://wiki.gnome.org/Apps/Rhythmbox
+Description: data files for rhythmbox
+ Rhythmbox is a very easy to use music playing and management program
+ which supports a wide range of audio formats (including mp3 and ogg).
+ Originally inspired by Apple's iTunes, the current version also supports
+ Internet Radio, iPod integration and generic portable audio player
+ support, Audio CD burning, Audio CD playback, music sharing, and
+ Podcasts.
+ .
+ This package contains pictures, localization files and other data
+ needed by rhythmbox.
+
+Package: rygel
+Architecture: amd64
+Version: 45.0-1ubuntu1.stackos1
+Priority: optional
+Section: net
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Conffiles:
+ /etc/rygel.conf 5930120d3b4227d5f1f670a5be8ea026
+Installed-Size: 1428
+Depends: init-system-helpers (>= 1.52), libc6 (>= 2.38), libgdk-pixbuf-2.0-0 (>= 2.31.1), libgee-0.8-2 (>= 0.8.3), libglib2.0-0t64 (>= 2.80.0), libgssdp-1.6-0 (>= 1.1.3), libgstreamer-plugins-base1.0-0 (>= 1.20.0), libgstreamer1.0-0 (>= 1.12), libgupnp-1.6-0 (>= 1.6.0), libgupnp-av-1.0-3 (>= 0.14.1), libgupnp-dlna-2.0-4 (>= 0.9.4-2), libmediaart-2.0-0 (>= 1.9.0), librygel-core-2.8-0 (>= 45.0), librygel-db-2.8-0 (>= 45.0), librygel-renderer-2.8-0 (>= 45.0), librygel-server-2.8-0 (>= 45.0), libsoup-3.0-0 (>= 2.4.0), libsqlite3-0 (>= 3.5.9), libx11-6, libxml2-16 (>= 2.14.1)
+Recommends: dbus-user-session, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good
+Suggests: rygel-localsearch, rygel-playbin, rygel-preferences, rygel-ruih, tumbler, gstreamer1.0-libav, gstreamer1.0-plugins-ugly
+Filename: pool/main/rygel_45.0-1ubuntu1.stackos1_amd64.deb
+Size: 328102
+MD5sum: f1f690ca795eac16ce242d2b2fa07c30
+SHA1: df058e77f3389c5d36b2bf0d0c3dba04636090f6
+SHA256: 039f976e44d1514e883131b20587328ea075ff8616dde614ef7ed0238c86eec2
+SHA512: 6301ee670583ad34d130aa805176a78ba8709c3c624e006a888fbed06919bb6575102d516366e5c4487370034e2aa16a93c135046fd54daaea0f4a925f43c9dd
+Homepage: https://wiki.gnome.org/Projects/Rygel
+Description: GNOME UPnP/DLNA services
+ Rygel is a home media solution that allows you to easily share audio, video
+ and pictures, and control of media player on your home network. In technical
+ terms it is both a UPnP AV MediaServer and MediaRenderer implemented through
+ a plug-in mechanism. Interoperability with other devices in the market is
+ achieved by conformance to very strict requirements of DLNA and on the fly
+ conversion of media to format that client devices are capable of handling.
+ .
+ This package contains the core of Rygel and following plugins:
+   * media-export: Recursively exports folders and files specified in the
+     user configuration. This plugin supports all types of URIs that
+     gio/gvfs and GStreamer can handle.
+   * external: A MediaServer plugin that exports media hierarchies
+     provided by external applications.
+   * mpris: Export of media players that implement MPRIS2 D-Bus interface,
+     as MediaRenderer devices.
+
+Package: showtime
+Architecture: all
+Version: 50.0-0ubuntu1.stackos1
+Priority: optional
+Section: video
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 384
+Depends: gir1.2-adw-1 (>= 1.8), gir1.2-gst-plugins-extra-1.0, gir1.2-gst-plugins-base-1.0, gir1.2-gtk-4.0 (>= 4.20), gstreamer1.0-gl, gstreamer1.0-gtk4, gstreamer1.0-plugins-good, python3-gi, dconf-gsettings-backend | gsettings-backend, python3:any
+Filename: pool/main/showtime_50.0-0ubuntu1.stackos1_all.deb
+Size: 48946
+MD5sum: d1e22d9a5d8d66992c6fc6cbb39eab7a
+SHA1: 203219b05046c7c1a11deb251e5d80e0dea98193
+SHA256: dd14063ce5471054999c04d273c02a09856aef76da1c09bfc69c32a6a5226605
+SHA512: 7d934a04417f45dea724e5362118ea233ff8efb5297631d24f995d95d11b86ef6d148cf5879a8c8d4092df8306cfde08e340cfff4a854f991aeab36b4beac9ee
+Homepage: https://apps.gnome.org/Showtime
+Description: Watch without distraction
+ Play your favorite movies and video files without hassle. Showtime features
+ simple playback controls that fade out of your way when you're watching,
+ fullscreen, adjustable playback speed, multiple language and subtitle tracks,
+ and screenshots — everything you need for a straightforward viewing experience.
+
+Package: stackos-base-files
+Architecture: amd64
+Version: 14stackos1
+Multi-Arch: foreign
+Priority: required
+Essential: yes
+Section: admin
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Santiago Vila <sanvila@debian.org>
+Conffiles:
+ /etc/debian_version 033cf14800df38511c4b7ed1552f8ee5
+ /etc/dpkg/origins/debian c47b6815f67ad1aeccb0d4529bd0b990
+ /etc/dpkg/origins/ubuntu ea35901c45553c3451f60476be94d2d8
+ /etc/host.conf 89408008f2585c957c031716600d5a80
+ /etc/issue fbbf4128ba7970c4e71a3d4df4bc7e2d
+ /etc/issue.net 4d74195ab1221721d37fa33759b58763
+ /etc/legal 0110925f6e068836ef2e09356e3651d9
+ /etc/lsb-release 52ce933619197bba3f16222ec6655ca9
+ /etc/profile.d/01-locale-fix.sh 870346d97b16faac4a371b04ffe4cc2f
+ /etc/update-motd.d/00-header 4a1e6eed7a59f200b4267085721750a3
+ /etc/update-motd.d/10-help-text 88601f81d580e2686da6bd29d520e120
+ /etc/update-motd.d/50-motd-news 54567afa89b3a7983d05ff217fe4a9fd
+Installed-Size: 440
+Provides: base-files (= 14stackos1), base, usr-is-merged
+Pre-Depends: awk
+Depends: libc6 (>= 2.34), libcrypt1 (>= 1:4.4.10-10ubuntu3)
+Conflicts: base-files
+Breaks: debian-security-support (<< 2019.04.25), initscripts (<< 2.88dsf-13.3), sendfile (<< 2.1b.20080616-5.2~), ubuntu-server (<< 1.453)
+Replaces: base-files, base, dpkg (<= 1.15.0), miscutils
+Filename: pool/main/stackos-base-files_14stackos1_amd64.deb
+Size: 454818
+MD5sum: 893ce67d0fadc9000305fb228ba84df5
+SHA1: 2f5c6bd4839a508fddeb04ab1829b57c8b1cdfc0
+SHA256: 352ce1eae53edbab1808f4f02392ae6d3846e50bc6f818066ff65f2a129928fd
+SHA512: 001820dffaf55e806821f721e9bb3d797e1df066099fd2615228ca52317eb789c991c21f5c60684ebaaee5cafc5826aa6e867e24d8bbd69ea6d3fa382f7e459c
+Description: Debian base system miscellaneous files
+ This package contains the basic filesystem hierarchy of a Debian system, and
+ several important miscellaneous files, such as /etc/debian_version,
+ /etc/host.conf, /etc/issue, /etc/motd, /etc/profile, and others,
+ and the text of several common licenses in use on Debian systems.
+
+Package: stackos-bash
+Architecture: all
+Version: 5.2stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: bash
+Pre-Depends: libc6 (>= 2.38), libtinfo6 (>= 6)
+Depends: stackos-base-files (>= 2.1.12), debianutils (>= 5.6-0.1)
+Filename: pool/main/stackos-bash_5.2stackos1_all.deb
+Size: 566
+MD5sum: c3a59e08cd604c7598af02ec5d1cc484
+SHA1: 6dd431df1003f4bc004e25d70895b61cdea3e13f
+SHA256: 2081a457af62201018766d90e62f62208aab3ba08e94085769f63a3d958223d6
+SHA512: 53430a167f7c88fab7e0c0d65c4a11458ba9f8c92c14590eb7a6ea100160824b84b931b998f668914c32c87e485e9a1422147391b7f6c8c4884d226601c7b64a
+Description: StackOS bash dependency pointer
 
 Package: stackos-branding
 Architecture: all
@@ -54,15 +1546,112 @@ Provides: gnome-control-center-data (= 1:50.0-1stackos1)
 Depends: dconf-gsettings-backend | gsettings-backend
 Conflicts: gnome-control-center-data
 Replaces: gnome-control-center-data
-Filename: pool/main/stackos-control-center-data_50.0-4_all.deb
-Size: 392396
-MD5sum: e1c1c5be20ffd5e451d9a460dc6ce672
-SHA1: b11872dbec230cdee3a26e39e272a25f0f2b7dc5
-SHA256: d640fb2991b1a59762922cabd98eeac7f302ce07e02bf4acceaeabfaa2d9e9b7
-SHA512: e2592d8910e496dc352ce055d82aeca384b9e5dbb3a09e87632440f9258befe76302d59c4cf990708e32a1093e5b4da1835584322e8040049ebe81226f01ff9c
+Filename: pool/main/stackos-control-center-data_1:50.0-4stackos1_all.deb
+Size: 392348
+MD5sum: e69b6b585e417b7a24ed7aae1f0f4798
+SHA1: 1a059a0ddfa428a182f9becbc324d3fa31010e6e
+SHA256: 93c5175af68fa44834450c38a288a4f7151d6de8abf84bdf94a374ae3ea6abc5
+SHA512: f8ba2c783c4df12d685552c0b2f5f9b31313c5713c81b7843700ad3f3c334631063ad8b481d38a8ea2fe75fd5487f5c5853528f9d74b8d47ecf3fcb49b57a2ec
 Description: configuration applets for GNOME - data files
  This package contains data files (icons, pixmaps, locales files) needed by
  the configuration applets in the gnome-control-center package.
+
+Package: stackos-dbus
+Architecture: all
+Version: 1.14stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: dbus
+Depends: dbus-bin (= 1.16.2-2ubuntu4), dbus-daemon (= 1.16.2-2ubuntu4), dbus-system-bus-common (>= 1.16.2-2ubuntu4), stackos-base-files (>= 13.4~), libc6 (>= 2.34), libdbus-1-3 (= 1.16.2-2ubuntu4), libexpat1 (>= 2.1~beta3)
+Filename: pool/main/stackos-dbus_1.14stackos1_all.deb
+Size: 608
+MD5sum: a5ab35d91637093dcce9e5f15ce26794
+SHA1: f04c96813d5daabdc5ccfad9c472fdec5748e320
+SHA256: 5b799287ba069b35d38f2656da41a708e9ad8593ed0e9a195be564cdc4906e6e
+SHA512: 83705fe3a3dce273bcc91d3cb4c5ff80cf01770ae9fa51ae8b0caa05b09e650bcd8973552a840622011db412b1c15e127d703ab77a74442645f8f20d03a7e3bc
+Description: StackOS dbus dependency pointer
+
+Package: stackos-desktop-minimal
+Architecture: all
+Version: 1.1stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-desktop-minimal, packagekit-installer
+Depends: gdm3, gnome-shell, gnome-control-center, nautilus, stackos-session, stackos-settings, stackos-branding, stackos-icons, stackos-themes, stackos-wallpapers
+Conflicts: ubuntu-desktop-minimal
+Replaces: ubuntu-desktop-minimal
+Filename: pool/main/stackos-desktop-minimal_1.1stackos1_all.deb
+Size: 636
+MD5sum: 0c6d86471a2bbf5ba2b660fec2c7dde7
+SHA1: ce4b05dc0e366e8d28e74e38b58d27987e2d9412
+SHA256: 0df47f74be774dd149fc5c4ea7be34e382c3e884f837e5d04c7a81d5863da1cf
+SHA512: 1169e7baca02c22885dd3c1d4d67dafafbaf04bf2d3be7130f13404d67802613fc3146ecd58fe398af9f05766ecd6363b902f891b744d6d87d02aa75270d52f0
+Description: StackOS Desktop Minimal
+ Core desktop metapackage for StackOS Genesis.
+
+Package: stackos-docs
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-docs
+Depends: yelp
+Conflicts: ubuntu-docs
+Replaces: ubuntu-docs
+Filename: pool/main/stackos-docs_1.0stackos1_all.deb
+Size: 554
+MD5sum: 85841811041a154435f6ad92ed8e7c3b
+SHA1: 74c7ab895edd5db6ce1ade5627141ae273656b36
+SHA256: b7ff91dc3db2eb60b46280643a3322e9b2ff804c2453fe2a05d42b4f2bb52d51
+SHA512: a4e5002d571214353b530deefb0fc673a4b8a77e89f3c388d1f6b91f2db8ed5366bb93ee59fc1bbfca69358e111a15f2a57354da20c4db2d73eb278d51bb4676
+Description: StackOS replacement for ubuntu-docs
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-insights
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-insights
+Conflicts: ubuntu-insights
+Replaces: ubuntu-insights
+Filename: pool/main/stackos-insights_1.0stackos1_all.deb
+Size: 548
+MD5sum: 037cec6e3c2f4de4f87b9fa82e3f6f75
+SHA1: 4c6fa5bfb4f2e3198113e16059ca280adc1b9477
+SHA256: f1fd96833de6f352670dc4c1a0a7a830a80b96faf337b046eb9b8ca313bfc824
+SHA512: 505464cc4f91d6ed12cd1bb625a4eee12a032cb9394f5c0868ba3d4e93422b9e9995a6e178fc5276c6a9b15ca733137f10bac0963547d69ce7a5765dfebcf870
+Description: StackOS replacement for ubuntu-insights
+ Empty package that replaces Ubuntu branding package.
+
+Package: stackos-keyring
+Architecture: all
+Version: 2025stackos3
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-keyring
+Conflicts: ubuntu-keyring
+Replaces: ubuntu-keyring
+Filename: pool/main/stackos-keyring_2025stackos3_all.deb
+Size: 4650
+MD5sum: 038fcf0c4daedcc79af6b27b501ee3c8
+SHA1: 67cf40989fb776136f0e2b622c9ecbb91fe63e27
+SHA256: b3c9988db57da0b02dd67f9fe10b605f9a8a4837ebfadf6a0bbdacd5691c02cc
+SHA512: d0f39f910cee693d24865bdbaedf18fe1d1c34c25f825416a90a97e1dc1b129bf18f73f17caf0dd2f6d05bdec2becc03c47d53475d4a0a1f30ee20eda97f6543
+Description: StackOS keyring with Ubuntu archive keys
+ Contains GPG keys for StackOS and Ubuntu archive repositories.
+
+Package: stackos-nm-config
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: network-manager-config-connectivity-ubuntu
+Depends: network-manager
+Conflicts: network-manager-config-connectivity-ubuntu
+Replaces: network-manager-config-connectivity-ubuntu
+Filename: pool/main/stackos-nm-config_1.0stackos1_all.deb
+Size: 578
+MD5sum: 7f1a9b5fdb8f9997b1105e2814b6bae8
+SHA1: e909529dc120b50a7cf75abf51f257836d3835c6
+SHA256: b8c9ce4d40feb40eded859c3a318a2b98e5f81d2d9182a11e594c23cc6bd41da
+SHA512: 0d0ab5627ce99e54402164ad0127a3ac084f68fa5d1f7c82ca7e83c263bc1e57c9814a622fd98be62c73886184ba9ca9dd13c79956ee5f4b8670935fa208d1b4
+Description: StackOS replacement for network-manager-config-connectivity-ubuntu
+ Empty package that replaces Ubuntu branding package.
 
 Package: stackos-plymouth
 Architecture: all
@@ -77,6 +1666,55 @@ SHA256: 5ae926aa5b86287b09e1587c7a8ef566fdf28eed04976992823e4cb11b1ad0e1
 SHA512: 16b10f4488a415acf18396e748a243d94108c5d4494d36f6f1e9923e156ef308fb607eca45b9733113040f5131ee5c7563066f5e259a709bb61afaad5dfef462
 Description: Tema de boot Plymouth do StackOS Genesis
  Exibe a splash screen do StackOS durante o boot.
+
+Package: stackos-pro-client
+Architecture: all
+Version: 37.2stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-daemon, ubuntu-advantage-desktop-daemon
+Conflicts: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-desktop-daemon
+Replaces: ubuntu-pro-client, ubuntu-pro-client-l10n, ubuntu-advantage-desktop-daemon
+Filename: pool/main/stackos-pro-client_37.2stackos1_all.deb
+Size: 598
+MD5sum: 34dd3a9bb86b8d2db7ad5418565ed459
+SHA1: 6e9dc4ea9f469cfc910937e7502fcf60e572de48
+SHA256: f946f91e77abf2e2d316425b117a74bf4eaa5e41f6c65c5cfd561fd0044e44e6
+SHA512: 592e7c38f2d049835a60ad5e191929cff0aaa9dccf6cba8f80d07f817506a80e90ff7a3cf620febd85c04afbd1f43f479578dd158d1bd3ceef827f07f718375c
+Description: StackOS replacement for Ubuntu Pro client
+ Empty package that replaces Ubuntu Pro branding packages.
+
+Package: stackos-release-upgrader
+Architecture: all
+Version: 26.04stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-release-upgrader-core (= 1:26.04.18), ubuntu-release-upgrader-gtk, update-manager-core
+Depends: ca-certificates, python3, screen
+Conflicts: ubuntu-release-upgrader-core, ubuntu-release-upgrader-gtk
+Replaces: ubuntu-release-upgrader-core, ubuntu-release-upgrader-gtk
+Filename: pool/main/stackos-release-upgrader_26.04stackos1_all.deb
+Size: 622
+MD5sum: 4c4a1cdd977956aaaf25fbdfb5dd66cf
+SHA1: 151b68491df286bacd2ae30c73caa3d88d534d2d
+SHA256: ea20343dd5392404b26ca33cd18dfdf88af3f8d19562296ff6fbd12dd72b257f
+SHA512: d031d9943d58d23c8c80979df9b0f86661f4a327ab44d566451a14b1152b7d13652d23493f1a82eda14fbae2481f53ce8c8be258e1fe6235a903ffb5deb3e187
+Description: StackOS replacement for Ubuntu release upgrader
+ Empty package that replaces Ubuntu release upgrader.
+
+Package: stackos-report
+Architecture: all
+Version: 1.0stackos1
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Provides: ubuntu-report
+Conflicts: ubuntu-report
+Replaces: ubuntu-report
+Filename: pool/main/stackos-report_1.0stackos1_all.deb
+Size: 548
+MD5sum: 7fe2b7aac92d10328a4c686b27fc7bf8
+SHA1: 04b82912774e095f4f77a905a950473c20c300ca
+SHA256: 8545ee82659f083d657c6caea885731bb2f92618fa55bc8deb3e589390f40a61
+SHA512: 05bc206bee923256a74fd955b8edce8563bf9d7681861599946938f568e0c98b796254c91e4c1ceccd6a5e6d240b673c864d9616f1be99f035fa0894cd9a9407
+Description: StackOS replacement for ubuntu-report
+ Empty package that replaces Ubuntu branding package.
 
 Package: stackos-themes
 Architecture: all
@@ -107,4 +1745,177 @@ SHA256: 405ab5cb672fab7598467a61d0d750016ad37d16614f01f19fa420bc09fec41d
 SHA512: 3a9026f199702866a95f3f2b49704f21d640a7f16eac0bd4ed0134fb6b157374d0a9b696c7ad16fea441d0f651e536da9ef7c020a42dc17baffee2450bb88a44
 Description: Wallpapers oficiais do StackOS Genesis
  Colecao de wallpapers oficiais da distribuicao StackOS Genesis.
+
+Package: sysprof
+Architecture: amd64
+Version: 50.0-1stackos1
+Priority: optional
+Section: devel
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Installed-Size: 3068
+Depends: libsysprof-6-6 (= 50.0-1stackos1), libsysprof-6-modules (= 50.0-1stackos1), libadwaita-1-0 (>= 1.6~beta), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libdebuginfod1t64 (>= 0.180), libdex-1-1 (>= 0.9), libdw1t64 (>= 0.188), libelf1t64 (>= 0.131), libgcc-s1 (>= 3.4), libglib2.0-0t64 (>= 2.80.0), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.19.4), libjson-glib-1.0-0 (>= 1.5.2), libpanel-1-1 (>= 1.7.0), libpango-1.0-0 (>= 1.14.0), libpolkit-agent-1-0 (>= 0.99), libpolkit-gobject-1-0 (>= 0.101), libstdc++6 (>= 4.1.1), libsystemd0
+Suggests: mesa-utils
+Filename: pool/main/sysprof_50.0-1stackos1_amd64.deb
+Size: 547072
+MD5sum: efcffc4ce09a596f7fdab57cc1f00d34
+SHA1: cb6898f5c6c46436d4f3898304e28cd8b3e85b1e
+SHA256: 5f92dbfd09610d86c16d01254ce627b70556423fc2e066ba1c93d4f65651c897
+SHA512: 454845ee7ac4515abaa72586b9e356dd3a13a08981d8ca531fcdbd905a093ab6e30c06a71672bd8525440ee205d6f12cb7bc92e42db3780f615c757ed0b80e48
+Homepage: https://apps.gnome.org/Sysprof/
+Description: system-wide Linux profiler
+ Sysprof is a sampling CPU profiler that uses a ptrace in Linux kernel to
+ profile the entire system, not just a single application. Sysprof handles
+ shared libraries and applications do not need to be recompiled. In fact they
+ don't even have to be restarted.
+ .
+ It has the following features:
+  - profiles all running processes, not just a single application
+  - has a simple graphical interface
+  - shows the time spent in each branch of the call tree
+  - profiles can be loaded and saved
+
+Package: xcursor-themes
+Architecture: all
+Version: 1.0.6-0ubuntu2.stackos1
+Priority: optional
+Section: x11
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Conffiles:
+ /etc/X11/cursors/core.theme 73cec8bd811379ca1a61cb240e96fb51
+ /etc/X11/cursors/handhelds.theme d8be9d15f982704d007d3ba3d8009f54
+ /etc/X11/cursors/redglass.theme d1e8adaca475bf4a4b295ca5407244fd
+ /etc/X11/cursors/whiteglass.theme f24b4a1b5e7754dbb60a831af8bc591a
+Installed-Size: 3694
+Filename: pool/main/xcursor-themes_1.0.6-0ubuntu2.stackos1_all.deb
+Size: 368738
+MD5sum: 1f2a7a42f694097b2e9fdbb04ef44c8f
+SHA1: 3e18a89e2e35f14a830f42810e6de2d85443da02
+SHA256: 5489b2095d05c98947dd8fc49e70d28b455bd5c0ccc62974b12d813de26e8c50
+SHA512: 29c3150d9ee3efb110cc967e95b5b3dc47e1a3a7bf9834dc3dece4a137ff8a79eada58724a15f7b3317d0271c9c0263bac533bf686da1189de00e97b0470787e
+Description: Base X cursor themes
+ This package contains the additional base X cursor themes --
+ handhelds, redglass, and whiteglass. These themes are not essential
+ for the X server to run.
+
+Package: xfonts-encodings
+Architecture: all
+Version: 1:1.0.5-0ubuntu3.stackos1
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 662
+Depends: x11-common
+Replaces: xfonts-base (<< 1:1.0.0)
+Filename: pool/main/xfonts-encodings_1:1.0.5-0ubuntu3.stackos1_all.deb
+Size: 574348
+MD5sum: b71bbc7fe928df318998e8772dcbaf8c
+SHA1: bad774cbb135f3cbea694d85c6f112406104d7af
+SHA256: 47074a7d662f2035a7c5868fffe9eff3028dff88d0fb13ef2baee2b5b3809fca
+SHA512: e8a57ac2c57e76ec13fe124775ec5e7ed6f3f92fc26e465f7aa2ba020349aed59280904687cf644d57f65999b73b0a07591a90584e0a675a44af258113cc295a
+Description: Encodings for X.Org fonts
+ This package contains the encodings that map to specific characters.
+
+Package: yaru-theme-gnome-shell
+Architecture: all
+Version: 26.04.5.1ubuntu.stackos1
+Priority: optional
+Section: misc
+Source: yaru-theme
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Installed-Size: 2422
+Breaks: gnome-shell (<< 49~)
+Filename: pool/main/yaru-theme-gnome-shell_26.04.5.1ubuntu.stackos1_all.deb
+Size: 72744
+MD5sum: 839015aa2066b577178c7dfea8671fa0
+SHA1: 1564aa042175ebebc6f01d1afc7ce1aea2902936
+SHA256: 66fce4172463bfac5575f4fa9552f3ea9a70c0b523eaf1bf0fddbcf3b2c826b2
+SHA512: 7cb47b6c1d71a47fa076519790bdeadec8d907e6271bf3f571a1b260319bfe47cc1f659540da643a9d58530a921fb6e8ba138814d91160b9878cf53aa6babc8c
+Homepage: https://community.ubuntu.com/c/desktop/theme-refresh
+Description: Yaru GNOME Shell desktop theme from the Ubuntu Community
+ This is the theme, better than a burrito, that is shaped by the community
+ on the Ubuntu discourse.
+ .
+ This package contains the GNOME Shell theme part
+ .
+ If you want to follow development, more information here:
+ https://community.ubuntu.com/c/desktop/theme-refresh.
+
+Package: yaru-theme-gtk
+Architecture: all
+Version: 26.04.5.1ubuntu.stackos1
+Priority: optional
+Section: misc
+Source: yaru-theme
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Installed-Size: 30627
+Depends: user-session-migration, gnome-themes-extra, gtk2-engines-pixbuf, gtk2-engines-murrine, libglib2.0-bin
+Filename: pool/main/yaru-theme-gtk_26.04.5.1ubuntu.stackos1_all.deb
+Size: 1801264
+MD5sum: 69250b2281be62717d58cafcdf93aede
+SHA1: 9ddd7516706928f80b29212cf8567744a60fd431
+SHA256: d0c73a62aaa1e13a7f6da65955f5302ce7bda1aafdbe9d354a5f2b545b247a7e
+SHA512: 3bffdf5ce0d4e41cfcb3c0aa79c7b0cc689e13f3b56ccc41eef396ee7c549e1c1eb71f3afd17e6ac84b66473f91f859e5e95014d25c2576ae2265f1dbc25cacd
+Homepage: https://community.ubuntu.com/c/desktop/theme-refresh
+Description: Yaru GTK theme from the Ubuntu Community
+ This is the theme, better than a burrito, that is shaped by the community
+ on the Ubuntu discourse.
+ .
+ This package contains the GTK+ 2, 3 and GTK 4 theme parts
+ .
+ If you want to follow development, more information here:
+ https://community.ubuntu.com/c/desktop/theme-refresh.
+
+Package: yaru-theme-icon
+Architecture: all
+Version: 26.04.5.1ubuntu.stackos1
+Priority: optional
+Section: misc
+Source: yaru-theme
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Installed-Size: 80287
+Suggests: humanity-icon-theme
+Breaks: gnome-shell-extension-ubuntu-dock (<< 90~)
+Filename: pool/main/yaru-theme-icon_26.04.5.1ubuntu.stackos1_all.deb
+Size: 33786390
+MD5sum: d641531bc776830a675a4655e22b53f0
+SHA1: eece6ff441da602a3e6e546ab13bbfcf875ef6a6
+SHA256: 5d36f00d9f931224e7032e50994562cfe09accc04b5a69c396e80435a29f9f2a
+SHA512: 388990427f12e87e72f297781ee50121815bd4c1df588bfb6f51910623c96a4e29bf5e803c68437a8997fa4244e0bbef146b0d2a75b6f9c6250958f49c899eae
+Homepage: https://community.ubuntu.com/c/desktop/theme-refresh
+Description: Yaru icon theme from the Ubuntu Community
+ This is the theme, better than a burrito, that is shaped by the community
+ on the Ubuntu discourse.
+ .
+ This package contains the icon theme
+ .
+ If you want to follow development, more information here:
+ https://community.ubuntu.com/c/desktop/theme-refresh.
+
+Package: yaru-theme-sound
+Architecture: all
+Version: 26.04.5.1ubuntu.stackos1
+Priority: optional
+Section: misc
+Source: yaru-theme
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Installed-Size: 1347
+Filename: pool/main/yaru-theme-sound_26.04.5.1ubuntu.stackos1_all.deb
+Size: 1058780
+MD5sum: 6f76da872740402e6a2a0e529a361cd3
+SHA1: ab6a21d97af5243a780fd9e1017a42b161c7e2ab
+SHA256: 4b2e0129e6835992e2f32f8ae8d9581b17487b70159bab6e02d3422ac9a8d0e6
+SHA512: 75b067463ada67418ea1b367168e7bea306c78976d5071e5ad5976e2d7db9c07dbf9f8a038d5e89a093c16db65b9ea5012c275777facd87ce38853b52cc4709c
+Homepage: https://community.ubuntu.com/c/desktop/theme-refresh
+Description: Yaru sound theme from the Ubuntu Community
+ This is the theme, better than a burrito, that is shaped by the community
+ on the Ubuntu discourse.
+ .
+ This package contains the sound theme
+ .
+ If you want to follow development, more information here:
+ https://community.ubuntu.com/c/desktop/theme-refresh.
 
