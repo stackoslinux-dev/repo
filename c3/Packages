@@ -1,0 +1,255 @@
+Package: stackos-archive-keyring
+Version: 2026.10.28
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Filename: ./stackos-archive-keyring_2026.10.28_all.deb
+Size: 3396
+MD5sum: 980cd00b625e384201dfa45a802ea530
+SHA1: 80b01af2f443f4ae452785896ea979dd4dc6a7c7
+SHA256: 4ac81d3e13ca0ccac4b2c0f835471a67312c111da7b3d3483446ba410b5a37a6
+Section: misc
+Priority: important
+Description: StackOS C3 archive signing public key
+
+Package: stackos-boot-defaults
+Version: 10.8.5
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.8.2)
+Filename: ./stackos-boot-defaults_10.8.5_all.deb
+Size: 14428
+MD5sum: 53d0a11a198d54e5f968403eb349dc30
+SHA1: 1f5383baaa62d231c6a1c13c1c775e10910fd2b3
+SHA256: 24d5d7a7b9afd517f6335c14286d6c5d2d0761c7176c9fa34a9d7e9716a43d6f
+Description: StackOS live hardware and update service defaults
+
+Package: stackos-bugreport
+Version: 1.1.0+stackos1+c3.2+fix10.8
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Recommends: ubuntu-drivers-common
+Filename: ./stackos-bugreport_1.1.0+stackos1+c3.2+fix10.8_all.deb
+Size: 108178
+MD5sum: d0c4647ebd6d2faea9adb82bae4b1571
+SHA1: 7a9377fcb0839f4ccb3c942780e7381135529f2c
+SHA256: c93ce0a8e7c2b017ef1e21a28ee76a68f4e40965b75bba241e6ad1d7be66b369
+Section: utils
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Relatorios de bugs StackOS com diagnostico de drivers
+ Interface GTK4 com revisao editavel, coleta somente leitura,
+ exportacao local e envio opcional ao repositorio GitHub original.
+
+Package: stackos-c3-runtime
+Version: 10.8.2
+Architecture: amd64
+Essential: yes
+Maintainer: StackOS
+Depends: stackos-archive-keyring (>= 2026.10.28)
+Filename: ./stackos-c3-runtime_10.8.2_amd64.deb
+Size: 53468832
+MD5sum: 37e66c36bfa99c3943bbc61b10ef154d
+SHA1: 9835bd0594848e003b5e8b87b6e6801eaf119cc1
+SHA256: b059ec5bc58ec4ca8477ccfd8139fb5f447f5a18079dedb977fad07538449fbc
+Section: admin
+Priority: required
+Description: Runtime nativo C3 compilado para os aplicativos StackOS
+ APT, DPKG, bibliotecas Python e ferramentas de hardware construidos no C3.
+
+Package: stackos-disk-utility
+Version: 46.1+stackos1
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime, stackos-install-tools, stackos-language-pack
+Filename: ./stackos-disk-utility_46.1+stackos1_amd64.deb
+Size: 1816908
+MD5sum: 9bf3fc9c521d76eadc0f0050fc9084cb
+SHA1: f8d80c9569b0696d3f6cd900f802b92771cf76cc
+SHA256: 66844102076b8eea937f21ca661edf6c8f8e099c1787a65cc522efeee72ec435
+Description: Native GNOME disk editor for manual partitioning
+
+Package: stackos-display-support
+Version: 10.9.3
+Architecture: all
+Maintainer: StackOS
+Depends: stackos-c3-runtime (>= 10.7), stackos-language-pack
+Filename: ./stackos-display-support_10.9.3_amd64.deb
+Size: 2268
+MD5sum: 612eb3d6db5f82d5cc5f73e1a594fac7
+SHA1: 06f0c9693789bdc3d6432a354d007158221cb721
+SHA256: 31c63a09a2e8bb401404ab98a96633525c92ff5d13d42216d907fc7abe0941ee
+Description: Adaptive window sizing for StackOS applications
+
+Package: stackos-drivers
+Version: 1.6.0+stackos1+c3.2+fix10.8.2
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Recommends: stackos-updater, stackos-bugreport
+Filename: ./stackos-drivers_1.6.0+stackos1+c3.2+fix10.8.2_all.deb
+Size: 112646
+MD5sum: 5c4279d9f2225d33e8f3b6e32961300e
+SHA1: 18a587298570ea368dfe91a8b21668115db3fa7e
+SHA256: 33a212cea628a9a939766561776bbe95714a24f5d422ff4f0e6e7b5f45bd3086
+Section: admin
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Gerenciador de drivers StackOS com interface moderna
+ Detecta hardware PCI e USB e gerencia componentes livres e proprietarios.
+ Inclui filtros, sensores reais, logs e autenticacao para instalar e remover.
+
+Package: stackos-firefox
+Version: 140.17.0esr+stackos1
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime, stackos-language-pack, stackos-install-tools
+Filename: ./stackos-firefox_140.17.0esr+stackos1_amd64.deb
+Size: 83258472
+MD5sum: e48e9b2fbe645eefbf82536a13f54d99
+SHA1: c6db2360a96c06cddf1a733617e7271044c8ea99
+SHA256: ef1e523cd255efc52331217d12c8d8c2ba189f0cec97e894a3d2291a2a49e539
+Description: Mozilla Firefox ESR with offline language packs and Google homepage
+
+Package: stackos-gpu-manager
+Version: 0.2.0+stackos1+c3.2+fix10.8.2
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Filename: ./stackos-gpu-manager_0.2.0+stackos1+c3.2+fix10.8.2_all.deb
+Size: 3602288
+MD5sum: 1bf55b4a557b1ac63bc1551f0065a279
+SHA1: 0e69c255597cf9d395e6469413e84b4f8e560a38
+SHA256: 01fb61f77881f25901ba7fc2be0298a88500b4167776b5971b47f205963f173f
+Section: utils
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: StackOS GPU Manager com interface compacta
+ Interface GTK4 com cores por fabricante, sensores reais,
+ preferencias por aplicativo e indicador persistente da GPU.
+
+Package: stackos-install-tools
+Version: 10.9.1
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime
+Filename: ./stackos-install-tools_10.9.1_amd64.deb
+Size: 39386196
+MD5sum: 635e774880aa4473bd5195e38d724f0d
+SHA1: bc0e1002bad40fa54ac86d262b55c18977467c00
+SHA256: 75efe39aecbbe3d0187b4623fb837bcbad289fb51fc6d7339cd9e3f07d38e13c
+Description: Native installation, ext4, EFI GRUB and recovery tools
+
+Package: stackos-installer
+Version: 2.3+c3.4
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.8.2), stackos-archive-keyring, stackos-install-tools, stackos-disk-utility, stackos-language-pack, stackos-display-support (>= 10.9.1)
+Filename: ./stackos-installer_2.3+c3.4_amd64.deb
+Size: 404104
+MD5sum: 06e92203b563fe5841e60c112da82d15
+SHA1: 05c1fc94422cad4846b250154f41c27c9daced12
+SHA256: 10ef693059bd90a4b09d602f75d4b0b6a98083cea531176008dc91712f3a5e30
+Section: admin
+Priority: optional
+Description: StackOS Genesis official installer with recovery and first boot
+
+Package: stackos-language-pack
+Version: 10.9.2
+Architecture: amd64
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime
+Filename: ./stackos-language-pack_10.9.2_amd64.deb
+Size: 8492848
+MD5sum: 84301ae85703e736cc074d9fefd00f12
+SHA1: d04326998736848bdf3ad438b2ccb1e9955f41b0
+SHA256: 4f809df7a2bbb69ba4eb6cce6a510bf43d124044581a6fea913d71e247267697
+Description: Offline language and keyboard packs for installer, first boot and desktop
+
+Package: stackos-package-installer
+Version: 1.2.0+stackos1+c3.2+fix10.8
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Suggests: flatpak, wine, stackos-store
+Filename: ./stackos-package-installer_1.2.0+stackos1+c3.2+fix10.8_all.deb
+Size: 125694
+MD5sum: f141da3cd7539591b12bc5893e45eff6
+SHA1: 6440af949e0c50566eb7558ac149a8e6a2052fff
+SHA256: 3ec024e0cb669d18486dc1e0dacd8ad76cf634b013369415de519d976b4b6ccc
+Section: admin
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Instalador universal de aplicativos StackOS
+ Interface GTK4 com arrastar arquivos, analise de compatibilidade,
+ multiplos formatos Linux, extracao portatil e helper DEB autenticado.
+
+Package: stackos-store
+Version: 2.0.1+stackos1+c3.2+fix10.9.1
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Filename: ./stackos-store_2.0.1+stackos1+c3.2+fix10.9.1_amd64.deb
+Size: 1598804
+MD5sum: 9c02ef6a4f203d4f17201745bb88e4a8
+SHA1: 13fa9effcb061f063d4c1ca9eb45688a2e234195
+SHA256: f5e2d0a470357184608364cf023d8f15a747d7c1b06102af67a15addb122eb8b
+Section: admin
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Loja StackOS para aplicativos DEB nativos
+ Catalogo APT/AppStream, aplicativos instalados e desinstalacao,
+ pesquisa em fontes oficiais, download DEB, icones nativos e bloqueio de Snap.
+
+Package: stackos-updater
+Version: 1.1.0+stackos2+c3.2+fix10.8
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Filename: ./stackos-updater_1.1.0+stackos2+c3.2+fix10.8_all.deb
+Size: 53314
+MD5sum: 9bec50985c9af2a9a42a82fc92671888
+SHA1: 915a41723175c723fdb9f67372e4b5a8ecba1cf6
+SHA256: 465b2101a51c8c37d31252f79bf972ce35b6505f3e8533e851f97df00902fe9f
+Section: admin
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Atualizador StackOS com painel moderno e indicador de seguranca
+ Preserva as politicas e o instalador originais, acrescentando busca,
+ filtros, historico e validacao dos resultados de atualizacao.
+
+Package: stackos-usb-writer
+Version: 0.3.0+stackos1+c3.2+fix10.8
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Filename: ./stackos-usb-writer_0.3.0+stackos1+c3.2+fix10.8_all.deb
+Size: 127784
+MD5sum: 71d4be6b473978a5dc3ebd6bac7797ac
+SHA1: ec88f43b3b70853fb5fd94dd6053e70227c40668
+SHA256: 0deb69b460137681d77fc24f99193b8620e6f0b4ec276da87bb8ba4efbd1beed
+Section: utils
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Gravador USB StackOS com interface moderna e verificacao
+ Suporta imagens brutas e comprimidas, checksum, comparacao apos gravar,
+ formatacao, cancelamento e revalidacao do dispositivo por worker Polkit.
+
+Package: stackos-welcome
+Version: 2.0.0+stackos1+c3.2+fix10.8
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Recommends: stackos-store, stackos-drivers, stackos-updater, stackos-bugreport
+Filename: ./stackos-welcome_2.0.0+stackos1+c3.2+fix10.8_all.deb
+Size: 2564860
+MD5sum: 434825575e36d58d859a518275e8a202
+SHA1: a91548c27bbe74be32b6c41ebbf07f8537cc1c5b
+SHA256: 0f599cc38bf9a7b01228072c1e13027241ca41707bc0db441f489ba52dda8960
+Section: x11
+Priority: optional
+Homepage: https://github.com/stackoslinux-dev
+Description: Boas-vindas e guia interativo do StackOS Genesis
+ Interface moderna com imagens reais, atalhos, sete etapas de guia e
+ controle de inicio automatico por usuario atraves do padrao XDG Autostart.
+

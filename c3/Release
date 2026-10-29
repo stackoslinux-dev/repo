@@ -1,0 +1,10 @@
+Origin: StackOS
+Label: StackOS C3
+Suite: c3
+Codename: c3
+Architectures: amd64 all
+Components: main
+Date: Thu, 29 Oct 2026 23:45:42 GMT
+SHA256:
+ 1b067cee1ade37fdcdd08c293fc41e3a027e963c3cc52a292afa73ee7fe30acd 10446 Packages
+ 6ae4e709c430894b9cae7b8b108833305a4a5804606b894a995b160f7b458b2c 3688 Packages.gz

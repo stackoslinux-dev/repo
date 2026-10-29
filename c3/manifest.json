@@ -1,0 +1,117 @@
+{
+  "base": "StackOS C3 independente",
+  "release": {
+    "file": "/srv/StackOS/C3-BUILD/base-solo/11-iso/StackOS-C3-live-v10.9-RC3.iso",
+    "sha256": "077875bd547af5f830c328584b1ed13e0f458b8295c715f1e844a3ea1571c690",
+    "bytes": 2872602624,
+    "digital_signatures": "VERIFIED",
+    "final_functional_tests": "STOPPED_BY_USER_REQUEST",
+    "public_key_fingerprint": "056F482818FF0BFCA93F31E28E5BDB912C8A2A16",
+    "notes": "/srv/StackOS/C3-BUILD/base-solo/C3-BUILD/boot-v10.9/release-signing-RC3/LEIA-ME-v10.9.txt"
+  },
+  "packages": [
+    {
+      "package": "stackos-archive-keyring",
+      "version": "2026.10.28",
+      "file": "stackos-archive-keyring_2026.10.28_all.deb",
+      "sha256": "4ac81d3e13ca0ccac4b2c0f835471a67312c111da7b3d3483446ba410b5a37a6"
+    },
+    {
+      "package": "stackos-boot-defaults",
+      "version": "10.8.5",
+      "file": "stackos-boot-defaults_10.8.5_all.deb",
+      "sha256": "24d5d7a7b9afd517f6335c14286d6c5d2d0761c7176c9fa34a9d7e9716a43d6f"
+    },
+    {
+      "package": "stackos-bugreport",
+      "version": "1.1.0+stackos1+c3.2+fix10.8",
+      "file": "stackos-bugreport_1.1.0+stackos1+c3.2+fix10.8_all.deb",
+      "sha256": "c93ce0a8e7c2b017ef1e21a28ee76a68f4e40965b75bba241e6ad1d7be66b369"
+    },
+    {
+      "package": "stackos-c3-runtime",
+      "version": "10.8.2",
+      "file": "stackos-c3-runtime_10.8.2_amd64.deb",
+      "sha256": "b059ec5bc58ec4ca8477ccfd8139fb5f447f5a18079dedb977fad07538449fbc"
+    },
+    {
+      "package": "stackos-disk-utility",
+      "version": "46.1+stackos1",
+      "file": "stackos-disk-utility_46.1+stackos1_amd64.deb",
+      "sha256": "66844102076b8eea937f21ca661edf6c8f8e099c1787a65cc522efeee72ec435"
+    },
+    {
+      "package": "stackos-display-support",
+      "version": "10.9.3",
+      "file": "stackos-display-support_10.9.3_amd64.deb",
+      "sha256": "31c63a09a2e8bb401404ab98a96633525c92ff5d13d42216d907fc7abe0941ee"
+    },
+    {
+      "package": "stackos-drivers",
+      "version": "1.6.0+stackos1+c3.2+fix10.8.2",
+      "file": "stackos-drivers_1.6.0+stackos1+c3.2+fix10.8.2_all.deb",
+      "sha256": "33a212cea628a9a939766561776bbe95714a24f5d422ff4f0e6e7b5f45bd3086"
+    },
+    {
+      "package": "stackos-firefox",
+      "version": "140.17.0esr+stackos1",
+      "file": "stackos-firefox_140.17.0esr+stackos1_amd64.deb",
+      "sha256": "ef1e523cd255efc52331217d12c8d8c2ba189f0cec97e894a3d2291a2a49e539"
+    },
+    {
+      "package": "stackos-gpu-manager",
+      "version": "0.2.0+stackos1+c3.2+fix10.8.2",
+      "file": "stackos-gpu-manager_0.2.0+stackos1+c3.2+fix10.8.2_all.deb",
+      "sha256": "01fb61f77881f25901ba7fc2be0298a88500b4167776b5971b47f205963f173f"
+    },
+    {
+      "package": "stackos-install-tools",
+      "version": "10.9.1",
+      "file": "stackos-install-tools_10.9.1_amd64.deb",
+      "sha256": "75efe39aecbbe3d0187b4623fb837bcbad289fb51fc6d7339cd9e3f07d38e13c"
+    },
+    {
+      "package": "stackos-installer",
+      "version": "2.3+c3.4",
+      "file": "stackos-installer_2.3+c3.4_amd64.deb",
+      "sha256": "10ef693059bd90a4b09d602f75d4b0b6a98083cea531176008dc91712f3a5e30"
+    },
+    {
+      "package": "stackos-language-pack",
+      "version": "10.9.2",
+      "file": "stackos-language-pack_10.9.2_amd64.deb",
+      "sha256": "4f809df7a2bbb69ba4eb6cce6a510bf43d124044581a6fea913d71e247267697"
+    },
+    {
+      "package": "stackos-package-installer",
+      "version": "1.2.0+stackos1+c3.2+fix10.8",
+      "file": "stackos-package-installer_1.2.0+stackos1+c3.2+fix10.8_all.deb",
+      "sha256": "3ec024e0cb669d18486dc1e0dacd8ad76cf634b013369415de519d976b4b6ccc"
+    },
+    {
+      "package": "stackos-store",
+      "version": "2.0.1+stackos1+c3.2+fix10.9.1",
+      "file": "stackos-store_2.0.1+stackos1+c3.2+fix10.9.1_amd64.deb",
+      "sha256": "f5e2d0a470357184608364cf023d8f15a747d7c1b06102af67a15addb122eb8b"
+    },
+    {
+      "package": "stackos-updater",
+      "version": "1.1.0+stackos2+c3.2+fix10.8",
+      "file": "stackos-updater_1.1.0+stackos2+c3.2+fix10.8_all.deb",
+      "sha256": "465b2101a51c8c37d31252f79bf972ce35b6505f3e8533e851f97df00902fe9f"
+    },
+    {
+      "package": "stackos-usb-writer",
+      "version": "0.3.0+stackos1+c3.2+fix10.8",
+      "file": "stackos-usb-writer_0.3.0+stackos1+c3.2+fix10.8_all.deb",
+      "sha256": "0deb69b460137681d77fc24f99193b8620e6f0b4ec276da87bb8ba4efbd1beed"
+    },
+    {
+      "package": "stackos-welcome",
+      "version": "2.0.0+stackos1+c3.2+fix10.8",
+      "file": "stackos-welcome_2.0.0+stackos1+c3.2+fix10.8_all.deb",
+      "sha256": "0f599cc38bf9a7b01228072c1e13027241ca41707bc0db441f489ba52dda8960"
+    }
+  ],
+  "signing_key": "056F482818FF0BFCA93F31E28E5BDB912C8A2A16"
+}

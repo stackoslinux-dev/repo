@@ -1,5 +1,4 @@
-dists.bak-*/
-**/dists.bak-*/
-*.asc
+.gnupg/
+*.key
 *.rev
-GPG-KEYS/
+__pycache__/
