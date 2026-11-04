@@ -1,0 +1,46 @@
+name: StackOS C3 signed updates
+on:
+  push:
+    branches: [main]
+    paths: ['c3/**', 'ci/verify_c3.py', '.github/workflows/c3-updates.yml']
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: c3-signed-publication
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify C3 signatures and every indexed package
+        run: python3 ci/verify_c3.py c3
+      - name: Prepare static signed repository
+        run: |
+          mkdir -p _site
+          cp -a c3 _site/c3
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          path: _site
+          retention-days: 1
+  publish:
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish verified C3 channel
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
