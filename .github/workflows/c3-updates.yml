@@ -4,7 +4,7 @@ on:
     branches: [main]
     paths: ['c3/**', 'ci/verify_c3.py', '.github/workflows/c3-updates.yml']
   schedule:
-    - cron: '23 */6 * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 permissions:
   contents: read
