@@ -35,6 +35,7 @@ def bootstrap():
   for p in sorted(Path('ci/c3-native/seed').glob('part-*')):f.write(p.read_bytes())
  assert digest(archive)==seed['archive_sha256']
  ROOT.mkdir(exist_ok=True);subprocess.run(['sudo','tar','-xJf',str(archive),'-C',str(ROOT)],check=True)
+ extra=json.loads(Path('ci/c3-native/extra.json').read_text());assert digest(Path('ci/c3-native/c3-utilities-extra.tar.xz'))==extra['sha256'];subprocess.run(['sudo','tar','-xJf','ci/c3-native/c3-utilities-extra.tar.xz','-C',str(ROOT)],check=True)
  for directory in ['etc/apt/sources.list.d','etc/apt/apt.conf.d','etc/apt/trusted.gpg.d','etc/ssl/certs','var/lib/dpkg/updates','var/lib/dpkg/info','var/lib/dpkg/triggers','var/lib/apt/lists/partial','var/cache/apt/archives/partial','var/log/apt','run/lock','run/dbus','tmp','proc','dev','root','work']:
   subprocess.run(['sudo','mkdir','-p',str(ROOT/directory)],check=True)
  for alias,target in [('bin','usr/bin'),('sbin','usr/sbin'),('lib','usr/lib')]:
