@@ -43,7 +43,7 @@ def bootstrap():
  subprocess.run(['sudo','chown',str(os.getuid())+':'+str(os.getgid()),str(ROOT/'work')],check=True)
  def write(name,data,mode='644'):
   p=Path(tempfile.mktemp());p.write_text(data);subprocess.run(['sudo','install','-m',mode,str(p),str(ROOT/name)],check=True);p.unlink()
- write('etc/passwd','root:x:0:0:root:/root:/bin/bash\n_apt:x:42:42::/nonexistent:/bin/false\n');write('etc/group','root:x:0:\n_apt:x:42:\n');write('etc/os-release','ID=stackos\nNAME="StackOS C3 CI"\nPRETTY_NAME="StackOS C3 native test client"\n');write('var/lib/dpkg/status','');write('etc/apt/apt.conf.d/99-ci','APT::Sandbox::User "root";\n');write('etc/resolv.conf',Path('/etc/resolv.conf').read_text())
+ write('etc/passwd','root:x:0:0:root:/root:/bin/bash\n_apt:x:42:42::/nonexistent:/bin/false\n');write('etc/group','root:x:0:\n_apt:x:42:\n');write('etc/os-release','ID=stackos\nNAME="StackOS C3 CI"\nPRETTY_NAME="StackOS C3 native test client"\n');write('var/lib/dpkg/status','');write('etc/apt/apt.conf.d/99-ci','APT::Sandbox::User "root";\nAcquire::https::CaInfo "/etc/ssl/certs/ca-certificates.crt";\n');write('etc/resolv.conf',Path('/etc/resolv.conf').read_text())
  for d in ['dev','proc']:subprocess.run(['sudo','mount','--bind','/'+d,str(ROOT/d)],check=True)
  native('/usr/bin/python3','-c','import os,sys; assert sys.version_info[:2]==(3,13); assert os.confstr("CS_GNU_LIBC_VERSION")=="glibc 2.42"; print(sys.version,os.confstr("CS_GNU_LIBC_VERSION"))')
  # Independently pin the official bootstrap package hashes in reviewed code.
@@ -78,6 +78,14 @@ def build():
  for target in [filename,'repro.deb']:native('/usr/bin/dpkg-deb','--root-owner-group','-Zxz','--build','/work/package','/work/'+target)
  assert digest(ROOT/'work'/filename)==digest(ROOT/'work/repro.deb'),'non-reproducible DEB'
  native('/usr/bin/dpkg','-i','/work/'+filename);test_engine('/usr/lib/stackos/bugreport/engine.py');native('/usr/bin/apt-get','check');native('/usr/bin/dpkg','--audit')
+ # Reject a genuinely incompatible variant of this real application; no synthetic package.
+ original_control=(stage/'DEBIAN/control').read_text();bad_control=re.sub(r'^Depends:.*$',lambda m:m.group()+', libgtk-4-1 (>= 999)',original_control,flags=re.M);assert bad_control!=original_control
+ (stage/'DEBIAN/control').write_text(bad_control);native('/usr/bin/dpkg-deb','--root-owner-group','-Zxz','--build','/work/package','/work/incompatible.deb');(stage/'DEBIAN/control').write_text(original_control)
+ before=digest(ROOT/'var/lib/dpkg/status')
+ try:native('/usr/bin/apt-get','--simulate','--no-install-recommends','install','/work/incompatible.deb',stderr=subprocess.STDOUT)
+ except subprocess.CalledProcessError as error:
+  assert error.returncode==100 and 'libgtk-4-1' in error.output;save('incompatible-block.json',{'status':'PASS_NATIVE_APT_BLOCKS_REAL_APP_INCOMPATIBLE_DEPENDENCY','returncode':error.returncode,'output':error.output,'status_unchanged':digest(ROOT/'var/lib/dpkg/status')==before});assert digest(ROOT/'var/lib/dpkg/status')==before
+ else:raise AssertionError('incompatible candidate accepted')
  native('/usr/bin/dpkg','-r',PKG);assert not(ROOT/'usr/lib/stackos/bugreport/engine.py').exists();native('/usr/bin/dpkg','-i','/work/'+filename)
  OUT.mkdir(exist_ok=True);shutil.copy2(ROOT/'work'/filename,OUT/filename)
  save('build.json',{'status':'PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE','package':PKG,'version':m['version'],'filename':filename,'sha256':digest(OUT/filename),'source_commit':m['source_commit'],'source_engine_sha256':digest(stage/'usr/lib/stackos/bugreport/engine.py'),'native_environment':read('native-environment.json')})
