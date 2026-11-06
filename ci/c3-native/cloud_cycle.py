@@ -48,8 +48,14 @@ def bootstrap():
  native('/usr/bin/python3','-c','import os,sys; assert sys.version_info[:2]==(3,13); assert os.confstr("CS_GNU_LIBC_VERSION")=="glibc 2.42"; print(sys.version,os.confstr("CS_GNU_LIBC_VERSION"))')
  # Independently pin the official bootstrap package hashes in reviewed code.
  baseline=json.loads(Path('ci/c3-native/baseline.json').read_text())
+ runtime=baseline['stackos-c3-runtime'];archive=ROOT/'work'/runtime['file'];archive.write_bytes(download(BASE+runtime['file']));assert digest(archive)==runtime['sha256']
+ # Host dpkg-deb only extracts verified native C3 bytes; target execution remains chroot C3.
+ subprocess.run(['sudo','dpkg-deb','--extract',str(archive),str(ROOT)],check=True)
+ print(native('/usr/bin/python3','-c','import os,sys; print(sys.version); print(os.confstr("CS_GNU_LIBC_VERSION"))'),flush=True)
  for name in ['stackos-archive-keyring','stackos-c3-runtime','stackos-language-pack','stackos-display-support',PKG,'stackos-updater']:
-  record=baseline[name];p=ROOT/'work'/record['file'];p.write_bytes(download(BASE+record['file']));assert digest(p)==record['sha256'];native('/usr/bin/dpkg','-i','/work/'+p.name)
+  record=baseline[name];p=ROOT/'work'/record['file'];
+  if not p.exists():p.write_bytes(download(BASE+record['file']))
+  assert digest(p)==record['sha256'];print(native('/usr/bin/dpkg','-i','/work/'+p.name),flush=True)
  save('native-environment.json',{'status':'C3_NATIVE_PYTHON_GLIBC_DPKG_BOOTSTRAP_PASS','python':'3.13','glibc':'2.42','seed_sha256':seed['archive_sha256'],'owner_pc_or_ssd_required':False})
 def test_engine(path):
  code='import runpy; d=runpy.run_path('+repr(path)+'); r=d["redact"]; assert "p4ssw0rd" not in r("https://alice:p4ssw0rd@localhost:8443/path",identities=[]); assert r("https://localhost/path",identities=[])=="https://localhost/path"; assert "ghp_demo12345" not in r("ghp_demo12345",identities=[]); d["validate_input"]("Problema real","Descrição"); print("BUGREPORT_PRIVACY_TESTS_PASS")'
