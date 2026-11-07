@@ -25,7 +25,7 @@ This is not full automatic kernel/Mesa/GNOME coverage. The initial native build 
 
 ## Administration and activation
 
-The configured credential is repository Actions secret `C3_TEST_SIGNING_KEY` containing the isolated testing private key. Never put that value in Git, logs or chat. Public `testing-keyring.gpg` and `testing-key.fpr` are intentional.
+The configured credential is repository Actions secret `C3_TEST_SIGNING_KEY` containing the isolated testing private key. The testing key expires on2027-11-06 and requires rotation before that date. Never put that value in Git, logs or chat. Public `testing-keyring.gpg` and `testing-key.fpr` are intentional.
 
 The cron remains `23 * * * *`. GitHub runs scheduled events from the default branch, so this PR must be merged only after the complete cloud cycle passes. GitHub scheduling can be delayed or skipped under load; run timestamps and detection artifacts are the evidence, not a strict hourly availability guarantee.
 

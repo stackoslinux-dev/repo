@@ -85,7 +85,7 @@ def bootstrap():
  subprocess.run(['sudo','chown',str(os.getuid())+':'+str(os.getgid()),str(ROOT/'work')],check=True)
  def write(name,data,mode='644'):
   p=Path(tempfile.mktemp());p.write_text(data);subprocess.run(['sudo','install','-m',mode,str(p),str(ROOT/name)],check=True);p.unlink()
- write('etc/passwd','root:x:0:0:root:/root:/bin/bash\n_apt:x:42:42::/nonexistent:/bin/false\n');write('etc/group','root:x:0:\n_apt:x:42:\n');write('etc/os-release','ID=stackos\nNAME="StackOS C3 CI"\nPRETTY_NAME="StackOS C3 native test client"\n');write('var/lib/dpkg/status','');write('etc/apt/apt.conf.d/99-ci','APT::Sandbox::User "root";\nAcquire::https::CaInfo "/etc/ssl/certs/ca-certificates.crt";\n');write('etc/resolv.conf',Path('/etc/resolv.conf').read_text())
+ write('etc/passwd','root:x:0:0:root:/root:/bin/bash\n_apt:x:42:42::/nonexistent:/bin/false\n');write('etc/group','root:x:0:\n_apt:x:42:\n');write('etc/shells','/bin/bash\n/bin/sh\n/usr/bin/bash\n/usr/bin/sh\n');write('etc/os-release','ID=stackos\nNAME="StackOS C3 CI"\nPRETTY_NAME="StackOS C3 native test client"\n');write('var/lib/dpkg/status','');write('etc/apt/apt.conf.d/99-ci','APT::Sandbox::User "root";\nAcquire::https::CaInfo "/etc/ssl/certs/ca-certificates.crt";\n');write('etc/resolv.conf',Path('/etc/resolv.conf').read_text())
  for d in ['dev','proc']:subprocess.run(['sudo','mount','--bind','/'+d,str(ROOT/d)],check=True)
  native('/usr/bin/python3','-c','import os,sys; assert sys.version_info[:2]==(3,13); assert os.confstr("CS_GNU_LIBC_VERSION")=="glibc 2.42"; print(sys.version,os.confstr("CS_GNU_LIBC_VERSION"))')
  # Independently pin the official bootstrap package hashes in reviewed code.
@@ -202,16 +202,19 @@ def client():
  subprocess.run(['sudo','chmod','1777',str(ROOT/'tmp')],check=True)
  subprocess.run(['sudo','mkdir','-p',str(ROOT/'tmp/.X11-unix')],check=True);subprocess.run(['sudo','mount','--bind','/tmp/.X11-unix',str(ROOT/'tmp/.X11-unix')],check=True)
  if Path('/run/dbus/system_bus_socket').exists():subprocess.run(['sudo','mount','--bind','/run/dbus',str(ROOT/'run/dbus')],check=True)
- proc=subprocess.Popen(['sudo','chroot',str(ROOT),'/usr/bin/env','PATH=/usr/sbin:/usr/bin:/sbin:/bin','DISPLAY=:99','GTK_A11Y=none','GSK_RENDERER=cairo','SHELL=/bin/bash','/usr/bin/python3','/work/updater_client.py',m['version']])
+ print(native('/usr/bin/env','SHELL=/bin/bash','/usr/bin/pkexec','/usr/bin/true'),flush=True)
+ proc=subprocess.Popen(['sudo','chroot',str(ROOT),'/usr/bin/env','PATH=/usr/sbin:/usr/bin:/sbin:/bin','DISPLAY=:99','GTK_A11Y=none','GSK_RENDERER=cairo','SHELL=/bin/bash','HOME=/root','LC_ALL=C','/usr/bin/python3','/work/updater_client.py',m['version']])
  import time
  captured=False
  while proc.poll() is None:
   if not captured and (ROOT/'work/updater-offered.json').exists():subprocess.run(['import','-display',':99','-window','root',str(OUT/'updater-offered.png')],check=True);captured=True
   time.sleep(.25)
- assert proc.returncode==0
- shutil.copy2(ROOT/'work/updater-final.json',OUT/'updater-final.json')
+ if (ROOT/'work/updater-final.json').exists():shutil.copy2(ROOT/'work/updater-final.json',OUT/'updater-final.json')
  if (ROOT/'work/updater-offered.json').exists():shutil.copy2(ROOT/'work/updater-offered.json',OUT/'updater-offered.json')
  if (ROOT/'var/log/stackos-updater.log').exists():shutil.copy2(ROOT/'var/log/stackos-updater.log',OUT/'stackos-updater.log')
+ for path in [ROOT/'root/.local/state/stackos-updater/history.json',ROOT/'root/.config/stackos-updater/history.json']:
+  if path.exists():shutil.copy2(path,OUT/'updater-history.json')
+ assert proc.returncode==0,'Real Updater client failed; see preserved client evidence'
  assert read('updater-final.json')['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
  print(json.dumps(read('updater-final.json')),flush=True)
 def selftest():

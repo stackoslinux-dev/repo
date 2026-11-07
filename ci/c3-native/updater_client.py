@@ -18,7 +18,7 @@ def poll():
    state.update(status='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED',installed_version=version,remaining_updates=app.updates);Path('/work/updater-final.json').write_text(json.dumps(state,indent=2));app.quit();return False
   return True
  except Exception as error:
-  state.update(status='FAILED',error=str(error));Path('/work/updater-final.json').write_text(json.dumps(state,indent=2));print(json.dumps(state),flush=True);app.quit();return False
+  state.update(status='FAILED',error=str(error),updater_detail=app.detail_label.get_text(),updater_data=app.current_data);Path('/work/updater-final.json').write_text(json.dumps(state,indent=2));print(json.dumps(state),flush=True);app.quit();return False
 GLib.timeout_add(1000,poll)
 app.run(['stackos-updater-ci'])
 raise SystemExit(0 if state.get('status','').startswith('PASS_') else 1)
