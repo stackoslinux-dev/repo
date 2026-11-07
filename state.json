@@ -1,0 +1,21 @@
+{
+  "status": "PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE",
+  "package": "stackos-bugreport",
+  "version": "1.1.1+stackos1+c3.2+test1",
+  "filename": "stackos-bugreport_1.1.1+stackos1+c3.2+test1_all.deb",
+  "sha256": "c90d1a37d19a9fbf9cb1fb2561500eade85d71a251eded302bc0dbfc4201e8c9",
+  "source_commit": "bb81e7a2b83a0fedf21a0735799301ed4dff1988",
+  "source_engine_sha256": "857341cfbbfb335f28210293043f9aa4d630c77f16e16a094bcc7326a5d94f98",
+  "native_environment": {
+    "status": "C3_NATIVE_PYTHON_GLIBC_DPKG_BOOTSTRAP_PASS",
+    "python": "3.13",
+    "glibc": "2.42",
+    "seed_sha256": "db7b04b6907e288976e535f1828c68204eaa36dc1f8e6e00dee4d40149f89655",
+    "owner_pc_or_ssd_required": false
+  },
+  "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
+  "channel": "c3-testing",
+  "signed_utc": "2026-11-07T01:36:55.825552+00:00",
+  "valid_until_utc": "2026-11-14T01:36:55.825552+00:00",
+  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/42324002906"
+}

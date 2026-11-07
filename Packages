@@ -1,0 +1,15 @@
+Package: stackos-bugreport
+Version: 1.1.1+stackos1+c3.2+test1
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: StackOS Linux <stackoslinux@gmail.com>
+Depends: stackos-c3-runtime (>= 10.7), stackos-display-support (>= 10.8)
+Homepage: https://github.com/stackoslinux-dev
+Description: Relatorios de bugs StackOS com diagnostico de drivers
+ Interface GTK4 com revisao editavel, coleta somente leitura,
+ exportacao local e envio opcional ao repositorio GitHub original.
+Filename: stackos-bugreport_1.1.1+stackos1+c3.2+test1_all.deb
+Size: 119900
+SHA256: c90d1a37d19a9fbf9cb1fb2561500eade85d71a251eded302bc0dbfc4201e8c9
+
