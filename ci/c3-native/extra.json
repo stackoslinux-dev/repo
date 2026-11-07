@@ -1,7 +1,8 @@
 {
-  "sha256": "bf965382ac918c4af5affaa44deeb1e6e012cad8f5cdbf0851a1f1c49c3dcedb",
-  "bytes": 427580,
+  "sha256": "24d492e7b3cfd6100a505064fa80f6a037687cf5fc9dbd4350beda25c359d86b",
+  "bytes": 918676,
   "files": {
+    "etc/pam.d/system-auth": "6439d110499940677c21b07edaf8e19a73aeebbd86e4fe47c15c4a23b153b043",
     "usr/bin/cut": "abb53b4d95f8833d5e43e0d91e7eec07457e502b727dd79c79119f1f2877d00a",
     "usr/bin/dconf": "f3c66aca9a3a153ea96686dc9f2dce7aa8b6821802c15dcfa336c86f42b25e88",
     "usr/bin/diff": "1780a1b028a1ef3294c465e901c771f44508d6d32d2704a2fd81ee356cfc4840",
@@ -14,7 +15,12 @@
     "usr/bin/tail": "660ac66f108ded125278ee2049268a4c14ce9ebebaff86b685fac73a8cb39dc9",
     "usr/bin/tr": "5966eb4c96e1db72251b40687ed7ec53744958cda8e21b878eedcff235d24f5b",
     "usr/bin/wc": "ff4d0844fc8c43d9e27224d277a7d66937de83821480c475e6f1cb5f76e20cde",
+    "usr/lib/libcrypt.so.2": "28a8b9d994e4e5dacdcfd74aaaba2e7e283e0a8fedf892de81026641952ea5fe",
     "usr/lib/libdconf.so.1": "2f0690b606f67f918e4832ba38ba9e1f945adf97b4c3e9c0be630e5f1a3d2936",
-    "usr/lib/libseccomp.so.2": "feda327c2321cdbef51e32c1e8e8747c2ee6eb1c3973a1db1b7aa8df9bbf1b09"
+    "usr/lib/libpam_misc.so.0": "563e543641e491eba5c86ca7a2f838c512b898dc24cd9d33d358973a510e05cd",
+    "usr/lib/libseccomp.so.2": "feda327c2321cdbef51e32c1e8e8747c2ee6eb1c3973a1db1b7aa8df9bbf1b09",
+    "usr/lib/pam.d/polkit-1": "a4454c54582a86fd4560321b22ffb7639485968438a07d5412fadc102d62cf49",
+    "usr/lib/security/pam_systemd.so": "6ef2e822785eb3cb852021ae2a4ab603b80d2a4201a0c6705fd2c3563400db15",
+    "usr/lib/security/pam_unix.so": "46ae36228f4e5aa33ab0dacc8a5830f28c131ec777aa7ec65b6828052d1199af"
   }
 }
