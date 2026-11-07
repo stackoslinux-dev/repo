@@ -1,7 +1,7 @@
 name: StackOS C3 signed updates
 on:
   push:
-    branches: [main, feature/c3-native-testing-cycle]
+    branches: [main, feature/c3-native-testing-cycle, feature/c3-native-security-components]
     paths: ['c3/**', 'ci/verify_c3.py', 'ci/c3-native/**', '.github/workflows/c3-updates.yml']
   schedule:
     - cron: '23 * * * *'
@@ -203,3 +203,57 @@ jobs:
           name: c3-validated-testing-channel
           path: testing-channel
           retention-days: 30
+
+  detect-native-component:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - name: Authenticate source and security-patch indexes; compare native component version
+        id: detect
+        run: python3 ci/c3-native/compat/native_component.py detect
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-native-component-detection
+          path: compat-out/detection.json
+          retention-days: 7
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: steps.detect.outputs.changed == 'true'
+        with:
+          name: c3-native-component-authenticated-sources
+          path: |
+            authenticated-sources/*.tar.*
+            authenticated-sources/*-source.json
+            authenticated-sources/*-InRelease
+          retention-days: 7
+  build-native-component:
+    needs: detect-native-component
+    if: needs.detect-native-component.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-component-detection
+          path: compat-out
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-component-authenticated-sources
+          path: authenticated-sources
+      - name: Compile security-patched codec using native C3 GCC; rebuild and test lossless encode/decode
+        run: python3 ci/c3-native/compat/native_component.py build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-native-component-build
+          path: compat-out
+          retention-days: 14

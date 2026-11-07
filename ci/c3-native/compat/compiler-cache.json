@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/stackoslinux-dev/repo/releases/download/c3-native-sdk-2026-11-07-test1/native-c3-compiler-runtime.tar.xz",
+  "bytes": 89358500,
+  "sha256": "bee074294be657f9c72b8b90e3185774a5a3d720c035d9dfd5159e6416d950aa",
+  "files": 15337,
+  "scope": "native C3 build jobs only; no PC or SSD access",
+  "build_utils": {
+    "url": "https://github.com/stackoslinux-dev/repo/releases/download/c3-native-sdk-2026-11-07-test1/native-c3-build-utils.tar.xz",
+    "bytes": 1139160,
+    "sha256": "96907509c84010329d168308ad0d5364adc6ac50b5a3c3009762d86439d70696"
+  }
+}
