@@ -15,7 +15,7 @@
   },
   "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
   "channel": "c3-testing",
-  "signed_utc": "2026-11-07T01:45:09.441254+00:00",
-  "valid_until_utc": "2026-11-14T01:45:09.441254+00:00",
-  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/42325657207"
+  "signed_utc": "2026-11-07T01:48:07.756752+00:00",
+  "valid_until_utc": "2026-11-14T01:48:07.756752+00:00",
+  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/42325910017"
 }
