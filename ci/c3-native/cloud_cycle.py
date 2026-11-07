@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Single allowlisted native C3 testing lane; never writes the production c3 tree."""
-import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,tarfile,shutil,re,gzip,tempfile,datetime
+import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,tarfile,shutil,re,gzip,tempfile,datetime,contextlib
 from pathlib import Path
 ROOT=Path('c3-root').resolve();OUT=Path('cycle-out');BASE='https://stackoslinux-dev.github.io/repo/c3/';TEST='https://raw.githubusercontent.com/stackoslinux-dev/repo/c3-testing/'
 PKG='stackos-bugreport';MANIFEST='https://raw.githubusercontent.com/stackoslinux-dev/StackOS-Genesis/main/updates/testing/stackos-bugreport.json'
@@ -20,15 +20,46 @@ def decision(m,previous):
  assert re.fullmatch('[0-9a-f]{40}',m['source_commit']) and re.fullmatch(r'[0-9][0-9A-Za-z.+:~_-]{0,99}',m['version'])
  assert m['automatic_testing_approved'] is True
  return subprocess.run(['dpkg','--compare-versions',m['version'],'gt',previous]).returncode==0
+def verify_signed_bytes(data,signature):
+ with tempfile.TemporaryDirectory() as home:
+  path=Path(home)/'data';path.write_bytes(data);sig=Path(home)/'data.asc';sig.write_bytes(signature)
+  keyring=Path('ci/c3-native/testing-keyring.gpg').resolve()
+  subprocess.run(['gpgv','--homedir',home,'--keyring',str(keyring),str(sig),str(path)],check=True,stdout=subprocess.DEVNULL)
+ return json.loads(data)
+def approved_state():
+ try:data=download(TEST+'validated.json',200000)
+ except urllib.error.HTTPError as error:
+  if error.code==404:return None
+  raise
+ state=verify_signed_bytes(data,download(TEST+'validated.json.asc',100000))
+ assert state['package']==PKG and state['channel']=='c3-testing'
+ assert state['validation_status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
+ assert state['status']=='PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE'
+ assert state['signing_fingerprint']==Path('ci/c3-native/testing-key.fpr').read_text().strip()
+ return state
+
 def detect():
- m=json.loads(download(MANIFEST,100000));previous='1.1.0+stackos1+c3.2+fix10.8'
- try:previous=json.loads(download(TEST+'state.json',100000))['version']
- except urllib.error.HTTPError as e:
-  if e.code!=404:raise
- changed=decision(m,previous);save('detection.json',{'manifest':m,'previous_version':previous,'update_available':changed,'checked_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'official_source':MANIFEST})
+ m=json.loads(download(MANIFEST,100000));approved=approved_state();previous=approved['version'] if approved else '1.1.0+stackos1+c3.2+fix10.8'
+ changed=decision(m,previous);same=subprocess.run(['dpkg','--compare-versions',m['version'],'eq',previous]).returncode==0
+ if approved and same and approved['source_commit']!=m['source_commit']:raise RuntimeError('Source changed without a package version bump')
+ now=datetime.datetime.now(datetime.timezone.utc);refresh=False
+ if approved and same:
+  signed=datetime.datetime.fromisoformat(approved['signed_utc'])
+  refresh=(now-signed).total_seconds()>=86400
+  if refresh:
+   data=download(TEST+approved['filename']);assert hashlib.sha256(data).hexdigest()==approved['sha256']
+   verify_signature=download(TEST+approved['filename']+'.asc',100000)
+   with tempfile.TemporaryDirectory() as home:
+    archive=Path(home)/'app.deb';archive.write_bytes(data);sig=Path(home)/'app.asc';sig.write_bytes(verify_signature)
+    subprocess.run(['gpgv','--homedir',home,'--keyring',str(Path('ci/c3-native/testing-keyring.gpg').resolve()),str(sig),str(archive)],check=True)
+   OUT.mkdir(exist_ok=True);(OUT/approved['filename']).write_bytes(data)
+   fields=['status','package','version','filename','sha256','source_commit','source_engine_sha256','native_environment']
+   save('build.json',{**{key:approved[key] for key in fields},'reused_validated_archive':True})
+ save('detection.json',{'manifest':m,'previous_version':previous,'update_available':changed,'refresh_due':refresh,'checked_utc':now.isoformat(),'official_source':MANIFEST,'baseline':'signed Updater-validated marker' if approved else 'pinned native baseline','previous_client_validation':approved.get('validation_status') if approved else None})
  if os.environ.get('GITHUB_OUTPUT'):
-  with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('changed='+str(changed).lower()+'\n')
+  with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('changed='+str(changed).lower()+'\nrefresh='+str(refresh).lower()+'\n')
  print(json.dumps(read('detection.json')),flush=True)
+
 def bootstrap():
  seed=json.loads(Path('ci/c3-native/seed.json').read_text());archive=Path('native-seed.tar.xz')
  with archive.open('wb') as f:
@@ -64,6 +95,7 @@ def build():
  m=read('detection.json')['manifest'];assert decision(m,read('detection.json')['previous_version']);bootstrap()
  # Fetch the immutable official Git tree; the source commit is recorded in provenance.
  subprocess.run(['git','clone','--no-checkout','--filter=blob:none','https://github.com/'+m['source_repository']+'.git','source'],check=True)
+ subprocess.run(['git','-C','source','sparse-checkout','set',m['source_directory']],check=True)
  subprocess.run(['git','-C','source','checkout','--detach',m['source_commit']],check=True);assert run('git','-C','source','rev-parse','HEAD').strip()==m['source_commit']
  stage=ROOT/'work/package';shutil.copytree(Path('source')/m['source_directory'],stage,ignore=shutil.ignore_patterns('BINARY-BASELINE.json','__pycache__','md5sums'))
  control=(stage/'DEBIAN/control').read_text();assert 'Package: '+PKG+'\n' in control and 'Version: '+m['version']+'\n' in control and 'Architecture: all\n' in control
@@ -89,31 +121,58 @@ def build():
  native('/usr/bin/dpkg','-r',PKG);assert not(ROOT/'usr/lib/stackos/bugreport/engine.py').exists();native('/usr/bin/dpkg','-i','/work/'+filename)
  OUT.mkdir(exist_ok=True);shutil.copy2(ROOT/'work'/filename,OUT/filename)
  save('build.json',{'status':'PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE','package':PKG,'version':m['version'],'filename':filename,'sha256':digest(OUT/filename),'source_commit':m['source_commit'],'source_engine_sha256':digest(stage/'usr/lib/stackos/bugreport/engine.py'),'native_environment':read('native-environment.json')})
-def sign():
- b=read('build.json');assert b['status']=='PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE';assert digest(OUT/b['filename'])==b['sha256']
+@contextlib.contextmanager
+def signing_key():
  key=os.environ.get('C3_TEST_SIGNING_KEY','');fingerprint=Path('ci/c3-native/testing-key.fpr').read_text().strip()
- if not key or not re.fullmatch('[0-9A-F]{40}',fingerprint):raise RuntimeError('Configure isolated C3_TEST_SIGNING_KEY and C3_TEST_SIGNING_FINGERPRINT secrets; production key is forbidden')
+ if not key or not re.fullmatch('[0-9A-F]{40}',fingerprint):raise RuntimeError('Configure C3_TEST_SIGNING_KEY in this repository; production key is forbidden')
  assert fingerprint!='056F482818FF0BFCA93F31E28E5BDB912C8A2A16'
- channel=Path('testing-channel');channel.mkdir(exist_ok=True);shutil.copy2(OUT/b['filename'],channel/b['filename'])
  with tempfile.TemporaryDirectory() as home:
   os.chmod(home,0o700);subprocess.run(['gpg','--homedir',home,'--batch','--import'],input=key.encode(),check=True,stdout=subprocess.DEVNULL)
-  fprs=run('gpg','--homedir',home,'--batch','--with-colons','--list-secret-keys').splitlines();assert fingerprint in [x.split(':')[9] for x in fprs if x.startswith('fpr:')]
-  public=subprocess.check_output(['gpg','--homedir',home,'--batch','--export',fingerprint]);(channel/'testing-keyring.gpg').write_bytes(public)
-  packages=run('dpkg-deb','-f',channel/b['filename'])+'Filename: '+b['filename']+'\nSize: '+str((channel/b['filename']).stat().st_size)+'\nSHA256: '+b['sha256']+'\n\n';(channel/'Packages').write_text(packages);(channel/'Packages.gz').write_bytes(gzip.compress(packages.encode(),mtime=0))
-  now=datetime.datetime.now(datetime.timezone.utc);release='Origin: StackOS\nLabel: StackOS C3 Testing\nSuite: c3-testing\nCodename: c3\nArchitectures: all amd64\nDate: '+now.strftime('%a, %d %b %Y %H:%M:%S +0000')+'\nSHA256:\n'+''.join(' '+digest(channel/x)+' '+str((channel/x).stat().st_size)+' '+x+'\n' for x in ['Packages','Packages.gz']);(channel/'Release').write_text(release)
+  fprs=run('gpg','--homedir',home,'--batch','--with-colons','--list-secret-keys').splitlines();assert fingerprint in [line.split(':')[9] for line in fprs if line.startswith('fpr:')]
+  yield home,fingerprint
+
+def detach(home,fingerprint,path):
+ subprocess.run(['gpg','--homedir',home,'--batch','--yes','--armor','--local-user',fingerprint,'--digest-algo','SHA256','--output',str(path)+'.asc','--detach-sign',str(path)],check=True)
+
+def sign():
+ b=read('build.json');assert b['status']=='PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE';assert digest(OUT/b['filename'])==b['sha256']
+ channel=Path('testing-channel');channel.mkdir(exist_ok=True);shutil.copy2(OUT/b['filename'],channel/b['filename'])
+ with signing_key() as (home,fingerprint):
+  (channel/'testing-keyring.gpg').write_bytes(subprocess.check_output(['gpg','--homedir',home,'--batch','--export',fingerprint]))
+  packages=run('dpkg-deb','-f',channel/b['filename']).rstrip()+'\nFilename: '+b['filename']+'\nSize: '+str((channel/b['filename']).stat().st_size)+'\nSHA256: '+b['sha256']+'\n\n'
+  (channel/'Packages').write_text(packages);(channel/'Packages.gz').write_bytes(gzip.compress(packages.encode(),mtime=0))
+  now=datetime.datetime.now(datetime.timezone.utc);expires=now+datetime.timedelta(days=7)
+  release='Origin: StackOS\nLabel: StackOS C3 Testing\nSuite: c3-testing\nCodename: c3\nArchitectures: all amd64\nDate: '+now.strftime('%a, %d %b %Y %H:%M:%S +0000')+'\nValid-Until: '+expires.strftime('%a, %d %b %Y %H:%M:%S +0000')+'\nSHA256:\n'+''.join(' '+digest(channel/name)+' '+str((channel/name).stat().st_size)+' '+name+'\n' for name in ['Packages','Packages.gz'])
+  (channel/'Release').write_text(release)
   for name,flags in [('InRelease',['--clearsign']),('Release.gpg',['--detach-sign'])]:subprocess.run(['gpg','--homedir',home,'--batch','--yes','--local-user',fingerprint,'--digest-algo','SHA256','--output',str(channel/name),*flags,str(channel/'Release')],check=True)
-  subprocess.run(['gpg','--homedir',home,'--batch','--yes','--armor','--local-user',fingerprint,'--output',str(channel/(b['filename']+'.asc')),'--detach-sign',str(channel/b['filename'])],check=True)
+  detach(home,fingerprint,channel/b['filename'])
+  state={**b,'signing_fingerprint':fingerprint,'channel':'c3-testing','signed_utc':now.isoformat(),'valid_until_utc':expires.isoformat(),'run_url':os.environ.get('GITHUB_SERVER_URL','https://github.com')+'/'+os.environ.get('GITHUB_REPOSITORY','stackoslinux-dev/repo')+'/actions/runs/'+os.environ.get('GITHUB_RUN_ID','local')}
+  (channel/'state.json').write_text(json.dumps(state,indent=2)+'\n');detach(home,fingerprint,channel/'state.json')
   subprocess.run(['gpgv','--homedir',home,'--keyring',str((channel/'testing-keyring.gpg').resolve()),str(channel/'InRelease')],check=True)
- (channel/'state.json').write_text(json.dumps({**b,'signing_fingerprint':fingerprint,'channel':'c3-testing','run_url':os.environ.get('GITHUB_SERVER_URL','https://github.com')+'/'+os.environ.get('GITHUB_REPOSITORY','stackoslinux-dev/repo')+'/actions/runs/'+os.environ.get('GITHUB_RUN_ID','local')},indent=2)+'\n')
  print('SIGNED_ISOLATED_TESTING_CHANNEL',fingerprint,flush=True)
+
+def approve():
+ channel=Path('testing-channel');state=json.loads((channel/'state.json').read_text());client=read('updater-final.json')
+ assert client['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
+ assert client['installed_version']==state['version'] and client['remaining_updates']==[]
+ assert client['offered_updates']==[PKG] and digest(channel/state['filename'])==state['sha256']
+ # A failed client never advances this signed marker, so the hourly detector retries.
+ approved={**state,'validation_status':client['status'],'validated_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'client':client}
+ with signing_key() as (home,fingerprint):
+  assert fingerprint==state['signing_fingerprint'];p=channel/'validated.json';p.write_text(json.dumps(approved,indent=2)+'\n');detach(home,fingerprint,p)
+ print('REAL_UPDATER_VALIDATION_RECORDED',state['version'],flush=True)
+
 def client():
  m=read('detection.json')['manifest'];bootstrap()
- expected=Path('ci/c3-native/testing-key.fpr').read_text().strip();key=download(TEST+'testing-keyring.gpg',100000)
+ snapshot=os.environ.get('C3_TEST_SNAPSHOT','');assert re.fullmatch('[0-9a-f]{40}',snapshot),'Published immutable testing commit required'
+ client_base='https://raw.githubusercontent.com/stackoslinux-dev/repo/'+snapshot+'/'
+ save('client-snapshot.json',{'commit':snapshot,'url':client_base,'production_channel':False})
+ expected=Path('ci/c3-native/testing-key.fpr').read_text().strip();key=download(client_base+'testing-keyring.gpg',100000)
  keyfile=ROOT/'work/testing-keyring.gpg';keyfile.write_bytes(key)
  listing=run('gpg','--batch','--with-colons','--show-keys',keyfile)
  assert expected in [x.split(':')[9] for x in listing.splitlines() if x.startswith('fpr:')]
  subprocess.run(['sudo','cp',str(keyfile),str(ROOT/'etc/apt/trusted.gpg.d/c3-testing.gpg')],check=True)
- source=ROOT/'work/testing.list';source.write_text('deb [signed-by=/etc/apt/trusted.gpg.d/c3-testing.gpg] '+TEST+' ./\n')
+ source=ROOT/'work/testing.list';source.write_text('deb [signed-by=/etc/apt/trusted.gpg.d/c3-testing.gpg] '+client_base+' ./\n')
  subprocess.run(['sudo','cp',str(source),str(ROOT/'etc/apt/sources.list.d/c3-testing.list')],check=True)
  config=ROOT/'work/only-testing.conf';config.write_text('Dir::Etc::sourcelist "/etc/apt/sources.list.d/c3-testing.list";\nDir::Etc::sourceparts "-";\n')
  subprocess.run(['sudo','cp',str(config),str(ROOT/'etc/apt/apt.conf.d/99-only-testing')],check=True)
@@ -129,7 +188,10 @@ def client():
   if not captured and (ROOT/'work/updater-offered.json').exists():subprocess.run(['import','-display',':99','-window','root',str(OUT/'updater-offered.png')],check=True);captured=True
   time.sleep(.25)
  assert proc.returncode==0
- shutil.copy2(ROOT/'work/updater-final.json',OUT/'updater-final.json');assert read('updater-final.json')['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
+ shutil.copy2(ROOT/'work/updater-final.json',OUT/'updater-final.json')
+ if (ROOT/'work/updater-offered.json').exists():shutil.copy2(ROOT/'work/updater-offered.json',OUT/'updater-offered.json')
+ if (ROOT/'var/log/stackos-updater.log').exists():shutil.copy2(ROOT/'var/log/stackos-updater.log',OUT/'stackos-updater.log')
+ assert read('updater-final.json')['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
  print(json.dumps(read('updater-final.json')),flush=True)
 def selftest():
  m={'package':PKG,'channel':'c3-testing','category':'isolated-python-app','source_repository':'stackoslinux-dev/StackOS-Genesis','source_directory':'apps/'+PKG,'source_commit':'a'*40,'version':'1.1.1','automatic_testing_approved':True}
@@ -141,4 +203,4 @@ def selftest():
   raise AssertionError('unsafe manifest accepted')
  print('POLICY_TESTS_PASS')
 if __name__=='__main__':
- {'detect':detect,'build':build,'sign':sign,'client':client,'selftest':selftest}[sys.argv[1]]()
+ {'detect':detect,'build':build,'sign':sign,'client':client,'approve':approve,'selftest':selftest}[sys.argv[1]]()
