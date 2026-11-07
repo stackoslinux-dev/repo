@@ -1,8 +1,8 @@
 name: StackOS C3 signed updates
 on:
   push:
-    branches: [main]
-    paths: ['c3/**', 'ci/verify_c3.py', '.github/workflows/c3-updates.yml']
+    branches: [main, feature/c3-native-testing-cycle]
+    paths: ['c3/**', 'ci/verify_c3.py', 'ci/c3-native/**', '.github/workflows/c3-updates.yml']
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
@@ -13,6 +13,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   verify:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -31,6 +32,7 @@ jobs:
           path: _site
           retention-days: 1
   publish:
+    if: github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -44,3 +46,160 @@ jobs:
       - name: Publish verified C3 channel
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
+
+  monitor-components:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - name: Check official component sources without publishing unqualified ABI updates
+        run: python3 ci/c3-native/monitor_components.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-component-versions
+          path: cycle-out
+          retention-days: 30
+  detect-testing:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      refresh: ${{ steps.detect.outputs.refresh }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - name: Compare official application version with signed Updater-approved state
+        id: detect
+        run: |
+          python3 ci/c3-native/cloud_cycle.py selftest
+          python3 ci/c3-native/cloud_cycle.py detect
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-detection
+          path: cycle-out
+          retention-days: 30
+  build-testing:
+    needs: detect-testing
+    if: needs.detect-testing.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-detection
+          path: cycle-out
+      - name: Compile and test real application with native C3 Python and dpkg
+        run: python3 ci/c3-native/cloud_cycle.py build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-native-build
+          path: cycle-out
+          retention-days: 30
+  sign-publish-testing:
+    outputs:
+      testing_commit: ${{ steps.publication.outputs.commit }}
+    needs: [detect-testing, build-testing]
+    if: >-
+      always() && needs.detect-testing.result == 'success' &&
+      ((needs.detect-testing.outputs.changed == 'true' && needs.build-testing.result == 'success') ||
+       needs.detect-testing.outputs.refresh == 'true')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: ${{ needs.detect-testing.outputs.changed == 'true' && 'c3-native-build' || 'c3-detection' }}
+          path: cycle-out
+      - name: Sign native candidate or refresh previously validated archive
+        env:
+          C3_TEST_SIGNING_KEY: ${{ secrets.C3_TEST_SIGNING_KEY }}
+        run: python3 ci/c3-native/cloud_cycle.py sign
+      - name: Publish signed candidate only to isolated APT testing branch
+        id: publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ci/c3-native/publish_testing.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-signed-testing-channel
+          path: testing-channel
+          retention-days: 30
+  client-testing:
+    needs: [detect-testing, sign-publish-testing]
+    if: always() && needs.sign-publish-testing.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-detection
+          path: cycle-out
+      - name: Prepare host display only; target runtime and libraries remain C3 native
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb imagemagick
+          Xvfb :99 -screen 0 1280x800x24 -nolisten tcp -ac > /tmp/c3-xvfb.log 2>&1 &
+      - name: Real StackOS Updater detects and installs signed application from HTTPS APT
+        env:
+          C3_TEST_SNAPSHOT: ${{ needs.sign-publish-testing.outputs.testing_commit }}
+        run: python3 ci/c3-native/cloud_cycle.py client
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-updater-client-evidence
+          path: cycle-out
+          retention-days: 30
+  record-validated-testing:
+    needs: [sign-publish-testing, client-testing]
+    if: always() && needs.client-testing.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-updater-client-evidence
+          path: cycle-out
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-signed-testing-channel
+          path: testing-channel
+      - name: Sign approval marker only after actual StackOS Updater installation
+        env:
+          C3_TEST_SIGNING_KEY: ${{ secrets.C3_TEST_SIGNING_KEY }}
+        run: python3 ci/c3-native/cloud_cycle.py approve
+      - name: Advance authenticated validated version atomically, retaining older packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ci/c3-native/publish_testing.py --approved
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-validated-testing-channel
+          path: testing-channel
+          retention-days: 30

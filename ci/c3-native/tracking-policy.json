@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "package": "stackos-bugreport",
+  "source_repository": "stackoslinux-dev/StackOS-Genesis",
+  "source_directory": "apps/stackos-bugreport",
+  "ref": "main",
+  "channel": "c3-testing",
+  "category": "isolated-python-app",
+  "automatic_testing_approved": true,
+  "max_major": 1,
+  "maintainer_scripts": {
+    "postinst": "fe4cdb9ad94085f8edeb39cb5f7b693bd1989ee912811a5e2783ebabf410a82a"
+  },
+  "allowed_files": [
+    "usr/local/bin/stackos-bugreport",
+    "usr/share/applications/stackos-bugreport.desktop",
+    "usr/share/icons/hicolor/256x256/apps/org.stackos.BugReport.png",
+    "usr/share/icons/hicolor/scalable/apps/org.stackos.BugReport.svg"
+  ],
+  "allowed_prefixes": [
+    "usr/lib/stackos/bugreport/"
+  ]
+}
