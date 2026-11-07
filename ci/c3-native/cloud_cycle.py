@@ -28,11 +28,16 @@ def verify_signed_bytes(data,signature):
   subprocess.run(['gpgv','--homedir',home,'--keyring',str(keyring),str(sig),str(path)],check=True,stdout=subprocess.DEVNULL)
  return json.loads(data)
 def approved_state():
- try:data=download(TEST+'validated.json',200000)
+ # Resolve the channel once: marker and signature must come from one immutable commit.
+ try:
+  ref=json.loads(download('https://api.github.com/repos/stackoslinux-dev/repo/git/ref/heads/c3-testing',200000))
+  snapshot=ref['object']['sha'];assert re.fullmatch('[0-9a-f]{40}',snapshot)
+  base='https://raw.githubusercontent.com/stackoslinux-dev/repo/'+snapshot+'/'
+  data=download(base+'validated.json',200000)
  except urllib.error.HTTPError as error:
   if error.code==404:return None
   raise
- state=verify_signed_bytes(data,download(TEST+'validated.json.asc',100000))
+ state=verify_signed_bytes(data,download(base+'validated.json.asc',100000))
  assert state['package']==PKG and state['channel']=='c3-testing'
  assert state['validation_status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
  assert state['status']=='PASS_NATIVE_REPRODUCIBLE_REAL_APP_INSTALL_REMOVE'
@@ -212,7 +217,7 @@ def client():
  if (ROOT/'work/updater-final.json').exists():shutil.copy2(ROOT/'work/updater-final.json',OUT/'updater-final.json')
  if (ROOT/'work/updater-offered.json').exists():shutil.copy2(ROOT/'work/updater-offered.json',OUT/'updater-offered.json')
  if (ROOT/'var/log/stackos-updater.log').exists():shutil.copy2(ROOT/'var/log/stackos-updater.log',OUT/'stackos-updater.log')
- for path in [ROOT/'root/.local/state/stackos-updater/history.json',ROOT/'root/.config/stackos-updater/history.json']:
+ for path in [ROOT/'root/.cache/stackos-updater/history.json']:
   if path.exists():shutil.copy2(path,OUT/'updater-history.json')
  assert proc.returncode==0,'Real Updater client failed; see preserved client evidence'
  assert read('updater-final.json')['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'

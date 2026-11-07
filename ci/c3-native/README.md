@@ -4,11 +4,11 @@ This extends `.github/workflows/c3-updates.yml`; it does not add another agent, 
 
 ## First real application
 
-The allowlisted application is StackOS BugReport 1.1.1 from the newest official Genesis app commit, with its version read from the real `DEBIAN/control`. The reviewed `tracking-policy.json` restricts paths, major version and unchanged maintainer scripts. Its update fixes credential exposure in HTTP URLs. The previous native build ran successfully in GitHub Actions (run42226744835); cloud signing now works with the persistent testing secret; the real Updater client must pass before activation.
+The allowlisted application is StackOS BugReport 1.1.1 from the newest official Genesis app commit, with its version read from the real `DEBIAN/control`. The reviewed `tracking-policy.json` restricts paths, major version and unchanged maintainer scripts. Its update fixes credential exposure in HTTP URLs. The complete native build/sign/publish/real-Updater-install/approval cycle passed in [GitHub Actions run42325910017](https://github.com/stackoslinux-dev/repo/actions/runs/42325910017). The installed version was1.1.1+stackos1+c3.2+test1, with no pending updates in the isolated client. This is evidence for this application and native CI client, not physical hardware or unqualified components.
 
 The target Python3.13, glibc2.42, dpkg, APT, GTK and libraries are C3 bytes from the versioned cloud seed and pinned native baseline. Ubuntu is the hosted orchestration/display runner, not the target runtime. No `/run/media`, personal PC, SSD, Ollama or Codex session is used in periodic execution.
 
-1. Detect compares the official version with **signed `validated.json`**, not an untested candidate. A failed Updater test never advances that version and is retried later.
+1. Detect resolves one immutable testing-channel commit and compares the official version with **signed `validated.json`**, not an untested candidate. A failed Updater test never advances that version and is retried later.
 2. Build compiles native Python bytecode, builds the real DEB twice, checks reproducibility, privacy behavior, installation/removal and incompatible-dependency refusal in C3.
 3. Sign uses only `C3_TEST_SIGNING_KEY`, whose public fingerprint is488A5AF104A521116722A74CF6820043D52F5680. No production key is accepted.
 4. Publish writes only `c3-testing`, retaining older package files. Native clients verify signed InRelease, archive hashes and the isolated key. The CI client uses the exact immutable published commit over HTTPS to avoid mutable-branch cache races.
