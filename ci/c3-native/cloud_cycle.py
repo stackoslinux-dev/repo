@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
 """Single allowlisted native C3 testing lane; never writes the production c3 tree."""
-import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,urllib.parse,tarfile,shutil,re,gzip,tempfile,datetime,contextlib
+import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,urllib.parse,tarfile,shutil,re,gzip,tempfile,datetime,contextlib,time
 from pathlib import Path
 ROOT=Path('c3-root').resolve();OUT=Path('cycle-out');BASE='https://stackoslinux-dev.github.io/repo/c3/';TEST='https://raw.githubusercontent.com/stackoslinux-dev/repo/c3-testing/'
 PKG='stackos-bugreport';MANIFEST='https://raw.githubusercontent.com/stackoslinux-dev/StackOS-Genesis/main/updates/testing/stackos-bugreport.json'
 def run(*a,**kw):return subprocess.check_output(list(map(str,a)),text=True,**kw)
 def download(url,limit=250_000_000):
- with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'StackOS-C3-Native-Testing/1'}),timeout=90) as r:b=r.read(limit+1)
- if len(b)>limit:raise ValueError('Download limit: '+url)
- return b
+ for attempt in range(4):
+  try:
+   with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'StackOS-C3-Native-Testing/1'}),timeout=30 if limit<=1_000_000 else 90) as response:data=response.read(limit+1)
+   if len(data)>limit:raise ValueError('Download limit: '+url)
+   return data
+  except urllib.error.HTTPError as error:
+   if error.code not in [429,500,502,503,504] or attempt==3:raise
+   print('TRANSIENT_SOURCE_HTTP_RETRY',error.code,attempt+1,flush=True)
+  except (urllib.error.URLError,TimeoutError,ConnectionError):
+   if attempt==3:raise
+   print('TRANSIENT_SOURCE_NETWORK_RETRY',attempt+1,flush=True)
+  time.sleep(2**(attempt+1))
 def save(name,data):
  p=OUT/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(data,indent=2)+'\n')
 def read(name):return json.loads((OUT/name).read_text())
