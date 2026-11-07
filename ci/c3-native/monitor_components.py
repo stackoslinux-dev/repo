@@ -7,14 +7,15 @@ CATALOG=[
  {'component':'mesa','installed':'24.3.4','url':'https://archive.mesa3d.org/','pattern':r'mesa-([0-9]+\.[0-9]+\.[0-9]+)\.tar\.xz','group':'mesa/llvm/vulkan/desktop'},
  {'component':'glibc','installed':'2.42','url':'https://ftp.gnu.org/gnu/glibc/','pattern':r'glibc-([0-9]+\.[0-9]+(?:\.[0-9]+)?)\.tar\.xz','group':'core-toolchain-ABI'},
  {'component':'linux-firmware','installed':'20261019','url':'https://cdn.kernel.org/pub/linux/kernel/firmware/','pattern':r'linux-firmware-([0-9]{8})\.tar\.xz','group':'kernel/firmware'},
- {'component':'glib','installed':None,'url':'https://download.gnome.org/sources/glib/','kind':'gnome','group':'GNOME/GTK/GLib'},
- {'component':'gtk','installed':None,'url':'https://download.gnome.org/sources/gtk/','kind':'gnome','group':'GNOME/GTK/GLib'},
+ {'component':'glib','installed':'2.86.5','url':'https://download.gnome.org/sources/glib/','kind':'gnome','group':'GNOME/GTK/GLib'},
+ {'component':'gtk','installed':'4.16.7','url':'https://download.gnome.org/sources/gtk/','kind':'gnome','group':'GNOME/GTK/GLib'},
  {'component':'gnome-shell','installed':None,'url':'https://download.gnome.org/sources/gnome-shell/','kind':'gnome','group':'GNOME/Mutter/graphics'},
- {'component':'mutter','installed':None,'url':'https://download.gnome.org/sources/mutter/','kind':'gnome','group':'GNOME/Mutter/graphics'},
+ {'component':'mutter','installed':'50.6','url':'https://download.gnome.org/sources/mutter/','kind':'gnome','group':'GNOME/Mutter/graphics'},
  {'component':'llvm','installed':'19.1.7','url':'https://github.com/llvm/llvm-project/releases.atom','pattern':r'llvmorg-([0-9]+\.[0-9]+\.[0-9]+)(?=["<])','group':'LLVM/clang/mesa'},
- {'component':'NetworkManager','installed':None,'url':'https://download.gnome.org/sources/NetworkManager/','kind':'gnome','group':'networking/dbus'},
- {'component':'alsa-lib','installed':None,'url':'https://www.alsa-project.org/files/pub/lib/','pattern':r'alsa-lib-([0-9]+\.[0-9]+\.[0-9]+)\.tar\.bz2','group':'audio/pipewire/alsa'},
- {'component':'python','installed':None,'url':'https://www.python.org/ftp/python/','kind':'python','pattern':r'href="(3\.[0-9]+\.[0-9]+)/"','group':'Python/extension-ABI'},
+ {'component':'NetworkManager','installed':'1.50.0','url':'https://gitlab.freedesktop.org/api/v4/projects/NetworkManager%2FNetworkManager/repository/tags?per_page=100','kind':'gitlab-tags','stable_even_minor':True,'group':'networking/dbus'},
+ {'component':'pipewire','installed':'1.6.8','url':'https://gitlab.freedesktop.org/api/v4/projects/pipewire%2Fpipewire/repository/tags?per_page=100','kind':'gitlab-tags','stable_even_minor':True,'group':'audio/pipewire/alsa'},
+ {'component':'alsa-lib','installed':'1.2.14','url':'https://www.alsa-project.org/files/pub/lib/','pattern':r'alsa-lib-([0-9]+\.[0-9]+\.[0-9]+)\.tar\.bz2','group':'audio/pipewire/alsa'},
+ {'component':'python','installed':'3.13','url':'https://www.python.org/ftp/python/','kind':'python','pattern':r'href="(3\.[0-9]+\.[0-9]+)/"','group':'Python/extension-ABI'},
 ]
 def fetch(url):
  assert urllib.parse.urlparse(url).scheme=='https'
@@ -30,6 +31,9 @@ def inspect(component):
   document=fetch(component['url'])
   if component.get('kind')=='kernel':
    versions=[entry['version'] for entry in json.loads(document)['releases'] if re.fullmatch(r'[0-9]+(?:\.[0-9]+)+',entry['version']) and not entry.get('iseol',False)]
+  elif component.get('kind')=='gitlab-tags':
+   versions=[entry['name'] for entry in json.loads(document) if re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+',entry['name'])]
+   if component.get('stable_even_minor'):versions=[value for value in versions if int(value.split('.')[1])%2==0]
   elif component.get('kind')=='gnome':
    series=re.findall(r'href="([0-9]+(?:\.[0-9]+)?)/"',document);series=[v for v in series if ('.' not in v and int(v)>=40) or ('.' in v and int(v.split('.')[-1])<90 and (int(v.split('.')[0])>=40 or int(v.split('.')[-1])%2==0))]
    assert series,'No stable series found';selected=max(series,key=version_key);directory=component['url']+selected+'/';listing=fetch(directory)
@@ -47,5 +51,5 @@ def inspect(component):
  return result
 if __name__=='__main__':
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:results=list(pool.map(inspect,CATALOG))
- out=Path('cycle-out');out.mkdir(exist_ok=True);report={'checked_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'owner_pc_or_ssd_required':False,'coverage':'monitoring only for critical components; isolated BugReport app uses the separate native build lane','components':results};(out/'component-monitor.json').write_text(json.dumps(report,indent=2)+'\n')
+ out=Path('cycle-out');out.mkdir(exist_ok=True);report={'checked_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'owner_pc_or_ssd_required':False,'coverage':'monitoring only for critical components; isolated BugReport app uses the separate native build lane','baseline_context':'C3 build provenance and SDK pkg-config Version snapshot 2026-11-06; target release manifest must be qualified before publishing critical components','components':results};(out/'component-monitor.json').write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps(report,indent=2));sys.exit(1 if all(row['state']=='SOURCE_CHECK_FAILED' for row in results) else 0)

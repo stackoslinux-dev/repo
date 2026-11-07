@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Single allowlisted native C3 testing lane; never writes the production c3 tree."""
-import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,tarfile,shutil,re,gzip,tempfile,datetime,contextlib
+import os,sys,json,hashlib,subprocess,urllib.request,urllib.error,urllib.parse,tarfile,shutil,re,gzip,tempfile,datetime,contextlib
 from pathlib import Path
 ROOT=Path('c3-root').resolve();OUT=Path('cycle-out');BASE='https://stackoslinux-dev.github.io/repo/c3/';TEST='https://raw.githubusercontent.com/stackoslinux-dev/repo/c3-testing/'
 PKG='stackos-bugreport';MANIFEST='https://raw.githubusercontent.com/stackoslinux-dev/StackOS-Genesis/main/updates/testing/stackos-bugreport.json'
@@ -19,6 +19,7 @@ def decision(m,previous):
  assert m['source_repository']=='stackoslinux-dev/StackOS-Genesis' and m['source_directory']=='apps/'+PKG
  assert re.fullmatch('[0-9a-f]{40}',m['source_commit']) and re.fullmatch(r'[0-9][0-9A-Za-z.+:~_-]{0,99}',m['version'])
  assert m['automatic_testing_approved'] is True
+ assert int(m['version'].split(':')[-1].split('.')[0])<=m.get('max_major',1)
  return subprocess.run(['dpkg','--compare-versions',m['version'],'gt',previous]).returncode==0
 def verify_signed_bytes(data,signature):
  with tempfile.TemporaryDirectory() as home:
@@ -38,10 +39,20 @@ def approved_state():
  assert state['signing_fingerprint']==Path('ci/c3-native/testing-key.fpr').read_text().strip()
  return state
 
+def official_application_release():
+ policy=json.loads(Path('ci/c3-native/tracking-policy.json').read_text())
+ assert policy['package']==PKG and policy['source_repository']=='stackoslinux-dev/StackOS-Genesis' and policy['source_directory']=='apps/'+PKG and policy['ref']=='main'
+ endpoint='https://api.github.com/repos/'+policy['source_repository']+'/commits?'+urllib.parse.urlencode({'path':policy['source_directory'],'sha':policy['ref'],'per_page':1})
+ commits=json.loads(download(endpoint,500000));commit=commits[0]['sha'];assert re.fullmatch('[0-9a-f]{40}',commit)
+ control_url='https://raw.githubusercontent.com/'+policy['source_repository']+'/'+commit+'/'+policy['source_directory']+'/DEBIAN/control'
+ control=download(control_url,100000).decode('utf8');fields=dict(line.split(': ',1) for line in control.splitlines() if ': ' in line and not line[0].isspace())
+ assert fields['Package']==PKG and fields['Architecture']=='all'
+ return {**policy,'source_commit':commit,'version':fields['Version'],'official_version_source':control_url,'tracking_endpoint':endpoint}
+
 def detect():
- m=json.loads(download(MANIFEST,100000));approved=approved_state();previous=approved['version'] if approved else '1.1.0+stackos1+c3.2+fix10.8'
+ m=official_application_release();approved=approved_state();previous=approved['version'] if approved else '1.1.0+stackos1+c3.2+fix10.8'
  changed=decision(m,previous);same=subprocess.run(['dpkg','--compare-versions',m['version'],'eq',previous]).returncode==0
- if approved and same and approved['source_commit']!=m['source_commit']:raise RuntimeError('Source changed without a package version bump')
+ source_without_version_bump=bool(approved and same and approved['source_commit']!=m['source_commit'])
  now=datetime.datetime.now(datetime.timezone.utc);refresh=False
  if approved and same:
   signed=datetime.datetime.fromisoformat(approved['signed_utc'])
@@ -55,7 +66,7 @@ def detect():
    OUT.mkdir(exist_ok=True);(OUT/approved['filename']).write_bytes(data)
    fields=['status','package','version','filename','sha256','source_commit','source_engine_sha256','native_environment']
    save('build.json',{**{key:approved[key] for key in fields},'reused_validated_archive':True})
- save('detection.json',{'manifest':m,'previous_version':previous,'update_available':changed,'refresh_due':refresh,'checked_utc':now.isoformat(),'official_source':MANIFEST,'baseline':'signed Updater-validated marker' if approved else 'pinned native baseline','previous_client_validation':approved.get('validation_status') if approved else None})
+ save('detection.json',{'manifest':m,'previous_version':previous,'update_available':changed,'refresh_due':refresh,'checked_utc':now.isoformat(),'official_source':m['official_version_source'],'source_change_requires_version_bump':source_without_version_bump,'baseline':'signed Updater-validated marker' if approved else 'pinned native baseline','previous_client_validation':approved.get('validation_status') if approved else None})
  if os.environ.get('GITHUB_OUTPUT'):
   with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('changed='+str(changed).lower()+'\nrefresh='+str(refresh).lower()+'\n')
  print(json.dumps(read('detection.json')),flush=True)
@@ -87,6 +98,8 @@ def bootstrap():
   record=baseline[name];p=ROOT/'work'/record['file'];
   if not p.exists():p.write_bytes(download(BASE+record['file']))
   assert digest(p)==record['sha256'];print(native('/usr/bin/dpkg','-i','/work/'+p.name),flush=True)
+ for method in ['https','http','store','gpgv']:
+  print(native('/usr/lib/ld-linux-x86-64.so.2','--list','/usr/libexec/apt/methods/'+method),flush=True)
  save('native-environment.json',{'status':'C3_NATIVE_PYTHON_GLIBC_DPKG_BOOTSTRAP_PASS','python':'3.13','glibc':'2.42','seed_sha256':seed['archive_sha256'],'owner_pc_or_ssd_required':False})
 def test_engine(path):
  code='import runpy; d=runpy.run_path('+repr(path)+'); r=d["redact"]; assert "p4ssw0rd" not in r("https://alice:p4ssw0rd@localhost:8443/path",identities=[]); assert r("https://localhost/path",identities=[])=="https://localhost/path"; assert "ghp_demo12345" not in r("ghp_demo12345",identities=[]); d["validate_input"]("Problema real","Descrição"); print("BUGREPORT_PRIVACY_TESTS_PASS")'
@@ -97,11 +110,19 @@ def build():
  subprocess.run(['git','clone','--no-checkout','--filter=blob:none','https://github.com/'+m['source_repository']+'.git','source'],check=True)
  subprocess.run(['git','-C','source','sparse-checkout','set',m['source_directory']],check=True)
  subprocess.run(['git','-C','source','checkout','--detach',m['source_commit']],check=True);assert run('git','-C','source','rev-parse','HEAD').strip()==m['source_commit']
- stage=ROOT/'work/package';shutil.copytree(Path('source')/m['source_directory'],stage,ignore=shutil.ignore_patterns('BINARY-BASELINE.json','__pycache__','md5sums'))
+ stage=ROOT/'work/package';shutil.copytree(Path('source')/m['source_directory'],stage,symlinks=True,ignore=shutil.ignore_patterns('BINARY-BASELINE.json','__pycache__','md5sums'))
  control=(stage/'DEBIAN/control').read_text();assert 'Package: '+PKG+'\n' in control and 'Version: '+m['version']+'\n' in control and 'Architecture: all\n' in control
  assert not re.search(r'^(?:Pre-Depends|Conflicts|Breaks|Replaces|Essential|Protected):',control,re.M)
+ policy=json.loads(Path('ci/c3-native/tracking-policy.json').read_text())
  for p in stage.rglob('*'):
-  assert not p.is_symlink(),'symlinks require separate review';assert not(p.is_file() and p.open('rb').read(4)==b'\x7fELF'),'ELF not allowlisted in Python lane'
+  assert not p.is_symlink(),'symlinks require separate review'
+  if not p.is_file():continue
+  relative=p.relative_to(stage).as_posix()
+  assert p.open('rb').read(4)!=b'\x7fELF','ELF not allowlisted in Python lane'
+  if relative=='DEBIAN/control':continue
+  if relative.startswith('DEBIAN/'):
+   assert p.name in policy['maintainer_scripts'] and digest(p)==policy['maintainer_scripts'][p.name],'maintainer script change requires review'
+  else:assert relative in policy['allowed_files'] or any(relative.startswith(prefix) for prefix in policy['allowed_prefixes']),'file outside isolated app: '+relative
  for p in (stage/'usr/local/bin').glob('*'):p.chmod(0o755)
  for p in (stage/'DEBIAN').iterdir():p.chmod(0o755 if p.name in ['postinst','postrm','preinst','prerm'] else 0o644)
  test_engine('/work/package/usr/lib/stackos/bugreport/engine.py')

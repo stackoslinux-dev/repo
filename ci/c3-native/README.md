@@ -4,7 +4,7 @@ This extends `.github/workflows/c3-updates.yml`; it does not add another agent, 
 
 ## First real application
 
-The allowlisted application is StackOS BugReport 1.1.1 from the immutable official Genesis commit selected by `updates/testing/stackos-bugreport.json`. Its update fixes credential exposure in HTTP URLs. The previous native build ran successfully in GitHub Actions (run42226744835); signing and the real Updater client still require the persistent testing secret and a successful complete run.
+The allowlisted application is StackOS BugReport 1.1.1 from the newest official Genesis app commit, with its version read from the real `DEBIAN/control`. The reviewed `tracking-policy.json` restricts paths, major version and unchanged maintainer scripts. Its update fixes credential exposure in HTTP URLs. The previous native build ran successfully in GitHub Actions (run42226744835); cloud signing now works with the persistent testing secret; the real Updater client must pass before activation.
 
 The target Python3.13, glibc2.42, dpkg, APT, GTK and libraries are C3 bytes from the versioned cloud seed and pinned native baseline. Ubuntu is the hosted orchestration/display runner, not the target runtime. No `/run/media`, personal PC, SSD, Ollama or Codex session is used in periodic execution.
 
@@ -19,13 +19,13 @@ No-new-version runs skip native builds. Previously validated metadata is refresh
 
 ## Components
 
-`monitor_components.py` checks official kernel, Mesa, glibc, firmware, GLib, GTK, GNOME Shell, Mutter, LLVM, NetworkManager, ALSA and Python indexes. Unknown installed baselines are reported explicitly. Critical components are **monitoring only** until a native recipe, ABI group and boot/graphics/service tests have been qualified. Merely finding a higher upstream version never authorizes publishing it.
+`monitor_components.py` checks official kernel, Mesa, glibc, firmware, GLib, GTK, GNOME Shell, Mutter, LLVM, NetworkManager, PipeWire, ALSA and Python indexes. Unknown installed baselines are reported explicitly. Critical components are **monitoring only** until a native recipe, ABI group and boot/graphics/service tests have been qualified. Merely finding a higher upstream version never authorizes publishing it.
 
 This is not full automatic kernel/Mesa/GNOME coverage. The initial native build allowlist remains BugReport; extend it with component-specific recipes and tests, not by disabling policy.
 
 ## Administration and activation
 
-The only missing credential is repository Actions secret `C3_TEST_SIGNING_KEY` containing the isolated testing private key. Never put that value in Git, logs or chat. Public `testing-keyring.gpg` and `testing-key.fpr` are intentional.
+The configured credential is repository Actions secret `C3_TEST_SIGNING_KEY` containing the isolated testing private key. Never put that value in Git, logs or chat. Public `testing-keyring.gpg` and `testing-key.fpr` are intentional.
 
 The cron remains `23 * * * *`. GitHub runs scheduled events from the default branch, so this PR must be merged only after the complete cloud cycle passes. GitHub scheduling can be delayed or skipped under load; run timestamps and detection artifacts are the evidence, not a strict hourly availability guarantee.
 
