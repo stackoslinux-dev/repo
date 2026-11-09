@@ -63,6 +63,23 @@ jobs:
           name: c3-component-versions
           path: cycle-out
           retention-days: 30
+  iso-build-readiness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - name: Audit availability of native ISO build inputs (no build or publication)
+        run: python3 ci/c3-native/iso_build_readiness.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-iso-build-readiness
+          path: cycle-out/iso-build-readiness.json
+          retention-days: 30
   detect-testing:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
