@@ -3,8 +3,8 @@ Label: StackOS C3 Testing
 Suite: c3-testing
 Codename: c3
 Architectures: all amd64
-Date: Wed, 11 Nov 2026 15:26:27 +0000
-Valid-Until: Wed, 18 Nov 2026 15:26:27 +0000
+Date: Wed, 11 Nov 2026 22:49:58 +0000
+Valid-Until: Wed, 18 Nov 2026 22:49:58 +0000
 SHA256:
  25b912f1a5ad23878f655639abcde38612d3f5c0d9b06e2af715861a063b6aea 629 Packages
  91db833ae256e31df75797fd61959add91b0a2a42709b907a3e1ca273e906785 422 Packages.gz
