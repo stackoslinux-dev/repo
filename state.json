@@ -16,7 +16,7 @@
   "reused_validated_archive": true,
   "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
   "channel": "c3-testing",
-  "signed_utc": "2026-11-10T10:02:53.226731+00:00",
-  "valid_until_utc": "2026-11-17T10:02:53.226731+00:00",
-  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/42795711963"
+  "signed_utc": "2026-11-11T15:26:27.565971+00:00",
+  "valid_until_utc": "2026-11-18T15:26:27.565971+00:00",
+  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/43048317157"
 }
