@@ -92,8 +92,13 @@ def compiler_bootstrap():
         members = tree.getmembers()
         assert len(members) == 1 and members[0].name == 'usr/bin/busybox' and members[0].isfile()
     subprocess.run(['sudo','tar','-xJf',str(archive_utils),'-C',str(ROOT)],check=True)
-    for name in ['awk','sort','cut','wc','tr','xargs','od','hexdump','mktemp','expr','printf','which','seq','basename','dirname']:
+    for name in ['awk','sort','cut','wc','tr','xargs','od','hexdump','mktemp','expr','printf','which','seq','basename','dirname','head','tail','tee','uniq','comm','stat','md5sum','sha256sum']:
         if not (ROOT/'usr/bin'/name).exists():c3.native('/usr/bin/ln','-s','busybox','/usr/bin/'+name)
+    for alias, flag in [('egrep', '-E'), ('fgrep', '-F')]:
+        wrapper = ROOT / 'work' / alias
+        wrapper.write_text('#!/bin/sh\nexec /usr/bin/grep ' + flag + ' "$@"\n')
+        c3.native('/usr/bin/cp', '/work/' + alias, '/usr/bin/' + alias)
+        c3.native('/usr/bin/chmod', '755', '/usr/bin/' + alias)
     # The compiler cache stores dereferenced regular files. Restore the actual
     # glibc SONAME alias required by its libm linker script, without changing ABI.
     mvec = ROOT / 'usr/lib/libmvec.so'
@@ -156,7 +161,8 @@ def builder(*args, epoch):
         config_log = ROOT / 'work/libvpx-source/config.log'
         if config_log.is_file():
             shutil.copy2(config_log, OUT / 'configure-failure.log')
-            print(config_log.read_text(errors='replace')[-24000:], flush=True)
+            if str(args[0]) == './configure':
+                print(config_log.read_text(errors='replace')[-24000:], flush=True)
         raise subprocess.CalledProcessError(result.returncode, command, output=result.stdout)
     return result.stdout
 
