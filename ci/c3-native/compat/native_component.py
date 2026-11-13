@@ -170,7 +170,7 @@ def builder(*args, epoch):
             (OUT / 'failed-qualification-codec-symbols.txt').write_text(subprocess.check_output(['nm', '-an', str(library)], text=True))
             symbol_command = 'python import gdb; row=next(l for l in gdb.execute("info sharedlibrary",to_string=True).splitlines() if "libvpx.so" in l); gdb.execute("add-symbol-file ' + str(debug_library.resolve()) + ' " + row.split()[0])'
             debug_command = ['sudo', 'gdb', '--batch', '-ex', 'set pagination off',
-                             '-ex', 'set confirm off', '-ex', 'set follow-exec-mode same',
+                             '-ex', 'set confirm off', '-ex', 'set print elements 12', '-ex', 'set print max-depth 3', '-ex', 'set follow-exec-mode same',
                              '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot /', '-ex', 'set solib-search-path ' + str(ROOT/'work/libvpx-source') + ':' + str(ROOT/'usr/lib'),
                              '-ex', 'set substitute-path /work/libvpx-source ' + str(ROOT/'work/libvpx-source'),
                              '-ex', 'run', '-ex', symbol_command, '-ex', 'thread apply all bt full',
@@ -180,7 +180,7 @@ def builder(*args, epoch):
             diagnostic = subprocess.run(debug_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                         text=True, timeout=180)
             (OUT / 'native-codec-crash-backtrace.log').write_text(diagnostic.stdout)
-            print(diagnostic.stdout[-24000:], flush=True)
+            print(diagnostic.stdout[:18000] + '\n[remaining maps/registers]\n' + diagnostic.stdout[-8000:], flush=True)
             # Isolate CPU dispatch defects without accepting a scalar-only
             # workaround. The original failed qualification still raises below.
             for setting in ['VPX_SIMD_CAPS=0', 'VPX_SIMD_CAPS_MASK=63', 'VPX_SIMD_CAPS_MASK=127', 'VPX_SIMD_CAPS_MASK=255']:
