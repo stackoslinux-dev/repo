@@ -158,6 +158,23 @@ def builder(*args, epoch):
         transcript.write(result.stdout + '\n')
     if result.returncode:
         print(result.stdout, flush=True)
+        if result.returncode in (-11, -4) and str(args[0]) in ('./vpxenc', './vpxdec'):
+            # Host debugger observes the same unprivileged, chrooted native C3
+            # process. No runner debugger/library is copied into C3 or packages.
+            if shutil.which('gdb') is None:
+                subprocess.run(['sudo', 'apt-get', 'update'], check=True)
+                subprocess.run(['sudo', 'apt-get', 'install', '-y', 'gdb'], check=True)
+            debug_command = ['sudo', 'gdb', '--batch', '-ex', 'set pagination off',
+                             '-ex', 'set confirm off', '-ex', 'set follow-exec-mode same',
+                             '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot ' + str(ROOT),
+                             '-ex', 'run', '-ex', 'thread apply all bt full',
+                             '-ex', 'info sharedlibrary', '-ex', 'info registers',
+                             '-ex', 'x/12i $pc-16', '--args', *command[1:]]
+            diagnostic = subprocess.run(debug_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                        text=True, timeout=180)
+            (OUT / 'native-codec-crash-backtrace.log').write_text(diagnostic.stdout)
+            print(diagnostic.stdout[-24000:], flush=True)
+
         config_log = ROOT / 'work/libvpx-source/config.log'
         if config_log.is_file():
             shutil.copy2(config_log, OUT / 'configure-failure.log')
