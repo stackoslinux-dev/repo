@@ -56,13 +56,17 @@ def detect():
         if error.code != 404:
             raise
     changed = previous is None or subprocess.run(['dpkg', '--compare-versions', source['source_version'], 'gt', previous['source_version']]).returncode == 0
+    refresh_due = bool(previous and not changed and
+                       datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(previous['signed_utc']) >= datetime.timedelta(hours=20))
+    # Refresh expiring signed indexes once daily; never recompile every hour.
+    build_required = changed or refresh_due
     save('detection.json', {'package': PACKAGE, 'source': source, 'previous': previous,
-                           'changed': changed, 'new_component': previous is None,
+                           'changed': changed, 'refresh_due': refresh_due, 'build_required': build_required, 'new_component': previous is None,
                            'checked_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                            'scope': 'Native ABI7 compatibility component; does not replace existing ABI11'})
     if os.environ.get('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
-            stream.write('changed=' + str(changed).lower() + '\n')
+            stream.write('changed=' + str(build_required).lower() + '\n')
     print(json.dumps({'package': PACKAGE, 'source_version': source['source_version'], 'changed': changed}), flush=True)
 
 

@@ -43,17 +43,49 @@ def client():
  key=Path('ci/c3-native/testing-keyring.gpg');subprocess.run(['sudo','install','-m','644',str(key),str(root/'usr/share/keyrings/stackos-testing.gpg')],check=True)
  source=root/'work/codec-testing.sources';source.write_text('Types: deb\nURIs: '+base+'\nSuites: ./\nSigned-By: /usr/share/keyrings/stackos-testing.gpg\n')
  c3.native('/usr/bin/cp','/work/codec-testing.sources','/etc/apt/sources.list.d/codec-testing.sources')
- assert not any('file:' in p.read_text() for p in (root/'etc/apt/sources.list.d').glob('*'))
+ # Seed packages may carry an old offline bootstrap source. This disposable
+ # client must use only the immutable signed HTTPS snapshot under test.
+ removed=[]
+ for p in (root/'etc/apt/sources.list.d').iterdir():
+  if p.name!='codec-testing.sources' and p.suffix in ['.list','.sources']:
+   removed.append({'file':p.name,'content':p.read_text()});c3.native('/usr/bin/rm','-f','/etc/apt/sources.list.d/'+p.name)
+ empty=root/'work/empty-sources.list';empty.write_text('')
+ c3.native('/usr/bin/cp','/work/empty-sources.list','/etc/apt/sources.list')
+ (OUT/'bootstrap-sources-replaced.json').write_text(json.dumps({'scope':'Disposable native CI root only; ISO and production untouched','removed':removed,'only_active_uri':base},indent=2)+'\n')
+ assert [p.name for p in (root/'etc/apt/sources.list.d').iterdir() if p.suffix in ['.list','.sources']]==['codec-testing.sources']
  config=root/'work/codec-only.conf';config.write_text('Dir::Etc::sourcelist \"/etc/apt/sources.list.d/codec-testing.sources\";\nDir::Etc::sourceparts \"-\";\n')
  c3.native('/usr/bin/cp','/work/codec-only.conf','/etc/apt/apt.conf.d/99-codec-only')
  out=c3.native('/usr/bin/apt-get','update');(OUT/'signed-apt-update.log').write_text(out)
  assert 'InRelease' in out and 'Packages' in out
  policy=c3.native('/usr/bin/apt-cache','policy','libvpx7');(OUT/'apt-policy.log').write_text(policy);assert s['version'] in policy
- # This is the first genuine install of a previously absent ABI. Do not invent
- # an older package or describe it as an Updater upgrade.
+ previous=read(OUT/'detection.json').get('previous')
+ actual_upgrade=False
+ if previous:
+  check_state(previous);assert previous['client_status']==CLIENT
+  old_commit=previous['client']['publication_commit'];assert re.fullmatch('[0-9a-f]{40}',old_commit)
+  old_base='https://raw.githubusercontent.com/'+REPO+'/'+old_commit+'/'+PREFIX
+  old=root/'work'/previous['filename'];old.write_bytes(c3.download(old_base+previous['filename']))
+  assert sha(old)==previous['sha256']
+  sig=OUT/'previous-native-codec.asc';sig.write_bytes(c3.download(old_base+previous['filename']+'.asc',100000))
+  subprocess.run(['gpgv','--keyring',str(key.resolve()),str(sig),str(old)],check=True)
+  c3.native('/usr/bin/dpkg','-i','/work/'+old.name)
+  order=subprocess.run(['dpkg','--compare-versions',s['version'],'gt',previous['version']]).returncode
+  assert order in (0,1)
+  assert subprocess.run(['dpkg','--compare-versions',s['version'],'ge',previous['version']]).returncode==0,'No downgrade'
+  actual_upgrade=order==0
+ # Genuine older releases are used only when previously signed and client
+ # validated. Initial rollout is honestly classified as a first install.
  before=subprocess.run(['sudo','chroot',str(root),'/usr/bin/dpkg-query','-W','-f=${db:Status-Status}','libvpx7'],capture_output=True,text=True)
- assert before.returncode!=0 or before.stdout.strip()!='installed'
- install=c3.native('/usr/bin/apt-get','install','-y','--no-install-recommends','libvpx7='+s['version']);(OUT/'apt-install.log').write_text(install)
+ if previous:assert before.returncode==0 and before.stdout.strip()=='installed'
+ else:assert before.returncode!=0 or before.stdout.strip()!='installed'
+ if actual_upgrade:
+  offered=json.loads(c3.native('/usr/lib/stackos/stackos-updater-helper','check'))
+  assert [p['name'] for p in offered['packages']]==['libvpx7']
+  (OUT/'actual-updater-offered.json').write_text(json.dumps(offered,indent=2)+'\n')
+  install=c3.native('/usr/lib/stackos/stackos-updater-helper','install')
+ else:
+  install=c3.native('/usr/bin/apt-get','install','-y','--no-install-recommends','libvpx7='+s['version'])
+ (OUT/'apt-install.log').write_text(install)
  assert c3.native('/usr/bin/dpkg-query','-W','-f=${Version}','libvpx7')==s['version']
  assert not c3.native('/usr/bin/dpkg','-V','libvpx7').strip();c3.native('/usr/bin/apt-get','check')
  assert sha(root/'usr/lib'/s['library_file'])==s['library_sha256']
@@ -66,7 +98,7 @@ def client():
  c3.native('/usr/bin/env','LD_LIBRARY_PATH=/usr/lib','/work/vpxenc','--codec=vp9','--i420','--lossless=1','--threads=1','--width=32','--height=32','--fps=30/1','--limit=4','--ivf','-o','/work/client.ivf','/work/vector.yuv')
  c3.native('/usr/bin/env','LD_LIBRARY_PATH=/usr/lib','/work/vpxdec','--codec=vp9','--rawvideo','--i420','-o','/work/client.yuv','/work/client.ivf')
  assert (root/'work/client.yuv').read_bytes()==(root/'work/vector.yuv').read_bytes()
- result={'status':CLIENT,'package':'libvpx7','installed_version':s['version'],'sha256':s['sha256'],'library_sha256':s['library_sha256'],'publication_commit':commit,'native_bootstrap':True,'signed_https_apt_install':True,'full_simd_lossless_roundtrip':True,'first_install_not_updater_upgrade':True,'production_modified':False,'owner_pc_or_ssd_required':False}
+ result={'status':CLIENT,'package':'libvpx7','installed_version':s['version'],'sha256':s['sha256'],'library_sha256':s['library_sha256'],'publication_commit':commit,'native_bootstrap':True,'signed_https_apt_install':True,'full_simd_lossless_roundtrip':True,'first_install_not_updater_upgrade':previous is None,'actual_updater_upgrade':actual_upgrade,'refresh_without_downgrade':bool(previous and not actual_upgrade),'production_modified':False,'owner_pc_or_ssd_required':False}
  (OUT/'client.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
 def approve():
  s=read(CHANNEL/'state.json');check_state(s);verify(CHANNEL/'state.json');c=read(OUT/'client.json')
