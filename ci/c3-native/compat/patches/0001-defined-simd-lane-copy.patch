@@ -1,0 +1,27 @@
+--- a/vp9/encoder/x86/vp9_diamond_search_sad_avx.c
++++ b/vp9/encoder/x86/vp9_diamond_search_sad_avx.c
+@@ -11,6 +11,7 @@
+ #if defined(_MSC_VER)
+ #include <intrin.h>
+ #endif
++#include <string.h>
+ #include <emmintrin.h>
+ #include <smmintrin.h>
+ 
+@@ -286,11 +287,14 @@
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+ #endif
+-          new_bmv = ((const int_mv *)&v_these_mv_w)[local_best_idx];
++          memcpy(&new_bmv, (const uint8_t *)&v_these_mv_w +
++                     local_best_idx * sizeof(new_bmv), sizeof(new_bmv));
+ #if defined(__GNUC__) && __GNUC__ >= 4 && !defined(__clang__)
+ #pragma GCC diagnostic pop
+ #endif
+-          new_best_address = ((const uint8_t **)v_blocka)[local_best_idx];
++          memcpy(&new_best_address, (const uint8_t *)v_blocka +
++                     local_best_idx * sizeof(new_best_address),
++                 sizeof(new_best_address));
+ 
+           best_sad = local_best_sad;
+         }

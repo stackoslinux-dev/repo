@@ -231,6 +231,10 @@ def build():
         assert patch.is_file() and not patch.is_symlink()
         subprocess.run(['patch', '--batch', '--forward', '-p1', '-i', str(patch.resolve())], cwd=source_dir, check=True)
         patches.append({'file': name, 'sha256': sha(patch)})
+    # C3 correction: defined object-representation copies, not a SIMD mask.
+    local_patch = Path('ci/c3-native/compat/patches/0001-defined-simd-lane-copy.patch')
+    subprocess.run(['sudo', 'chroot', str(ROOT), '/usr/bin/patch', '-p1', '-d', '/work/libvpx-source'], input=local_patch.read_bytes(), check=True)
+    patches.append({'file': 'C3/' + local_patch.name, 'sha256': sha(local_patch), 'purpose': 'defined SIMD lane representation copy; all CPU dispatch retained'})
     changelog = (source_dir / 'debian/changelog').read_text()
     trailer = next(line for line in changelog.splitlines() if line.startswith(' -- '))
     epoch = int(email.utils.parsedate_to_datetime(trailer.rsplit('  ', 1)[1]).timestamp())
