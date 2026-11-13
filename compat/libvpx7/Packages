@@ -1,0 +1,13 @@
+Package: libvpx7
+Version: 1.12.0+stackos1.c3.1+src1.12.0+1+deb12u5
+Architecture: amd64
+Maintainer: StackOS C3
+Section: libs
+Priority: optional
+Depends: stackos-c3-runtime (>= 10.8.2)
+Description: Native C3 VP8 VP9 compatibility library, ABI7
+ Compiled with native C3 GCC and glibc from authenticated source and security patches.
+Filename: libvpx7_1.12.0+stackos1.c3.1+src1.12.0+1+deb12u5_amd64.deb
+Size: 3957152
+SHA256: ca73173d0226d6e6868507bcf1844eed3c06972de3f1db4690474fda35dcc1dd
+

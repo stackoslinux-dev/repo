@@ -1,0 +1,108 @@
+{
+  "status": "PASS_NATIVE_C3_REPRODUCIBLE_LIBVPX7_CODEC_AND_DEB",
+  "package": "libvpx7",
+  "version": "1.12.0+stackos1.c3.1+src1.12.0+1+deb12u5",
+  "source_version": "1.12.0-1+deb12u5",
+  "filename": "libvpx7_1.12.0+stackos1.c3.1+src1.12.0+1+deb12u5_amd64.deb",
+  "sha256": "ca73173d0226d6e6868507bcf1844eed3c06972de3f1db4690474fda35dcc1dd",
+  "soname": "libvpx.so.7",
+  "library_file": "libvpx.so.7.1.0",
+  "library_sha256": "c033b7676a23897ba5e33bd17d7c5a84e4f371be26aa0ba886bc9621db746565",
+  "source": {
+    "source_package": "libvpx",
+    "source_version": "1.12.0-1+deb12u5",
+    "authentication": {
+      "suite": "bookworm-security",
+      "url": "https://security.debian.org/debian-security/dists/bookworm-security/InRelease",
+      "release_sha256": "ac6f397f9a74a2a6a26165e601f6ce7700a880792b73572d1f3e859930868c0d",
+      "sources_sha256": "4f59811a9363240a7da2010220cb0171524176f48a7ed3ae04d1162342469e24",
+      "signed_date": "Fri, 13 Nov 2026 21:16:49 UTC",
+      "valid_until": "Fri, 20 Nov 2026 21:16:49 UTC"
+    },
+    "files": [
+      {
+        "file": "libvpx_1.12.0.orig.tar.gz",
+        "sha256": "f1acc15d0fd0cb431f4bf6eac32d5e932e40ea1186fe78e074254d6d003957bb",
+        "bytes": 5465627,
+        "url": "https://security.debian.org/debian-security/pool/updates/main/libv/libvpx/libvpx_1.12.0.orig.tar.gz"
+      },
+      {
+        "file": "libvpx_1.12.0-1+deb12u5.debian.tar.xz",
+        "sha256": "35cfacecb71f4c4ddfbb29b53b68fb7e82f1e86e28b67327c72683715c5e22f4",
+        "bytes": 20748,
+        "url": "https://security.debian.org/debian-security/pool/updates/main/libv/libvpx/libvpx_1.12.0-1+deb12u5.debian.tar.xz"
+      }
+    ],
+    "purpose": "Compile from source with native C3 toolchain; no distro runtime binaries",
+    "client_repository": "https://stackoslinux-dev.github.io/repo/c3/"
+  },
+  "patches": [
+    {
+      "file": "0001-Relax-ABI-check.patch",
+      "sha256": "d65b1c971a5c81e52fc5079fac4f02b44ea844c37c91bf4ccbcaa4c2cb0a85fd"
+    },
+    {
+      "file": "0002-encode_api_test-add-ConfigResizeChangeThreadCount.patch",
+      "sha256": "cdf97ccadb49a2837138db87a94fad97f5b5758e1a7ba2bff3bb05abafc4b645"
+    },
+    {
+      "file": "0003-VP8-disallow-thread-count-changes.patch",
+      "sha256": "11da950c0a94ed8ed77f1619de970c2774226ecbbd03903ddd960430b8de08d9"
+    },
+    {
+      "file": "0004-Fix-bug-with-smaller-width-bigger-size.patch",
+      "sha256": "7d00fa76eeba68d81410ca85839240bc9d5cb79dc2bf8dfed71f48a154d0edf2"
+    },
+    {
+      "file": "0001-Add-test-vpx_image_test.cc.patch",
+      "sha256": "02cbe6882d3491f18b75959af5f3d7ced66ee9e275cc41fa0c0e8b14be9dd44f"
+    },
+    {
+      "file": "0002-Fix-integer-overflows-in-calc-of-stride_in_bytes.patch",
+      "sha256": "ec1ab779c33e5d7b49a586749da5c32a77ad82f2554dc0a080cf9b2fa46bc616"
+    },
+    {
+      "file": "0003-Avoid-integer-overflows-in-arithmetic-operations.patch",
+      "sha256": "3225f187d3e4fd8fce11dfb1eb6245ff746503fdb298c27f3453b4d1f7d46ff8"
+    },
+    {
+      "file": "0004-Fix-a-bug-in-alloc_size-for-high-bit-depths.patch",
+      "sha256": "3ed980929bc7753311b859f88175eba80fc73819cedf6e75f01cbb4182de0747"
+    },
+    {
+      "file": "vpx_codec_enc_init_multi-fix-double-free-on-init-fai.patch",
+      "sha256": "8b425a9936f8835780851ab881d8f621d8f9d0867325f5a12f37197a6f9110e3"
+    },
+    {
+      "file": "CVE-2026-2447.patch",
+      "sha256": "721190f7106ef62d47250fcebc590df1bf966d5d4162f9d3cc966de6ec411ba1"
+    },
+    {
+      "file": "C3/0001-defined-simd-lane-copy.patch",
+      "sha256": "db68996dde9e899382031ae2aed0da7d52338800a12f48bb9db378a201111471",
+      "purpose": "defined SIMD lane representation copy; all CPU dispatch retained"
+    }
+  ],
+  "source_date_epoch": 1771317007,
+  "compiler": {
+    "archive_sha256": "bee074294be657f9c72b8b90e3185774a5a3d720c035d9dfd5159e6416d950aa",
+    "gcc": "gcc (GCC) 15.2.0",
+    "native_userland": "glibc2.42 / C3"
+  },
+  "codec_test": "Four real YUV frames, VP9 lossless encode/decode exact equality",
+  "native_binary_rebuild_reproducible": true,
+  "security_references": [
+    "CVE-2026-2447"
+  ],
+  "replacement_of_existing_abi11": false,
+  "cloud_execution": true,
+  "qualification_tools": {
+    "vpxenc": "b07d9395d007501271a7717a7384817990376ef1d1f7549164b857141ec24620",
+    "vpxdec": "6f6b41ede5a0faf3ac07ffca1f52fb36a9e1bd933ba5846274025084d0c54570",
+    "vector.yuv": "26579177308e79684310a1c904f9cdf280f5d9ec0f2f27b5e480ac133f1742e9"
+  },
+  "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
+  "channel": "c3-testing",
+  "channel_subdirectory": "compat/libvpx7/",
+  "signed_utc": "2026-11-13T23:37:09.597640+00:00"
+}
