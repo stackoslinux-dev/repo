@@ -172,7 +172,9 @@ def builder(*args, epoch):
             debug_command = ['sudo', 'gdb', '--batch', '-ex', 'set pagination off',
                              '-ex', 'set confirm off', '-ex', 'set follow-exec-mode same',
                              '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot /', '-ex', 'set solib-search-path ' + str(ROOT/'work/libvpx-source') + ':' + str(ROOT/'usr/lib'),
+                             '-ex', 'set substitute-path /work/libvpx-source ' + str(ROOT/'work/libvpx-source'),
                              '-ex', 'run', '-ex', symbol_command, '-ex', 'thread apply all bt full',
+                             '-ex', 'frame 1', '-ex', 'info args', '-ex', 'info locals', '-ex', 'frame 0',
                              '-ex', 'info sharedlibrary', '-ex', 'info proc mappings', '-ex', 'info registers',
                              '-ex', 'x/12i $pc-16', '--args', *command[1:]]
             diagnostic = subprocess.run(debug_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
@@ -238,7 +240,8 @@ def build():
     subprocess.run(['sudo', 'chown', '-R', '65000:65000', str(source_dir), str(parent / 'builder'), str(parent / 'tmp')], check=True)
     options = ['--target=x86_64-linux-gcc', '--prefix=/usr', '--libdir=/usr/lib',
                '--enable-shared', '--disable-static', '--enable-pic', '--as=nasm',
-               '--disable-libyuv', '--disable-webm-io', '--disable-docs', '--disable-unit-tests']
+               '--disable-libyuv', '--disable-webm-io', '--disable-docs', '--disable-unit-tests',
+               '--extra-cflags=-g']
     print(builder('./configure', *options, epoch=epoch), flush=True)
     print(builder('/usr/bin/make', '-j2', epoch=epoch), flush=True)
     library = next(p for p in source_dir.glob('libvpx.so.7.*') if p.is_file() and not p.is_symlink())
