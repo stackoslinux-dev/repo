@@ -1,9 +1,10 @@
 {
-  "origin": "Byte-identical native C3 Perl 5.42.0 and libxcrypt 4.4.38; one-time non-secret build-tool export",
-  "scope": "Minimal Perl runtime for libvpx configure and x86 RTCD generator; build jobs only, not a general Perl package or ISO payload",
+  "origin": "Byte-identical native C3 Perl 5.42.0, libxcrypt 4.4.38 and NASM 2.16.03; one-time non-secret build-tool export",
+  "scope": "Native codec build tools: Perl configure/RTCD and NASM SIMD assembly; build jobs only, not an ISO payload",
   "source_urls": [
     "https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz",
-    "https://github.com/besser82/libxcrypt/releases/tag/v4.4.38"
+    "https://github.com/besser82/libxcrypt/releases/tag/v4.4.38",
+    "https://www.nasm.us/pub/nasm/releasebuilds/2.16.03/"
   ],
   "files": {
     "usr/bin/perl": "0bf3ad683178fd033d25f5c4e2d6cf430e86b8add5be6aaebb1102a20639a5ae",
@@ -21,9 +22,11 @@
     "usr/lib/perl5/5.42/core_perl/warnings/register.pm": "c7971403a276f78dc7fad5cde69846c39bcc2587310999160592fc7c6b9bd2e3",
     "usr/share/doc/c3-native-perl-build-tool/perlartistic.pod": "137c097d0615aea42eda7a5087baa3f81aab1a431b9046d5e858e8c8c31987c0",
     "usr/share/doc/c3-native-perl-build-tool/perlgpl.pod": "0c6123f393466be66306dbc6a2464aae96579c8bcc7ae56185061246bfac65f8",
-    "usr/share/doc/c3-native-perl-build-tool/libxcrypt-COPYING.LIB": "7c6699c75f87b52bdc542db26d6b1b92892577cda46e20eceb79e2790a1c291b"
+    "usr/share/doc/c3-native-perl-build-tool/libxcrypt-COPYING.LIB": "7c6699c75f87b52bdc542db26d6b1b92892577cda46e20eceb79e2790a1c291b",
+    "usr/bin/nasm": "dee0c94e5cf800eac5ab117b19b18e4a50adfa1f56942cc8fc1adb660625ab88",
+    "usr/share/doc/c3-native-perl-build-tool/NASM-LICENSE": "65081b3747f28684729adb8b00813f0581e3cef85a21d78b97d76fb8ca26697a"
   },
-  "bytes": 1314220,
-  "sha256": "78d7df9ab6c61df3f79b2e621887026f91cc5ea56de759b654651cdb0a3074cb",
-  "archive": "native-c3-perl-libvpx.tar.xz"
+  "bytes": 2189432,
+  "sha256": "fdcb9fdad4bc36dc445b8dd6fb451c4af0dc2392f562f3e4fdbf2ca78d02bccf",
+  "archive": "native-c3-codec-build-tools.tar.xz"
 }

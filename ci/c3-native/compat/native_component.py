@@ -103,7 +103,7 @@ def compiler_bootstrap():
         c3.native('/usr/bin/ln', '-sf', 'libmvec.so', '/usr/lib/libmvec.so.1')
     # Perl is a native C3 build tool for configure/RTCD, never a runner binary.
     perl = json.loads((HERE / 'native-perl-build-tool.json').read_text())
-    assert perl['archive'] == 'native-c3-perl-libvpx.tar.xz'
+    assert perl['archive'] == 'native-c3-codec-build-tools.tar.xz'
     perl_archive = HERE / perl['archive']
     assert perl_archive.stat().st_size == perl['bytes'] and sha(perl_archive) == perl['sha256']
     with tarfile.open(perl_archive) as tree:
@@ -117,6 +117,7 @@ def compiler_bootstrap():
             assert hashlib.sha256(tree.extractfile(member).read()).hexdigest() == perl['files'][member.name]
     subprocess.run(['sudo', 'tar', '-xJf', str(perl_archive), '-C', str(ROOT)], check=True)
     assert '5.42.0' in c3.native('/usr/bin/perl', '-e', 'use warnings; use Getopt::Long; printf "%vd", $^V;')
+    assert '2.16.03' in c3.native('/usr/bin/nasm', '-v')
     result = c3.native('/usr/bin/gcc', '--version')
     assert '15.2.0' in result
     print(result, flush=True)
@@ -185,7 +186,7 @@ def build():
         (parent / directory).mkdir()
     subprocess.run(['sudo', 'chown', '-R', '65000:65000', str(source_dir), str(parent / 'builder'), str(parent / 'tmp')], check=True)
     options = ['--target=x86_64-linux-gcc', '--prefix=/usr', '--libdir=/usr/lib',
-               '--enable-shared', '--disable-static', '--enable-pic', '--disable-asm',
+               '--enable-shared', '--disable-static', '--enable-pic', '--as=nasm',
                '--disable-libyuv', '--disable-webm-io', '--disable-docs', '--disable-unit-tests']
     print(builder('./configure', *options, epoch=epoch), flush=True)
     print(builder('/usr/bin/make', '-j2', epoch=epoch), flush=True)
@@ -209,8 +210,24 @@ def build():
     (stage / 'usr/lib').mkdir(parents=True)
     shutil.copy2(library, stage / 'usr/lib' / library.name)
     (stage / 'usr/lib/libvpx.so.7').symlink_to(library.name)
-    version = source['source_version'] + '+stackos1.c3.1'
+    version = '1.12.0+stackos1.c3.1+src' + source['source_version'].replace('-', '+')
+    assert subprocess.run(['dpkg', '--compare-versions', version, 'gt', '1.12.0+stackos1.c3.1']).returncode == 0
     (stage / 'DEBIAN/control').write_text('Package: libvpx7\nVersion: ' + version + '\nArchitecture: amd64\nMaintainer: StackOS C3\nSection: libs\nPriority: optional\nDepends: stackos-c3-runtime (>= 10.8.2)\nDescription: Native C3 VP8 VP9 compatibility library, ABI7\n Compiled with native C3 GCC and glibc from authenticated source and security patches.\n')
+    docs = stage / 'usr/share/doc/libvpx7'
+    docs.mkdir(parents=True)
+    for license_name in ['LICENSE', 'PATENTS']:
+        assert (source_dir / license_name).is_file()
+        shutil.copy2(source_dir / license_name, docs / license_name)
+    provenance = {'source_version': source['source_version'], 'source_files': source['files'],
+                  'patches': patches, 'native_compiler_archive_sha256': compiler['archive_sha256'],
+                  'compiler': compiler['gcc'], 'source_date_epoch': epoch,
+                  'scope': 'Native C3 ABI7; existing ABI11 is preserved'}
+    (docs / 'source-provenance.json').write_text(json.dumps(provenance, indent=2) + '\n')
+    payload = sorted(p for p in stage.rglob('*') if p.is_file() and not p.is_symlink() and 'DEBIAN' not in p.relative_to(stage).parts)
+    (stage / 'DEBIAN/md5sums').write_text(''.join(hashlib.md5(p.read_bytes()).hexdigest() + '  ' + str(p.relative_to(stage)) + '\n' for p in payload))
+    postinst = stage / 'DEBIAN/postinst'
+    postinst.write_text('#!/bin/sh\nset -e\n/usr/sbin/ldconfig\n')
+    postinst.chmod(0o755)
     filename = PACKAGE + '_' + version + '_amd64.deb'
     for name in [filename, 'component-repro.deb']:
         print(c3.native('/usr/bin/env','SOURCE_DATE_EPOCH='+str(epoch),'/usr/bin/dpkg-deb', '--root-owner-group', '-Zxz', '--build', '/work/component-package', '/work/' + name), flush=True)
