@@ -227,7 +227,13 @@ def client():
  if (ROOT/'work/updater-offered.json').exists():shutil.copy2(ROOT/'work/updater-offered.json',OUT/'updater-offered.json')
  if (ROOT/'var/log/stackos-updater.log').exists():shutil.copy2(ROOT/'var/log/stackos-updater.log',OUT/'stackos-updater.log')
  for path in [ROOT/'root/.cache/stackos-updater/history.json']:
-  if path.exists():shutil.copy2(path,OUT/'updater-history.json')
+  if path.exists():
+   # The chroot history belongs to root; read it with the same privilege as the test client.
+   # Keep the evidence file owned by the runner rather than changing chroot permissions.
+   history=subprocess.check_output(['sudo','cat',str(path)])
+   evidence=OUT/'updater-history.json'
+   evidence.write_bytes(history)
+   evidence.chmod(0o600)
  assert proc.returncode==0,'Real Updater client failed; see preserved client evidence'
  assert read('updater-final.json')['status']=='PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED'
  print(json.dumps(read('updater-final.json')),flush=True)
