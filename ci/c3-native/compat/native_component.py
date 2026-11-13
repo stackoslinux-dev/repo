@@ -164,10 +164,15 @@ def builder(*args, epoch):
             if shutil.which('gdb') is None:
                 subprocess.run(['sudo', 'apt-get', 'update'], check=True)
                 subprocess.run(['sudo', 'apt-get', 'install', '-y', 'gdb'], check=True)
+            debug_library = OUT / 'failed-qualification-codec.debug'
+            library = next(p for p in (ROOT / 'work/libvpx-source').glob('libvpx.so.7.*') if p.is_file() and not p.is_symlink())
+            shutil.copy2(library, debug_library)
+            (OUT / 'failed-qualification-codec-symbols.txt').write_text(subprocess.check_output(['nm', '-an', str(library)], text=True))
+            symbol_command = 'python import gdb; row=next(l for l in gdb.execute("info sharedlibrary",to_string=True).splitlines() if "libvpx.so" in l); gdb.execute("add-symbol-file ' + str(debug_library.resolve()) + ' " + row.split()[0])'
             debug_command = ['sudo', 'gdb', '--batch', '-ex', 'set pagination off',
                              '-ex', 'set confirm off', '-ex', 'set follow-exec-mode same',
                              '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot /', '-ex', 'set solib-search-path ' + str(ROOT/'work/libvpx-source') + ':' + str(ROOT/'usr/lib'),
-                             '-ex', 'run', '-ex', 'thread apply all bt full',
+                             '-ex', 'run', '-ex', symbol_command, '-ex', 'thread apply all bt full',
                              '-ex', 'info sharedlibrary', '-ex', 'info proc mappings', '-ex', 'info registers',
                              '-ex', 'x/12i $pc-16', '--args', *command[1:]]
             diagnostic = subprocess.run(debug_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
