@@ -101,13 +101,26 @@ def compiler_bootstrap():
 
 
 def builder(*args, epoch):
-    return subprocess.check_output([
+    command = [
         'sudo', 'chroot', '--userspec=65000:65000', str(ROOT), '/usr/bin/env', '-i',
         'PATH=/usr/bin:/bin:/usr/sbin:/sbin', 'HOME=/work/builder', 'TMPDIR=/work/tmp',
         'LC_ALL=C', 'SOURCE_DATE_EPOCH=' + str(epoch),
         'LD_LIBRARY_PATH=/work/libvpx-source',
         '/bin/sh', '-c', 'cd /work/libvpx-source && exec "$@"', 'c3-builder',
-        *map(str, args)], text=True, stderr=subprocess.STDOUT)
+        *map(str, args)]
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    OUT.mkdir(exist_ok=True)
+    with (OUT / 'native-build-transcript.log').open('a') as transcript:
+        transcript.write(json.dumps({'argv': list(map(str, args)), 'returncode': result.returncode}) + '\n')
+        transcript.write(result.stdout + '\n')
+    if result.returncode:
+        print(result.stdout, flush=True)
+        config_log = ROOT / 'work/libvpx-source/config.log'
+        if config_log.is_file():
+            shutil.copy2(config_log, OUT / 'configure-failure.log')
+            print(config_log.read_text(errors='replace')[-24000:], flush=True)
+        raise subprocess.CalledProcessError(result.returncode, command, output=result.stdout)
+    return result.stdout
 
 
 def build():
@@ -206,3 +219,4 @@ if __name__ == '__main__':
     parser.add_argument('action', choices=['detect', 'build'])
     args = parser.parse_args()
     {'detect': detect, 'build': build}[args.action]()
+
