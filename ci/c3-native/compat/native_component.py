@@ -94,6 +94,29 @@ def compiler_bootstrap():
     subprocess.run(['sudo','tar','-xJf',str(archive_utils),'-C',str(ROOT)],check=True)
     for name in ['awk','sort','cut','wc','tr','xargs','od','hexdump','mktemp','expr','printf','which','seq','basename','dirname']:
         if not (ROOT/'usr/bin'/name).exists():c3.native('/usr/bin/ln','-s','busybox','/usr/bin/'+name)
+    # The compiler cache stores dereferenced regular files. Restore the actual
+    # glibc SONAME alias required by its libm linker script, without changing ABI.
+    mvec = ROOT / 'usr/lib/libmvec.so'
+    if mvec.is_file():
+        dynamic = subprocess.check_output(['readelf', '-d', str(mvec)], text=True)
+        assert 'Library soname: [libmvec.so.1]' in dynamic
+        c3.native('/usr/bin/ln', '-sf', 'libmvec.so', '/usr/lib/libmvec.so.1')
+    # Perl is a native C3 build tool for configure/RTCD, never a runner binary.
+    perl = json.loads((HERE / 'native-perl-build-tool.json').read_text())
+    assert perl['archive'] == 'native-c3-perl-libvpx.tar.xz'
+    perl_archive = HERE / perl['archive']
+    assert perl_archive.stat().st_size == perl['bytes'] and sha(perl_archive) == perl['sha256']
+    with tarfile.open(perl_archive) as tree:
+        members = tree.getmembers()
+        assert 0 < len(members) < 40 and len(members) == len(perl['files'])
+        assert {m.name for m in members} == set(perl['files'])
+        for member in members:
+            assert member.isfile() and not PurePosixPath(member.name).is_absolute()
+            assert PurePosixPath(member.name).parts[0] == 'usr' and '..' not in PurePosixPath(member.name).parts
+            assert member.size < 5_000_000
+            assert hashlib.sha256(tree.extractfile(member).read()).hexdigest() == perl['files'][member.name]
+    subprocess.run(['sudo', 'tar', '-xJf', str(perl_archive), '-C', str(ROOT)], check=True)
+    assert '5.42.0' in c3.native('/usr/bin/perl', '-e', 'use warnings; use Getopt::Long; printf "%vd", $^V;')
     result = c3.native('/usr/bin/gcc', '--version')
     assert '15.2.0' in result
     print(result, flush=True)
