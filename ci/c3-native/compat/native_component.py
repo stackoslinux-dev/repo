@@ -118,6 +118,20 @@ def compiler_bootstrap():
     subprocess.run(['sudo', 'tar', '-xJf', str(perl_archive), '-C', str(ROOT)], check=True)
     assert '5.42.0' in c3.native('/usr/bin/perl', '-e', 'use warnings; use Getopt::Long; printf "%vd", $^V;')
     assert '2.16.03' in c3.native('/usr/bin/nasm', '-v')
+    for soname, linker_name in [('libgcc_s.so.1', 'libgcc_s.so'), ('libstdc++.so.6', 'libstdc++.so')]:
+        runtime = ROOT / 'usr/lib' / soname
+        assert runtime.is_file()
+        dynamic = subprocess.check_output(['readelf', '-d', str(runtime)], text=True)
+        assert 'Library soname: [' + soname + ']' in dynamic
+        c3.native('/usr/bin/ln', '-sf', soname, '/usr/lib/' + linker_name)
+    cprobe = ROOT / 'work/native-link-probe.c'
+    cprobe.write_text('#include <math.h>\n#include <pthread.h>\nint main(void){volatile double x=0.5; return sin(x)>0 && pthread_self()!=0 ? 0 : 1;}\n')
+    print(c3.native('/usr/bin/gcc', '/work/native-link-probe.c', '-o', '/work/native-link-probe', '-lm', '-pthread'), flush=True)
+    c3.native('/work/native-link-probe')
+    cpp = ROOT / 'work/native-cxx-probe.cc'
+    cpp.write_text('#include <iostream>\nint main(){std::cout<<42;return 0;}\n')
+    c3.native('/usr/bin/g++', '/work/native-cxx-probe.cc', '-o', '/work/native-cxx-probe')
+    assert c3.native('/work/native-cxx-probe').strip() == '42'
     result = c3.native('/usr/bin/gcc', '--version')
     assert '15.2.0' in result
     print(result, flush=True)
