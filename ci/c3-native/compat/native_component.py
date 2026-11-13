@@ -166,14 +166,23 @@ def builder(*args, epoch):
                 subprocess.run(['sudo', 'apt-get', 'install', '-y', 'gdb'], check=True)
             debug_command = ['sudo', 'gdb', '--batch', '-ex', 'set pagination off',
                              '-ex', 'set confirm off', '-ex', 'set follow-exec-mode same',
-                             '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot ' + str(ROOT),
+                             '-ex', 'set follow-fork-mode child', '-ex', 'set sysroot /', '-ex', 'set solib-search-path ' + str(ROOT/'work/libvpx-source') + ':' + str(ROOT/'usr/lib'),
                              '-ex', 'run', '-ex', 'thread apply all bt full',
-                             '-ex', 'info sharedlibrary', '-ex', 'info registers',
+                             '-ex', 'info sharedlibrary', '-ex', 'info proc mappings', '-ex', 'info registers',
                              '-ex', 'x/12i $pc-16', '--args', *command[1:]]
             diagnostic = subprocess.run(debug_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                         text=True, timeout=180)
             (OUT / 'native-codec-crash-backtrace.log').write_text(diagnostic.stdout)
             print(diagnostic.stdout[-24000:], flush=True)
+            # Isolate CPU dispatch defects without accepting a scalar-only
+            # workaround. The original failed qualification still raises below.
+            for setting in ['VPX_SIMD_CAPS=0', 'VPX_SIMD_CAPS_MASK=63', 'VPX_SIMD_CAPS_MASK=127', 'VPX_SIMD_CAPS_MASK=255']:
+                isolated = list(command)
+                isolated.insert(isolated.index('/bin/sh'), setting)
+                trial = subprocess.run(isolated, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=60)
+                (OUT / ('diagnostic-' + setting.replace('=', '-') + '.log')).write_text(trial.stdout)
+                print('DIAGNOSTIC_ONLY_NOT_QUALIFICATION', setting, trial.returncode, flush=True)
+
 
         config_log = ROOT / 'work/libvpx-source/config.log'
         if config_log.is_file():
