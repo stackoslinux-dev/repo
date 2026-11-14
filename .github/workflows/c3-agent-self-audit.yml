@@ -16,7 +16,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Test diagnostic classification
-        run: python3 -m unittest discover -s ci/c3-native -p 'test_agent_triage.py'
+        run: python3 -m unittest discover -s ci/c3-native -p 'test_agent_*.py'
       - name: Inspect recent native C3 workflow results
         env:
           GITHUB_TOKEN: ${{ github.token }}
