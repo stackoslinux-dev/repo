@@ -8,7 +8,11 @@ def run(*a,**kw):return subprocess.check_output(list(map(str,a)),text=True,**kw)
 def download(url,limit=250_000_000):
  for attempt in range(4):
   try:
-   with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'StackOS-C3-Native-Testing/1'}),timeout=30 if limit<=1_000_000 else 90) as response:data=response.read(limit+1)
+   headers={'User-Agent':'StackOS-C3-Native-Testing/1'}
+   if urllib.parse.urlparse(url).hostname=='api.github.com' and os.environ.get('GITHUB_TOKEN'):
+    headers['Authorization']='Bearer '+os.environ['GITHUB_TOKEN']
+    headers['Accept']='application/vnd.github+json'
+   with urllib.request.urlopen(urllib.request.Request(url,headers=headers),timeout=30 if limit<=1_000_000 else 90) as response:data=response.read(limit+1)
    if len(data)>limit:raise ValueError('Download limit: '+url)
    return data
   except urllib.error.HTTPError as error:
