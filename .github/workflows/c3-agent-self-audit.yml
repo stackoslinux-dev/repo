@@ -25,6 +25,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 ci/c3-native/agent_triage.py
+      - name: Optional free-tier model advice
+        if: always()
+        env:
+          STACKOS_AI_TOKEN: ${{ secrets.STACKOS_AI_TOKEN }}
+        run: python3 ci/c3-native/agent_ai_advice.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -32,4 +37,5 @@ jobs:
           path: |
             cycle-out/agent-self-audit.json
             cycle-out/agent-triage.json
+            cycle-out/agent-ai-advice.json
           retention-days: 30
