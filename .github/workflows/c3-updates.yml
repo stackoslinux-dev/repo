@@ -6,6 +6,12 @@ on:
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
+    inputs:
+      approve_production:
+        description: 'Explicitly authorize deployment of the verified production C3 APT repository'
+        required: true
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -32,7 +38,7 @@ jobs:
           path: _site
           retention-days: 1
   publish:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.approve_production == true
     needs: verify
     runs-on: ubuntu-24.04
     timeout-minutes: 10
