@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Inspect recent native C3 workflow results
+      - name: Test diagnostic classification\n        run: python3 -m unittest discover -s ci/c3-native -p 'test_agent_triage.py'\n      - name: Inspect recent native C3 workflow results
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 ci/c3-native/agent_self_audit.py
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Classify failed jobs without executing their logs\n        if: always()\n        env:\n          GITHUB_TOKEN: ${{ github.token }}\n        run: python3 ci/c3-native/agent_triage.py\n      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: c3-agent-self-audit
-          path: cycle-out/agent-self-audit.json
+          path: |\n            cycle-out/agent-self-audit.json\n            cycle-out/agent-triage.json
           retention-days: 30
