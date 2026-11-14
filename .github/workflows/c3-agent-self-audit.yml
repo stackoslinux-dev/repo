@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '47 */6 * * *'
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'ci/c3-native/agent_*.py'
+      - 'ci/c3-native/test_agent_*.py'
+      - '.github/workflows/c3-agent-self-audit.yml'
 permissions:
   contents: read
   actions: read
@@ -18,16 +23,17 @@ jobs:
       - name: Test diagnostic classification
         run: python3 -m unittest discover -s ci/c3-native -p 'test_agent_*.py'
       - name: Inspect recent native C3 workflow results
+        if: github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 ci/c3-native/agent_self_audit.py
       - name: Classify failed jobs without executing their logs
-        if: always()
+        if: github.event_name != 'pull_request' && always()
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 ci/c3-native/agent_triage.py
       - name: Optional free-tier model advice
-        if: always()
+        if: github.event_name != 'pull_request' && always()
         env:
           STACKOS_AI_TOKEN: ${{ secrets.STACKOS_AI_TOKEN || github.token }}
         run: python3 ci/c3-native/agent_ai_advice.py
