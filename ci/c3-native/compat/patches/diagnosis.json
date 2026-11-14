@@ -1,0 +1,10 @@
+{
+  "status": "CANDIDATE_FIX_NOT_QUALIFIED",
+  "failure": "VP9 first-pass invalid reference buffer after AVX motion search",
+  "source_cause_hypothesis": "Vector lane selection reads through incompatible int_mv/pointer lvalues; GCC-specific uninitialized-warning suppression precedes the read. Replace two representation reads with defined byte copies.",
+  "change": "memcpy selected 4-byte MV and pointer; all SIMD instructions and dispatch retained",
+  "source": "vp9/encoder/x86/vp9_diamond_search_sad_avx.c",
+  "original_sha256": "caa2b4b8bcd714c3eaead1aff33c682b7303a0ae29d9bceba67193da4551581a",
+  "patch_sha256": "db68996dde9e899382031ae2aed0da7d52338800a12f48bb9db378a201111471",
+  "required_qualification": "Full native optimized unmasked encode/decode and reproducible rebuild; no failed package signing"
+}

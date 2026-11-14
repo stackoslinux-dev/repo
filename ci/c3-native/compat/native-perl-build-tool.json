@@ -1,0 +1,32 @@
+{
+  "origin": "Byte-identical native C3 Perl 5.42.0, libxcrypt 4.4.38 and NASM 2.16.03; one-time non-secret build-tool export",
+  "scope": "Native codec build tools: Perl configure/RTCD and NASM SIMD assembly; build jobs only, not an ISO payload",
+  "source_urls": [
+    "https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz",
+    "https://github.com/besser82/libxcrypt/releases/tag/v4.4.38",
+    "https://www.nasm.us/pub/nasm/releasebuilds/2.16.03/"
+  ],
+  "files": {
+    "usr/bin/perl": "0bf3ad683178fd033d25f5c4e2d6cf430e86b8add5be6aaebb1102a20639a5ae",
+    "usr/lib/perl5/5.42/core_perl/CORE/libperl.so": "1dc0f94c02798099c74f6a85e15910595994b932f8cc6f7a02cbe36ec36dc72d",
+    "usr/lib/libcrypt.so.2": "28a8b9d994e4e5dacdcfd74aaaba2e7e283e0a8fedf892de81026641952ea5fe",
+    "usr/lib/perl5/5.42/core_perl/Exporter.pm": "7a42143aced58a894db85eec1619b27f35471343aaaf46c2a694d3897035c654",
+    "usr/lib/perl5/5.42/core_perl/Exporter/Heavy.pm": "8e5c0bd132d6fe6e15e92d63c0643aa49a4e205c198446423e95ba892daf6410",
+    "usr/lib/perl5/5.42/core_perl/Getopt/Long.pm": "dd75bfb8f6cf8de6429bf13618088142507ccb2f36cfd53918f9767975bb64dd",
+    "usr/lib/perl5/5.42/core_perl/base.pm": "4f8b2f1898bbcc9c481481798d113617d46a9f73d87bcdcbef5fe26044b2fa6c",
+    "usr/lib/perl5/5.42/core_perl/constant.pm": "e67cdfa533d42cbe5265bcf3c270f055620cba38a9295b5d584b7efc37a0c156",
+    "usr/lib/perl5/5.42/core_perl/overload.pm": "57fc79aed75783721ad9b23429b92a768b89c3db393631e91be381edc3626733",
+    "usr/lib/perl5/5.42/core_perl/overloading.pm": "5bba56c0acdcc449ca3b73500862a5750c907d97d652978038dbc7809c4fcd07",
+    "usr/lib/perl5/5.42/core_perl/strict.pm": "0872f18b118ef3a8b4a77449d43c16b98e6dbfd0c58b5ea310736d91b557d62e",
+    "usr/lib/perl5/5.42/core_perl/warnings.pm": "b13c8e18aa95dc467db6bfbd825df867dc24b253944b17d38cde79b0555de033",
+    "usr/lib/perl5/5.42/core_perl/warnings/register.pm": "c7971403a276f78dc7fad5cde69846c39bcc2587310999160592fc7c6b9bd2e3",
+    "usr/share/doc/c3-native-perl-build-tool/perlartistic.pod": "137c097d0615aea42eda7a5087baa3f81aab1a431b9046d5e858e8c8c31987c0",
+    "usr/share/doc/c3-native-perl-build-tool/perlgpl.pod": "0c6123f393466be66306dbc6a2464aae96579c8bcc7ae56185061246bfac65f8",
+    "usr/share/doc/c3-native-perl-build-tool/libxcrypt-COPYING.LIB": "7c6699c75f87b52bdc542db26d6b1b92892577cda46e20eceb79e2790a1c291b",
+    "usr/bin/nasm": "dee0c94e5cf800eac5ab117b19b18e4a50adfa1f56942cc8fc1adb660625ab88",
+    "usr/share/doc/c3-native-perl-build-tool/NASM-LICENSE": "65081b3747f28684729adb8b00813f0581e3cef85a21d78b97d76fb8ca26697a"
+  },
+  "bytes": 2189432,
+  "sha256": "fdcb9fdad4bc36dc445b8dd6fb451c4af0dc2392f562f3e4fdbf2ca78d02bccf",
+  "archive": "native-c3-codec-build-tools.tar.xz"
+}
