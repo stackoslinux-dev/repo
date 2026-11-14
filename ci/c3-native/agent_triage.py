@@ -17,7 +17,7 @@ PATTERNS = [
     ("disk_capacity", r"No space left on device", "Review runner disk usage and artifact size."),
     ("test_failure", r"AssertionError|FAILED|Process completed with exit code [1-9]", "Inspect failing step and reproduce in isolated test environment."),
 ]
-SECRET = re.compile(r"(?i)(authorization:\\s*(?:bearer|token)\\s+)[^\\s]+|\\b(gh[pousr]_[A-Za-z0-9_]{12,}|github_pat_[A-Za-z0-9_]{12,})\\b")
+SECRET = re.compile(r"(?i)(authorization:\s*(?:bearer|token)\s+)[^\s]+|\b(gh[pousr]_[A-Za-z0-9_]{12,}|github_pat_[A-Za-z0-9_]{12,})\b")
 
 def request(url, token, accept="application/vnd.github+json"):
     headers = {"User-Agent": "StackOS-C3-Triage/1", "Accept": accept}
