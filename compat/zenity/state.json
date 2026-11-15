@@ -1,0 +1,29 @@
+{
+  "status": "PASS_NATIVE_C3_ZENITY_SOURCE_BUILD_AND_DIALOG",
+  "package": "zenity",
+  "version": "4.2.2+stackos1.c3.gcc.1",
+  "upstream_version": "4.2.2",
+  "filename": "zenity_4.2.2+stackos1.c3.gcc.1_amd64.deb",
+  "sha256": "54426b0b60a94a65cf35d5c53956a5854c97f1b5bb22a17e1ff9da669077933e",
+  "binary_sha256": "a65f79b37445ea12f47e82e6948194ff3f813ec7254b469ae13baecb3ab611ba",
+  "source_sha256": "019186a996096ef4fc356e21577b5673f5baa3a29ac8e3d608b753371c18018d",
+  "provenance": {
+    "source_url": "https://download.gnome.org/sources/zenity/4.2/zenity-4.2.2.tar.xz",
+    "source_sha256": "019186a996096ef4fc356e21577b5673f5baa3a29ac8e3d608b753371c18018d",
+    "compiler": {
+      "archive_sha256": "bee074294be657f9c72b8b90e3185774a5a3d720c035d9dfd5159e6416d950aa",
+      "gcc": "gcc (GCC) 15.2.0",
+      "native_userland": "glibc2.42 / C3"
+    },
+    "build_sdk_sha256": "3c539b4ae8e591b55bfffe448a7bc05c2a7ad68678a96d459b625820afca1d26",
+    "webkit": "upstream default disabled; no WebKit SDK",
+    "manpage": "not built; upstream translated help included",
+    "runner_runtime_linked": false
+  },
+  "native_gui_timeout_exit": 5,
+  "production_modified": false,
+  "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
+  "channel": "c3-testing",
+  "channel_subdirectory": "compat/zenity/",
+  "signed_utc": "2026-11-15T05:02:51.049831+00:00"
+}

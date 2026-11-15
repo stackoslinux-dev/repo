@@ -1,0 +1,12 @@
+Package: zenity
+Version: 4.2.2+stackos1.c3.gcc.1
+Architecture: amd64
+Maintainer: StackOS C3
+Section: gnome
+Priority: optional
+Depends: stackos-c3-runtime
+Description: Native C3 GTK4 dialog utility built from genuine GNOME source
+Filename: zenity_4.2.2+stackos1.c3.gcc.1_amd64.deb
+Size: 2728704
+SHA256: 54426b0b60a94a65cf35d5c53956a5854c97f1b5bb22a17e1ff9da669077933e
+
