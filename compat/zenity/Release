@@ -3,8 +3,8 @@ Label: StackOS C3 native GNOME testing
 Suite: c3-testing
 Codename: c3
 Architectures: amd64
-Date: Sun, 15 Nov 2026 05:02:51 +0000
-Valid-Until: Sun, 22 Nov 2026 05:02:51 +0000
+Date: Sun, 15 Nov 2026 05:05:36 +0000
+Valid-Until: Sun, 22 Nov 2026 05:05:36 +0000
 SHA256:
  85240ea49e82a96fc5b689499b5694cbc3a57fead2554025a0b91204aa7c99f5 368 Packages
  f7164c971c06495316553cf785039b70889b6d2ee9de36e4a099da11f429c307 286 Packages.gz
