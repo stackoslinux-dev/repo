@@ -1,7 +1,7 @@
 name: StackOS C3 signed updates
 on:
   push:
-    branches: [main, feature/c3-native-testing-cycle, feature/c3-native-security-components]
+    branches: [main, feature/c3-native-testing-cycle, feature/c3-native-security-components, feature/c3-native-gnome]
     paths: ['c3/**', 'ci/verify_c3.py', 'ci/c3-native/**', '.github/workflows/c3-updates.yml']
   schedule:
     - cron: '23 * * * *'
@@ -54,6 +54,7 @@ jobs:
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
 
   monitor-components:
+    if: github.ref != 'refs/heads/feature/c3-native-gnome'
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
@@ -70,6 +71,7 @@ jobs:
           path: cycle-out
           retention-days: 30
   iso-build-readiness:
+    if: github.ref != 'refs/heads/feature/c3-native-gnome'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
@@ -87,6 +89,7 @@ jobs:
           path: cycle-out/iso-build-readiness.json
           retention-days: 30
   detect-testing:
+    if: github.ref != 'refs/heads/feature/c3-native-gnome'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     outputs:
@@ -230,6 +233,7 @@ jobs:
           retention-days: 30
 
   detect-native-component:
+    if: github.ref != 'refs/heads/feature/c3-native-gnome'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     outputs:
@@ -366,3 +370,49 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 ci/c3-native/compat/native_channel.py publish --approved
+
+  detect-native-gnome:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - name: Compare official GNOME stable release with signed validated testing version
+        id: detect
+        run: python3 ci/c3-native/gnome/gnome_app.py detect
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-native-gnome-detection
+          path: gnome-out
+          retention-days: 14
+  build-native-gnome:
+    needs: detect-native-gnome
+    if: needs.detect-native-gnome.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-gnome-detection
+          path: gnome-out
+      - name: Prepare display protocol only; build and application libraries remain native C3
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb imagemagick x11-utils
+          Xvfb :99 -screen 0 1280x800x24 -nolisten tcp -ac > /tmp/c3-xvfb.log 2>&1 &
+      - name: Compile official GNOME Zenity in native C3 and verify actual GTK4 dialog
+        run: python3 ci/c3-native/gnome/gnome_app.py build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-native-gnome-build
+          path: gnome-out
+          retention-days: 14
