@@ -416,3 +416,92 @@ jobs:
           name: c3-native-gnome-build
           path: gnome-out
           retention-days: 14
+
+  sign-publish-native-gnome:
+    needs: [build-native-gnome, record-validated-testing, record-validated-native-component]
+    if: always() && needs.build-native-gnome.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    outputs:
+      testing_commit: ${{ steps.publication.outputs.commit }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-gnome-build
+          path: gnome-out
+      - name: Sign qualified native GNOME package with isolated testing key
+        env:
+          C3_TEST_SIGNING_KEY: ${{ secrets.C3_TEST_SIGNING_KEY }}
+        run: python3 ci/c3-native/gnome/gnome_channel.py sign
+      - name: Publish to native GNOME testing subdirectory only
+        id: publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ci/c3-native/gnome/gnome_channel.py publish
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: c3-signed-native-gnome-channel
+          path: gnome-channel
+          retention-days: 30
+  client-native-gnome:
+    needs: sign-publish-native-gnome
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-gnome-build
+          path: gnome-out
+      - name: Prepare display protocol only for actual native GTK4 APT client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb imagemagick x11-utils
+          Xvfb :99 -screen 0 1280x800x24 -nolisten tcp -ac > /tmp/c3-xvfb.log 2>&1 &
+      - name: Install native Zenity from signed HTTPS APT and execute its real dialog
+        env:
+          C3_TEST_SNAPSHOT: ${{ needs.sign-publish-native-gnome.outputs.testing_commit }}
+        run: python3 ci/c3-native/gnome/gnome_channel.py client
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: c3-native-gnome-client-evidence
+          path: gnome-out
+          retention-days: 30
+  record-validated-native-gnome:
+    needs: [sign-publish-native-gnome, client-native-gnome]
+    if: needs.client-native-gnome.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: ci/c3-native
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-signed-native-gnome-channel
+          path: gnome-channel
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: c3-native-gnome-client-evidence
+          path: gnome-out
+      - name: Approve only after genuine native signed APT installation and GTK4 execution
+        env:
+          C3_TEST_SIGNING_KEY: ${{ secrets.C3_TEST_SIGNING_KEY }}
+        run: python3 ci/c3-native/gnome/gnome_channel.py approve
+      - name: Record signed qualification without production promotion
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ci/c3-native/gnome/gnome_channel.py publish --approved

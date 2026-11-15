@@ -167,7 +167,7 @@ def build():
     (OUT / 'native-elf-dynamic.txt').write_text(dynamic)
     # Genuine native C3 runtime files are already in the root seed; this CI DEB
     # depends on its actual aggregate owner, rather than fictitious providers.
-    package_version = version + '+stackos1.c3.1'
+    package_version = version + '+stackos1.c3.gcc.1'
     control = stage / 'DEBIAN'
     c3.native('/usr/bin/mkdir', '-p', '/work/stage/DEBIAN', '/work/stage/usr/share/doc/zenity')
     subprocess.run(['sudo', 'chown', '-R', str(os.getuid()) + ':' + str(os.getgid()), str(stage)], check=True)
