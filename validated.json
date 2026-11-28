@@ -16,18 +16,18 @@
   "reused_validated_archive": true,
   "signing_fingerprint": "488A5AF104A521116722A74CF6820043D52F5680",
   "channel": "c3-testing",
-  "signed_utc": "2026-11-27T02:57:40.860402+00:00",
-  "valid_until_utc": "2026-12-04T02:57:40.860402+00:00",
-  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/45931309492",
+  "signed_utc": "2026-11-28T04:00:01.259677+00:00",
+  "valid_until_utc": "2026-12-05T04:00:01.259677+00:00",
+  "run_url": "https://github.com/stackoslinux-dev/repo/actions/runs/46105422537",
   "validation_status": "PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED",
-  "validated_utc": "2026-11-27T02:58:43.859237+00:00",
+  "validated_utc": "2026-11-28T04:01:14.475357+00:00",
   "client": {
     "phase": "installing",
-    "started": 47.501660152,
+    "started": 53.746602416,
     "offered_updates": [
       "stackos-bugreport"
     ],
-    "offered_at": 49.503245384,
+    "offered_at": 55.748140356,
     "status": "PASS_REAL_STACKOS_UPDATER_DETECTED_AND_INSTALLED",
     "installed_version": "1.1.1+stackos1+c3.2+test1",
     "remaining_updates": []
